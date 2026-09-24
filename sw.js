@@ -1,5 +1,5 @@
 // Service worker Smart Pocket: praca offline + odbiór zdjęć udostępnionych z galerii (Web Share Target).
-const VERSION = 'sp-v2';
+const VERSION = 'sp-v3';
 const SHELL = [
   './', 'index.html', 'css/app.css', 'manifest.webmanifest',
   'js/app.js', 'js/db.js', 'js/ocr.js', 'js/parser.js', 'js/utils.js', 'js/pdf.js', 'js/mail.js',

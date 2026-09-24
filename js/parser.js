@@ -434,7 +434,7 @@ export function parseReceipt(rawText, opts = {}) {
 const VENUE_RE = /(westfield|galeri[ai]\s+\p{L}|centrum\s+handlow|\bc\.?\s?h\.?\s+\p{Lu}|z[lł]ote\s+tarasy|\bmall\b|\bplaza\b|\boutlet\b|park\s+handlow|manufaktura|posnania|bonarka|wroclavia|sky\s*tower|silesia\s+city|forum\s+gda|blue\s*city|\batrium\b|\bklif\b|promenada|m[oó]kot[oó]w\s+galer|lotnisk|airport|dworzec|szpital|stadion|narodowy|hotel|centrum\s+medyczn|biurowiec|business\s+park|office\s+park)/iu;
 
 function cleanVenue(line) {
-  return line.replace(/[|_~"'`„”]+/g, ' ').replace(/^(parking|miejsce|lokalizacja)\s*[:\-]\s*/i, '').replace(/^parking\s+(?=\S)/i, '').replace(/\s{2,}.*$/, '').replace(/\s+/g, ' ').trim().slice(0, 80);
+  return line.replace(/[|_~"'`„”]+/g, ' ').replace(/^(parking|miejsce|lokalizacja)\s*[:\-]\s*/i, '').replace(/^parking\s+(?=\S)/i, '').replace(/\s{2,}.*$/, '').replace(/\s+/g, ' ').trim().replace(/(\s+[A-Za-z]{1,2})+$/, '').slice(0, 80);
 }
 
 /**

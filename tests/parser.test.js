@@ -189,3 +189,8 @@ test('"Gotówka" w nazwie kasy nie oznacza płatności gotówką', () => {
   const { fields: f } = parseReceipt('Westfield Arkadia\nTwardowski -2 Gotówka\nKarta: ****1234\nSUMA PLN 10,00', { companyCardLast4: '4111' });
   assert.equal(f.payment, 'Karta prywatna');
 });
+
+test('śmieci OCR na końcu nazwy galerii są usuwane', () => {
+  const { fields: f } = parseReceipt('Westfield Arkadia AB\nSUMA PLN 10,00');
+  assert.equal(f.location, 'Westfield Arkadia');
+});

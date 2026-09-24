@@ -630,7 +630,7 @@ async function renderMail(id) {
           <div class="attach"><svg class="ico"><use href="#i-doc"/></svg><span>${esc(fileName)}</span></div>
           <div class="actions wrap mail-actions">
             <button type="submit" class="btn btn-primary btn-big" id="send-mail" disabled><svg class="ico"><use href="#i-send"/></svg> Wyślij e-mail z PDF</button>
-            <button type="button" class="btn" id="mailto" disabled>Otwórz w programie pocztowym</button>
+            <button type="button" class="btn" id="mailto" disabled hidden>Otwórz program pocztowy (bez załącznika)</button>
             ${s.webhookUrl ? `<button type="button" class="btn" id="send-api" disabled>Wyślij automatycznie (API)</button>` : ''}
             ${r.status !== 'sent' ? `<button type="button" class="btn btn-ghost" id="mark-sent">Oznacz jako wysłany</button>` : ''}
           </div>
@@ -643,9 +643,12 @@ async function renderMail(id) {
   const form = $('#mform');
   const hint = $('#mail-hint');
   const canShareFiles = !!navigator.canShare && (() => { try { return navigator.canShare({ files: [new File(['x'], 'x.pdf', { type: 'application/pdf' })] }); } catch { return false; } })();
-  hint.textContent = canShareFiles
-    ? '„Wyślij e-mail z PDF” otworzy menu udostępniania – wybierz aplikację pocztową. Jeśli temat nie przeniesie się automatycznie, użyj „Kopiuj”.'
-    : '„Wyślij e-mail z PDF” pobierze plik PDF i otworzy program pocztowy z uzupełnionym adresem, tematem i treścią – dołącz pobrany PDF do wiadomości.';
+  // Link mailto: nie potrafi przenieść załącznika (ograniczenie systemów), dlatego na urządzeniach
+  // z udostępnianiem plików e-mail z PDF-em tworzymy przez systemowe menu udostępniania.
+  $('#mailto').hidden = canShareFiles;
+  hint.innerHTML = canShareFiles
+    ? 'Po naciśnięciu <b>Wyślij e-mail z PDF</b> wybierz aplikację <b>Mail</b> (lub Gmail/Outlook) – PDF zostanie dołączony, a treść wklejona. Temat kopiujemy do schowka: jeśli pole „Temat” będzie puste, wklej go. Adres działu rozliczeń wpisz w polu „Do”.'
+    : 'Ta przeglądarka nie obsługuje wysyłania plików do aplikacji pocztowej. <b>Wyślij e-mail z PDF</b> pobierze plik PDF i otworzy program pocztowy z adresem, tematem i treścią – <b>dołącz pobrany PDF</b> do wiadomości.';
 
   let pdfBlob;
   try {
@@ -668,7 +671,7 @@ async function renderMail(id) {
     if (form.isConnected) $('#pdf-preview').innerHTML = `<div class="notice error">Nie udało się wygenerować PDF: ${esc(e.message)}</div>`;
     return;
   }
-  const pdfFile = () => new File([pdfBlob], fileName, { type: 'application/pdf' });
+  const pdfFile = new File([pdfBlob], fileName, { type: 'application/pdf' });
   const values = () => Object.fromEntries(new FormData(form).entries());
   const rememberRecipients = async () => {
     const v = values();
@@ -696,18 +699,24 @@ async function renderMail(id) {
   form.addEventListener('submit', async e => {
     e.preventDefault();
     if (!form.reportValidity()) return;
-    await rememberRecipients();
     const v = values();
     if (canShareFiles) {
+      // Ważne: navigator.share musi zostać wywołane od razu po kliknięciu – bez wcześniejszego await
+      // (Safari na iPhonie odrzuca udostępnianie, jeśli wcześniej czekamy np. na zapis do bazy).
+      navigator.clipboard?.writeText(v.subject).catch(() => {});
+      const sharing = navigator.share({ files: [pdfFile], title: v.subject, text: v.body });
+      rememberRecipients();
       try {
-        await navigator.share({ files: [pdfFile()], title: v.subject, text: v.body });
-        await markSent(id, `E-mail: ${v.to}`);
-        return;
+        await sharing;
+        showSentConfirm(v.to);
       } catch (err) {
         if (err.name === 'AbortError') return;
-        console.warn('Udostępnianie nieudane, używam mailto', err);
+        console.warn('Udostępnianie nieudane', err);
+        toast(`Nie udało się otworzyć udostępniania (${err.message}). Pobierz PDF i dołącz go ręcznie.`, 'error');
       }
+      return;
     }
+    await rememberRecipients();
     openMailto();
     showSentConfirm(v.to);
   });
@@ -743,7 +752,7 @@ async function renderMail(id) {
   });
 
   function showSentConfirm(to) {
-    hint.innerHTML = `Po wysłaniu wiadomości w programie pocztowym potwierdź: <button type="button" class="btn btn-sm btn-primary" id="confirm-sent">Wiadomość wysłana</button>`;
+    hint.innerHTML = `Po wysłaniu wiadomości z PDF-em potwierdź: <button type="button" class="btn btn-sm btn-primary" id="confirm-sent">Wiadomość wysłana</button>`;
     $('#confirm-sent').addEventListener('click', () => markSent(id, `E-mail: ${to}`));
   }
 }
