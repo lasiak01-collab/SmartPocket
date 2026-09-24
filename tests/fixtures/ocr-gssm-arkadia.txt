@@ -1,0 +1,46 @@
+    Paragon
+OSSN Warsaw BB. 2 0,0,
+Al, Jana Pawła II 82
+PL00-175 Warszawa
+NIP: 5272635896
+Data            11.09.2026 18:09
+Paragon                 430011391
+Westfield Arkadia
+Twardowski -2 Gotówka
+Transaction no,       159105814
+Numer Rejestracyjny     pgcccot
+Parking Standard - I Wjazd
+Wjazd Kłopot Levy
+|    Czas vjazdu    11.09.2028 07:50
+Oplaty dokon. 11.09.2026 18:09
+Czas postoju             10:20
+Naleznosc               54,00 PLN
+Prayjeto                54,00 PLN
+KOPIA DLA POSIADACZA KARTY
+Data......: 11.09.2026
+Godzina...: 18:09:52
+Karta.....: xxxx4111
+PAN seq...: 00
+Pref. nazwa: VISA
+Rodzaj karty: visastandarddebit
+Metoda płatności: visa
+Payment variant: visastandarddebit
+Tryb uprowadzania: Zbliżeniowa (Chi
+AID.......: A0000000031010
+MID.......: 498750009666634
+TID.......: 81U2-000573253759663
+PTID......: 53759663
+Auth, code: 627801
+Tender.... : dZLL001789142992050
+Ref. sprze. : 430011391
+Rodzaj..,.: TOWARY_USŁUGI
+Kuota zakupu: PLN 54,00
+Razen.,...: PLN 54,00
+Zatwierdzono
+Zachowaj u ewidencji
+Dziękujemy
+VAT 23,0% 54,00PLN     10,10 PLN
+Razen bez VAT          43,90 PLN
+Dziekujeny za wizyte
+Zapraszany ponownie
+|
