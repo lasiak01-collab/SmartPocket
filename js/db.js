@@ -81,6 +81,9 @@ export const DEFAULT_SETTINGS = {
   department: '',
   costCenter: '',
   defaultPlate: '',
+  companyCardLast4: '',
+  accountingEmail: '',
+  accountingCc: '',
   carModel: '',
   ocrEngine: 'local', // 'local' | 'ai'
   aiModel: 'claude-opus-5',

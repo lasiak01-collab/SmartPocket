@@ -9,18 +9,18 @@ export const STATUS = {
 };
 
 export const FIELD_LABELS = {
-  date: 'Data',
+  date: 'Data parkowania *',
   startTime: 'Godz. rozpoczęcia',
   endDate: 'Data zakończenia',
   endTime: 'Godz. zakończenia',
   durationMin: 'Czas postoju (min)',
-  location: 'Miejsce / adres',
-  city: 'Miasto',
+  location: 'Miejsce postoju (galeria / adres / wystawca) *',
+  city: 'Miasto *',
   zone: 'Strefa / parkomat',
   operator: 'Operator / sprzedawca',
   nip: 'NIP sprzedawcy',
   plate: 'Nr rejestracyjny',
-  amount: 'Kwota brutto',
+  amount: 'Kwota brutto *',
   vat: 'Kwota VAT',
   vatRate: 'Stawka VAT %',
   currency: 'Waluta',
@@ -28,6 +28,8 @@ export const FIELD_LABELS = {
   receiptNo: 'Nr paragonu / biletu',
   purpose: 'Cel wyjazdu / projekt',
   notes: 'Uwagi',
+  cardLast4: 'Końcówka karty',
+  paymentMethod: 'Sposób płatności (OCR)',
 };
 
 export const esc = s => String(s ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));

@@ -5,7 +5,11 @@ export const FIELDS = [
   'date', 'startTime', 'endDate', 'endTime', 'durationMin',
   'location', 'city', 'zone', 'operator', 'nip', 'plate',
   'amount', 'vat', 'vatRate', 'currency', 'payment', 'receiptNo',
+  'cardLast4', 'paymentMethod',
 ];
+
+// Formy płatności wymagane przez dział rozliczeń
+export const PAYMENT_OPTIONS = ['Karta służbowa', 'Karta prywatna', 'Gotówka'];
 
 const PL_CITIES = [
   'Warszawa', 'Kraków', 'Łódź', 'Wrocław', 'Poznań', 'Gdańsk', 'Szczecin', 'Bydgoszcz',
@@ -22,6 +26,7 @@ const PL_CITIES = [
 ];
 
 const KNOWN_OPERATORS = [
+  [/\bgss[mn]\b/i, 'GSSM Warsaw Sp. z o.o.'],
   [/apcoa/i, 'APCOA Parking Polska'],
   [/interparking/i, 'Interparking Polska'],
   [/q[\s-]?park/i, 'Q-Park Polska'],
@@ -41,7 +46,7 @@ const KNOWN_OPERATORS = [
 ];
 
 const START_KW = /(wjazd|pocz[aą]tek|rozpocz|start|od\s*godz|od\s*:|\bod\b|zakup|wydano|wydruk|data\s+wej|entry|\bin\b\s*:|przyjazd)/i;
-const END_KW = /(wyjazd|koniec|zako[nń]cz|wa[zż]n[yea]\s*do|wa[zż]no[sś][cć]|termin|\bdo\s*godz|\bdo\s*:|\bdo\b|exit|\bout\b\s*:|opuszcz)/i;
+const END_KW = /(op[lł]at[ay]?\s*dokon|post[oó]j\s*do|op[lł]acono\s*do|wyjazd|koniec|zako[nń]cz|wa[zż]n[yea]\s*do|wa[zż]no[sś][cć]|termin|\bdo\s*godz|\bdo\s*:|\bdo\b|exit|\bout\b\s*:|opuszcz)/i;
 
 const TOTAL_KW = [
   [/suma\s*(pln|z[lł])?\s*[:\-]?\s*\d/i, 10],
@@ -187,6 +192,12 @@ export function addMinutes(date, hm, minutes) {
 }
 
 function parseDuration(text) {
+  // Format parkomatów: "Opłacono za: 0d1h0min" (OCR często myli 0 z O)
+  const dhm = /(\d{1,2})\s*d\s*([\dOo]{1,2})\s*h\s*([\dOo]{1,2})\s*m/i.exec(text);
+  if (dhm) {
+    const n = v => +v.replace(/[Oo]/g, '0');
+    return n(dhm[1]) * 1440 + n(dhm[2]) * 60 + n(dhm[3]);
+  }
   const re = /(czas\s*(postoju|parkowania|pobytu|op[lł]acony)?|post[oó]j|okres)\s*[:\-]?\s*(?:(\d{1,3})\s*(?:h|godz\.?|godzin[ay]?)\s*)?(?:(\d{1,3})\s*(?:min\.?|minut[ay]?|m)\b)?/i;
   for (const line of text.split('\n')) {
     const m = re.exec(line);
@@ -234,6 +245,17 @@ export function parseReceipt(rawText, opts = {}) {
       events.push({ date: dates[0].iso, time: null, kind, line: i });
     }
   });
+
+  // Korekta pojedynczych błędów OCR w datach (np. 2028 zamiast 2026), gdy ta sama data występuje na paragonie kilkakrotnie
+  const allDates = lines.flatMap(l => findDates(l).map(d => d.iso));
+  const counts = allDates.reduce((m, d) => m.set(d, (m.get(d) || 0) + 1), new Map());
+  const fixDate = d => {
+    if (!d || counts.get(d) > 1) return d;
+    const better = [...counts].find(([o, n]) => n > 1 && o !== d && [...o].filter((ch, i) => ch !== d[i]).length === 1);
+    return better ? better[0] : d;
+  };
+  events.forEach(e => { e.date = fixDate(e.date); });
+  firstDate = fixDate(firstDate);
 
   const startEv = events.find(e => e.kind === 'start' && e.time);
   const endEv = [...events].reverse().find(e => e.kind === 'end' && e.time);
@@ -303,7 +325,7 @@ export function parseReceipt(rawText, opts = {}) {
     }
   }
   for (const line of lines) {
-    const r = /(ptu|vat|stawka)[^%\n]{0,12}?(\d{1,2})\s?%/i.exec(line) || /\b(A|B)\s*=?\s*(23|8|5)\s?%/.exec(line);
+    const r = /(ptu|vat|stawka)[^%\n]{0,12}?(?<![\d,.])(\d{1,2})(?:[,.]0{1,2})?\s?%/i.exec(line) || /\b(A|B)\s*=?\s*(23|8|5)\s?%/.exec(line);
     if (r) {
       set('vatRate', +r[2], 'high');
       if (!f.vat) { const v = amountsIn(line.slice(r.index + r[0].length)); if (v.length) set('vat', v[v.length - 1], 'low'); }
@@ -342,11 +364,13 @@ export function parseReceipt(rawText, opts = {}) {
   if (!f.plate && defPlate) set('plate', opts.defaultPlate.toUpperCase(), 'default');
 
   // ---- Numer paragonu / biletu ----
-  const rn = /(nr\s*(paragonu|biletu|transakcji|wydruku|dokumentu|potwierdzenia|kwitu)|paragon\s*(fiskalny)?\s*nr|bilet\s*(nr|numer)|numer\s*(biletu|paragonu|transakcji)|transakcja\s*nr|id\s*transakcji)\s*[:#.]?\s*([A-Z0-9][A-Z0-9\/\-]{2,})/i;
+  const rn = /(bilet\s*kontrolny\s*(nr|numer)|nr\s*(paragonu|biletu|transakcji|wydruku|dokumentu|potwierdzenia|kwitu)|paragon\s*(fiskalny)?\s*nr|bilet\s*(nr|numer)|numer\s*(biletu|paragonu|transakcji)|transakcja\s*nr|id\s*transakcji)[ \t]*[:#.]?[ \t]*(\d[A-Z0-9\/\-]{2,}|[A-Z][A-Z0-9\/\-]*\d[A-Z0-9\/\-]*)/i;
   const rm = rn.exec(text);
-  if (rm) set('receiptNo', rm[6], 'high');
+  const para = /^\s*paragon\s*(?:nr\.?|numer)?\s*[:#]?\s*(\d{5,})\s*$/im.exec(text);
+  if (rm) set('receiptNo', rm[rm.length - 1], 'high');
+  else if (para) set('receiptNo', para[1], 'high');
   else {
-    const m2 = /(?:^|\s)#\s?(\d{3,})|\bnr\s*[:.]?\s*(\d{3,}[\/\-]?\d*)/i.exec(text);
+    const m2 = /(?:^|\s)#\s?(\d{3,})|(?<!parkomat\s*|parkometr\s*)\bnr\s*[:.]?\s*(\d{3,}[\/\-]?\d*)/i.exec(text);
     if (m2) set('receiptNo', m2[1] || m2[2], 'low');
   }
 
@@ -368,11 +392,18 @@ export function parseReceipt(rawText, opts = {}) {
   const addrLines = lines.map(l => addrRe.exec(l)).filter(Boolean).map(m => m[0].trim());
   const parkLine = lines.find(l => /(parking|lokalizacja|miejsce\s*post|adres|punkt\s*sprzeda)/i.test(l) && /[a-z]{4,}/i.test(l.replace(/(parking|lokalizacja|adres)/i, '')));
   // Preferuj adres, który nie jest adresem siedziby spółki (zwykle w nagłówku) – bierzemy ostatni.
-  if (addrLines.length) set('location', addrLines[addrLines.length - 1].replace(/\s+/g, ' '), addrLines.length === 1 ? 'high' : 'low');
+  const venue = lines.find(l => VENUE_RE.test(l) && !/sp\.?\s*z|s\.a\.|nip|ul\.|al\./i.test(l));
+  if (venue) set('location', cleanVenue(venue), 'high');
+  else if (addrLines.length) set('location', addrLines[addrLines.length - 1].replace(/\s+/g, ' '), addrLines.length === 1 ? 'high' : 'low');
   else if (parkLine) set('location', parkLine.replace(/^(lokalizacja|miejsce\s*postoju|adres)\s*[:\-]?\s*/i, '').slice(0, 80), 'low');
 
   const postal = [...text.matchAll(/(?<![\d-])\d{2}-\d{3}(?!-)[ \t]+([A-ZĄĆĘŁŃÓŚŹŻ][A-Za-ząćęłńóśźżĄĆĘŁŃÓŚŹŻ\- ]{2,30})/g)];
-  if (postal.length) set('city', postal[postal.length - 1][1].trim().replace(/\s+\S*\d.*$/, ''), 'high');
+  if (postal.length) {
+    const raw = postal[postal.length - 1][1].trim();
+    const known = PL_CITIES.find(ct => raw.toLowerCase().startsWith(ct.toLowerCase()));
+    // Obetnij śmieci OCR po nazwie miasta (np. "Warszawa Ej")
+    set('city', known || raw.replace(/\s+\S*\d.*$/, '').replace(/(\s+\S{1,2})+$/, ''), 'high');
+  }
   else {
     const low = text.toLowerCase();
     const city = PL_CITIES.find(ct => low.includes(ct.toLowerCase()));
@@ -380,15 +411,46 @@ export function parseReceipt(rawText, opts = {}) {
   }
   if (f.city) f.city = f.city.split(/\s+/).map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ').replace(/-(\p{L})/gu, (_, ch) => `-${ch.toUpperCase()}`);
 
-  const zm = /(podstrefa|strefa|sektor|poziom|parkomat|parkometr)\s*(nr|numer)?\s*[:.\-]?\s*([A-Z]{1,2}\d{0,3}|\d{1,6})(?=[\s,;]|$)/im.exec(text);
+  const zm = /(podstrefa|strefa|sektor|poziom|parkomat|parkometr)\s*(nr|numer)?\s*[:.\-]?\s*([A-Z]{1,2}\d{0,3}|\d{1,10})(?=[\s,.;]|$)/im.exec(text);
   if (zm) set('zone', `${zm[1].charAt(0).toUpperCase()}${zm[1].slice(1).toLowerCase()} ${zm[3]}`, 'high');
 
   // ---- Płatność ----
-  if (/blik/i.test(text)) set('payment', 'BLIK', 'high');
-  else if (/skycash|mobi\s?parking|mo\s?bilet|aplikacj|an[yi]park|mpay|epark/i.test(text)) set('payment', 'Aplikacja mobilna', 'high');
-  else if (/kart[aąyęe]|visa|master\s?card|maestro|zbli[zż]eni|contactless|debit|credit/i.test(text)) set('payment', 'Karta', 'high');
-  else if (/got[oó]wk|reszta|monet/i.test(text)) set('payment', 'Gotówka', 'high');
+  // Końcówka numeru karty z wydruku terminala, np. "Karta.....: ****4111" (OCR: xxxx4111, ****4111, •••• 4111)
+  const cardM = /[*xX•#]{3,}\s?(\d{4})(?!\d)/.exec(text) || /(?:karta|card|pan)[^\n\d]{0,20}(?:\d{4}[ -]?){0,3}[*xX•#]{2,}[ -]?(\d{4})(?!\d)/i.exec(text);
+  if (cardM) set('cardLast4', cardM[1], 'high');
+  const isCard = !!cardM || /kart[aąyęe]|visa|master\s?card|maestro|zbli[zż]eni|contactless|debit|credit/i.test(text);
+  if (/blik/i.test(text)) set('paymentMethod', 'blik', 'high');
+  else if (/skycash|mobi\s?parking|mo\s?bilet|aplikacj|an[yi]park|mpay|epark/i.test(text)) set('paymentMethod', 'app', 'high');
+  else if (isCard) set('paymentMethod', 'card', 'high');
+  // "Gotówka" bywa częścią nazwy kasy (np. "Twardowski -2 Gotówka"), dlatego wymagamy kontekstu płatności
+  else if (/(p[lł]atno[sś][cć]|zap[lł]acono|forma)[^\n]{0,15}got[oó]wk|got[oó]wka\s*[:\d]|reszta/i.test(text)) set('paymentMethod', 'cash', 'low');
+  const pay = resolvePayment(f, opts.companyCardLast4);
+  if (pay.payment) set('payment', pay.payment, pay.confidence);
 
   for (const k of FIELDS) if (!(k in c)) c[k] = 'missing';
   return { fields: f, confidence: c };
+}
+
+const VENUE_RE = /(westfield|galeri[ai]\s+\p{L}|centrum\s+handlow|\bc\.?\s?h\.?\s+\p{Lu}|z[lł]ote\s+tarasy|\bmall\b|\bplaza\b|\boutlet\b|park\s+handlow|manufaktura|posnania|bonarka|wroclavia|sky\s*tower|silesia\s+city|forum\s+gda|blue\s*city|\batrium\b|\bklif\b|promenada|m[oó]kot[oó]w\s+galer|lotnisk|airport|dworzec|szpital|stadion|narodowy|hotel|centrum\s+medyczn|biurowiec|business\s+park|office\s+park)/iu;
+
+function cleanVenue(line) {
+  return line.replace(/[|_~"'`„”]+/g, ' ').replace(/^(parking|miejsce|lokalizacja)\s*[:\-]\s*/i, '').replace(/^parking\s+(?=\S)/i, '').replace(/\s{2,}.*$/, '').replace(/\s+/g, ' ').trim().slice(0, 80);
+}
+
+/**
+ * Forma płatności wg wymagań działu rozliczeń:
+ * - odczytana końcówka karty = karta służbowa z ustawień -> "Karta służbowa",
+ * - inna karta -> "Karta prywatna" (do potwierdzenia),
+ * - gotówka -> "Gotówka" (do potwierdzenia),
+ * - w pozostałych przypadkach użytkownik musi wybrać formę płatności przy zatwierdzaniu.
+ */
+export function resolvePayment({ cardLast4, paymentMethod } = {}, companyCardLast4 = '') {
+  const company = String(companyCardLast4 || '').replace(/\D/g, '').slice(-4);
+  if (cardLast4 && company.length === 4) {
+    return cardLast4 === company
+      ? { payment: 'Karta służbowa', confidence: 'high' }
+      : { payment: 'Karta prywatna', confidence: 'low' };
+  }
+  if (!cardLast4 && paymentMethod === 'cash') return { payment: 'Gotówka', confidence: 'low' };
+  return { payment: null, confidence: 'missing' };
 }

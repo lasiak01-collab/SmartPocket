@@ -1,8 +1,9 @@
 // Service worker Smart Pocket: praca offline + odbiór zdjęć udostępnionych z galerii (Web Share Target).
-const VERSION = 'sp-v1';
+const VERSION = 'sp-v2';
 const SHELL = [
   './', 'index.html', 'css/app.css', 'manifest.webmanifest',
-  'js/app.js', 'js/db.js', 'js/ocr.js', 'js/parser.js', 'js/utils.js',
+  'js/app.js', 'js/db.js', 'js/ocr.js', 'js/parser.js', 'js/utils.js', 'js/pdf.js', 'js/mail.js',
+  'fonts/Inter-Regular.ttf', 'fonts/Inter-SemiBold.ttf', 'fonts/Inter-Bold.ttf',
   'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png',
 ];
 const CDN = /^https:\/\/(cdn\.jsdelivr\.net|tessdata\.projectnaptha\.com)\//;

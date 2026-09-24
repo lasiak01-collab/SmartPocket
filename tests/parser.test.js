@@ -1,7 +1,8 @@
 import { test } from 'node:test';
+import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {
-  parseReceipt, findDates, findTimes, parseAmount, validNip, diffMinutes, normalizePlate,
+  parseReceipt, findDates, findTimes, parseAmount, validNip, diffMinutes, normalizePlate, resolvePayment,
 } from '../js/parser.js';
 
 const PARKOMAT = `
@@ -92,7 +93,8 @@ test('bilet z parkomatu SPP', () => {
   assert.equal(f.city, 'Warszawa');
   assert.equal(f.location, 'ul. Chmielna 120');
   assert.equal(f.operator, 'Zarząd Dróg Miejskich');
-  assert.equal(f.payment, 'Karta');
+  assert.equal(f.paymentMethod, 'card');
+  assert.equal(f.payment, undefined); // brak numeru karty -> wybór użytkownika
   assert.equal(f.receiptNo, '000123456');
   assert.match(f.zone, /Parkomat 1234|Podstrefa A/);
 });
@@ -108,9 +110,9 @@ test('paragon fiskalny APCOA', () => {
   assert.equal(f.vatRate, 23);
   assert.equal(f.nip, '521-301-93-41');
   assert.equal(f.city, 'Kraków');
-  assert.equal(f.location, 'ul. Pawia 5');
+  assert.equal(f.location, 'Galeria Krakowska'); // nazwa galerii ma pierwszeństwo przed adresem
   assert.equal(f.receiptNo, '4711/2025');
-  assert.equal(f.payment, 'Karta');
+  assert.equal(f.paymentMethod, 'card');
   assert.match(f.operator, /APCOA/);
 });
 
@@ -139,4 +141,51 @@ test('pomyłki OCR w cyfrach (O zamiast 0)', () => {
   assert.equal(f.startTime, '09:00');
   assert.equal(f.endTime, '11:30');
   assert.equal(f.amount, 7.5);
+});
+
+const fixture = name => fs.readFileSync(new URL(`./fixtures/${name}`, import.meta.url), 'utf8');
+
+test('prawdziwy paragon GSSM / Westfield Arkadia (tekst z OCR)', () => {
+  const { fields: f, confidence: c } = parseReceipt(fixture('ocr-gssm-arkadia.txt'), { companyCardLast4: '4111' });
+  assert.equal(f.date, '2026-09-11'); // OCR przekręcił jedną datę na 2028 – korekta wg pozostałych dat
+  assert.equal(f.endDate, undefined);
+  assert.equal(f.startTime, '07:50');
+  assert.equal(f.endTime, '18:09');
+  assert.equal(f.amount, 54);
+  assert.equal(f.vat, 10.1);
+  assert.equal(f.vatRate, 23);
+  assert.equal(f.city, 'Warszawa');
+  assert.equal(f.location, 'Westfield Arkadia');
+  assert.equal(f.nip, '527-263-58-96');
+  assert.equal(f.receiptNo, '430011391');
+  assert.equal(f.cardLast4, '4111');
+  assert.equal(f.payment, 'Karta służbowa');
+  assert.equal(c.payment, 'high');
+});
+
+test('prawdziwy bilet z parkomatu ZDM Warszawa (tekst z OCR)', () => {
+  const { fields: f } = parseReceipt(fixture('ocr-zdm-parkomat.txt'), { companyCardLast4: '4111' });
+  assert.equal(f.date, '2026-09-18');
+  assert.equal(f.startTime, '11:50');
+  assert.equal(f.endTime, '12:50');
+  assert.equal(f.durationMin, 60);
+  assert.equal(f.amount, 4.5);
+  assert.equal(f.city, 'Warszawa');
+  assert.equal(f.location, 'ul. Moliera 5');
+  assert.equal(f.operator, 'Zarząd Dróg Miejskich');
+  assert.equal(f.zone, 'Parkomat 11100528');
+  assert.equal(f.payment, undefined); // karta bez numeru – użytkownik wybiera formę płatności
+});
+
+test('forma płatności wg karty służbowej z ustawień', () => {
+  assert.deepEqual(resolvePayment({ cardLast4: '4111' }, '4111'), { payment: 'Karta służbowa', confidence: 'high' });
+  assert.deepEqual(resolvePayment({ cardLast4: '9999' }, '**** 4111'), { payment: 'Karta prywatna', confidence: 'low' });
+  assert.equal(resolvePayment({ cardLast4: '4111' }, '').payment, null);
+  assert.equal(resolvePayment({ paymentMethod: 'card' }, '4111').payment, null);
+  assert.equal(resolvePayment({ paymentMethod: 'cash' }, '4111').payment, 'Gotówka');
+});
+
+test('"Gotówka" w nazwie kasy nie oznacza płatności gotówką', () => {
+  const { fields: f } = parseReceipt('Westfield Arkadia\nTwardowski -2 Gotówka\nKarta: ****1234\nSUMA PLN 10,00', { companyCardLast4: '4111' });
+  assert.equal(f.payment, 'Karta prywatna');
 });

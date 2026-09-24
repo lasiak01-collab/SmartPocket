@@ -6,7 +6,7 @@ Działa w telefonie jak zwykła aplikacja (PWA – „Dodaj do ekranu głównego
 ## Jak to działa
 
 1. **Zdjęcie / galeria** – robisz zdjęcie paragonu aparatem z poziomu aplikacji albo wybierasz jedno lub wiele zdjęć z galerii
-   (na komputerze także przeciągnij i upuść lub Ctrl+V; na Androidzie „Udostępnij → Smart Pocket”).
+   (także skany PDF; na komputerze przeciągnij i upuść lub Ctrl+V; na Androidzie „Udostępnij → Smart Pocket”).
 2. **Robot odczytuje dane (OCR)** – zdjęcie trafia do bazy, jest obrabiane (skala szarości, kontrast, skalowanie),
    a następnie rozpoznawane:
    - **OCR lokalny** – Tesseract (język polski) działający w telefonie; zdjęcia nie opuszczają urządzenia,
@@ -19,7 +19,22 @@ Działa w telefonie jak zwykła aplikacja (PWA – „Dodaj do ekranu głównego
 3. **Weryfikacja** – zdjęcie obok formularza; pola niepewne są podświetlone na żółto, brakujące – obramowane na czerwono.
    Każde pole można poprawić; czas postoju przelicza się automatycznie. Aplikacja ostrzega o duplikatach,
    błędnym NIP-ie, dacie z przyszłości itp. „Zatwierdź i dalej” przechodzi do kolejnego dokumentu.
-4. **Przesłanie do systemu** – zatwierdzone dokumenty wysyłasz:
+4. **PDF i e-mail do działu rozliczeń** – po zatwierdzeniu aplikacja tworzy jednostronicowy PDF (A4):
+   po lewej skan paragonu, po prawej zestawienie dla działu rozliczeń – kierowca, data i godziny parkowania,
+   miasto, miejsce postoju (galeria / adres / wystawca), wystawca z NIP-em, nr rejestracyjny pojazdu, kwota brutto
+   z VAT-em, forma płatności i nr paragonu. Następnie przygotowuje e-mail:
+   - temat zawsze w schemacie `Imię Nazwisko | DD.MM.RRRR | Miasto, Miejsce | NR REJ | Forma płatności`,
+   - treść z przywitaniem i kompletem danych, PDF w załączniku.
+
+   Na telefonie „Wyślij e-mail z PDF” otwiera menu udostępniania (aplikacja pocztowa z załączonym PDF-em);
+   na komputerze pobiera PDF i otwiera program pocztowy z uzupełnionym adresem, tematem i treścią.
+   Przy skonfigurowanym adresie API e-mail można wysłać automatycznie (np. przez Power Automate, Make, Zapier).
+
+   **Reguły danych obowiązkowych:** imię i nazwisko kierowcy oraz nr rejestracyjny pochodzą z Ustawień;
+   miasto i miejsce postoju muszą być uzupełnione przed zatwierdzeniem; forma płatności to *Karta służbowa*,
+   *Karta prywatna* lub *Gotówka* – jeśli OCR odczyta na paragonie końcówkę karty zgodną z kartą służbową
+   z Ustawień (np. `****4111`), aplikacja od razu ustawia „Karta służbowa”, w przeciwnym razie trzeba ją wybrać.
+5. **Przesłanie zbiorcze** – zatwierdzone dokumenty wysyłasz:
    - na **adres API systemu firmowego** (POST JSON z danymi, danymi pracownika i opcjonalnie zdjęciami, token Bearer), albo
    - jako **paczkę ZIP** (zestawienie CSV dla Excela, dane JSON, zdjęcia paragonów) – na telefonie od razu
      do udostępnienia e-mailem / komunikatorem.
@@ -60,6 +75,8 @@ później działają z pamięci podręcznej, także bez internetu.
 | `js/app.js` | widoki, kolejka OCR, weryfikacja, wysyłka, raport, ustawienia |
 | `js/ocr.js` | obróbka zdjęć, Tesseract.js, odczyt AI (Claude, structured output) |
 | `js/parser.js` | ekstrakcja pól z tekstu OCR (polskie paragony i bilety parkingowe) |
+| `js/pdf.js`, `fonts/` | PDF dla działu rozliczeń (pdf-lib, czcionka Inter – licencja OFL), import skanów PDF (pdf.js) |
+| `js/mail.js` | temat, treść e-maila i nazwa pliku PDF |
 | `js/db.js` | baza IndexedDB |
 | `js/utils.js` | formatowanie, CSV, duplikaty |
 | `sw.js`, `manifest.webmanifest` | PWA: offline, instalacja, udostępnianie zdjęć do aplikacji |

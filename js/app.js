@@ -1,6 +1,8 @@
 import { db, onChange, uid } from './db.js';
 import { prepareImage, recognize } from './ocr.js';
-import { validNip, diffMinutes, formatNip } from './parser.js';
+import { validNip, diffMinutes, formatNip, PAYMENT_OPTIONS } from './parser.js';
+import { buildSettlementPdf, pdfFileToImage, renderPdfPage } from './pdf.js';
+import { mailSubject, mailBody, pdfFileName } from './mail.js';
 import {
   STATUS, FIELD_LABELS, esc, money, fmtDate, fmtDuration, monthLabel, receiptMonth, timeRange, sum,
   toCSV, download, blobToDataURL, dataURLToBlob, debounce, findDuplicates,
@@ -25,13 +27,14 @@ const queue = [];
 let busy = false;
 
 async function addFiles(files) {
-  const imgs = [...files].filter(f => f.type.startsWith('image/') || /\.(jpe?g|png|webp|heic|heif)$/i.test(f.name));
-  if (!imgs.length) return toast('Wybierz pliki graficzne (JPG, PNG, WEBP).', 'warn');
+  const imgs = [...files].filter(f => f.type.startsWith('image/') || f.type === 'application/pdf' || /\.(jpe?g|png|webp|heic|heif|pdf)$/i.test(f.name));
+  if (!imgs.length) return toast('Wybierz zdjęcia (JPG, PNG, WEBP) lub skany PDF.', 'warn');
   toast(imgs.length > 1 ? `Wgrywanie ${imgs.length} dokumentów…` : 'Wgrywanie dokumentu…');
   let firstId;
   for (const file of imgs) {
     try {
-      const img = await prepareImage(file);
+      const src = file.type === 'application/pdf' || /\.pdf$/i.test(file.name) ? await pdfFileToImage(file) : file;
+      const img = await prepareImage(src);
       const id = uid();
       const imageId = `img-${id}`;
       await db.putImage(imageId, img.blob);
@@ -74,7 +77,7 @@ async function processReceipt(id, { engine } = {}) {
     const res = await recognize(blob, settings, onProgress);
     const fields = { ...res.fields, purpose: r.fields?.purpose || '', notes: r.fields?.notes || '' };
     if (!fields.currency) fields.currency = 'PLN';
-    const keyOk = ['date', 'amount', 'startTime'].every(k => res.confidence[k] === 'high');
+    const keyOk = ['date', 'amount', 'startTime', 'city', 'location', 'payment'].every(k => res.confidence[k] === 'high') && !validate(fields).errors.length;
     const status = settings.autoApproveHigh && keyOk ? 'approved' : 'to_verify';
     Object.assign(r, {
       fields, confidence: res.confidence, status,
@@ -122,6 +125,7 @@ async function render() {
     case 'receipt': return renderReceipt(arg);
     case 'send': return renderSend();
     case 'report': return renderReport(arg);
+    case 'mail': return renderMail(arg);
     case 'settings': return renderSettings();
     default: return renderHome();
   }
@@ -137,7 +141,7 @@ function uploadButtons() {
       </label>
       <label class="btn btn-secondary btn-big">
         <svg class="ico"><use href="#i-image"/></svg> Z galerii
-        <input type="file" accept="image/*" multiple data-upload hidden>
+        <input type="file" accept="image/*,application/pdf" multiple data-upload hidden>
       </label>
     </div>`;
 }
@@ -341,8 +345,14 @@ function validate(f) {
   const errors = [], warnings = [];
   if (!f.date) errors.push('Brak daty parkowania.');
   if (f.amount === '' || f.amount == null || Number.isNaN(+f.amount) || +f.amount <= 0) errors.push('Brak poprawnej kwoty.');
+  if (!f.city) errors.push('Uzupełnij miasto, w którym parkowano.');
+  if (!f.location) errors.push('Uzupełnij nazwę miejsca postoju (adres / galeria / wystawca paragonu).');
+  if (!PAYMENT_OPTIONS.includes(f.payment)) errors.push('Wybierz formę płatności: karta służbowa, karta prywatna lub gotówka.');
+  const s = state.settings || {};
+  if (!s.employee) errors.push('Uzupełnij imię i nazwisko kierowcy w Ustawieniach.');
+  if (!s.defaultPlate) errors.push('Uzupełnij numer rejestracyjny pojazdu w Ustawieniach.');
   if (!f.startTime) warnings.push('Brak godziny rozpoczęcia.');
-  if (!f.location && !f.city) warnings.push('Brak miejsca parkowania.');
+  if (f.payment === 'Karta służbowa' && s.companyCardLast4 && f.cardLast4 && f.cardLast4 !== s.companyCardLast4) warnings.push(`Na paragonie jest karta **** ${f.cardLast4}, a karta służbowa w ustawieniach to **** ${s.companyCardLast4}.`);
   if (f.nip && !validNip(f.nip)) warnings.push('NIP ma niepoprawną sumę kontrolną.');
   if (f.date && f.date > new Date().toISOString().slice(0, 10)) warnings.push('Data jest z przyszłości.');
   if (f.vat && f.amount && +f.vat >= +f.amount) warnings.push('Kwota VAT nie może przekraczać kwoty brutto.');
@@ -388,6 +398,7 @@ async function renderReceipt(id) {
           <button class="btn btn-ghost btn-sm" id="reocr"><svg class="ico"><use href="#i-refresh"/></svg> Odczytaj ponownie</button>
           ${state.settings.apiKey ? `<button class="btn btn-ghost btn-sm" id="reocr-ai"><svg class="ico"><use href="#i-spark"/></svg> Odczyt AI</button>` : ''}` : ''}
           <button class="btn btn-ghost btn-sm" id="dl-img"><svg class="ico"><use href="#i-download"/></svg> Zdjęcie</button>
+          ${r.status === 'approved' || r.status === 'sent' ? `<a class="btn btn-ghost btn-sm" href="#/mail/${r.id}"><svg class="ico"><use href="#i-send"/></svg> PDF i e-mail</a>` : ''}
         </div>
         ${r.ocr ? `<details class="ocr-text"><summary>Tekst rozpoznany przez OCR (${r.ocr.engine === 'ai' ? 'AI' : 'lokalny'}, ${r.ocr.confidence}%)</summary><pre>${esc(r.ocr.text)}</pre></details>` : ''}
       </div>
@@ -407,15 +418,16 @@ async function renderReceipt(id) {
         </fieldset>
 
         <fieldset><legend>Gdzie</legend>
-          ${input('location', 'text', 'list="dl-loc" placeholder="np. ul. Marszałkowska 10 / Parking Galeria"')}
-          <div class="grid g2">${input('city', 'text', 'list="dl-city"')}${input('zone')}</div>
+          ${input('location', 'text', 'list="dl-loc" placeholder="np. Westfield Arkadia / ul. Moliera 5" required')}
+          <div class="grid g2">${input('city', 'text', 'list="dl-city" required')}${input('zone')}</div>
         </fieldset>
 
         <fieldset><legend>Koszt</legend>
           <div class="grid g3">${input('amount', 'text', 'inputmode="decimal" placeholder="0,00"')}${input('vat', 'text', 'inputmode="decimal"')}${input('vatRate', 'number', 'min="0" max="99" step="1"')}</div>
           <div class="grid g2">
-            <label class="field ${c.payment === 'low' ? 'c-low' : !f.payment ? 'c-missing' : ''}"><span>${FIELD_LABELS.payment}</span>
-              <select name="payment" ${locked ? 'disabled' : ''}>${['', 'Karta', 'Gotówka', 'BLIK', 'Aplikacja mobilna', 'Przelew'].map(p => `<option ${p === (f.payment || '') ? 'selected' : ''} value="${p}">${p || '—'}</option>`).join('')}</select></label>
+            <label class="field ${c.payment === 'low' ? 'c-low' : !PAYMENT_OPTIONS.includes(f.payment) ? 'c-missing' : c.payment === 'high' ? 'c-high' : ''}"><span>${FIELD_LABELS.payment} *${c.payment === 'low' ? ' <i class="dot dot-low"></i>' : !PAYMENT_OPTIONS.includes(f.payment) ? ' <i class="dot dot-miss"></i>' : ''}</span>
+              <select name="payment" required ${locked ? 'disabled' : ''}>${['', ...PAYMENT_OPTIONS, ...(f.payment && !PAYMENT_OPTIONS.includes(f.payment) ? [f.payment] : [])].map(p => `<option ${p === (f.payment || '') ? 'selected' : ''} value="${p}">${p || '— wybierz —'}</option>`).join('')}</select>
+              <small class="field-hint">${paymentHint(f)}</small></label>
             <label class="field"><span>${FIELD_LABELS.currency}</span>
               <select name="currency" ${locked ? 'disabled' : ''}>${['PLN', 'EUR', 'CZK', 'USD'].map(p => `<option ${p === (f.currency || 'PLN') ? 'selected' : ''}>${p}</option>`).join('')}</select></label>
           </div>
@@ -424,7 +436,10 @@ async function renderReceipt(id) {
         <fieldset><legend>Dokument i pojazd</legend>
           ${input('operator', 'text', 'list="dl-op"')}
           <div class="grid g2">${input('nip', 'text', 'inputmode="numeric"')}${input('receiptNo')}</div>
-          ${input('plate', 'text', 'style="text-transform:uppercase"')}
+          <label class="field c-default"><span>${FIELD_LABELS.plate} <small>(z Ustawień)</small></span>
+            <input name="plate" value="${esc(state.settings.defaultPlate || f.plate || '')}" readonly>
+            ${f.platePrinted ? `<small class="field-hint">Na paragonie odczytano: ${esc(f.platePrinted)}</small>` : ''}</label>
+          <input type="hidden" name="cardLast4" value="${esc(f.cardLast4 || '')}">
         </fieldset>
 
         <fieldset><legend>Rozliczenie</legend>
@@ -439,7 +454,7 @@ async function renderReceipt(id) {
             <button type="button" class="btn btn-danger btn-ghost" id="del" title="Usuń"><svg class="ico"><use href="#i-trash"/></svg></button>
             <button type="submit" class="btn" name="act" value="save">Zapisz</button>
             <button type="submit" class="btn btn-primary" name="act" value="approve"><svg class="ico"><use href="#i-check"/></svg>
-              ${r.status === 'approved' ? 'Zapisz zatwierdzony' : queueNext.length ? 'Zatwierdź i dalej' : 'Zatwierdź'}</button>`}
+              ${r.status === 'approved' ? 'Zapisz i wyślij' : 'Zatwierdź i wyślij'}</button>`}
         </div>
 
         <details class="history"><summary>Historia dokumentu</summary>
@@ -484,7 +499,7 @@ async function renderReceipt(id) {
     const fresh = await db.getReceipt(id);
     fresh.fields = nf;
     edited.forEach(k => { fresh.confidence[k] = 'manual'; });
-    if (edited.length) fresh.history.push({ at: new Date().toISOString(), action: `Poprawiono: ${edited.map(k => FIELD_LABELS[k] || k).join(', ')}` });
+    if (edited.length) fresh.history.push({ at: new Date().toISOString(), action: `Poprawiono: ${edited.map(k => (FIELD_LABELS[k] || k).replace(/ \*$/, '')).join(', ')}` });
     if (act === 'approve') {
       if (v.errors.length) { showValidation(); toast(v.errors[0], 'error'); return; }
       if (fresh.status !== 'approved') {
@@ -493,9 +508,8 @@ async function renderReceipt(id) {
       }
       await db.putReceipt(fresh);
       await refresh();
-      toast('Zatwierdzono ✓');
-      const next = state.receipts.find(o => (o.status === 'to_verify' || o.status === 'error') && o.id !== id);
-      go(next ? `#/receipt/${next.id}` : '#/send');
+      toast('Zatwierdzono ✓ Przygotowuję PDF dla działu rozliczeń…');
+      go(`#/mail/${id}`);
     } else {
       if (fresh.status === 'error') fresh.status = 'to_verify';
       await db.putReceipt(fresh);
@@ -562,6 +576,190 @@ function openViewer(url) {
   img.onclick = () => { scale = scale === 1 ? 2.2 : 1; img.style.transform = `scale(${scale})`; };
 }
 
+function paymentHint(f) {
+  const s = state.settings;
+  if (f.cardLast4 && s.companyCardLast4 && f.cardLast4 === s.companyCardLast4) return `Odczytano kartę służbową **** ${esc(f.cardLast4)}.`;
+  if (f.cardLast4 && s.companyCardLast4) return `Odczytano kartę **** ${esc(f.cardLast4)} – inna niż służbowa (**** ${esc(s.companyCardLast4)}). Sprawdź.`;
+  if (f.cardLast4) return `Odczytano kartę **** ${esc(f.cardLast4)}. Uzupełnij końcówkę karty służbowej w Ustawieniach, by rozpoznawać ją automatycznie.`;
+  if (f.paymentMethod === 'card') return 'Na paragonie: płatność kartą (bez numeru karty) – wybierz, którą kartą płacono.';
+  if (f.paymentMethod === 'cash') return 'Na paragonie wykryto płatność gotówką – potwierdź.';
+  return 'Nie odczytano formy płatności – wybierz z listy.';
+}
+
+// ---------- PDF i e-mail do działu rozliczeń ----------
+async function renderMail(id) {
+  const r = await db.getReceipt(id);
+  if (!r) { view.innerHTML = '<div class="empty"><p>Nie znaleziono dokumentu.</p></div>'; return; }
+  const s = state.settings;
+  const f = r.fields;
+  if (r.status !== 'approved' && r.status !== 'sent') {
+    view.innerHTML = `<div class="notice warn">Dokument nie jest jeszcze zatwierdzony. <a href="#/receipt/${id}">Zweryfikuj dane</a>, aby wygenerować PDF.</div>`;
+    return;
+  }
+  const subject = mailSubject(f, s);
+  const fileName = pdfFileName(f, s);
+  const body = mailBody(f, s, fileName);
+  const next = state.receipts.find(o => (o.status === 'to_verify' || o.status === 'error') && o.id !== id);
+
+  view.innerHTML = `
+    <div class="page-head">
+      <a href="#/receipt/${id}" class="btn btn-ghost btn-sm"><svg class="ico"><use href="#i-back"/></svg> Dane</a>
+      <h1>Wyślij do działu rozliczeń</h1>
+      <span class="badge ${STATUS[r.status].cls}">${STATUS[r.status].label}</span>
+    </div>
+    ${r.status === 'sent' ? `<div class="notice ok">Wysłano ${r.batch ? new Date(r.batch.at).toLocaleString('pl-PL') : ''}${r.batch?.target ? ` (${esc(r.batch.target)})` : ''}. Możesz wysłać ponownie.</div>` : ''}
+    <div class="mail">
+      <section class="card pdf-card">
+        <div class="card-head"><h2>Dokument PDF</h2><span class="muted small" id="pdf-size"></span></div>
+        <div class="pdf-preview" id="pdf-preview"><div class="notice info"><div class="spinner"></div> Generowanie PDF…</div></div>
+        <div class="actions wrap">
+          <button class="btn" id="pdf-dl" disabled><svg class="ico"><use href="#i-download"/></svg> Pobierz PDF</button>
+          <button class="btn btn-ghost" id="pdf-open" disabled><svg class="ico"><use href="#i-zoom"/></svg> Otwórz</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head"><h2>Wiadomość e-mail</h2></div>
+        <form id="mform" class="mail-form">
+          <label class="field"><span>Do *</span><input name="to" type="email" required value="${esc(s.accountingEmail)}" placeholder="rozliczenia@firma.pl"></label>
+          <label class="field"><span>DW</span><input name="cc" value="${esc(s.accountingCc)}"></label>
+          <label class="field"><span>Temat</span>
+            <div class="copy-row"><textarea name="subject" rows="2" readonly class="subject">${esc(subject)}</textarea><button type="button" class="btn btn-ghost btn-sm" data-copy="subject">Kopiuj</button></div></label>
+          <label class="field"><span>Treść</span><textarea name="body" rows="14">${esc(body)}</textarea>
+            <button type="button" class="btn btn-ghost btn-sm copy-body" data-copy="body">Kopiuj treść</button></label>
+          <div class="attach"><svg class="ico"><use href="#i-doc"/></svg><span>${esc(fileName)}</span></div>
+          <div class="actions wrap mail-actions">
+            <button type="submit" class="btn btn-primary btn-big" id="send-mail" disabled><svg class="ico"><use href="#i-send"/></svg> Wyślij e-mail z PDF</button>
+            <button type="button" class="btn" id="mailto" disabled>Otwórz w programie pocztowym</button>
+            ${s.webhookUrl ? `<button type="button" class="btn" id="send-api" disabled>Wyślij automatycznie (API)</button>` : ''}
+            ${r.status !== 'sent' ? `<button type="button" class="btn btn-ghost" id="mark-sent">Oznacz jako wysłany</button>` : ''}
+          </div>
+          <p class="hint" id="mail-hint"></p>
+        </form>
+      </section>
+    </div>
+    ${next ? `<a class="cta" href="#/receipt/${next.id}"><svg class="ico"><use href="#i-check"/></svg><span><b>Następny paragon do weryfikacji</b><br><small>Pozostało: ${state.receipts.filter(o => o.status === 'to_verify' || o.status === 'error').length}</small></span><svg class="ico"><use href="#i-chevron"/></svg></a>` : ''}`;
+
+  const form = $('#mform');
+  const hint = $('#mail-hint');
+  const canShareFiles = !!navigator.canShare && (() => { try { return navigator.canShare({ files: [new File(['x'], 'x.pdf', { type: 'application/pdf' })] }); } catch { return false; } })();
+  hint.textContent = canShareFiles
+    ? '„Wyślij e-mail z PDF” otworzy menu udostępniania – wybierz aplikację pocztową. Jeśli temat nie przeniesie się automatycznie, użyj „Kopiuj”.'
+    : '„Wyślij e-mail z PDF” pobierze plik PDF i otworzy program pocztowy z uzupełnionym adresem, tematem i treścią – dołącz pobrany PDF do wiadomości.';
+
+  let pdfBlob;
+  try {
+    const bytes = await buildSettlementPdf(r, await db.getImage(r.imageId), s);
+    if (!form.isConnected) return; // użytkownik opuścił ekran w trakcie generowania
+    pdfBlob = new Blob([bytes], { type: 'application/pdf' });
+    $('#pdf-size').textContent = `${(pdfBlob.size / 1024).toFixed(0)} KB`;
+    $$('#pdf-dl, #pdf-open, #send-mail, #mailto, #send-api').forEach(b => { b.disabled = false; });
+    try {
+      const canvas = await renderPdfPage(bytes, 1400);
+      if (!form.isConnected) return;
+      canvas.className = 'pdf-canvas';
+      $('#pdf-preview').replaceChildren(canvas);
+    } catch (e) {
+      console.warn('Podgląd PDF niedostępny', e);
+      $('#pdf-preview').innerHTML = '<p class="muted">Podgląd niedostępny – użyj „Otwórz”.</p>';
+    }
+  } catch (e) {
+    console.error(e);
+    if (form.isConnected) $('#pdf-preview').innerHTML = `<div class="notice error">Nie udało się wygenerować PDF: ${esc(e.message)}</div>`;
+    return;
+  }
+  const pdfFile = () => new File([pdfBlob], fileName, { type: 'application/pdf' });
+  const values = () => Object.fromEntries(new FormData(form).entries());
+  const rememberRecipients = async () => {
+    const v = values();
+    if (v.to !== s.accountingEmail || v.cc !== s.accountingCc) {
+      state.settings = { ...state.settings, accountingEmail: v.to.trim(), accountingCc: v.cc.trim() };
+      await db.saveSettings(state.settings);
+    }
+  };
+  const openMailto = () => {
+    const v = values();
+    const q = new URLSearchParams();
+    if (v.cc) q.set('cc', v.cc);
+    q.set('subject', v.subject);
+    q.set('body', v.body);
+    download(fileName, pdfBlob);
+    setTimeout(() => { location.href = `mailto:${encodeURIComponent(v.to).replace(/%40/g, '@').replace(/%2C/g, ',')}?${q.toString().replace(/\+/g, '%20')}`; }, 400);
+  };
+
+  $('#pdf-dl').addEventListener('click', () => download(fileName, pdfBlob));
+  $('#pdf-open').addEventListener('click', () => window.open(URL.createObjectURL(pdfBlob), '_blank'));
+  $$('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(form.elements[b.dataset.copy].value); toast('Skopiowano.'); } catch { form.elements[b.dataset.copy].select(); }
+  }));
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    await rememberRecipients();
+    const v = values();
+    if (canShareFiles) {
+      try {
+        await navigator.share({ files: [pdfFile()], title: v.subject, text: v.body });
+        await markSent(id, `E-mail: ${v.to}`);
+        return;
+      } catch (err) {
+        if (err.name === 'AbortError') return;
+        console.warn('Udostępnianie nieudane, używam mailto', err);
+      }
+    }
+    openMailto();
+    showSentConfirm(v.to);
+  });
+  $('#mailto').addEventListener('click', async () => {
+    if (!form.reportValidity()) return;
+    await rememberRecipients();
+    openMailto();
+    showSentConfirm(values().to);
+  });
+  $('#mark-sent')?.addEventListener('click', () => markSent(id, `E-mail: ${values().to || 'ręcznie'}`));
+  $('#send-api')?.addEventListener('click', async e => {
+    if (!form.reportValidity()) return;
+    await rememberRecipients();
+    const btn = e.currentTarget;
+    btn.disabled = true;
+    try {
+      const v = values();
+      const res = await fetch(s.webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...(s.webhookToken ? { Authorization: `Bearer ${s.webhookToken}` } : {}) },
+        body: JSON.stringify({
+          source: 'SmartPocket', type: 'parking-settlement-email', sentAt: new Date().toISOString(), ...employeeInfo(),
+          email: { to: v.to, cc: v.cc || null, subject: v.subject, body: v.body },
+          attachment: { fileName, contentType: 'application/pdf', base64: (await blobToDataURL(pdfBlob)).split(',')[1] },
+          receipt: payloadFor(r),
+        }),
+      });
+      if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+      await markSent(id, `API: ${v.to}`);
+    } catch (err) {
+      toast(`Wysyłka przez API nieudana: ${err.message}`, 'error');
+    } finally { btn.disabled = false; }
+  });
+
+  function showSentConfirm(to) {
+    hint.innerHTML = `Po wysłaniu wiadomości w programie pocztowym potwierdź: <button type="button" class="btn btn-sm btn-primary" id="confirm-sent">Wiadomość wysłana</button>`;
+    $('#confirm-sent').addEventListener('click', () => markSent(id, `E-mail: ${to}`));
+  }
+}
+
+async function markSent(id, target) {
+  const r = await db.getReceipt(id);
+  const at = new Date().toISOString();
+  r.status = 'sent';
+  r.batch = { id: uid(), at, target };
+  r.history.push({ at, action: `Wysłano do działu rozliczeń (${target})` });
+  await db.putReceipt(r);
+  toast('Wysłano do działu rozliczeń ✓');
+  await refresh();
+  renderMail(id);
+}
+
 // ---------- Wysyłka do systemu ----------
 function renderSend() {
   const approved = state.receipts.filter(r => r.status === 'approved');
@@ -581,10 +779,10 @@ function renderSend() {
       ${approved.length ? `
         <label class="sel-all"><input type="checkbox" id="send-all" checked> Zaznacz wszystkie</label>
         <ul class="rlist compact">${approved.map(r => `<li class="row"><label class="row-check"><input type="checkbox" data-send="${r.id}" checked></label>
-          <a class="row-link" href="#/receipt/${r.id}"><img class="thumb" src="${r.thumb}" alt="">
+          <a class="row-link" href="#/mail/${r.id}" title="PDF i e-mail do działu rozliczeń"><img class="thumb" src="${r.thumb}" alt="">
           <div class="row-main"><div class="row-top"><b>${fmtDate(r.fields.date)}</b> <span class="muted">${esc(timeRange(r.fields))}</span></div>
           <div class="row-sub">${esc(r.fields.location || r.fields.operator || '')}${r.fields.city ? `, ${esc(r.fields.city)}` : ''}</div></div>
-          <div class="row-amount">${money(r.fields.amount, r.fields.currency)}</div></a></li>`).join('')}</ul>
+          <div class="row-amount">${money(r.fields.amount, r.fields.currency)}<br><small class="link">E-mail ›</small></div></a></li>`).join('')}</ul>
         <p class="muted small">Cel: ${target}. <a href="#/settings">Zmień</a></p>
         <div class="actions">
           <button class="btn btn-primary btn-big" id="do-send"><svg class="ico"><use href="#i-send"/></svg> Prześlij do systemu</button>
@@ -748,9 +946,9 @@ function renderSettings() {
     <div class="page-head"><h1>Ustawienia</h1></div>
     <form id="sform" class="settings">
       <fieldset><legend>Pracownik i pojazd</legend>
-        <div class="grid g2">${inp('employee', 'Imię i nazwisko')}${inp('employeeId', 'Nr ewidencyjny')}</div>
+        <div class="grid g2">${inp('employee', 'Imię i nazwisko kierowcy *')}${inp('employeeId', 'Nr ewidencyjny')}</div>
         <div class="grid g2">${inp('company', 'Firma')}${inp('department', 'Dział')}</div>
-        <div class="grid g3">${inp('defaultPlate', 'Nr rejestracyjny auta', 'text', 'style="text-transform:uppercase" placeholder="WX 12345"')}${inp('carModel', 'Model auta')}${inp('costCenter', 'MPK / centrum kosztów')}</div>
+        <div class="grid g3">${inp('defaultPlate', 'Nr rejestracyjny pojazdu *', 'text', 'style="text-transform:uppercase" placeholder="WX 12345"')}${inp('carModel', 'Model auta')}${inp('costCenter', 'MPK / centrum kosztów')}</div>
         <p class="hint">Numer rejestracyjny jest wpisywany automatycznie, jeśli nie zostanie odczytany z dokumentu.</p>
       </fieldset>
 
@@ -766,6 +964,12 @@ function renderSettings() {
               .map(([v, l]) => `<option value="${v}" ${s.aiModel === v ? 'selected' : ''}>${l}</option>`).join('')}</select></label>
         </div>
         <label class="check"><input type="checkbox" name="autoApproveHigh" ${s.autoApproveHigh ? 'checked' : ''}> Automatycznie zatwierdzaj dokumenty, gdy data, godzina i kwota odczytane są z wysoką pewnością</label>
+      </fieldset>
+
+      <fieldset><legend>Dział rozliczeń i karta służbowa</legend>
+        <div class="grid g2">${inp('accountingEmail', 'E-mail działu rozliczeń', 'email', 'placeholder="rozliczenia@firma.pl"')}${inp('accountingCc', 'DW (opcjonalnie)', 'text', 'placeholder="przelozony@firma.pl"')}</div>
+        ${inp('companyCardLast4', 'Ostatnie 4 cyfry karty służbowej', 'text', 'inputmode="numeric" maxlength="4" pattern="\\d{4}" placeholder="4111"')}
+        <p class="hint">Gdy na paragonie zostanie odczytana ta karta (np. „****4111”), forma płatności zostanie ustawiona automatycznie na <b>Karta służbowa</b>. W pozostałych przypadkach wybierzesz ją przy zatwierdzaniu.</p>
       </fieldset>
 
       <fieldset><legend>Przesyłanie do systemu</legend>
@@ -794,8 +998,9 @@ function renderSettings() {
     e.preventDefault();
     const fd = new FormData(e.target);
     const next = { ...s };
-    for (const k of ['employee', 'employeeId', 'company', 'department', 'defaultPlate', 'carModel', 'costCenter', 'ocrEngine', 'apiKey', 'aiModel', 'webhookUrl', 'webhookToken']) next[k] = (fd.get(k) || '').toString().trim();
+    for (const k of ['employee', 'employeeId', 'company', 'department', 'defaultPlate', 'carModel', 'costCenter', 'ocrEngine', 'apiKey', 'aiModel', 'webhookUrl', 'webhookToken', 'accountingEmail', 'accountingCc', 'companyCardLast4']) next[k] = (fd.get(k) || '').toString().trim();
     next.defaultPlate = next.defaultPlate.toUpperCase();
+    next.companyCardLast4 = next.companyCardLast4.replace(/\D/g, '').slice(-4);
     next.autoApproveHigh = fd.get('autoApproveHigh') === 'on';
     next.sendImages = fd.get('sendImages') === 'on';
     if (next.ocrEngine === 'ai' && !next.apiKey) toast('Wybrano OCR AI bez klucza API – używany będzie OCR lokalny.', 'warn');
@@ -900,7 +1105,7 @@ async function init() {
       if (r && STATUS[r.status]?.label !== shown) render();
       return;
     }
-    if (route === 'settings' || route === 'report') return;
+    if (route === 'settings' || route === 'report' || route === 'mail') return;
     render();
   });
   window.addEventListener('hashchange', () => { if (location.hash !== lastRoute) { lastRoute = location.hash; render(); } });

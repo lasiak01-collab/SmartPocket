@@ -1,5 +1,5 @@
 // Obróbka zdjęć i silniki OCR: lokalny (Tesseract.js, j. polski) oraz AI (Claude, wizja).
-import { parseReceipt, FIELDS } from './parser.js';
+import { parseReceipt, resolvePayment, FIELDS } from './parser.js';
 
 const TESSERACT_URL = 'https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';
 const ANTHROPIC_SDK_URL = 'https://cdn.jsdelivr.net/npm/@anthropic-ai/sdk/+esm';
@@ -50,7 +50,7 @@ export async function prepareImage(file, rotate = 0) {
   };
 }
 
-/** Wstępna obróbka pod OCR: skala szarości + rozciągnięcie kontrastu + powiększenie małych zdjęć. */
+/** Wstępna obróbka pod OCR: kanał czerwony + rozciągnięcie kontrastu + powiększenie małych zdjęć. */
 async function preprocessForOcr(blob) {
   const bmp = await loadBitmap(blob);
   const target = Math.max(bmp.width, bmp.height) < 1400 ? 1800 : 2200;
@@ -65,7 +65,9 @@ async function preprocessForOcr(blob) {
   const d = img.data;
   const hist = new Uint32Array(256);
   for (let i = 0; i < d.length; i += 4) {
-    const g = (d[i] * 0.299 + d[i + 1] * 0.587 + d[i + 2] * 0.114) | 0;
+    // Kanał czerwony: czerwone/różowe tła i pieczęcie (np. herb na biletach ZDM) stają się jasne,
+    // a czarny tekst wydruku termicznego pozostaje ciemny.
+    const g = d[i];
     d[i] = g; hist[g]++;
   }
   // Odcięcie 1% skrajnych pikseli (auto-poziomy)
@@ -135,7 +137,7 @@ const AI_SCHEMA = {
     endDate: nullable('string', 'Data zakończenia YYYY-MM-DD, tylko jeśli inna niż data rozpoczęcia'),
     endTime: nullable('string', 'Godzina zakończenia / ważności HH:MM'),
     durationMin: nullable('integer'),
-    location: nullable('string', 'Adres lub nazwa parkingu (miejsce postoju, nie siedziba firmy)'),
+    location: nullable('string', 'Nazwa miejsca postoju: galeria handlowa / nazwa parkingu, a gdy jej brak – ulica postoju (np. z parkomatu). Nie adres siedziby wystawcy.'),
     city: nullable('string'),
     zone: nullable('string', 'Strefa / podstrefa / nr parkomatu / poziom'),
     operator: nullable('string', 'Operator parkingu / sprzedawca'),
@@ -145,12 +147,13 @@ const AI_SCHEMA = {
     vat: nullable('number', 'Kwota podatku VAT/PTU'),
     vatRate: nullable('number', 'Stawka VAT w %'),
     currency: nullable('string'),
-    payment: nullable('string', 'Forma płatności', { enum: ['Karta', 'Gotówka', 'BLIK', 'Aplikacja mobilna'] }),
+    paymentMethod: nullable('string', 'Sposób zapłaty wynikający z dokumentu', { enum: ['card', 'cash', 'blik', 'app'] }),
+    cardLast4: nullable('string', 'Ostatnie 4 cyfry zamaskowanego numeru karty płatniczej (np. z "****4111" -> "4111")'),
     receiptNo: nullable('string', 'Numer paragonu / biletu / transakcji'),
     uncertain: { type: 'array', items: { type: 'string' }, description: 'Nazwy pól odczytanych z niepewnością' },
   },
   required: ['raw_text', 'date', 'startTime', 'endDate', 'endTime', 'durationMin', 'location', 'city', 'zone',
-    'operator', 'nip', 'plate', 'amount', 'vat', 'vatRate', 'currency', 'payment', 'receiptNo', 'uncertain'],
+    'operator', 'nip', 'plate', 'amount', 'vat', 'vatRate', 'currency', 'paymentMethod', 'cardLast4', 'receiptNo', 'uncertain'],
 };
 
 async function blobToBase64(blob) {
@@ -216,12 +219,10 @@ export async function recognize(blob, settings, onProgress) {
   if (settings.ocrEngine === 'ai' && settings.apiKey) {
     try {
       const r = await ocrAI(blob, settings);
-      // Uzupełnij domyślnym nr rejestracyjnym, jeśli brak
-      if (!r.parsed.fields.plate && settings.defaultPlate) {
-        r.parsed.fields.plate = settings.defaultPlate.toUpperCase();
-        r.parsed.confidence.plate = 'default';
-      }
-      return { engine: 'ai', text: r.text, ocrConfidence: r.confidence, ...r.parsed };
+      const pay = resolvePayment(r.parsed.fields, settings.companyCardLast4);
+      if (pay.payment) r.parsed.fields.payment = pay.payment;
+      r.parsed.confidence.payment = pay.confidence;
+      return finalize({ engine: 'ai', text: r.text, ocrConfidence: r.confidence, ...r.parsed }, settings);
     } catch (e) {
       console.warn('OCR AI nieudany, przełączam na lokalny:', e);
       const local = await recognizeLocal(blob, settings, onProgress);
@@ -234,8 +235,18 @@ export async function recognize(blob, settings, onProgress) {
 
 async function recognizeLocal(blob, settings, onProgress) {
   const r = await ocrLocal(blob, onProgress);
-  const parsed = parseReceipt(r.text, { defaultPlate: settings.defaultPlate });
+  const parsed = parseReceipt(r.text, { defaultPlate: settings.defaultPlate, companyCardLast4: settings.companyCardLast4 });
   // Przy słabej jakości OCR obniżamy pewność wszystkich pól
   if (r.confidence < 55) for (const k in parsed.confidence) if (parsed.confidence[k] === 'high') parsed.confidence[k] = 'low';
-  return { engine: 'local', text: r.text, ocrConfidence: r.confidence, ...parsed };
+  return finalize({ engine: 'local', text: r.text, ocrConfidence: r.confidence, ...parsed }, settings);
+}
+
+// Numer rejestracyjny pojazdu służbowego zawsze pochodzi z ustawień (paragony często go nie zawierają lub OCR go przekręca).
+function finalize(res, settings) {
+  if (settings.defaultPlate) {
+    if (res.fields.plate && res.fields.plate.replace(/\W/g, '') !== settings.defaultPlate.toUpperCase().replace(/\W/g, '')) res.fields.platePrinted = res.fields.plate;
+    res.fields.plate = settings.defaultPlate.toUpperCase();
+    res.confidence.plate = 'default';
+  }
+  return res;
 }
