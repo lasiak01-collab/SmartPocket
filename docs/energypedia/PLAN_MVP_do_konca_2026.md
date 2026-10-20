@@ -12,7 +12,8 @@ Mamy około **10 tygodni** (20 X – 31 XII 2026 r.; uwaga na święta 11 XI ora
 | # | Element MVP | Zakres na 31 XII 2026 r. | Miernik „zrobione” |
 |---|---|---|---|
 | 1 | **Serwis energypedia.pl** | Strona główna, działy: Wiadomości, Wiedza, Poradniki, Dane (Barometr), Regiony, O nas, Jak pracujemy, Prasa | Działa na telefonie i komputerze, Core Web Vitals na zielono, dostępność WCAG 2.2 AA w szablonach |
-| 2 | **Encyklopedia (hasła)** | **150 haseł** (z listy 300 priorytetowych) | Każde hasło przeszło recenzję merytoryczną i ma datę weryfikacji |
+| 2 | **Publikacje evergreen** | **5 stron przewodnich, 2 trackery („Taryfy 2027 — na bieżąco”, „CSIRE — stan wdrożenia”), 20 artykułów wyjaśniających i porównań, 5 analiz danych** (plan w `zespol/06_redaktor_seo_aeo_geo.md`) | Każda publikacja ma strukturę SEO/AEO/GEO, ocenę jakości ≥ 80/100 i przeszła recenzję |
+| 2a | **Encyklopedia (hasła)** | **120 haseł** (z listy 300 priorytetowych; najpierw pojęcia linkowane z publikacji) | Każde hasło przeszło recenzję merytoryczną i ma datę weryfikacji |
 | 3 | **Poradniki krok po kroku** | **25 poradników** + 5 wzorów pism do pobrania | Checklista, wzór, sekcja „najczęstsze błędy” |
 | 4 | **Strony regionalne** | **16 województw** (wersja podstawowa) | Operator sieci, jego opłaty, linki do dotacji, kontakt do instytucji |
 | 5 | **Wiadomości** | Codziennie w dni robocze od miękkiego startu: 3–5 newsów i 1 komentarz | Rytm utrzymany przez 10 dni roboczych z rzędu |
@@ -98,13 +99,13 @@ Kolejny tydz.: grafiki/schematy, linkowanie wewnętrzne, metadane → kolejka pu
 
 **Plan wolumenów (narastająco):**
 
-| Tydzień | Hasła | Poradniki | Strony regionalne | Uwagi |
-|---|---:|---:|---:|---|
-| 4 (9–13 XI, święto 11 XI) | 25 | 4 | – | Najważniejsze hasła „rachunek i taryfy” |
-| 5 (16–20 XI) | 60 | 10 | 8 | Start próby newsroomu |
-| 6 (23–27 XI) | 100 | 17 | 16 | Badanie barometru w terenie |
-| 7 (30 XI – 4 XII) | 135 | 22 | 16 | Treści o taryfach 2027 r. gotowe w wersjach „przed decyzją URE” |
-| 8 (7–11 XII) | **150** | **25** | **16** | Kontrola jakości, zamrożenie zakresu |
+| Tydzień | Publikacje evergreen | Hasła | Poradniki | Strony regionalne | Uwagi |
+|---|---:|---:|---:|---:|---|
+| 4 (9–13 XI, święto 11 XI) | 4 | 20 | 4 | – | Najważniejsze hasła „rachunek i taryfy” |
+| 5 (16–20 XI) | 10 | 45 | 10 | 8 | Start próby newsroomu |
+| 6 (23–27 XI) | 18 | 75 | 17 | 16 | Badanie barometru w terenie |
+| 7 (30 XI – 4 XII) | 25 | 100 | 22 | 16 | Treści o taryfach 2027 r. gotowe w wersjach „przed decyzją URE” |
+| 8 (7–11 XII) | **32** | **120** | **25** | **16** | Kontrola jakości, zamrożenie zakresu |
 
 **Kolejność tematów (fala 1 = najpierw to, czego ludzie szukają w grudniu):**
 1. **Rachunek i taryfy:** jak czytać fakturę, taryfa G11 / G12 / G12w / dynamiczna, opłaty dystrybucyjne (stałe i zmienne), opłata mocowa, opłata OZE i kogeneracyjna, akcyza, VAT, cena za kWh, jak URE zatwierdza taryfy, „taryfy 2027 — co się zmienia”.
@@ -205,7 +206,7 @@ Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwi
 ### KROK 9. Kontrola jakości i gotowość (tydzień 8: 7–11 grudnia)
 
 **Lista kontrolna „gotowe do startu” (10 XII):**
-- [ ] 150 haseł, 25 poradników, 16 stron regionalnych opublikowanych w trybie ukrytym i sprawdzonych (linki, źródła, daty, recenzent)
+- [ ] 32 publikacje evergreen, 120 haseł, 25 poradników, 16 stron regionalnych opublikowanych w trybie ukrytym i sprawdzonych (linki, źródła, daty, recenzent)
 - [ ] Losowa kontrola 20% treści przez drugą osobę (fakty i liczby)
 - [ ] Pakiet „taryfy 2027” gotowy (szablon, wykresy, kalkulacje, informacja prasowa)
 - [ ] Barometr Rynku Energii #1 gotowy (dane do 30 XI lub do dnia startu)
@@ -252,7 +253,7 @@ Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwi
 | 5 | 16–20 XI | 60 / 10 / 8 regionów; próba newsroomu | Szablony stron | Kwestionariusz zatwierdzony | Monitoring mediów zamówiony |
 | 6 | 23–27 XI | 100 / 17 / 16 | Wykresy, wyszukiwarka | **Badanie w terenie** | Polityki RODO |
 | 7 | 30 XI – 4 XII | 135 / 22; pakiet „taryfy 2027” | SEO techniczne, analityka | Dane do Barometru Rynku #1 | Wniosek o rejestrację tytułu |
-| 8 | 7–11 XII | 150 / 25; kontrola jakości | Testy, **gotowość 10 XII** | Analiza badania, wykresy | Lista kontrolna startu |
+| 8 | 7–11 XII | 32 publikacje / 120 haseł / 25 poradników; kontrola jakości | Testy, **gotowość 10 XII** | Analiza badania, wykresy | Lista kontrolna startu |
 | 9 | 14–18 XII | **MIĘKKI START** + newsy codziennie | Monitoring wydajności | **Barometr #1 (+ Barometr Odbiorców #0)** | Informacje prasowe, dyżur eksperta |
 | 10–11 | 21–31 XII | Rytm świąteczny, tekst noworoczny | Poprawki | Barometr styczniowy (dane grudnia) | Raport KPI, plan I kw. 2027 r. |
 
@@ -279,7 +280,7 @@ Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwi
 
 | Miernik | Cel |
 |---|---:|
-| Opublikowane hasła / poradniki / strony regionalne | 150 / 25 / 16 |
+| Publikacje evergreen / hasła / poradniki / strony regionalne | 32 / 120 / 25 / 16 |
 | Newsy od startu | ≥ 50 |
 | Wizyty w grudniu | ≥ 25 000 |
 | Subskrybenci newslettera | ≥ 2 000 |
@@ -297,7 +298,7 @@ Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwi
 | Redaktor naczelny/prowadzący (XI–XII) | 36 000 |
 | 2 dziennikarzy/analityków (około 1,5 miesiąca) | 36 000 |
 | Lider SEO (XI–XII) | 28 000 |
-| Autorzy zewnętrzni (150 haseł × ~400 zł + 25 poradników × ~1200 zł) | 90 000 |
+| Autorzy zewnętrzni (120 haseł × ~400 zł + 25 poradników × ~1200 zł + 27 artykułów i stron przewodnich × ~450 zł średnio; przy pracy z wirtualnym zespołem pozycja w większości odpada) | 90 000 |
 | Recenzenci merytoryczni | 10 000 |
 | Serwis (wykonawca) | 60 000 – 90 000 |
 | Identyfikacja 1.0 i grafiki | 20 000 – 30 000 |

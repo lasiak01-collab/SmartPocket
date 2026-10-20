@@ -10,13 +10,13 @@ Ten katalog zawiera prompty dla sześciu wirtualnych pracowników oraz wspólny 
 | `03_social_media.md` | Specjalista social media i społeczności | Kalendarz, posty, karuzele, wideo, marka osobista naczelnego, moderacja, kryzysy |
 | `04_specjalista_kampanii.md` | Specjalista ds. kampanii reklamowych (pozyskanie ruchu) | Google/Meta/LinkedIn/TikTok Ads, kreacje, strony docelowe, pomiar, budżety |
 | `05_sprzedawca_reklam.md` | Sprzedawca powierzchni reklamowej, sponsoringu i partnerstw | Media kit, cenniki, lista klientów, oferty, umowy, raporty, odnowienia |
-| `06_autor_seo.md` | Autor bazy wiedzy i redaktor SEO | Mapa tematów, briefy, szkice haseł, poradników, wzorów pism i stron regionalnych, optymalizacja on-page, analiza Search Console, aktualizacje |
+| `06_redaktor_seo_aeo_geo.md` | Redaktor publikacji i strateg SEO / AEO / GEO | Strategia treści i mapa tematów; pełny miks publikacji (newsy, artykuły wyjaśniające, poradniki, porównania, analizy danych, strony przewodnie, trackery, hasła); obowiązkowa struktura artykułu; dane strukturalne; optymalizacja pod Google, pozycję zerową i odpowiedzi AI; analiza Search Console i cytowań AI |
 
 ---
 
 ## 1. Uruchomienie (zalecane: osobny projekt dla każdej roli)
 
-W Claude (claude.ai lub aplikacja) utwórz **6 projektów**, np. „EP | Recenzent”, „EP | Analityk”, „EP | Social”, „EP | Kampanie”, „EP | Sprzedaż”, „EP | Autor SEO”. W każdym:
+W Claude (claude.ai lub aplikacja) utwórz **6 projektów**, np. „EP | Recenzent”, „EP | Analityk”, „EP | Social”, „EP | Kampanie”, „EP | Sprzedaż”, „EP | Redaktor SEO”. W każdym:
 
 1. **Instrukcje projektu:** wklej całą zawartość pliku roli (np. `01_recenzent.md`).
 2. **Wiedza projektu (pliki):**
@@ -28,7 +28,7 @@ W Claude (claude.ai lub aplikacja) utwórz **6 projektów**, np. „EP | Recenze
      - Social: kalendarz wydarzeń, biblioteka odpowiedzi, statystyki z poprzedniego miesiąca;
      - Kampanie: plan pomiaru, eksporty wyników kampanii, ceny leadów;
      - Sprzedaż: aktualny media kit, cennik, pipeline, wzory umów;
-     - Autor SEO: mapa tematów i backlog, przewodnik stylu, lista opublikowanych adresów (do linkowania), eksporty z Google Search Console.
+     - Redaktor SEO: mapa tematów i plan publikacji, rejestr opublikowanych adresów, przewodnik stylu, lista opublikowanych adresów (do linkowania), eksporty z Google Search Console.
 3. **Narzędzia:** włącz **wyszukiwanie w sieci** we wszystkich projektach (fakty zmieniają się szybko). U Analityka włącz też **analizę danych / wykonywanie kodu**.
 4. **Test startowy:** w każdym projekcie napisz: „Przedstaw się, opisz w 5 punktach, jak będziesz pracować, i zadaj mi 3 pytania, których odpowiedzi poprawią Twoją pracę”. Odpowiedzi dopisz do wiedzy projektu.
 
@@ -43,9 +43,9 @@ Wirtualni pracownicy **nie pamiętają rozmów między czatami**. Pamięcią są
 
 ## 3. Jak przepływa praca (przykłady)
 
-**Hasło encyklopedii / poradnik**
+**Artykuł, poradnik, hasło**
 ```
-Autor SEO: /brief → /haslo lub /poradnik (szkic) → Recenzent: /recenzja → Autor SEO: wersja finalna
+Redaktor SEO: /serp → /brief → /artykul, /poradnik, /porownanie lub /haslo (szkic z oceną 0–100) → Recenzent: /recenzja → Redaktor SEO: wersja finalna
 → Naczelny: akceptacja i publikacja
 → Social: /z-artykulu (pakiet postów) → Recenzent: /szybka (posty z liczbami) → Naczelny planuje publikację
 ```
@@ -75,8 +75,8 @@ Sprzedaż: /lista, /sekwencja → Naczelny: kontakt → Sprzedaż: /rozmowa, /of
 | Dzień | Rano (30–45 min) | W ciągu dnia |
 |---|---|---|
 | Codziennie | Przegląd źródeł → 2–3 newsy (szkic z Claude) → Recenzent `/szybka` → publikacja → newsletter | Odpowiedzi w social media (biblioteka odpowiedzi) |
-| Poniedziałek | Social `/kalendarz` na tydzień; Kampanie `/raport` za poprzedni tydzień | Autor SEO `/backlog` na tydzień; od stycznia `/gsc` (dane z Search Console) |
-| Wtorek–czwartek | Autor SEO: 3–5 szkiców dziennie → Recenzent → akceptacja i publikacja (2–3 godziny dziennie) | Sprzedaż: 3–5 kontaktów tygodniowo (od XI 2026 r.: „partner założycielski”) |
+| Poniedziałek | Social `/kalendarz` na tydzień; Kampanie `/raport` za poprzedni tydzień | Redaktor SEO `/plan` na tydzień; od stycznia `/gsc` (dane z Search Console) |
+| Wtorek–czwartek | Redaktor SEO: 3–5 szkiców dziennie (artykuły, poradniki, hasła) → Recenzent → akceptacja i publikacja (2–3 godziny dziennie) | Sprzedaż: 3–5 kontaktów tygodniowo (od XI 2026 r.: „partner założycielski”) |
 | Piątek | Analityk: przegląd danych tygodnia i wykres na LinkedIn; Sprzedaż `/pipeline` | Dziennik decyzji, aktualizacja kontekstu |
 | Ostatni tydzień miesiąca | Analityk `/barometr` | Raport KPI miesiąca (wszystkie role) |
 

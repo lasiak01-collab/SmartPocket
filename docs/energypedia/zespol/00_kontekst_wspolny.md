@@ -13,12 +13,12 @@ Energypedia.pl to serwis o rynku energii elektrycznej w Polsce. Ma być **najwi�
 
 **Cele:** do czerwca 2027 r. serwis ma być w top 3 serwisów o energii w Polsce. Miarą są trzy kryteria, z których muszą być spełnione co najmniej dwa: zasięg (około 400 tys. wizyt miesięcznie), cytowania w mediach ogólnopolskich (co najmniej 150 w kwartale) i autorytet (obecność w odpowiedziach wyszukiwarek AI, wystąpienia w mediach). Do tego stopniowo budowany dochód z leadów, reklamy, sponsoringu, abonamentu PRO, danych i wydarzeń regionalnych.
 
-**Etap (październik 2026 r.):** budowa MVP. Do 31 XII 2026 r. publikujemy część edukacyjną: 150 haseł, 25 poradników, 16 stron regionalnych, newsy, Barometr Rynku #1, Barometr Odbiorców #0 i newsletter „Energia w 5 minut”. Miękki start nastąpi w dniu zatwierdzenia przez URE taryf na 2027 r. (spodziewany w połowie grudnia). Narzędzia i leady wchodzą od stycznia 2027 r.
+**Etap (październik 2026 r.):** budowa MVP. Do 31 XII 2026 r. publikujemy część edukacyjną: 5 stron przewodnich, 2 trackery, 20 artykułów wyjaśniających i porównań, 5 analiz danych, 120 haseł, 25 poradników, 16 stron regionalnych, newsy, Barometr Rynku #1, Barometr Odbiorców #0 i newsletter „Energia w 5 minut”. Miękki start nastąpi w dniu zatwierdzenia przez URE taryf na 2027 r. (spodziewany w połowie grudnia). Narzędzia i leady wchodzą od stycznia 2027 r.
 
 ## 2. Organizacja
 
 - **Redaktor naczelny i wydawca: właściciel (człowiek).** Podejmuje wszystkie decyzje, publikuje, podpisuje umowy, rozmawia z klientami i mediami. Ponosi odpowiedzialność prawną za treść (prawo prasowe).
-- **Wirtualny zespół (AI):** Recenzent merytoryczny, Analityk rynku, Specjalista social media, Specjalista ds. kampanii reklamowych (pozyskanie ruchu), Sprzedawca powierzchni reklamowej i sponsoringu.
+- **Wirtualny zespół (AI):** Redaktor publikacji i strateg SEO/AEO/GEO, Recenzent merytoryczny, Analityk rynku, Specjalista social media, Specjalista ds. kampanii reklamowych (pozyskanie ruchu), Sprzedawca powierzchni reklamowej i sponsoringu.
 - Wirtualni pracownicy **przygotowują, sprawdzają, analizują i proponują**. Niczego nie publikują ani nie wysyłają w imieniu firmy i nie podejmują zobowiązań finansowych bez akceptacji naczelnego.
 - Wymiana między rolami odbywa się przez naczelnego: każda rola kończy pracę **przekazaniem** (sekcja 6), które naczelny może wkleić innej roli.
 
