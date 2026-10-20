@@ -1,6 +1,6 @@
 # Wirtualny zespół Energypedii: jak go uruchomić i z nim pracować
 
-Ten katalog zawiera prompty dla pięciu wirtualnych pracowników oraz wspólny kontekst firmy. Redaktorem naczelnym i jedyną osobą podejmującą decyzje jest właściciel.
+Ten katalog zawiera prompty dla sześciu wirtualnych pracowników oraz wspólny kontekst firmy. Redaktorem naczelnym i jedyną osobą podejmującą decyzje jest właściciel.
 
 | Plik | Rola | Główne zadania |
 |---|---|---|
@@ -10,12 +10,13 @@ Ten katalog zawiera prompty dla pięciu wirtualnych pracowników oraz wspólny k
 | `03_social_media.md` | Specjalista social media i społeczności | Kalendarz, posty, karuzele, wideo, marka osobista naczelnego, moderacja, kryzysy |
 | `04_specjalista_kampanii.md` | Specjalista ds. kampanii reklamowych (pozyskanie ruchu) | Google/Meta/LinkedIn/TikTok Ads, kreacje, strony docelowe, pomiar, budżety |
 | `05_sprzedawca_reklam.md` | Sprzedawca powierzchni reklamowej, sponsoringu i partnerstw | Media kit, cenniki, lista klientów, oferty, umowy, raporty, odnowienia |
+| `06_autor_seo.md` | Autor bazy wiedzy i redaktor SEO | Mapa tematów, briefy, szkice haseł, poradników, wzorów pism i stron regionalnych, optymalizacja on-page, analiza Search Console, aktualizacje |
 
 ---
 
 ## 1. Uruchomienie (zalecane: osobny projekt dla każdej roli)
 
-W Claude (claude.ai lub aplikacja) utwórz **5 projektów**, np. „EP | Recenzent”, „EP | Analityk”, „EP | Social”, „EP | Kampanie”, „EP | Sprzedaż”. W każdym:
+W Claude (claude.ai lub aplikacja) utwórz **6 projektów**, np. „EP | Recenzent”, „EP | Analityk”, „EP | Social”, „EP | Kampanie”, „EP | Sprzedaż”, „EP | Autor SEO”. W każdym:
 
 1. **Instrukcje projektu:** wklej całą zawartość pliku roli (np. `01_recenzent.md`).
 2. **Wiedza projektu (pliki):**
@@ -26,7 +27,8 @@ W Claude (claude.ai lub aplikacja) utwórz **5 projektów**, np. „EP | Recenze
      - Analityk: metodyki wskaźników, poprzednie Barometry, pliki danych CSV, kwestionariusz badania;
      - Social: kalendarz wydarzeń, biblioteka odpowiedzi, statystyki z poprzedniego miesiąca;
      - Kampanie: plan pomiaru, eksporty wyników kampanii, ceny leadów;
-     - Sprzedaż: aktualny media kit, cennik, pipeline, wzory umów.
+     - Sprzedaż: aktualny media kit, cennik, pipeline, wzory umów;
+     - Autor SEO: mapa tematów i backlog, przewodnik stylu, lista opublikowanych adresów (do linkowania), eksporty z Google Search Console.
 3. **Narzędzia:** włącz **wyszukiwanie w sieci** we wszystkich projektach (fakty zmieniają się szybko). U Analityka włącz też **analizę danych / wykonywanie kodu**.
 4. **Test startowy:** w każdym projekcie napisz: „Przedstaw się, opisz w 5 punktach, jak będziesz pracować, i zadaj mi 3 pytania, których odpowiedzi poprawią Twoją pracę”. Odpowiedzi dopisz do wiedzy projektu.
 
@@ -43,7 +45,8 @@ Wirtualni pracownicy **nie pamiętają rozmów między czatami**. Pamięcią są
 
 **Hasło encyklopedii / poradnik**
 ```
-Naczelny (z Claude) pisze szkic wg szablonu → Recenzent: /recenzja → Naczelny poprawia i publikuje
+Autor SEO: /brief → /haslo lub /poradnik (szkic) → Recenzent: /recenzja → Autor SEO: wersja finalna
+→ Naczelny: akceptacja i publikacja
 → Social: /z-artykulu (pakiet postów) → Recenzent: /szybka (posty z liczbami) → Naczelny planuje publikację
 ```
 
@@ -72,8 +75,8 @@ Sprzedaż: /lista, /sekwencja → Naczelny: kontakt → Sprzedaż: /rozmowa, /of
 | Dzień | Rano (30–45 min) | W ciągu dnia |
 |---|---|---|
 | Codziennie | Przegląd źródeł → 2–3 newsy (szkic z Claude) → Recenzent `/szybka` → publikacja → newsletter | Odpowiedzi w social media (biblioteka odpowiedzi) |
-| Poniedziałek | Social `/kalendarz` na tydzień; Kampanie `/raport` za poprzedni tydzień | Plan treści bazy wiedzy (5–10 haseł w tygodniu) |
-| Wtorek–czwartek | Bloki pisania haseł i poradników (2–3 godziny dziennie) z Recenzentem | Sprzedaż: 3–5 kontaktów tygodniowo (od XI 2026 r.: „partner założycielski”) |
+| Poniedziałek | Social `/kalendarz` na tydzień; Kampanie `/raport` za poprzedni tydzień | Autor SEO `/backlog` na tydzień; od stycznia `/gsc` (dane z Search Console) |
+| Wtorek–czwartek | Autor SEO: 3–5 szkiców dziennie → Recenzent → akceptacja i publikacja (2–3 godziny dziennie) | Sprzedaż: 3–5 kontaktów tygodniowo (od XI 2026 r.: „partner założycielski”) |
 | Piątek | Analityk: przegląd danych tygodnia i wykres na LinkedIn; Sprzedaż `/pipeline` | Dziennik decyzji, aktualizacja kontekstu |
 | Ostatni tydzień miesiąca | Analityk `/barometr` | Raport KPI miesiąca (wszystkie role) |
 
@@ -87,6 +90,5 @@ Sprzedaż: /lista, /sekwencja → Naczelny: kontakt → Sprzedaż: /rozmowa, /of
 
 ## 6. Kolejne role, które warto dodać (gdy będzie potrzeba)
 
-- **Autor bazy wiedzy / redaktor SEO**: pisze szkice haseł i poradników według szablonów, mapy tematów i danych z Search Console (największe odciążenie przy produkcji 150 haseł).
 - **Opiekun partnerów leadowych** (od 2027 r.): standardy jakości leadów, reklamacje, raporty dla sprzedawców energii.
 - **Koordynator PR i relacji z mediami**: informacje prasowe, baza dziennikarzy, monitoring cytowań.
