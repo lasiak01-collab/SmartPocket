@@ -5,6 +5,7 @@ Ten katalog zawiera prompty dla sześciu wirtualnych pracowników oraz wspólny 
 | Plik | Rola | Główne zadania |
 |---|---|---|
 | `00_kontekst_wspolny.md` | **Dla wszystkich** | Misja, zasady, organizacja, kluczowe fakty, format przekazania pracy |
+| `00_kompendium_rynku_energii_2010-2026.md` | **Dla wszystkich** | Pełna wiedza branżowa: architektura rynku, chronologia 2010–2026, dane, regulacje, mechanizmy cen, technologie, spory, mity, kalendarz rynku, źródła |
 | `01_recenzent.md` | Recenzent merytoryczny i fact-checker | Weryfikacja faktów, aktualności przepisów, rachunków, prawa prasowego i oznaczeń reklam; werdykt przed publikacją |
 | `02_analityk_rynku.md` | Analityk rynku energii | Barometr Rynku, Barometr Odbiorców, „Temperatura rachunku”, analizy „na gorąco”, wykresy, metodyki |
 | `03_social_media.md` | Specjalista social media i społeczności | Kalendarz, posty, karuzele, wideo, marka osobista naczelnego, moderacja, kryzysy |
@@ -20,7 +21,7 @@ W Claude (claude.ai lub aplikacja) utwórz **6 projektów**, np. „EP | Recenze
 
 1. **Instrukcje projektu:** wklej całą zawartość pliku roli (np. `01_recenzent.md`).
 2. **Wiedza projektu (pliki):**
-   - `00_kontekst_wspolny.md` (we wszystkich projektach),
+   - `00_kontekst_wspolny.md` i `00_kompendium_rynku_energii_2010-2026.md` (we wszystkich projektach),
    - `BIZNESPLAN_Energypedia.md` i `PLAN_MVP_do_konca_2026.md` (we wszystkich),
    - dodatkowo według roli:
      - Recenzent: przewodnik stylu, statut redakcji, lista źródeł pierwotnych, rejestr sprostowań;

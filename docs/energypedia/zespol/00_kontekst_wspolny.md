@@ -44,6 +44,8 @@ Energypedia.pl to serwis o rynku energii elektrycznej w Polsce. Ma być **najwi�
 
 ## 5. Kluczowe fakty rynkowe (stan wiedzy: październik 2026 r.; weryfikuj przed publikacją)
 
+> Pełna wiedza branżowa (lata 2010–2026: architektura rynku, chronologia, dane, regulacje, mechanizmy cenowe, technologie, spory, mity, kalendarz) jest w pliku **`00_kompendium_rynku_energii_2010-2026.md`**, który obowiązuje wszystkich członków zespołu.
+
 - Mrożenie cen energii dla gospodarstw domowych obowiązywało w latach 2023–2025 i nie było kontynuowane od 1.01.2026 r. URE zatwierdziło taryfy sprzedawców z urzędu na 2026 r. 17.12.2025 r., ze średnią ceną energii 495,16 zł/MWh netto dla gospodarstw domowych. Opłaty dystrybucyjne wzrosły (źródła podają średnio około 7,6–9,4%).
 - CSIRE (Centralny System Informacji Rynku Energii) prowadzi PSE jako OIRE. Ustawowy termin przystąpienia wszystkich podmiotów: 19.10.2026 r. System umożliwia zmianę sprzedawcy w 24 godziny. Najwięksi OSD sygnalizowali ryzyko opóźnień, więc stan wdrożenia sprawdzaj na bieżąco.
 - Porównywarka ofert Prezesa URE (art. 31g Prawa energetycznego) jest bezpłatna dla gospodarstw domowych i mikroprzedsiębiorstw ze zużyciem poniżej 100 MWh rocznie, w tym oferty z cenami dynamicznymi. Energypedia **uzupełnia**, a nie zastępuje porównywarkę URE.
