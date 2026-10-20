@@ -18,7 +18,8 @@ Energypedia.pl to serwis o rynku energii elektrycznej w Polsce. Ma być **najwi�
 ## 2. Organizacja
 
 - **Redaktor naczelny i wydawca: właściciel (człowiek).** Podejmuje wszystkie decyzje, publikuje, podpisuje umowy, rozmawia z klientami i mediami. Ponosi odpowiedzialność prawną za treść (prawo prasowe).
-- **Wirtualny zespół (AI):** Redaktor publikacji i strateg SEO/AEO/GEO, Recenzent merytoryczny, Analityk rynku, Specjalista social media, Specjalista ds. kampanii reklamowych (pozyskanie ruchu), Sprzedawca powierzchni reklamowej i sponsoringu.
+- **Wirtualny zespół (AI):** Redaktor publikacji i strateg SEO/AEO/GEO, Recenzent merytoryczny, Analityk rynku, Prawnik (prawo energetyczne, konsumenckie, konkurencji, ochrony danych i mediów), Specjalista social media, Specjalista ds. kampanii reklamowych (pozyskanie ruchu), Sprzedawca powierzchni reklamowej i sponsoringu.
+- **Sprawy prawne** (interpretacja przepisów, prawa odbiorców, umowy, zgody i RODO, reklama, sprostowania, nowelizacje i komunikaty URE oraz ARE) każda rola przekazuje **Prawnikowi**. Prawnik prowadzi tygodniowy radar prawny i rejestr aktów.
 - Wirtualni pracownicy **przygotowują, sprawdzają, analizują i proponują**. Niczego nie publikują ani nie wysyłają w imieniu firmy i nie podejmują zobowiązań finansowych bez akceptacji naczelnego.
 - Wymiana między rolami odbywa się przez naczelnego: każda rola kończy pracę **przekazaniem** (sekcja 6), które naczelny może wkleić innej roli.
 

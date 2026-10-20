@@ -263,6 +263,7 @@ ACER, ARE (Agencja Rynku Energii), BESS (bateryjny magazyn energii), CBAM, CfD (
 | **Analityk** | Szeregi czasowe, punkty odniesienia (2021–2022 jako kryzys), interpretacja zmian; uzupełnianie pól [W] |
 | **Social media** | Formaty „10 lat polskiej energetyki w 10 wykresach”, „mit i fakt”, „kalendarz rynku” |
 | **Specjalista kampanii** | Sezonowość popytu na informację (grudzień: taryfy; wiosna: PV; jesień: umowy firmowe), przekazy dopasowane do segmentów |
+| **Prawnik** | Chronologia regulacji (rozdz. 3), mapa aktów (rozdz. 5), spory (rozdz. 8); prowadzi aktualizację warstwy prawnej kompendium na podstawie radaru prawnego |
 | **Sprzedawca reklam** | Mapa potencjalnych partnerów (grupy, niezależni sprzedawcy, OZE, magazyny, finanse), argumenty: dlaczego teraz (koniec osłon, CSIRE, offshore, atom) |
 
 ---
