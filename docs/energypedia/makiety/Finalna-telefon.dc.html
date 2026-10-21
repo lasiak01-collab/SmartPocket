@@ -32,6 +32,10 @@ button{cursor:pointer}
 @keyframes epGrowX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @keyframes epRead{0%{transform:scaleX(1)}30%{transform:scaleX(1.12)}55%{transform:scaleX(.92)}80%{transform:scaleX(1.05)}100%{transform:scaleX(1)}}
 @media (prefers-reduced-motion: reduce){.ep-e rect{animation:none !important}}
+.ep-sheet{transition:transform .28s cubic-bezier(.2,.8,.2,1)}
+.ep-scrim{transition:opacity .2s ease}
+.ep-tab:active{transform:scale(.96)}
+@media (prefers-reduced-motion: reduce){.ep-sheet,.ep-scrim{transition:none}}
 </style>
 </helmet>
 <div style="{{rootStyle}}">
@@ -181,22 +185,115 @@ button{cursor:pointer}
     <a href="#">Ustawienia zgód</a>
   </footer>
 
+
   <sc-if value="{{showAds}}" hint-placeholder-val="{{ true }}">
-    <div style="position: absolute; left: 0; right: 0; bottom: 64px; height: 58px; background: var(--ep-surface); border-top: 1px solid var(--ep-line); display: flex; align-items: center; justify-content: center; gap: 8px">
+    <div style="position: absolute; left: 0; right: 0; bottom: 84px; z-index: 9; height: 58px; background: var(--ep-surface); border-top: 1px solid var(--ep-line); align-items: center; justify-content: center; gap: 8px; display: flex; {{mAdStyle}}">
       <div style="width: 300px; height: 50px; border: 2px dashed var(--ep-ad-line); border-radius: 6px; background: var(--ep-ad-bg); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--ep-ink2)">REKLAMA · EP_M_STICKY 320×50</div>
       <button type="button" aria-label="Zamknij reklamę" style="width: 44px; height: 44px; border: 1px solid var(--ep-line); border-radius: 999px; background: var(--ep-surface); font-size: 18px">×</button>
     </div>
   </sc-if>
+  <div class="ep-scrim" onClick="{{mClose}}" aria-hidden="true" style="{{mScrimStyle}}"></div>
 
-  <nav aria-label="Nawigacja dolna" style="position: absolute; left: 0; right: 0; bottom: 0; height: 64px; background: var(--ep-surface); border-top: 1px solid var(--ep-line); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); font-size: 12px; font-weight: 600">
-    <a href="#" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: var(--ep-accent-ink)">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20 L16 16"></path></svg>Szukaj</a>
-    <a href="#" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5 H10 A2 2 0 0 1 12 7 V20 A2 2 0 0 0 10 18 H4 Z"></path><path d="M20 5 H14 A2 2 0 0 0 12 7 V20 A2 2 0 0 1 14 18 H20 Z"></path></svg>Wiedza</a>
-    <a href="#" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"></rect><path d="M8 7 H16"></path><path d="M8 11 H10"></path><path d="M14 11 H16"></path><path d="M8 15 H10"></path><path d="M14 15 H16"></path></svg>Narzędzia</a>
-    <a href="#" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7 L12 13 L21 7"></path></svg>Newsletter</a>
+  <section class="ep-sheet" role="dialog" aria-modal="true" aria-labelledby="ep-sheet-title" style="{{mSheetStyle}}">
+    <div style="display: flex; justify-content: center; padding-top: 8px"><span style="width: 40px; height: 4px; border-radius: 999px; background: var(--ep-line2)"></span></div>
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 16px 4px 20px">
+      <h2 id="ep-sheet-title" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.02em">{{mSheetTitle}}</h2>
+      <button type="button" aria-label="Zamknij panel" onClick="{{mClose}}" style="width: 44px; height: 44px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18"></path></svg></button>
+    </div>
+
+    <sc-if value="{{mIsNowe}}" hint-placeholder-val="{{ false }}">
+      <div role="group" aria-label="Filtr sekcji" style="display: flex; gap: 8px; overflow-x: auto; padding: 4px 20px 12px">
+        <sc-for list="{{mFilters}}" as="f" hint-placeholder-count="5">
+          <button type="button" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}" style="{{f.style}}">{{f.label}}</button>
+        </sc-for>
+      </div>
+      <ul style="margin: 0; padding: 0 20px 16px; list-style: none; display: flex; flex-direction: column">
+        <sc-for list="{{mNews}}" as="n" hint-placeholder-count="6">
+          <li style="border-top: 1px solid var(--ep-line)">
+            <a href="#" style="display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 10px; padding: 12px 0; min-height: 44px">
+              <span style="{{n.timeStyle}}">{{n.time}}</span>
+              <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600; line-height: 1.35">{{n.title}}</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--ep-ink2)">{{n.section}}</span></span>
+            </a>
+          </li>
+        </sc-for>
+      </ul>
+    </sc-if>
+
+    <sc-if value="{{mIsDane}}" hint-placeholder-val="{{ false }}">
+      <div style="padding: 4px 20px 16px; display: flex; flex-direction: column; gap: 10px">
+        <span style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ep-ink2)"><span class="ep-live" style="width: 8px; height: 8px; border-radius: 999px; background: #00C2A8"></span>Barometr Rynku Energii · aktualizacja: [data, godzina]</span>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+          <sc-for list="{{mTiles}}" as="t" hint-placeholder-count="4">
+            <a href="#" style="border: 1px solid var(--ep-line); border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 2px">
+              <span style="font-size: 12px; color: var(--ep-ink2); line-height: 1.3">{{t.label}}</span>
+              <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; font-variant-numeric: tabular-nums">{{t.value}}</span>
+              <span style="font-size: 11px; color: var(--ep-ink2); line-height: 1.3">{{t.note}}</span>
+            </a>
+          </sc-for>
+        </div>
+        <a href="#" style="align-self: flex-start; font-weight: 600; color: var(--ep-accent-ink); min-height: 44px; display: flex; align-items: center">Cały Barometr →</a>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{mIsWiecej}}" hint-placeholder-val="{{ false }}">
+      <div style="padding: 4px 12px 8px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px">
+        <sc-for list="{{mShortcuts}}" as="s" hint-placeholder-count="8">
+          <a href="#" style="min-height: 72px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; border-radius: 12px; font-size: 13px; font-weight: 600; text-align: center">
+            <span style="width: 40px; height: 40px; border-radius: 12px; background: var(--ep-soft); display: flex; align-items: center; justify-content: center; color: var(--ep-ink)">
+              <sc-if value="{{s.iWiedza}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5 H10 A2 2 0 0 1 12 7 V20 A2 2 0 0 0 10 18 H4 Z"></path><path d="M20 5 H14 A2 2 0 0 0 12 7 V20 A2 2 0 0 1 14 18 H20 Z"></path></svg></sc-if>
+              <sc-if value="{{s.iNarzedzia}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"></rect><path d="M8 7 H16"></path><path d="M8 11 H10"></path><path d="M14 11 H16"></path><path d="M8 15 H10"></path><path d="M14 15 H16"></path></svg></sc-if>
+              <sc-if value="{{s.iRegiony}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21 C12 21 5 14.5 5 9.5 A7 7 0 0 1 19 9.5 C19 14.5 12 21 12 21 Z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></sc-if>
+              <sc-if value="{{s.iTrackery}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12 H7 L10 5 L14 19 L17 12 H21"></path></svg></sc-if>
+              <sc-if value="{{s.iNewsletter}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7 L12 13 L21 7"></path></svg></sc-if>
+              <sc-if value="{{s.iZapytaj}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20 L16 16"></path></svg></sc-if>
+              <sc-if value="{{s.iDane}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 20 V13"></path><path d="M12 20 V6"></path><path d="M19 20 V10"></path></svg></sc-if>
+              <sc-if value="{{s.iNowe}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5 V12 L15 14"></path></svg></sc-if>
+            </span>
+            {{s.label}}
+          </a>
+        </sc-for>
+      </div>
+      <div style="margin: 0 20px 16px; padding: 14px 16px; border-radius: 14px; background: var(--ep-muted); display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+          <span style="display: flex; flex-direction: column"><strong style="font-size: 15px">Twój pasek</strong><span style="font-size: 13px; color: var(--ep-ink2)">Wybierz 3 skróty. Start i Więcej zostają.</span></span>
+          <button type="button" aria-pressed="{{mEditPressed}}" onClick="{{mToggleEdit}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--ep-line2); background: var(--ep-surface); font-weight: 600; font-size: 14px">{{mEditLabel}}</button>
+        </div>
+        <sc-if value="{{mEditing}}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <sc-for list="{{mCatalog}}" as="c" hint-placeholder-count="8">
+              <button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.toggle}}" style="{{c.style}}">{{c.mark}} {{c.label}}</button>
+            </sc-for>
+          </div>
+          <span aria-live="polite" style="font-size: 13px; color: var(--ep-ink2)">{{mEditHint}}</span>
+        </sc-if>
+      </div>
+    </sc-if>
+  </section>
+
+  <nav aria-label="Menu dolne" style="position: absolute; left: 0; right: 0; bottom: 0; z-index: 12; background: var(--ep-surface); border-top: 1px solid var(--ep-line); padding: 6px 4px 22px; display: grid; {{mNavCols}}">
+    <a href="#" aria-label="Energypedia – strona główna" onClick="{{mGoStart}}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 56px">
+      <span style="width: 48px; height: 40px; border-radius: 12px; background: #0B1B33; display: flex; align-items: center; justify-content: center">
+        <svg width="24" height="24" viewBox="18 18 72 72" aria-hidden="true"><g class="ep-e ep-anim"><rect class="spine" x="18" y="18" width="18" height="72" rx="6" fill="#FFFFFF"></rect><rect class="top" x="18" y="18" width="72" height="18" rx="6" fill="#FFFFFF"></rect><rect class="mid" x="44" y="45" width="40" height="18" rx="6" fill="#00C2A8"></rect><rect class="bot" x="18" y="72" width="60" height="18" rx="6" fill="#FFFFFF"></rect></g></svg>
+      </span>
+    </a>
+    <sc-for list="{{mTabs}}" as="t" hint-placeholder-count="4">
+      <button type="button" class="ep-tab" aria-expanded="{{t.expanded}}" aria-current="{{t.current}}" onClick="{{t.pick}}" style="{{t.style}}">
+        <span style="{{t.barStyle}}"></span>
+        <span style="position: relative; display: flex">
+          <sc-if value="{{t.iZapytaj}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20 L16 16"></path></svg></sc-if>
+          <sc-if value="{{t.iDane}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 20 V13"></path><path d="M12 20 V6"></path><path d="M19 20 V10"></path></svg></sc-if>
+          <sc-if value="{{t.iNowe}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5 V12 L15 14"></path></svg></sc-if>
+          <sc-if value="{{t.iWiedza}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5 H10 A2 2 0 0 1 12 7 V20 A2 2 0 0 0 10 18 H4 Z"></path><path d="M20 5 H14 A2 2 0 0 0 12 7 V20 A2 2 0 0 1 14 18 H20 Z"></path></svg></sc-if>
+          <sc-if value="{{t.iNarzedzia}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"></rect><path d="M8 7 H16"></path><path d="M8 11 H10"></path><path d="M14 11 H16"></path><path d="M8 15 H10"></path><path d="M14 15 H16"></path></svg></sc-if>
+          <sc-if value="{{t.iRegiony}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21 C12 21 5 14.5 5 9.5 A7 7 0 0 1 19 9.5 C19 14.5 12 21 12 21 Z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></sc-if>
+          <sc-if value="{{t.iTrackery}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12 H7 L10 5 L14 19 L17 12 H21"></path></svg></sc-if>
+          <sc-if value="{{t.iNewsletter}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7 L12 13 L21 7"></path></svg></sc-if>
+          <sc-if value="{{t.iWiecej}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle></svg></sc-if>
+          <sc-if value="{{t.live}}" hint-placeholder-val="{{ false }}"><span class="ep-live" style="position: absolute; right: -4px; top: -2px; width: 8px; height: 8px; border-radius: 999px; background: #00C2A8; border: 2px solid var(--ep-surface)"></span></sc-if>
+        </span>
+        <span style="font-size: 12px; font-weight: 600">{{t.label}}</span>
+      </button>
+    </sc-for>
   </nav>
 </div>
 </x-dc>
@@ -205,6 +302,7 @@ class Component extends DCLogic {
   constructor(props) {
     super(props);
     this.state = { q: 0, seg: 0, region: 'mazowieckie', w: 0, dark: null };
+    this.state.menu = { sheet: null, active: null, pinned: ['zapytaj', 'dane', 'nowe'], filter: 'all', editing: false };
   }
   componentDidMount() {
     const reduce = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -217,6 +315,80 @@ class Component extends DCLogic {
   }
   componentWillUnmount() {
     if (this.timer) clearInterval(this.timer);
+  }
+  menuVals() {
+    const s = this.state.menu;
+    const set = (patch) => this.setState({ menu: Object.assign({}, s, patch) });
+    const CAT = {
+      zapytaj: { label: 'Zapytaj' }, dane: { label: 'Dane', sheet: 'dane', live: true }, nowe: { label: 'Nowe', sheet: 'nowe' },
+      wiedza: { label: 'Wiedza' }, narzedzia: { label: 'Narzędzia' }, regiony: { label: 'Regiony' },
+      trackery: { label: 'Trackery' }, newsletter: { label: 'Newsletter' }, wiecej: { label: 'Więcej', sheet: 'wiecej' }
+    };
+    const icon = (id) => ({ iZapytaj: id === 'zapytaj', iDane: id === 'dane', iNowe: id === 'nowe', iWiedza: id === 'wiedza', iNarzedzia: id === 'narzedzia', iRegiony: id === 'regiony', iTrackery: id === 'trackery', iNewsletter: id === 'newsletter', iWiecej: id === 'wiecej' });
+    const open = (id) => {
+      const c = CAT[id];
+      if (c.sheet) set({ sheet: s.sheet === c.sheet ? null : c.sheet, active: s.sheet === c.sheet ? null : id, editing: false });
+      else set({ sheet: null, active: id, editing: false });
+    };
+    const tabIds = s.pinned.concat(['wiecej']);
+    const sheetOpen = !!s.sheet;
+    const titles = { nowe: 'Najnowsze', dane: 'Energia dziś', wiecej: 'Więcej skrótów' };
+    const news = [
+      { t: '4 min', fresh: true, title: 'Taryfy na prąd 2027: czego spodziewać się przed decyzją URE', sec: 'wiadomosci', secLabel: 'WIADOMOŚCI' },
+      { t: '18 min', fresh: true, title: 'Jak czytać rachunek za prąd: pozycja po pozycji', sec: 'poradniki', secLabel: 'PORADNIK' },
+      { t: '21:40', title: 'CSIRE i zmiana sprzedawcy w 24 godziny: co już działa', sec: 'trackery', secLabel: 'TRACKER' },
+      { t: '20:15', title: 'Opłata mocowa w 2026 r.: kto i ile płaci', sec: 'wiedza', secLabel: 'HASŁO' },
+      { t: '18:02', title: 'G11 czy G12: kiedy taryfa dwustrefowa się opłaca', sec: 'poradniki', secLabel: 'PORADNIK' },
+      { t: '16:30', title: 'Umowa od akwizytora: jak odstąpić w 14 lub 30 dni', sec: 'poradniki', secLabel: 'PORADNIK' }
+    ];
+    const filterDefs = [['all', 'Wszystko'], ['wiadomosci', 'Wiadomości'], ['poradniki', 'Poradniki'], ['trackery', 'Trackery'], ['wiedza', 'Wiedza']];
+    const chipOn = 'flex: 0 0 auto; min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--ep-ink); background: var(--ep-ink); color: var(--ep-bg); font-size: 14px; font-weight: 600';
+    const chipOff = 'flex: 0 0 auto; min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--ep-line2); background: var(--ep-surface); color: var(--ep-ink); font-size: 14px; font-weight: 500';
+    const pinIds = ['zapytaj', 'dane', 'nowe', 'wiedza', 'narzedzia', 'regiony', 'trackery', 'newsletter'];
+    const full = s.pinned.length >= 3;
+    return {
+      mAdStyle: sheetOpen ? 'display: none' : '',
+      mNavCols: 'grid-template-columns: repeat(' + (tabIds.length + 1) + ', minmax(0, 1fr))',
+      mScrimStyle: 'position: absolute; inset: 0; z-index: 10; background: rgba(11, 27, 51, 0.45); opacity: ' + (sheetOpen ? '1' : '0') + '; pointer-events: ' + (sheetOpen ? 'auto' : 'none'),
+      mSheetStyle: 'position: absolute; left: 0; right: 0; bottom: 84px; z-index: 11; max-height: 640px; overflow-y: auto; background: var(--ep-surface); color: var(--ep-ink); border-radius: 20px 20px 0 0; box-shadow: 0 -8px 24px rgba(11, 27, 51, 0.12); transform: translateY(' + (sheetOpen ? '0' : 'calc(100% + 100px)') + ')' + (sheetOpen ? '' : '; visibility: hidden'),
+      mSheetTitle: titles[s.sheet] || '',
+      mIsNowe: s.sheet === 'nowe', mIsDane: s.sheet === 'dane', mIsWiecej: s.sheet === 'wiecej',
+      mClose: () => set({ sheet: null, active: null, editing: false }),
+      mGoStart: (e) => { if (e && e.preventDefault) e.preventDefault(); set({ sheet: null, active: null, editing: false }); },
+      mTabs: tabIds.map((id) => {
+        const on = s.active === id;
+        return Object.assign({
+          label: CAT[id].label, live: !!CAT[id].live,
+          expanded: CAT[id].sheet ? (s.sheet === CAT[id].sheet ? 'true' : 'false') : null,
+          current: on && !CAT[id].sheet ? 'page' : 'false',
+          pick: () => open(id),
+          style: 'position: relative; min-height: 56px; border: 0; background: transparent; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: ' + (on ? 'var(--ep-accent-ink)' : 'var(--ep-ink)'),
+          barStyle: 'position: absolute; top: -6px; left: 50%; transform: translateX(-50%); height: 4px; border-radius: 0 0 3px 3px; background: #00C2A8; width: ' + (on ? '28px' : '0')
+        }, icon(id));
+      }),
+      mFilters: filterDefs.map(([id, label]) => ({ label: label, pressed: s.filter === id ? 'true' : 'false', style: s.filter === id ? chipOn : chipOff, pick: () => set({ filter: id }) })),
+      mNews: news.filter((n) => s.filter === 'all' || n.sec === s.filter).map((n) => ({ time: n.t, title: n.title, section: n.secLabel, timeStyle: 'font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; color: ' + (n.fresh ? 'var(--ep-accent-ink)' : 'var(--ep-ink2)') })),
+      mTiles: [
+        { label: 'Taryfa dla domów 2026 (średnio)', value: '495,16 zł/MWh', note: 'netto · decyzja Prezesa URE z 17.12.2025 r.' },
+        { label: 'Prąd na giełdzie wczoraj (RDN)', value: '[… zł/MWh]', note: 'TGE · aktualizacja codzienna' },
+        { label: 'Opłata mocowa 2026 (1200–2800 kWh)', value: '17,18 zł/mies.', note: 'netto · Prezes URE' },
+        { label: 'Zmiany sprzedawcy', value: '[liczba]', note: 'URE · ostatni kwartał' }
+      ],
+      mShortcuts: ['wiedza', 'narzedzia', 'regiony', 'trackery', 'newsletter', 'zapytaj', 'dane', 'nowe'].map((id) => Object.assign({ label: CAT[id].label }, icon(id))),
+      mEditing: s.editing,
+      mEditPressed: s.editing ? 'true' : 'false',
+      mEditLabel: s.editing ? 'Gotowe' : 'Dostosuj',
+      mToggleEdit: () => set({ editing: !s.editing }),
+      mEditHint: full ? 'Masz 3 skróty. Odepnij jeden, żeby dodać inny.' : 'Wybierz jeszcze ' + (3 - s.pinned.length) + '.',
+      mCatalog: pinIds.map((id) => {
+        const on = s.pinned.indexOf(id) >= 0;
+        return {
+          label: CAT[id].label, mark: on ? '✓' : '+', pressed: on ? 'true' : 'false',
+          style: 'min-height: 40px; padding: 0 14px; border-radius: 999px; font-size: 14px; font-weight: 600; ' + (on ? 'border: 2px solid var(--ep-accent-ink); background: var(--ep-soft); color: var(--ep-ink)' : 'border: 1px solid var(--ep-line2); background: var(--ep-surface); color: ' + (full ? 'var(--ep-ink2)' : 'var(--ep-ink)')),
+          toggle: () => { const p = s.pinned.slice(); const k = p.indexOf(id); if (k >= 0) p.splice(k, 1); else if (p.length < 3) p.push(id); set({ pinned: p }); }
+        };
+      })
+    };
   }
   renderVals() {
     const dark = this.state.dark === null ? (this.props.theme === 'ciemny') : this.state.dark;
@@ -248,7 +420,7 @@ class Component extends DCLogic {
     const sOn = 'text-align: left; border: 2px solid var(--ep-accent-ink); background: var(--ep-soft); color: var(--ep-ink); border-radius: 14px; padding: 14px; min-height: 76px; display: flex; flex-direction: column; gap: 2px';
     const sOff = 'text-align: left; border: 1px solid var(--ep-line); background: var(--ep-surface); color: var(--ep-ink); border-radius: 14px; padding: 15px; min-height: 76px; display: flex; flex-direction: column; gap: 2px';
     const cur = qs[this.state.q];
-    return {
+    return Object.assign(this.menuVals(), {
       rootStyle: rootStyle,
       isDark: dark,
       isLight: !dark,
@@ -282,7 +454,7 @@ class Component extends DCLogic {
         { q: 'Czy zmiana sprzedawcy zmienia operatora sieci?', a: 'Nie, operator sieci zostaje ten sam.' },
         { q: 'Czy taryfa dynamiczna się opłaca?', a: 'Tylko gdy możesz przesuwać zużycie.' }
       ]
-    };
+    });
   }
 }
 </script>
