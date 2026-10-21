@@ -63,7 +63,7 @@ button{cursor:pointer}
       <div style="display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: flex-end; justify-content: space-between">
         <div style="flex: 1 1 560px; display: flex; flex-direction: column; gap: 8px">
           <h1 id="h-tool" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 29px; line-height: 1.15; letter-spacing: -0.025em">Porównaj oferty prądu po <span style="color: var(--ep-accent-ink)">pełnym koszcie umowy</span></h1>
-          <p style="margin: 0; font-size: 16px; color: var(--ep-ink2)">Cena, opłata handlowa, obowiązkowe usługi, kary i automatyczne przedłużenie — w jednym wyniku. Punkt odniesienia: taryfa zatwierdzona przez Prezesa URE.</p>
+          <p style="margin: 0; font-size: 16px; color: var(--ep-ink2)">Cena, opłata handlowa, obowiązkowe usługi, kary i automatyczne przedłużenie – w jednym wyniku. Punkt odniesienia: taryfa zatwierdzona przez Prezesa URE.</p>
         </div>
         <div style="flex: 0 1 360px; background: var(--ep-surface); border: 1px solid var(--ep-line); border-radius: 14px; padding: 14px 16px; font-size: 14px; display: flex; flex-direction: column; gap: 4px">
           <strong>Ranking według kosztu, nie prowizji</strong>
@@ -107,9 +107,9 @@ button{cursor:pointer}
       <div style="display: flex; flex-direction: column; gap: 6px">
         <label for="taryfa" style="font-size: 14px; font-weight: 600">Grupa taryfowa</label>
         <select id="taryfa" style="height: 44px; border-radius: 10px; border: 1px solid var(--ep-line2); background: var(--ep-surface); padding: 0 12px; font-size: 16px">
-          <option>G11 — jedna strefa</option>
-          <option>G12 — dzień i noc</option>
-          <option>G12w — z weekendem</option>
+          <option>G11 – jedna strefa</option>
+          <option>G12 – dzień i noc</option>
+          <option>G12w – z weekendem</option>
           <option>Taryfa dynamiczna</option>
         </select>
       </div>
@@ -125,7 +125,7 @@ button{cursor:pointer}
 
       <fieldset style="border: 0; margin: 0; padding: 14px; border-radius: 14px; background: var(--ep-muted); display: flex; flex-direction: column; gap: 8px">
         <legend style="font-size: 14px; font-weight: 700; padding: 0; float: left; width: 100%">Masz ofertę od akwizytora?</legend>
-        <span style="font-size: 13px; color: var(--ep-ink2)">Wpisz jej warunki — pokażemy ją w rankingu.</span>
+        <span style="font-size: 13px; color: var(--ep-ink2)">Wpisz jej warunki – pokażemy ją w rankingu.</span>
         <div style="display: flex; gap: 8px">
           <div style="flex: 1 1 0; display: flex; flex-direction: column; gap: 4px; min-width: 0">
             <label for="my-p" style="font-size: 13px; font-weight: 600">Cena zł/kWh netto</label>
@@ -273,7 +273,7 @@ button{cursor:pointer}
         <div style="display: flex; flex-wrap: wrap; gap: 12px">
           <a href="#" class="ep-card" style="flex: 1 1 240px; background: var(--ep-surface); border: 1px solid var(--ep-line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 6px; text-decoration: none"><span style="font-size: 12px; font-weight: 700; color: var(--ep-accent-ink)">PORADNIK</span><span style="font-weight: 700">Umowa z akwizytorem: odstąpisz w 14 lub 30 dni</span></a>
           <a href="#" class="ep-card" style="flex: 1 1 240px; background: var(--ep-surface); border: 1px solid var(--ep-line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 6px; text-decoration: none"><span style="font-size: 12px; font-weight: 700; color: var(--ep-accent-ink)">CHECKLISTA</span><span style="font-weight: 700">Umowa na prąd: 10 zapisów do sprawdzenia</span></a>
-          <a href="#" class="ep-card" style="flex: 1 1 240px; background: var(--ep-surface); border: 1px solid var(--ep-line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 6px; text-decoration: none"><span style="font-size: 12px; font-weight: 700; color: var(--ep-accent-ink)">KALKULATOR</span><span style="font-weight: 700">G11 czy G12 — która taryfa dla Ciebie</span></a>
+          <a href="#" class="ep-card" style="flex: 1 1 240px; background: var(--ep-surface); border: 1px solid var(--ep-line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 6px; text-decoration: none"><span style="font-size: 12px; font-weight: 700; color: var(--ep-accent-ink)">KALKULATOR</span><span style="font-weight: 700">G11 czy G12 – która taryfa dla Ciebie</span></a>
         </div>
       </section>
     </section>
@@ -346,11 +346,11 @@ class Component extends DCLogic {
       const y = yearCost(o);
       const d = y - ref;
       const warnings = [];
-      if (o.fixed === false) warnings.push('Cena zmienna — sprzedawca może ją podnieść w trakcie umowy');
+      if (o.fixed === false) warnings.push('Cena zmienna – sprzedawca może ją podnieść w trakcie umowy');
       if (o.penalty) warnings.push('Kara za zerwanie: ' + o.penalty + ' zł');
       if (o.auto) warnings.push('Automatyczne przedłużenie umowy');
       if (o.services) warnings.push('Obowiązkowa usługa dodatkowa: ' + o.services.toFixed(2).replace('.', ',') + ' zł/mies. netto');
-      if (o.mine) warnings.push('Sprawdź w umowie: okres, karę i przedłużenie — nie znamy ich');
+      if (o.mine) warnings.push('Sprawdź w umowie: okres, karę i przedłużenie – nie znamy ich');
       const badges = [];
       if (o.ref) badges.push(badge('Punkt odniesienia', 'ref'));
       if (o.mine) badges.push(badge('Twoja oferta', 'mine'));
@@ -406,7 +406,7 @@ class Component extends DCLogic {
       sortOptions: [{ value: 'year', label: 'Najniższy koszt roczny' }, { value: 'full', label: 'Najniższy koszt całej umowy' }, { value: 'risk', label: 'Najmniej ryzykownych zapisów' }].map((o) => ({ value: o.value, label: o.label, selected: o.value === s.sort })),
       setSort: (e) => this.setState({ sort: e.target.value }),
       countText: (() => { const n = shown.filter((o) => !o.ref && !o.mine).length; const w = n === 1 ? 'oferta' : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 'oferty' : 'ofert'; return n + ' ' + w + ' dla ' + kwh.toLocaleString('pl-PL') + ' kWh rocznie'; })(),
-      summaryText: cheapest ? 'Najtańsza: ' + cheapest.seller + ' — ' + zl(yearCost(cheapest)) + ' rocznie, ' + (yearCost(cheapest) < ref ? zl(ref - yearCost(cheapest)) + ' mniej niż taryfa URE.' : 'nie taniej niż taryfa URE.') : 'Żadna oferta nie spełnia filtrów.',
+      summaryText: cheapest ? 'Najtańsza: ' + cheapest.seller + ' – ' + zl(yearCost(cheapest)) + ' rocznie, ' + (yearCost(cheapest) < ref ? zl(ref - yearCost(cheapest)) + ' mniej niż taryfa URE.' : 'nie taniej niż taryfa URE.') : 'Żadna oferta nie spełnia filtrów.',
       offers: offers,
       showCompare: cmpRows.length >= 2,
       compareRows: cmpRows,

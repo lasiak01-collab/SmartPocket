@@ -4,7 +4,8 @@ Energypedia.pl to serwis o rynku energii elektrycznej dla domów, mikrofirm, śr
 
 - **Pisz językiem odbiorcy, nie branży.** Zwracaj się do czytelnika na „Ty” („Zrozum swój rachunek”, „Dla Ciebie”). Zdania średnio do 20 słów, strona czynna, bez wykrzykników i straszenia podwyżkami.
 - **Najpierw odpowiedź.** Lead i pierwsze zdanie karty odpowiadają wprost na pytanie z tytułu, z liczbą i datą.
-- **Liczby po polsku:** przecinek dziesiętny i spacja tysięcy („495,16 zł/MWh”, „1 200 kWh”); zawsze jednostka i dopisek netto/brutto, gdy chodzi o ceny; źródło i data w notce („netto · decyzja Prezesa URE z 17.12.2025 r.”). Brak danych to „[— zł/MWh]”, nigdy zero.
+- **Kreski i cudzysłowy:** nigdy długi myślnik „—”; myślnik w zdaniu to półpauza ze spacjami („ – ”), zakres to półpauza bez spacji („2010–2026”), cudzysłów „…”. Pełne zasady: `ZASADY_Energypedia.md`.
+- **Liczby po polsku:** przecinek dziesiętny; liczby czterocyfrowe bez odstępu, od pięciu cyfr odstęp niełamliwy („495,16 zł/MWh”, „2000 kWh”, „27 100 MW”); zawsze jednostka i dopisek netto/brutto, gdy chodzi o ceny; źródło i data w notce („netto · decyzja Prezesa URE z 17.12.2025 r.”). Brak danych to „[… zł/MWh]”, nigdy zero.
 - **Nazwy:** w tekście „Energypedia”, w stopkach i źródłach wykresów „Energypedia.pl”. Instytucje pełną nazwą przy pierwszym użyciu (Prezes URE, PSE, TGE).
 - **Wielkie litery:** zdania i nagłówki zwykłą pisownią; WERSALIKI tylko w stylu `label` (nadtytuły, typ treści, „REKLAMA”).
 - **Oznaczenia, których nie wolno pominąć:** „Odpowiedź AI na podstawie artykułów Energypedii” + zastrzeżenie w AnswerCard; „Materiał partnera” na treściach płatnych; „REKLAMA” nad każdym slotem; link „Jak zarabiamy” przy sponsoringu.
@@ -20,7 +21,7 @@ Energypedia.pl to serwis o rynku energii elektrycznej dla domów, mikrofirm, śr
 
 - Tło strony `bg`; karty, kafle i pola `surface`; pierwszy ekran i wybrana karta segmentu `surface-soft`; tła drugiego planu `surface-muted`.
 - Tekst `ink`; leady, opisy, przypisy `ink-muted`. Obramowania kart `line`; obramowania kontrolek i niewybranych chipów `line-strong` (min. 3:1).
-- `volt` to kolor „prądu”: wypełnienie przycisku głównego (tekst `on-volt`), znak logo i kropka danych na żywo. **Nigdy nie stosuj `volt` jako koloru tekstu** — do akcentów w tekście służy `volt-ink`.
+- `volt` to kolor „prądu”: wypełnienie przycisku głównego (tekst `on-volt`), znak logo i kropka danych na żywo. **Nigdy nie stosuj `volt` jako koloru tekstu** – do akcentów w tekście służy `volt-ink`.
 - Powierzchnia odwrócona `navy` z tekstem `on-navy` i opisami `on-navy-muted`: pas newslettera, przycisk drugorzędny.
 - Stany: `status-bg` + `status-ink` (etap sprawy w trackerze, „Od I kw. 2027”); `danger` dla błędów, zawsze ze słowem lub ikoną.
 - Treść płatna: `partner-bg`, przerywane `partner-line`, etykieta `partner-ink`. Nie używaj tych kolorów do treści redakcyjnych.
@@ -45,15 +46,15 @@ Energypedia.pl to serwis o rynku energii elektrycznej dla domów, mikrofirm, śr
 
 ## Logo
 
-- Znak: logo 3 „E z danych” — sygnet z czterech słupków (środkowy w `logo-accent`, kolorze prądu) i logotyp „energypedia.pl” (Manrope ExtraBold na krzywych): „energy” `logo-ink`, „pedia” `logo-word-accent`, „.pl” `logo-tld`.
-- W serwisie używaj wyłącznie komponentu `Logo`. Nagłówek: `animate="intro-live"` — A (słupki wyrastają kolejno przy wejściu, ok. 0,95 s, raz) + C (środkowy słupek zmienia długość jak odczyt na żywo, cykl 6 s, pętla od 1,4 s). Stopka i materiały: wersja statyczna.
+- Znak: logo 3 „E z danych” – sygnet z czterech słupków (środkowy w `logo-accent`, kolorze prądu) i logotyp „energypedia.pl” (Manrope ExtraBold na krzywych): „energy” `logo-ink`, „pedia” `logo-word-accent`, „.pl” `logo-tld`.
+- W serwisie używaj wyłącznie komponentu `Logo`. Nagłówek: `animate="intro-live"` – A (słupki wyrastają kolejno przy wejściu, ok. 0,95 s, raz) + C (środkowy słupek zmienia długość jak odczyt na żywo, cykl 6 s, pętla od 1,4 s). Stopka i materiały: wersja statyczna.
 - Wysokość w nagłówku 40 px (telefon 32 px); pole ochronne = wysokość środkowego słupka; minimum 120 px szerokości logo i 24 px sygnetu.
 - Pliki produkcyjne: grupa zasobów Logos; pełna paczka i księga znaku w `docs/energypedia/brand/logo`.
 
 ## Kształty, cienie, ruch
 
 - Promienie: `radius-sm` pola i sloty, `radius-md` karty na telefonie, `radius-lg` karty i kafle, `radius-xl` duże pasy, `radius-pill` przyciski, chipy, etykiety.
-- Karty w spoczynku nie mają cienia — tylko obramowanie `line`. `shadow-hover` wyłącznie w stanie najechania razem z uniesieniem o 2 px.
+- Karty w spoczynku nie mają cienia – tylko obramowanie `line`. `shadow-hover` wyłącznie w stanie najechania razem z uniesieniem o 2 px.
 - Ruch: mikrointerakcje (najechanie na kartę, wciśnięcie przycisku, pulsująca kropka danych na żywo) jedno animowane słowo w H1 pierwszego ekranu i animacja sygnetu w nagłówku (A + C, patrz Logo). Bez animacji ozdobnych, paralaksy i 3D. Całość wyłącza `prefers-reduced-motion`.
 
 ## Motywy
@@ -69,7 +70,7 @@ Energypedia.pl to serwis o rynku energii elektrycznej dla domów, mikrofirm, śr
 
 ## Ikonografia
 
-- Ikony liniowe, siatka 24 px, kreska 2 px, zaokrąglone zakończenia — grupa zasobów Icons (search, sun, moon, menu, book, calculator, mail, sparkle, close, arrow-right).
+- Ikony liniowe, siatka 24 px, kreska 2 px, zaokrąglone zakończenia – grupa zasobów Icons (search, sun, moon, menu, book, calculator, mail, sparkle, close, arrow-right).
 - W komponentach rysuj je jako wbudowane SVG z `stroke="currentColor"`, żeby przejmowały kolor tekstu; pliki SVG w zasobach mają kreskę w kolorze `ink` (#0B1B33) do użycia w `<img>` na jasnym tle.
 - `sparkle` oznacza wyłącznie treści generowane przez AI. Bez emoji.
 

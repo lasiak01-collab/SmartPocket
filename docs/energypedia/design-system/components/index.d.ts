@@ -9,7 +9,7 @@ export interface LogoProps {
   variant?: 'horizontal' | 'signet';
   /** Czy pokazać „.pl” (domyślnie true). */
   withDomain?: boolean;
-  /** 'intro-live' = A (wejście raz) + C (odczyt na żywo, pętla) — domyślne w nagłówku; 'intro' = tylko A; 'none' = statyczne. */
+  /** 'intro-live' = A (wejście raz) + C (odczyt na żywo, pętla) – domyślne w nagłówku; 'intro' = tylko A; 'none' = statyczne. */
   animate?: 'intro-live' | 'intro' | 'none';
   href?: string;
   className?: string;

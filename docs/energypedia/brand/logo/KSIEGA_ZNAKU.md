@@ -1,4 +1,4 @@
-# Energypedia.pl — księga znaku (wersja 1.0, 21.10.2026 r.)
+# Energypedia.pl – księga znaku (wersja 1.0, 21.10.2026 r.)
 
 Znak: **sygnet „E z danych”** (litera E z trzech słupków wykresu, środkowy słupek w kolorze prądu) + **logotyp „energypedia.pl”** w kroju Manrope ExtraBold, zamieniony na krzywe.
 Znaczenie: E jak energia, słupki jak dane i Barometr; „energy” + „pedia” = energia + encyklopedia.
@@ -17,10 +17,10 @@ Znaczenie: E jak energia, słupki jak dane i Barometr; „energy” + „pedia�
 | **Logo animowane** | Nagłówek strony Energypedia.pl (główne użycie w serwisie), intro wideo | `animacja/…`, `web/naglowek-logo.html` |
 
 **Warianty kolorystyczne:**
-- `kolor` — na białym i jasnym tle (podstawowy);
-- `negatyw` — na granacie #0B1B33 i ciemnych tłach;
-- `czarne` — druk jednobarwny, faks, grawer;
-- `biale` — na zdjęciach i kolorowych tłach, gdy negatyw jest nieczytelny.
+- `kolor` – na białym i jasnym tle (podstawowy);
+- `negatyw` – na granacie #0B1B33 i ciemnych tłach;
+- `czarne` – druk jednobarwny, faks, grawer;
+- `biale` – na zdjęciach i kolorowych tłach, gdy negatyw jest nieczytelny.
 
 ## 2. Kolory
 
@@ -42,8 +42,8 @@ Znaczenie: E jak energia, słupki jak dane i Barometr; „energy” + „pedia�
 
 ## 4. Animacja (główna wersja w serwisie)
 
-- **A — wejście:** po załadowaniu strony słupki wyrastają kolejno: pion (0 s) → górny (0,15 s) → środkowy (0,30 s) → dolny (0,45 s); każdy 0,5 s, krzywa `cubic-bezier(.2,.8,.2,1)`; razem ok. 0,95 s, jeden raz.
-- **C — odczyt na żywo:** od 1,4 s środkowy (zielony) słupek łagodnie zmienia długość (100% → 112% → 92% → 105% → 100%), cykl 6 s, w pętli, `ease-in-out`.
+- **A – wejście:** po załadowaniu strony słupki wyrastają kolejno: pion (0 s) → górny (0,15 s) → środkowy (0,30 s) → dolny (0,45 s); każdy 0,5 s, krzywa `cubic-bezier(.2,.8,.2,1)`; razem ok. 0,95 s, jeden raz.
+- **C – odczyt na żywo:** od 1,4 s środkowy (zielony) słupek łagodnie zmienia długość (100% → 112% → 92% → 105% → 100%), cykl 6 s, w pętli, `ease-in-out`.
 - Logotyp jest statyczny; animuje się tylko sygnet.
 - Przy ustawieniu systemowym „ogranicz ruch” animacja jest wyłączona i wyświetla się pełny, statyczny znak.
 - Pętla C dotyczy tylko logo w nagłówku i ekranu ładowania; w stopce, materiałach, PDF i na wykresach używaj wersji statycznej.
@@ -54,7 +54,7 @@ Znaczenie: E jak energia, słupki jak dane i Barometr; „energy” + „pedia�
 - Nie zmieniaj kolorów (poza wersjami z punktu 1), proporcji ani kroju logotypu.
 - Nie zmieniaj koloru środkowego słupka na inny niż zieleń prądu (lub kolor jednobarwnej wersji).
 - Nie obracaj, nie pochylaj, nie dodawaj cieni, obrysów ani gradientów.
-- Nie składaj logotypu z fontu w programie — używaj plików (krój jest zamieniony na krzywe).
+- Nie składaj logotypu z fontu w programie – używaj plików (krój jest zamieniony na krzywe).
 - Nie umieszczaj wersji kolor na granacie ani negatywu na jasnym tle.
 - Nie animuj logotypu i nie twórz własnych animacji sygnetu.
 
@@ -66,7 +66,7 @@ png/        bitmapy z przezroczystym tłem: logo 600/1200/2400 px, pionowe 800 p
 pdf/        logo do druku (RGB, wektor)
 web/        favicon.ico/.svg/.png, apple-touch-icon, ikony PWA, site.webmanifest, og-image, head-snippet.html, naglowek-logo.html
 animacja/   logo i sygnet animowane (SVG z CSS), logo-animacja.css
-zrodlo/     generuj_logo.py — skrypt, który odtwarza całą paczkę
+zrodlo/     generuj_logo.py – skrypt, który odtwarza całą paczkę
 ```
 
 ## 7. Status prawny

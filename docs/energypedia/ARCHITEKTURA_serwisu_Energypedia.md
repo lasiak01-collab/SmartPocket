@@ -1,4 +1,4 @@
-# Energypedia.pl — architektura serwisu
+# Energypedia.pl – architektura serwisu
 
 **Wersja:** 1.0 · **Data:** 21 października 2026 r. · **Powiązane dokumenty:** `BIZNESPLAN_Energypedia.md`, `PLAN_MVP_do_konca_2026.md`, `zespol/06_redaktor_seo_aeo_geo.md`, `zespol/07_prawnik.md`
 
@@ -181,7 +181,7 @@ Barometr (wykres) · Analizy
 Regiony (mapa) · Wydarzenia · Newsletter
 ```
 
-**Narzędzie (porównywarka, analizator, zapytanie ofertowe) — strefa neutralna**
+**Narzędzie (porównywarka, analizator, zapytanie ofertowe) – strefa neutralna**
 ```
 H1 · Wyjaśnienie metodyki · Formularz → Wynik
 [BRAK reklam sprzedawców energii w obrębie narzędzia i wyników]

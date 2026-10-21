@@ -1,4 +1,4 @@
-# Energypedia.pl — szablony do Canvy (posty i relacje)
+# Energypedia.pl – szablony do Canvy (posty i relacje)
 
 Wersja 1.0, 21.10.2026 r. Szablony stosują key visual „znak krawędzi”: trzy słupki przy lewej krawędzi zdjęcia (górny i dolny biały lub granatowy, środkowy zawsze zielony #00C2A8).
 
@@ -27,7 +27,7 @@ Wersja 1.0, 21.10.2026 r. Szablony stosują key visual „znak krawędzi”: trz
 3. **Kolor słupków dobierz do dołu kadru**: jasny dół (niebo, mgła, ściana) → górny i dolny słupek granatowe #0B1B33; ciemny dół → białe #FFFFFF. Środkowy słupek zawsze zielony #00C2A8.
 4. Znak nie może zasłaniać twarzy ani napisów na zdjęciu. Wtedy przesuń kadr zdjęcia, nie znak.
 5. Wpisz nadtytuł (RELACJA, WPIS, WYWIAD, NA ŻYWO), tezę do 70 znaków i podpis „[data] · Fot. [Imię Nazwisko]”.
-6. Karuzela: tekst tylko na pierwszej stronie, kolejne zdjęcia — sama strona nr 3 z podmienionym zdjęciem. Zmień licznik „1/8”.
+6. Karuzela: tekst tylko na pierwszej stronie, kolejne zdjęcia – sama strona nr 3 z podmienionym zdjęciem. Zmień licznik „1/8”.
 7. Relacja: górne i dolne 250 px zasłania interfejs aplikacji, nie umieszczaj tam nic ważnego. Usuń zieloną kropkę, gdy relacja nie jest na żywo.
 8. Eksport: **PNG**, rozmiar 1×; dla relacji z kilku zdjęć możesz wyeksportować MP4.
 

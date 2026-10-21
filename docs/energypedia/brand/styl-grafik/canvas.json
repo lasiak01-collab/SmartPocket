@@ -21,8 +21,8 @@
   ],
   "launch": {"view": "canvas"},
   "notes": {
-    "tytul": {"kind": "title1", "maxW": 3920, "text": "Energypedia.pl — styl grafik: Konstrukcja ze słupków", "w": 240, "x": 0, "y": -300},
-    "kv": {"kind": "title1", "maxW": 3920, "text": "Key visual zdjęć — znak krawędzi", "x": 0, "y": 4330}
+    "tytul": {"kind": "title1", "maxW": 3920, "text": "Energypedia.pl – styl grafik: Konstrukcja ze słupków", "w": 240, "x": 0, "y": -300},
+    "kv": {"kind": "title1", "maxW": 3920, "text": "Key visual zdjęć – znak krawędzi", "x": 0, "y": 4330}
   },
   "order": ["Main.dc.html", "Okladki.dc.html", "Ikony.dc.html", "Infografika.dc.html", "Social.dc.html", "Zdjecia.dc.html", "KV-Zasady.dc.html", "KV-Post.dc.html", "KV-Story.dc.html", "KV-Wpis.dc.html", "KV-Przyklady.dc.html", "KV-Redaktor.dc.html"],
   "pages": [],

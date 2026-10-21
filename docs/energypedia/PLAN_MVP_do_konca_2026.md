@@ -1,4 +1,4 @@
-# Energypedia.pl — plan krok po kroku: MVP do 31 grudnia 2026 r.
+# Energypedia.pl – plan krok po kroku: MVP do 31 grudnia 2026 r.
 
 **Wersja:** 1.0 · **Data:** 20 października 2026 r. · **Uzupełnia:** `BIZNESPLAN_Energypedia.md` (rozdziały 7, 8 i 15)
 **Zasada:** najpierw treść, potem narzędzia. Do końca 2026 r. publikujemy **część edukacyjno-informacyjną**: bazę wiedzy, newsy, Barometr Rynku Energii i newsletter. Narzędzia transakcyjne (analizator faktury, porównywarka, generator zapytań ofertowych, leady) wchodzą w I kwartale 2027 r.
@@ -12,7 +12,7 @@ Mamy około **10 tygodni** (20 X – 31 XII 2026 r.; uwaga na święta 11 XI ora
 | # | Element MVP | Zakres na 31 XII 2026 r. | Miernik „zrobione” |
 |---|---|---|---|
 | 1 | **Serwis energypedia.pl** | Strona główna, działy: Wiadomości, Wiedza, Poradniki, Dane (Barometr), Regiony, O nas, Jak pracujemy, Prasa | Działa na telefonie i komputerze, Core Web Vitals na zielono, dostępność WCAG 2.2 AA w szablonach |
-| 2 | **Publikacje evergreen** | **5 stron przewodnich, 2 trackery („Taryfy 2027 — na bieżąco”, „CSIRE — stan wdrożenia”), 20 artykułów wyjaśniających i porównań, 5 analiz danych** (plan w `zespol/06_redaktor_seo_aeo_geo.md`) | Każda publikacja ma strukturę SEO/AEO/GEO, ocenę jakości ≥ 80/100 i przeszła recenzję |
+| 2 | **Publikacje evergreen** | **5 stron przewodnich, 2 trackery („Taryfy 2027 – na bieżąco”, „CSIRE – stan wdrożenia”), 20 artykułów wyjaśniających i porównań, 5 analiz danych** (plan w `zespol/06_redaktor_seo_aeo_geo.md`) | Każda publikacja ma strukturę SEO/AEO/GEO, ocenę jakości ≥ 80/100 i przeszła recenzję |
 | 2a | **Encyklopedia (hasła)** | **120 haseł** (z listy 300 priorytetowych; najpierw pojęcia linkowane z publikacji) | Każde hasło przeszło recenzję merytoryczną i ma datę weryfikacji |
 | 3 | **Poradniki krok po kroku** | **25 poradników** + 5 wzorów pism do pobrania | Checklista, wzór, sekcja „najczęstsze błędy” |
 | 4 | **Strony regionalne** | **16 województw** (wersja podstawowa) | Operator sieci, jego opłaty, linki do dotacji, kontakt do instytucji |
@@ -84,9 +84,9 @@ Trzy ścieżki idą **równolegle** od tygodnia 3: **(A) treści**, **(B) serwis
 | 3.4 | **Strona „wkrótce” na energypedia.pl** z zapisem na newsletter i listę oczekujących na narzędzia (zgody RODO osobno dla newslettera i dla powiadomień o narzędziach) | Strona działa od 6 XI |
 | 3.5 | **Identyfikacja wizualna w wersji 1.0** (logotyp, kolory, krój pisma, **styl wykresów**), pełna identyfikacja w I kwartale 2027 r. | Pakiet do serwisu i social mediów |
 | 3.6 | **Baza dziennikarzy** (300 kontaktów: gospodarka, energetyka, media regionalne, radio) + zamówienie **monitoringu mediów** od 1 XII | Baza w CRM, umowa monitoringu |
-| 3.7 | **Licencja na dane rynkowe** (np. TGE) do publikacji w Barometrze — zapytanie i umowa | Umowa lub decyzja o źródłach publicznych |
+| 3.7 | **Licencja na dane rynkowe** (np. TGE) do publikacji w Barometrze – zapytanie i umowa | Umowa lub decyzja o źródłach publicznych |
 
-### KROK 4. Produkcja treści — fala 1 i 2 (tygodnie 4–7: 9 listopada – 4 grudnia)
+### KROK 4. Produkcja treści – fala 1 i 2 (tygodnie 4–7: 9 listopada – 4 grudnia)
 
 To serce MVP. Pracujemy w **cyklu tygodniowym** z linią produkcyjną:
 
@@ -108,7 +108,7 @@ Kolejny tydz.: grafiki/schematy, linkowanie wewnętrzne, metadane → kolejka pu
 | 8 (7–11 XII) | **32** | **120** | **25** | **16** | Kontrola jakości, zamrożenie zakresu |
 
 **Kolejność tematów (fala 1 = najpierw to, czego ludzie szukają w grudniu):**
-1. **Rachunek i taryfy:** jak czytać fakturę, taryfa G11 / G12 / G12w / dynamiczna, opłaty dystrybucyjne (stałe i zmienne), opłata mocowa, opłata OZE i kogeneracyjna, akcyza, VAT, cena za kWh, jak URE zatwierdza taryfy, „taryfy 2027 — co się zmienia”.
+1. **Rachunek i taryfy:** jak czytać fakturę, taryfa G11 / G12 / G12w / dynamiczna, opłaty dystrybucyjne (stałe i zmienne), opłata mocowa, opłata OZE i kogeneracyjna, akcyza, VAT, cena za kWh, jak URE zatwierdza taryfy, „taryfy 2027 – co się zmienia”.
 2. **Zmiana sprzedawcy i umowy:** jak zmienić sprzedawcę krok po kroku, CSIRE i zmiana w 24 godziny, wypowiedzenie umowy, kary za zerwanie, automatyczne przedłużenie, sprzedaż bezpośrednia (domokrążcy) i prawa konsumenta, reklamacja rachunku, sprzedawca rezerwowy.
 3. **Firmy:** grupy taryfowe C11/C12/C21/B21/B23, cena stała a indeksowana, transzowanie, moc umowna i jej optymalizacja, energia bierna, zakupy w przetargach (PZP), gwarancje pochodzenia.
 4. **Prosument i OZE:** net-billing, wartość rynkowa energii, magazyn energii, pompa ciepła a taryfa, ładowanie EV w domu i firmie, dotacje.
@@ -126,7 +126,7 @@ Kolejny tydz.: grafiki/schematy, linkowanie wewnętrzne, metadane → kolejka pu
 
 | # | Zadanie | Wynik |
 |---|---|---|
-| 5.1 | **Rytm dnia** (wzór poniżej) — przez 3 tygodnie newsy piszemy „na sucho” do CMS (niepublikowane albo na stronie testowej), żeby zgrać zespół | Zespół gotowy na start |
+| 5.1 | **Rytm dnia** (wzór poniżej) – przez 3 tygodnie newsy piszemy „na sucho” do CMS (niepublikowane albo na stronie testowej), żeby zgrać zespół | Zespół gotowy na start |
 | 5.2 | **Kalendarz zdarzeń** do końca stycznia 2027 r.: decyzja URE o taryfach, posiedzenia Sejmu i projekty ustaw, terminy CSIRE, aukcje rynku mocy, Rady UE ds. energii, publikacje GUS/PSE | Kalendarz z przypisanymi autorami |
 | 5.3 | **Pakiet „taryfy 2027”** przygotowany z wyprzedzeniem: artykuł-szablon z miejscem na liczby, kalkulacja wpływu na rachunek dla 3 typowych gospodarstw i 3 firm, wykresy, komentarz eksperta, informacja prasowa | Publikacja w 60 minut od decyzji URE |
 | 5.4 | **Newsletter**: szablon, narzędzie wysyłkowe, testy dostarczalności (SPF, DKIM, DMARC), poranna wysyłka o 7:30 | Gotowe do startu |
@@ -145,11 +145,11 @@ Kolejny tydz.: grafiki/schematy, linkowanie wewnętrzne, metadane → kolejka pu
 
 **Zasada weryfikacji newsa:** źródło pierwotne albo dwa niezależne źródła; liczby sprawdzone przez drugą osobę; poprawki zawsze z adnotacją „Aktualizacja / Sprostowanie [data]”.
 
-### KROK 6. Barometr — dwa produkty (tygodnie 2–9)
+### KROK 6. Barometr – dwa produkty (tygodnie 2–9)
 
 Proponuję rozdzielić barometr na **dwa produkty**, bo mają różny cykl i koszt:
 
-**A. Barometr Rynku Energii (miesięczny, z danych)** — pierwszy dzień roboczy miesiąca, od grudnia 2026 r.
+**A. Barometr Rynku Energii (miesięczny, z danych)** – pierwszy dzień roboczy miesiąca, od grudnia 2026 r.
 
 | Wskaźnik | Źródło | Uwagi |
 |---|---|---|
@@ -161,7 +161,7 @@ Proponuję rozdzielić barometr na **dwa produkty**, bo mają różny cykl i kos
 
 Metodyka publikowana na stronie /dane/metodyka. **Od stycznia–lutego 2027 r.** dochodzi **Energypedia Index** z danych z zapytań ofertowych (po starcie narzędzi).
 
-**B. Barometr Odbiorców Energii (kwartalny, badanie)** — #0 w grudniu 2026 r.
+**B. Barometr Odbiorców Energii (kwartalny, badanie)** – #0 w grudniu 2026 r.
 
 | Etap | Termin | Szczegóły |
 |---|---|---|
@@ -173,7 +173,7 @@ Metodyka publikowana na stronie /dane/metodyka. **Od stycznia–lutego 2027 r.**
 
 **Pytania stałe (propozycja):** ocena wysokości rachunku (skala), czy rachunek jest zrozumiały, oczekiwania cenowe na 12 miesięcy, znajomość możliwości zmiany sprzedawcy, czy w ostatnim roku zmienił/a sprzedawcę lub taryfę, plany inwestycyjne (PV, magazyn, pompa, EV), zaufanie do źródeł informacji. **Dla firm dodatkowo:** udział kosztów energii w kosztach firmy, typ umowy (stała/indeksowana), data końca umowy, kto decyduje o zakupie energii.
 
-### KROK 7. Serwis i technologia — ścieżka B (tygodnie 2–8)
+### KROK 7. Serwis i technologia – ścieżka B (tygodnie 2–8)
 
 Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwisu treściowego**, który później rozbudujemy.
 
@@ -183,7 +183,7 @@ Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwi
 |---|---|---|
 | 7.1 | Wybór wykonawcy (freelancer lub małe studio) i stosu: **Next.js + headless CMS** (np. Sanity lub Payload) **albo** szybszy wariant: WordPress z dobrym motywem i porządnym SEO. Rekomendacja: Next.js + headless CMS, bo to fundament pod narzędzia w 2027 r. | 30 X |
 | 7.2 | Strona „wkrótce” z zapisem na newsletter | 6 XI |
-| 7.3 | Modele treści w CMS (hasło, poradnik, news, region, barometr, autor, źródło) z polami: segment, data weryfikacji, recenzent, źródła | 13 XI — autorzy zaczynają pisać w CMS |
+| 7.3 | Modele treści w CMS (hasło, poradnik, news, region, barometr, autor, źródło) z polami: segment, data weryfikacji, recenzent, źródła | 13 XI – autorzy zaczynają pisać w CMS |
 | 7.4 | Szablony stron, wyszukiwarka, nawigacja po segmentach, strona autora, spis treści, przypisy, „ostatnia aktualizacja” | 27 XI |
 | 7.5 | Moduł wykresów (dane z CSV/arkusza → wykres → pobieranie PNG/SVG z licencją) | 27 XI |
 | 7.6 | SEO techniczne: mapy witryny, dane strukturalne (Article, FAQ, HowTo, Dataset, Person, Organization), przekierowania, canonicale, Core Web Vitals | 4 XII |
@@ -226,7 +226,7 @@ Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwi
 | D-1 | Ostatnia kontrola, odsłonięcie treści (zdjęcie trybu ukrytego), zgłoszenie mapy witryny |
 | **Dzień decyzji URE** | Publikacja pakietu „taryfy 2027” w ciągu 60 minut; informacja prasowa do 300 dziennikarzy; ekspert na dyżurze; LinkedIn i newsletter specjalny |
 | D+1 | **Barometr Rynku Energii #1** + informacja prasowa (jeśli nie wypada w dniu taryf) |
-| D+2 – D+4 | Komentarze dla mediów, wywiady, odpowiedzi na pytania czytelników („Taryfy 2027 — pytania i odpowiedzi” aktualizowane codziennie) |
+| D+2 – D+4 | Komentarze dla mediów, wywiady, odpowiedzi na pytania czytelników („Taryfy 2027 – pytania i odpowiedzi” aktualizowane codziennie) |
 | Koniec tygodnia | Barometr Odbiorców #0 (lub przesunięcie na 5–8 I, jeśli uwaga mediów jest zajęta taryfami) |
 
 > Jeśli URE ogłosi taryfy później niż 18 XII, startujemy **najpóźniej 15 XII** z Barometrem Rynku i treściami „czego się spodziewać po taryfach 2027”, a pakiet taryfowy publikujemy w dniu decyzji.
@@ -238,9 +238,9 @@ Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwi
 | 11.1 | Utrzymanie rytmu newsów (w okresie świątecznym 1–2 dziennie, dyżur) |
 | 11.2 | Pierwszy raport KPI: ruch, źródła, cytowania, subskrybenci, najczęściej czytane treści, zapytania w wyszukiwarce wewnętrznej |
 | 11.3 | Poprawki na podstawie danych (Search Console: frazy z wyświetleniami bez kliknięć → nowe hasła) |
-| 11.4 | „Energia 2027: 10 rzeczy, które zmienią Twój rachunek” — tekst przewodni na Nowy Rok |
+| 11.4 | „Energia 2027: 10 rzeczy, które zmienią Twój rachunek” – tekst przewodni na Nowy Rok |
 | 11.5 | Retrospektywa zespołu i plan na I kwartał 2027 r.: publiczny start z narzędziami, kampania startowa, Energypedia Index, Barometr Odbiorców I kw. |
-| 11.6 | Brief dla wykonawcy narzędzi (analizator faktury, porównywarka, generator zapytań ofertowych) — start prac 4 I 2027 r. |
+| 11.6 | Brief dla wykonawcy narzędzi (analizator faktury, porównywarka, generator zapytań ofertowych) – start prac 4 I 2027 r. |
 
 ---
 
@@ -333,8 +333,8 @@ Kwota mieści się w kosztach XI–XII z modelu finansowego (około 570 tys. zł
 ### A.1. Hasło encyklopedii
 
 ```
-Tytuł: [Pojęcie] — co to jest i ile kosztuje?
-W skrócie (2 zdania, odpowiedź na pytanie wprost — pod wyszukiwarki i AI)
+Tytuł: [Pojęcie] – co to jest i ile kosztuje?
+W skrócie (2 zdania, odpowiedź na pytanie wprost – pod wyszukiwarki i AI)
 Definicja (akapit, bez żargonu)
 Jak to działa (schemat lub wykres)
 Ile to kosztuje / jakie są liczby (tabela z datą i źródłem)
@@ -348,7 +348,7 @@ Autor · Recenzent · Data publikacji · Data następnej weryfikacji
 ### A.2. Poradnik krok po kroku
 
 ```
-Tytuł: Jak [zrobić X] — poradnik krok po kroku [rok]
+Tytuł: Jak [zrobić X] – poradnik krok po kroku [rok]
 Dla kogo i ile to trwa (ramka)
 Zanim zaczniesz: lista dokumentów
 Kroki 1…n (każdy z krótkim opisem, terminem, pułapką)
@@ -372,7 +372,7 @@ Kontekst: link do hasła i poradnika
 ### A.4. Barometr Rynku Energii (miesięczny)
 
 ```
-Tytuł: Barometr Rynku Energii — [miesiąc rok]
+Tytuł: Barometr Rynku Energii – [miesiąc rok]
 3 najważniejsze liczby miesiąca (kafle)
 Wskaźnik „Temperatura rachunku” (dom 2,5 MWh / firma 30 MWh) i zmiana m/m, r/r
 Ceny hurtowe (wykres), taryfy i opłaty dystrybucyjne (tabela), OZE i ceny ujemne (wykres)

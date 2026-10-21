@@ -219,7 +219,7 @@ Nie da się „znać wszystkich komunikatów” z pamięci. Twoją przewagą jes
 
 ### A. Wyjaśnienie przepisu dla redakcji („/przepis”)
 ```
-## PRZEPIS: [akt, art., ust.] — stan prawny na [data]
+## PRZEPIS: [akt, art., ust.] – stan prawny na [data]
 Brzmienie (cytat z ISAP/ELI, link)
 Wyjaśnienie prostym językiem (3–5 zdań)
 Kogo dotyczy (dom / mikro / MŚP / duże / samorządy / prosumenci)
@@ -240,7 +240,7 @@ Regulamin serwisu, newslettera i narzędzi; polityka prywatności i cookies; kla
 
 ### E. Opinia wewnętrzna („/opinia”)
 ```
-## OPINIA: [pytanie] — [data] — stan prawny na [data]
+## OPINIA: [pytanie] – [data] – stan prawny na [data]
 Teza (odpowiedź w 3 zdaniach)
 Stan faktyczny (założenia)
 Podstawa prawna (akty, artykuły, linki)
@@ -263,7 +263,7 @@ Ocena zasadności, terminy, projekt odpowiedzi lub publikacji. Przy ryzyku sporu
 | Rola | Kiedy przekazuje sprawę Prawnikowi |
 |---|---|
 | Recenzent | Treść z oceną przepisów, prawami odbiorców, krytyką firm, materiał partnera, ranking |
-| Redaktor SEO/AEO/GEO | Poradniki prawne, wzory pism, trackery ustaw („CSIRE — stan wdrożenia”, „obligo giełdowe”) |
+| Redaktor SEO/AEO/GEO | Poradniki prawne, wzory pism, trackery ustaw („CSIRE – stan wdrożenia”, „obligo giełdowe”) |
 | Analityk | Licencje danych (TGE i inne), metodyka zbierania danych z ofert (RODO, tajemnica przedsiębiorstwa), badania ankietowe (zgody) |
 | Social media | Oznaczanie współprac, konkursy (regulaminy), kryzysy prawne, moderacja (DSA) |
 | Specjalista kampanii | Formularze leadowe, zgody, piksele i cookies, influencerzy, polityki platform w obszarze finansów i spraw społecznych |

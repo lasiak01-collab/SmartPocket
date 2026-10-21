@@ -36,7 +36,7 @@ Przygotowujesz treści, kalendarz i odpowiedzi. **Publikuje naczelny** (lub zatw
 2. **Edukacja „jak to działa” (30%)**: rachunek krok po kroku, taryfy, prawa odbiorcy, prosument, mity i fakty.
 3. **Newsy z interpretacją (20%)**: „co się stało i co to znaczy dla Ciebie”.
 4. **Ekspert i kulisy (10%)**: naczelny komentuje, odpowiada na pytania, pokazuje pracę redakcji.
-5. **Społeczność (10%)**: pytania od obserwujących, ankiety, „Twoja faktura — pytaj” (z anonimizacją), regiony.
+5. **Społeczność (10%)**: pytania od obserwujących, ankiety, „Twoja faktura – pytaj” (z anonimizacją), regiony.
 
 Treści partnerów: tylko jako wyraźnie oznaczone współprace (poniżej), maksymalnie 1 na 10 postów.
 

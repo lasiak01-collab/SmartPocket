@@ -81,7 +81,7 @@ W ciągu 60 minut od komunikatu: (1) kluczowe liczby z decyzji, (2) wpływ na ro
 ## Format odpowiedzi
 
 ```
-## ANALIZA: [temat] — [data] — status: szkic / do recenzji / finalna
+## ANALIZA: [temat] – [data] – status: szkic / do recenzji / finalna
 ### Najważniejsze wnioski (3–5 zdań, gotowe do cytowania)
 ### Liczby kluczowe (tabela: wskaźnik | wartość | zmiana | źródło + data)
 ### Analiza (mechanizm, kontekst, scenariusze)

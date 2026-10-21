@@ -74,7 +74,7 @@ button{cursor:pointer}
     <div style="position: relative; max-width: 940px; margin: 0 auto; padding: 64px 24px 52px; display: flex; flex-direction: column; gap: 20px">
       <span style="align-self: center; font-size: 14px; font-weight: 700; color: var(--ep-accent-ink); letter-spacing: 0.08em">ENERGIA BEZ TAJEMNIC</span>
       <h1 id="h-hero" style="margin: 0; text-align: center; font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 54px; line-height: 1.05; letter-spacing: -0.03em">Zrozum <span class="ep-word" aria-live="off" style="color: var(--ep-accent-ink); font-weight: 700">{{word}}</span><br>w minutę. Ze źródłami.</h1>
-      <p style="margin: 0; text-align: center; font-size: 19px; color: var(--ep-ink2)">Rachunki, umowy, taryfy, fotowoltaika i prawa odbiorcy — wyjaśnione prosto, sprawdzone przez ekspertów.</p>
+      <p style="margin: 0; text-align: center; font-size: 19px; color: var(--ep-ink2)">Rachunki, umowy, taryfy, fotowoltaika i prawa odbiorcy – wyjaśnione prosto, sprawdzone przez ekspertów.</p>
       <form role="search" style="display: flex; gap: 8px; background: var(--ep-surface); border: 2px solid var(--ep-ink); border-radius: 999px; padding: 6px 6px 6px 22px; align-items: center">
         <label for="q-f" style="position: absolute; left: -9999px">Twoje pytanie o energię</label>
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="color: var(--ep-ink2)"><circle cx="11" cy="11" r="7"></circle><path d="M20 20 L16 16"></path></svg>
@@ -337,8 +337,8 @@ class Component extends DCLogic {
       { text: 'Czy w 2026 r. ceny prądu są mrożone?', a: 'Nie. Mrożenie cen dla gospodarstw domowych obowiązywało do końca 2025 r. W 2026 r. obowiązują taryfy zatwierdzone przez Prezesa URE: średnio 495,16 zł/MWh netto za energię. Wzrosły za to opłaty dystrybucyjne i opłata mocowa.', src: ['Tracker: taryfy na prąd', 'Decyzja Prezesa URE z 17.12.2025 r.'] }
     ];
     const segDefs = [
-      { name: 'Dom', desc: 'Rachunek, taryfa, fotowoltaika', links: ['Jak czytać rachunek za prąd — pozycja po pozycji', 'G11 czy G12 — kiedy taryfa dwustrefowa się opłaca', 'Fotowoltaika w net-billingu: jak liczyć opłacalność'] },
-      { name: 'Mikrofirma', desc: 'Umowa, cena, akwizytorzy', links: ['Ile kosztuje prąd w małej firmie — przykłady dla 5 branż', 'Umowa na prąd: 10 zapisów do sprawdzenia', 'Jak wypowiedzieć umowę na prąd w firmie'] },
+      { name: 'Dom', desc: 'Rachunek, taryfa, fotowoltaika', links: ['Jak czytać rachunek za prąd – pozycja po pozycji', 'G11 czy G12 – kiedy taryfa dwustrefowa się opłaca', 'Fotowoltaika w net-billingu: jak liczyć opłacalność'] },
+      { name: 'Mikrofirma', desc: 'Umowa, cena, akwizytorzy', links: ['Ile kosztuje prąd w małej firmie – przykłady dla 5 branż', 'Umowa na prąd: 10 zapisów do sprawdzenia', 'Jak wypowiedzieć umowę na prąd w firmie'] },
       { name: 'Średnia firma', desc: 'Zakupy, moc umowna, ryzyko', links: ['Cena stała czy indeksowana na 2027 r.', 'Moc umowna: jak nie przepłacać', 'Zapytanie ofertowe na energię: jak je przygotować'] },
       { name: 'Duża firma i samorząd', desc: 'Przetargi, PPA, strategia', links: ['Przetarg grupowy na energię (PZP)', 'Kontrakty PPA i cPPA w praktyce', 'Rynek mocy i opłaty systemowe w budżecie'] }
     ];
@@ -370,7 +370,7 @@ class Component extends DCLogic {
       regionUpper: this.state.region.toUpperCase(),
       tiles: [
         { label: 'Taryfa dla domów 2026 (średnio)', value: '495,16 zł/MWh', note: 'netto · decyzja Prezesa URE z 17.12.2025 r.' },
-        { label: 'Prąd na giełdzie wczoraj (RDN)', value: '[— zł/MWh]', note: 'TGE · aktualizacja codzienna' },
+        { label: 'Prąd na giełdzie wczoraj (RDN)', value: '[… zł/MWh]', note: 'TGE · aktualizacja codzienna' },
         { label: 'Opłata mocowa 2026 (1200–2800 kWh)', value: '17,18 zł/mies.', note: 'netto · około +50% r/r' },
         { label: 'Moc fotowoltaiki w Polsce', value: '27,1 GW', note: 'PSE · stan na 1.05.2026 r.' }
       ],

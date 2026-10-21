@@ -86,7 +86,7 @@ a { color: inherit; }
 .ep-answer-src a { color: var(--volt-ink); font-weight: 600; text-decoration: none; }
 .ep-answer-src a:hover { text-decoration: underline; }
 
-/* KeyFacts — blok „W skrócie”: linia redakcyjna zamiast ramki, liczby ze słupkami jak w sygnecie */
+/* KeyFacts – blok „W skrócie”: linia redakcyjna zamiast ramki, liczby ze słupkami jak w sygnecie */
 .ep-keyfacts { border-top: 2px solid var(--ink); padding-top: 14px; display: flex; flex-direction: column; gap: 18px; }
 .ep-keyfacts-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px var(--space-4); }
 .ep-keyfacts-title { margin: 0; display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }

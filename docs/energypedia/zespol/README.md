@@ -35,7 +35,7 @@ W Claude (claude.ai lub aplikacja) utwórz **7 projektów**, np. „EP | Recenze
 3. **Narzędzia:** włącz **wyszukiwanie w sieci** we wszystkich projektach (fakty zmieniają się szybko). U Analityka włącz też **analizę danych / wykonywanie kodu**.
 4. **Test startowy:** w każdym projekcie napisz: „Przedstaw się, opisz w 5 punktach, jak będziesz pracować, i zadaj mi 3 pytania, których odpowiedzi poprawią Twoją pracę”. Odpowiedzi dopisz do wiedzy projektu.
 
-**Wariant prostszy:** jeden projekt „Energypedia — zespół” z kontekstem wspólnym w wiedzy i wszystkimi plikami ról. Rolę wywołujesz na początku rozmowy: „Działaj jako Recenzent (plik 01) — /recenzja …”. Wada: role mieszają się, a kontekst szybciej się zapełnia.
+**Wariant prostszy:** jeden projekt „Energypedia – zespół” z kontekstem wspólnym w wiedzy i wszystkimi plikami ról. Rolę wywołujesz na początku rozmowy: „Działaj jako Recenzent (plik 01) – /recenzja …”. Wada: role mieszają się, a kontekst szybciej się zapełnia.
 
 ## 2. Pamięć zespołu (ważne)
 

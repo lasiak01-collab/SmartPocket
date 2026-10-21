@@ -1,4 +1,4 @@
-# Energypedia.pl — biznesplan
+# Energypedia.pl – biznesplan
 
 **Wersja:** 1.0 · **Data:** 20 października 2026 · **Horyzont:** listopad 2026 – czerwiec 2027 (cel główny), z prognozą do grudnia 2028
 **Załączniki:** `Energypedia_model_finansowy.xlsx` (model z formułami: arkusze *Założenia*, *Model*, *Scenariusze*), `model_finansowy.py` (skrypt odtwarzający model)
