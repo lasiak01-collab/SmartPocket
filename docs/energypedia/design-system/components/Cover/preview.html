@@ -1,0 +1,57 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Energypedia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@300..700&display=swap">
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--font-sans); overflow: hidden; }
+  .cover { position: relative; height: 288px; overflow: hidden; }
+  .art { position: absolute; top: 0; left: 480px; width: 480px; height: 288px; overflow: hidden; }
+  .art svg { display: block; width: 480px; height: 288px; }
+  .slab { fill: var(--ink); }
+  .volt { fill: var(--volt); }
+  .tint { fill: var(--chart-2); }
+  .state { fill: var(--status-bg); }
+  .cut { fill: var(--surface); }
+  .blk { rx: var(--radius-lg); }
+  .pill { rx: var(--radius-sm); }
+  .words { position: absolute; left: var(--space-6); bottom: var(--space-6); max-width: 440px; }
+  .name { margin: 0; font-family: var(--font-display); font-size: 64px; line-height: 0.95; font-weight: 650; letter-spacing: -0.03em; color: var(--ink); }
+  .tag { margin: var(--space-2) 0 0 2px; font-size: 14px; line-height: 20px; color: var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  blocks      ink slab 176×324 bleeding off top, bottom and right (the deep ground of the brand) · volt 144×144 (the brand hue, „prąd”) · chart-2 128×192 (the tint, stays visible in dark) · status-bg 56×16 once (it only ever means a state) — about 40% of 960×288
+  arrangement one tall slab with two satellites to its left, bottoms on one line space-6 above the edge, space-4 gutters
+  pattern     pills, from „radius-pill: chipy pytań, przyciski” — the question chips under „Zapytaj” are the signature element: six volt pills stacked on the slab at a space-6 pitch, two surface pills cut into the tint
+  scales      gutters space-4 (16); pitch space-6 (24); blocks radius-lg; pills 16 tall with rx radius-sm (half the height)
+-->
+<rect class="tint blk" x="16" y="72" width="128" height="192" rx="18"></rect>
+<rect class="cut pill" x="32" y="96" width="72" height="16" rx="8"></rect>
+<rect class="cut pill" x="32" y="120" width="48" height="16" rx="8"></rect>
+<rect class="state pill" x="160" y="88" width="56" height="16" rx="8"></rect>
+<rect class="volt blk" x="160" y="120" width="144" height="144" rx="18"></rect>
+<rect class="slab blk" x="320" y="-18" width="176" height="324" rx="18"></rect>
+<rect class="volt pill" x="344" y="40" width="104" height="16" rx="8"></rect>
+<rect class="volt pill" x="344" y="64" width="72" height="16" rx="8"></rect>
+<rect class="volt pill" x="344" y="88" width="120" height="16" rx="8"></rect>
+<rect class="volt pill" x="344" y="112" width="88" height="16" rx="8"></rect>
+<rect class="volt pill" x="344" y="136" width="56" height="16" rx="8"></rect>
+<rect class="volt pill" x="344" y="160" width="96" height="16" rx="8"></rect>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Energypedia</h1>
+<p class="tag">Energia bez tajemnic. Rozumiesz, porównujesz, oszczędzasz.</p>
+</div>
+</div>
+</body>
+</html>

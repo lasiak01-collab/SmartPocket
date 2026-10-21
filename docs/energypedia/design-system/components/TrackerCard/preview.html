@@ -1,0 +1,29 @@
+<!-- @dsCard group="Treści" height=190 -->
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>TrackerCard — podgląd</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Space+Grotesk:wght@300..700&display=swap">
+<style>
+  body { padding: 16px; }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; }
+  .col { display: flex; flex-direction: column; gap: 12px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 16px; }
+  .grid > * { flex: 1 1 220px; }
+  .navy { background: var(--navy); padding: 16px; border-radius: var(--radius-lg); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var E = window.Energypedia, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'grid' },
+      h(E.TrackerCard, { status: 'Przed decyzją URE', title: 'Taryfy na prąd 2027', description: 'Stawki dla domów i opłaty dystrybucyjne po zatwierdzeniu.' }),
+      h(E.TrackerCard, { status: 'Wdrożenie w toku', title: 'CSIRE i zmiana sprzedawcy w 24 h', description: 'Którzy operatorzy przystąpili, co z opóźnieniami.' }),
+      h(E.TrackerCard, { status: 'Projekt ustawy', title: 'Obligo giełdowe (80%)', description: 'Powrót obowiązku sprzedaży energii przez giełdę.' }))
+  );
+</script>
+</body>
+</html>

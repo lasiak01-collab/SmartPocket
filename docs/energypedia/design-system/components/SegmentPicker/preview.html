@@ -1,0 +1,36 @@
+<!-- @dsCard group="Personalizacja" height=230 -->
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>SegmentPicker — podgląd</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Space+Grotesk:wght@300..700&display=swap">
+<style>
+  body { padding: 16px; }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; }
+  .col { display: flex; flex-direction: column; gap: 12px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 16px; }
+  .grid > * { flex: 1 1 220px; }
+  .navy { background: var(--navy); padding: 16px; border-radius: var(--radius-lg); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var E = window.Energypedia, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'col' },
+      h(E.SegmentPicker, { options: [
+        { id: 'dom', name: 'Dom', description: 'Rachunek, taryfa, fotowoltaika' },
+        { id: 'mikro', name: 'Mikrofirma', description: 'Umowa, cena, akwizytorzy' },
+        { id: 'msp', name: 'Średnia firma', description: 'Zakupy, moc umowna, ryzyko' },
+        { id: 'duze', name: 'Duża firma i samorząd', description: 'Przetargi, PPA, strategia' }] }),
+      h('div', { style: { maxWidth: '360px' } }, h(E.SegmentPicker, { compact: true, defaultValue: 'mikro', options: [
+        { id: 'dom', name: 'Dom', description: 'Rachunek, taryfa, PV' },
+        { id: 'mikro', name: 'Mikrofirma', description: 'Umowa i cena' },
+        { id: 'msp', name: 'Średnia firma', description: 'Zakupy i ryzyko' },
+        { id: 'duze', name: 'Duża firma, samorząd', description: 'Przetargi, PPA' }] })))
+  );
+</script>
+</body>
+</html>
