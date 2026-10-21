@@ -17,7 +17,7 @@ Piszemy bardzo poprawną polszczyzną. Rozstrzygają: Wielki słownik języka po
 | **–** (półpauza) ze spacjami | myślnik w zdaniu | „Rachunek wzrósł – choć prąd na giełdzie potaniał.” |
 | **–** (półpauza) bez spacji | zakres liczb, dat, stron | 2010–2026, 1200–2800 kWh, s. 12–14 |
 | **-** (dywiz) | wyrazy złożone, przenoszenie wyrazów | e-commerce, biało-czerwony, naukowo-techniczny |
-| **— (pauza, długi myślnik)** | **nigdy** (decyzja redakcyjna) | – |
+| „—” (pauza, długi myślnik, U+2014) | **nigdy** (decyzja redakcyjna) | nie dotyczy |
 
 - Długiego myślnika „—” nie używamy w żadnej treści Energypedii. Jest typowym znakiem tekstów generowanych przez AI i zastępujemy go półpauzą.
 - Przed publikacją każdy tekst przechodzi automatyczne sprawdzenie: znak „—” (U+2014) blokuje publikację.

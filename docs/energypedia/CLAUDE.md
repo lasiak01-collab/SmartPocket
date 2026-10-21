@@ -6,7 +6,7 @@ Ten katalog to projekt Energypedia.pl (redaktor naczelny: Mariusz Lach). Przy ka
 - Wszystko, co trafia do serwisu, grafik, makiet, szablonów i dokumentów, piszę bardzo poprawną polszczyzną.
 - **Nigdy nie używam długiego myślnika „—”** (U+2014), także w odpowiedziach dla naczelnego. Myślnik w zdaniu to półpauza ze spacjami „ – ”, zakres to półpauza bez spacji „2010–2026”, wyrazy złożone z dywizem „e-commerce”.
 - Cudzysłów „…”, tytuły bez wielkich liter w środku, liczby i jednostki według części I zasad, bez zwrotów-wypełniaczy typowych dla AI.
-- Po każdej zmianie tekstów sprawdzam: `grep -rn "—" docs/energypedia` musi zwrócić zero wyników.
+- Po każdej zmianie tekstów sprawdzam: `grep -rn "—" docs/energypedia | grep -v "U+2014\|„—”"` musi zwrócić zero wyników (wyjątek: cytowanie zakazanego znaku w samych zasadach).
 
 ## Rzetelność: nie zgaduję
 - Nie wymyślam liczb, dat, przepisów, cytatów, osób, ich funkcji i życiorysów, firm, ofert, wyników badań ani adresów URL.
