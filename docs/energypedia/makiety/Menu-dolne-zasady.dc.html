@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Dolne menu – zasady i stany</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1600px; height: 1100px; box-sizing: border-box; padding: 56px 72px; background: #FFFFFF; color: #0B1B33; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; gap: 36px">
+
+  <div style="display: flex; flex-direction: column; gap: 10px; border-bottom: 2px solid #0B1B33; padding-bottom: 24px">
+    <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 52px; line-height: 1; letter-spacing: -0.035em">Dolne menu mobilne</h2>
+    <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #42526B; max-width: 1100px">Pasek przyklejony do dołu ekranu: sygnet jako „Start”, trzy skróty, które czytelnik wybiera sam, i „Więcej”. Skróty z panelem wysuwają listę wpisów z danej sekcji bez opuszczania czytanej strony.</p>
+  </div>
+
+  <div style="display: flex; gap: 56px; align-items: flex-start">
+    <figure style="margin: 0; flex: 0 0 560px; display: flex; flex-direction: column; gap: 18px">
+      <div style="position: relative; height: 150px; background: #F5F7FA; border-radius: 18px; display: flex; align-items: center; justify-content: center">
+        <div style="width: 470px; height: 76px; background: #FFFFFF; border: 1px solid #DCE3EC; border-radius: 14px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center; justify-items: center; position: relative">
+          <span style="width: 48px; height: 40px; border-radius: 12px; background: #0B1B33; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="18 18 72 72" aria-hidden="true"><rect x="18" y="18" width="18" height="72" rx="6" fill="#FFFFFF"></rect><rect x="18" y="18" width="72" height="18" rx="6" fill="#FFFFFF"></rect><rect x="44" y="45" width="40" height="18" rx="6" fill="#00C2A8"></rect><rect x="18" y="72" width="60" height="18" rx="6" fill="#FFFFFF"></rect></svg></span>
+          <span style="display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 12px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B1B33" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20 L16 16"></path></svg>Zapytaj</span>
+          <span style="display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 12px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B1B33" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 20 V13"></path><path d="M12 20 V6"></path><path d="M19 20 V10"></path></svg>Dane</span>
+          <span style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 12px; font-weight: 600; color: #00796B"><span style="position: absolute; top: -14px; width: 28px; height: 4px; border-radius: 0 0 3px 3px; background: #00C2A8"></span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00796B" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5 V12 L15 14"></path></svg>Nowe</span>
+          <span style="display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 12px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="#0B1B33" aria-hidden="true"><circle cx="5" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle></svg>Więcej</span>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; font-size: 13px; line-height: 1.4; color: #42526B">
+        <span><strong style="color: #0B1B33">1. Start.</strong> Sygnet z animacją wejścia i odczytu na żywo; na stronie głównej przewija do góry.</span>
+        <span><strong style="color: #0B1B33">2–4. Twoje skróty.</strong> Domyślnie Zapytaj, Dane, Nowe; czytelnik wybiera 3 z 8.</span>
+        <span style="grid-column: span 2"><strong style="color: #0B1B33">Stan aktywny.</strong> Zielony słupek nad ikoną (motyw sygnetu) i zieleń tekstowa #00796B. Kropka „na żywo” przy Danych, gdy dane są aktualizowane.</span>
+        <span><strong style="color: #0B1B33">5. Więcej.</strong> Wszystkie sekcje i „Dostosuj”.</span>
+      </div>
+    </figure>
+
+    <div style="flex: 1 1 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px">
+      <section style="display: flex; flex-direction: column; gap: 8px">
+        <h3 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">PANELE Z PASKA</h3>
+        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.45">
+          <li><strong>Najnowsze:</strong> godzina i tytuł, filtr sekcji; wpisy do 30 minut z czasem względnym w zieleni.</li>
+          <li><strong>Energia dziś:</strong> 4 kafle Barometru ze źródłem i datą.</li>
+          <li><strong>Więcej:</strong> siatka 8 sekcji i edycja paska.</li>
+          <li>Panel wysuwa się nad paskiem, pasek zostaje widoczny; zamyka go krzyżyk, dotknięcie tła albo przeciągnięcie w dół. Maks. 75% wysokości ekranu.</li>
+        </ul>
+      </section>
+      <section style="display: flex; flex-direction: column; gap: 8px">
+        <h3 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">EDYTOWALNOŚĆ</h3>
+        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.45">
+          <li><strong>Czytelnik:</strong> wybiera 3 skróty; wybór zapisany w przeglądarce, a po zalogowaniu na koncie.</li>
+          <li><strong>Redakcja (Sanity):</strong> domyślny zestaw, kolejność, etykiety i skrót sezonowy, np. „Taryfy 2027” na czas decyzji URE.</li>
+          <li>Zmiany zestawu domyślnego testujemy A/B na części ruchu.</li>
+        </ul>
+      </section>
+      <section style="display: flex; flex-direction: column; gap: 8px">
+        <h3 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">ZACHOWANIE</h3>
+        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.45">
+          <li>Chowa się przy przewijaniu w dół, wraca przy ruchu w górę i na końcu strony.</li>
+          <li>Uwzględnia dolny margines bezpieczeństwa telefonu (pasek gestów).</li>
+          <li>Od szerokości 1024 px zastępuje go nawigacja w nagłówku.</li>
+          <li>Animacje tylko w CSS; przy „ogranicz ruch” wyłączone.</li>
+        </ul>
+      </section>
+      <section style="display: flex; flex-direction: column; gap: 8px">
+        <h3 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">REKLAMA I NIEZALEŻNOŚĆ</h3>
+        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.45">
+          <li>Przyklejona reklama 320×50 stoi nad paskiem i znika, gdy panel jest otwarty.</li>
+          <li>Skrót na pasku nigdy nie jest reklamą; w panelach nie ma reklam ani materiałów partnerów.</li>
+        </ul>
+      </section>
+      <section style="display: flex; flex-direction: column; gap: 8px">
+        <h3 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">DOSTĘPNOŚĆ</h3>
+        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.45">
+          <li>Element nawigacji z etykietą „Menu dolne”, cele dotyku min. 44 px.</li>
+          <li>Przyciski paneli mają stan rozwinięcia; panel to okno dialogowe z fokusem uwięzionym w środku i zamykaniem klawiszem Esc.</li>
+        </ul>
+      </section>
+      <section style="display: flex; flex-direction: column; gap: 8px">
+        <h3 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">POMIAR</h3>
+        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.45">
+          <li>Zdarzenia: dotknięcie skrótu, otwarcie panelu, wejście we wpis z panelu, zmiana paska.</li>
+          <li>Lista „Najnowsze” ładowana dopiero przy otwarciu panelu i odświeżana co 60 sekund.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1600,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
