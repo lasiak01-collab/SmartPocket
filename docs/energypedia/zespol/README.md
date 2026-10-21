@@ -23,7 +23,7 @@ W Claude (claude.ai lub aplikacja) utwórz **7 projektów**, np. „EP | Recenze
 1. **Instrukcje projektu:** wklej całą zawartość pliku roli (np. `01_recenzent.md`).
 2. **Wiedza projektu (pliki):**
    - `00_kontekst_wspolny.md` i `00_kompendium_rynku_energii_2010-2026.md` (we wszystkich projektach),
-   - `BIZNESPLAN_Energypedia.md` i `PLAN_MVP_do_konca_2026.md` (we wszystkich),
+   - `BIZNESPLAN_Energypedia.md` i `PLAN_MVP_do_konca_2026.md` (we wszystkich), a `ARCHITEKTURA_serwisu_Energypedia.md` u Redaktora SEO, Specjalisty kampanii, Sprzedawcy i Prawnika (szablony, sloty reklamowe, model treści, zgody),
    - dodatkowo według roli:
      - Recenzent: przewodnik stylu, statut redakcji, lista źródeł pierwotnych, rejestr sprostowań;
      - Analityk: metodyki wskaźników, poprzednie Barometry, pliki danych CSV, kwestionariusz badania;

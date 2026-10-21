@@ -177,6 +177,8 @@ Metodyka publikowana na stronie /dane/metodyka. **Od stycznia–lutego 2027 r.**
 
 Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwisu treściowego**, który później rozbudujemy.
 
+> Pełna specyfikacja (mapa serwisu, szablony, model treści, sloty reklamowe, stos technologiczny, etapy) jest w **`ARCHITEKTURA_serwisu_Energypedia.md`**; zakres na grudzień to jej etap 0.
+
 | # | Zadanie | Termin |
 |---|---|---|
 | 7.1 | Wybór wykonawcy (freelancer lub małe studio) i stosu: **Next.js + headless CMS** (np. Sanity lub Payload) **albo** szybszy wariant: WordPress z dobrym motywem i porządnym SEO. Rekomendacja: Next.js + headless CMS, bo to fundament pod narzędzia w 2027 r. | 30 X |
