@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Key visual – wpis, kwadrat i galeria</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1600px; height: 1240px; box-sizing: border-box; padding: 64px 72px; background: #FFFFFF; color: #0B1B33; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; gap: 48px">
+
+  <div style="display: flex; gap: 56px; align-items: flex-start">
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 12px; width: 720px">
+      <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">ZDJĘCIE W TREŚCI WPISU · 16:9</span>
+      <div style="position: relative; width: 720px; height: 405px; background: {{photoBg}}">
+        <span style="position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); font-size: 16px; font-weight: 600; color: {{photoInk}}">[ZDJĘCIE Z WYDARZENIA]</span>
+        <span style="position: absolute; left: 0; bottom: 34px; width: 36px; height: 9px; border-radius: 0 3px 3px 0; background: {{arm}}"></span>
+        <span style="position: absolute; left: 4px; bottom: 20px; width: 20px; height: 9px; border-radius: 3px; background: #00C2A8"></span>
+        <span style="position: absolute; left: 0; bottom: 7px; width: 30px; height: 9px; border-radius: 0 3px 3px 0; background: {{arm}}"></span>
+      </div>
+      <figcaption style="font-size: 15px; line-height: 1.5; color: #42526B; padding-top: 4px; border-top: 1px solid #DCE3EC"><strong style="color: #0B1B33">Panel „[temat]” podczas [wydarzenie], [miasto].</strong> Od lewej: [osoby]. Fot. [Imię Nazwisko] / Energypedia.pl</figcaption>
+    </figure>
+
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 12px">
+      <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">POST BEZ TEKSTU · 1:1</span>
+      <div style="position: relative; width: 405px; height: 405px; background: {{photoBg}}">
+        <span style="position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); font-size: 16px; font-weight: 600; color: {{photoInk}}">[ZDJĘCIE]</span>
+        <span style="position: absolute; left: 0; bottom: 34px; width: 36px; height: 9px; border-radius: 0 3px 3px 0; background: {{arm}}"></span>
+        <span style="position: absolute; left: 4px; bottom: 20px; width: 20px; height: 9px; border-radius: 3px; background: #00C2A8"></span>
+        <span style="position: absolute; left: 0; bottom: 7px; width: 30px; height: 9px; border-radius: 0 3px 3px 0; background: {{arm}}"></span>
+      </div>
+      <figcaption style="font-size: 15px; line-height: 1.5; color: #42526B; max-width: 405px">Karuzela z wydarzenia: kolejne zdjęcia po samym znaku krawędzi, tekst tylko na pierwszym slajdzie (post 1080×1350).</figcaption>
+    </figure>
+
+    <section style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 12px">
+      <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">GALERIA RELACJI</span>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+        <span style="height: 96px; background: #3A4A5E"></span><span style="height: 96px; background: #D5DCE4"></span>
+        <span style="height: 96px; background: #5B6B80"></span><span style="height: 96px; background: #3A4A5E"></span>
+        <span style="height: 96px; background: #D5DCE4"></span><span style="height: 96px; background: #5B6B80"></span>
+      </div>
+      <span style="font-size: 15px; line-height: 1.5; color: #42526B">Miniatury poniżej 300 px — bez znaku (byłby za mały). Znak pojawia się w powiększeniu zdjęcia, razem z licznikiem „3 / 12”.</span>
+    </section>
+  </div>
+
+  <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; padding-top: 28px; border-top: 2px solid #0B1B33">
+    <section style="display: flex; flex-direction: column; gap: 14px">
+      <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 32px; letter-spacing: -0.02em">Jak nanosić znak za każdym razem</h2>
+      <ol style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; font-size: 17px; line-height: 1.5; color: #42526B">
+        <li><strong style="color: #0B1B33">Na stronie — automatycznie.</strong> Redakcja wgrywa czyste zdjęcie do Sanity i zaznacza „jasny / ciemny kadr”. Znak rysuje przeglądarka, więc oryginał zostaje nietknięty, a styl można zmienić dla wszystkich zdjęć naraz.</li>
+        <li><strong style="color: #0B1B33">W social mediach — z szablonu.</strong> Szablony 1080×1350, 1080×1080 i 1080×1920 w Canvie lub Figmie z zablokowaną warstwą znaku i panelem; podmieniasz tylko zdjęcie i tekst.</li>
+        <li><strong style="color: #0B1B33">Seria z wydarzenia</strong> — eksport wsadowy: ten sam znak, ten sam róg, kolor słupków wg jasności kadru.</li>
+      </ol>
+    </section>
+    <section style="display: flex; flex-direction: column; gap: 14px">
+      <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 32px; letter-spacing: -0.02em">Znak w kodzie strony</h2>
+      <pre style="margin: 0; padding: 20px; background: #F5F7FA; border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.55; white-space: pre-wrap; color: #0B1B33">&lt;figure class="ep-photo ep-photo--dark"&gt;
+  &lt;img src="…" alt="…"&gt;
+  &lt;span class="ep-edge" aria-hidden="true"&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/figure&gt;
+
+.ep-photo { position: relative; container-type: size; }
+.ep-edge { --t: 2.2cqmin; position: absolute; left: 0;
+  bottom: calc(var(--t) * .8); display: grid; gap: calc(var(--t) * .5); }
+.ep-edge i { height: var(--t); border-radius: 0 calc(var(--t) / 3) calc(var(--t) / 3) 0;
+  background: #fff; }
+.ep-photo--light .ep-edge i { background: #0B1B33; }
+.ep-edge i:nth-child(1) { width: calc(var(--t) * 4); }
+.ep-edge i:nth-child(2) { width: calc(var(--t) * 2.2); margin-left: calc(var(--t) * .45);
+  border-radius: calc(var(--t) / 3); background: #00C2A8; }
+.ep-edge i:nth-child(3) { width: calc(var(--t) * 3.3); }
+@container (max-width: 300px) { .ep-edge { display: none; } }</pre>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tone":{"editor":"enum","options":["ciemne","jasne"],"default":"ciemne","section":"Zdjęcie"},"$preview":{"width":1600,"height":1240}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const light = (this.props.tone ?? 'ciemne') === 'jasne';
+    return {
+      photoBg: light ? '#D5DCE4' : '#3A4A5E',
+      photoInk: light ? '#0B1B33' : '#FFFFFF',
+      arm: light ? '#0B1B33' : '#FFFFFF'
+    };
+  }
+}
+</script>
+</body>
+</html>

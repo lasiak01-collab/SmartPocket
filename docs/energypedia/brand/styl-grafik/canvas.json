@@ -2,83 +2,27 @@
   "v": 3,
   "attachments": {},
   "boards": {
-    "Ikony.dc.html": {
-      "h": 760,
-      "title": "Ilustracje punktowe (spot)",
-      "w": 1600,
-      "x": 0,
-      "y": 1220
-    },
-    "Infografika.dc.html": {
-      "h": 1350,
-      "title": "Infografika 1080×1350",
-      "w": 1080,
-      "x": 1680,
-      "y": 1220
-    },
-    "Main.dc.html": {
-      "h": 1100,
-      "title": "Zasady · Konstrukcja ze słupków",
-      "w": 1600,
-      "x": 0,
-      "y": 0
-    },
-    "Okladki.dc.html": {
-      "h": 1100,
-      "title": "Okładki artykułów 1200×630",
-      "w": 1600,
-      "x": 1680,
-      "y": 0
-    },
-    "Social.dc.html": {
-      "h": 1078,
-      "title": "Post z liczbą 1080×1080",
-      "w": 1077,
-      "x": 2938,
-      "y": 1342
-    },
-    "Zdjecia.dc.html": {
-      "x": 0,
-      "y": 2690,
-      "w": 1600,
-      "h": 1500,
-      "title": "Zdjęcia · duotone w ramie ze słupków"
-    }
+    "Ikony.dc.html": {"h": 760, "title": "Ilustracje punktowe (spot)", "w": 1600, "x": 0, "y": 1220},
+    "Infografika.dc.html": {"h": 1350, "title": "Infografika 1080×1350", "w": 1080, "x": 1680, "y": 1220},
+    "Main.dc.html": {"h": 1100, "title": "Zasady · Konstrukcja ze słupków", "w": 1600, "x": 0, "y": 0},
+    "Okladki.dc.html": {"h": 1100, "title": "Okładki artykułów 1200×630", "w": 1600, "x": 1680, "y": 0},
+    "Social.dc.html": {"h": 1078, "title": "Post z liczbą 1080×1080", "w": 1077, "x": 2938, "y": 1342},
+    "Zdjecia.dc.html": {"x": 0, "y": 2690, "w": 1600, "h": 1500, "title": "Zdjęcia · duotone w ramie ze słupków"},
+    "KV-Zasady.dc.html": {"x": 0, "y": 4600, "w": 1600, "h": 1100, "title": "Key visual · znak krawędzi", "is_interactive": true},
+    "KV-Post.dc.html": {"x": 1680, "y": 4600, "w": 1080, "h": 1350, "title": "Key visual · post 1080×1350", "is_interactive": true},
+    "KV-Story.dc.html": {"x": 2840, "y": 4600, "w": 1080, "h": 1920, "title": "Key visual · relacja (story) 1080×1920", "is_interactive": true},
+    "KV-Wpis.dc.html": {"x": 0, "y": 5820, "w": 1600, "h": 1240, "title": "Key visual · wpis, kwadrat i galeria", "is_interactive": true}
   },
-  "createdOnFiles": {
-    "at": "2026-10-21T21:10:00Z",
-    "v": 1
-  },
+  "createdOnFiles": {"at": "2026-10-21T21:10:00Z", "v": 1},
   "designSystems": [
-    {
-      "artifact": "https://claude.ai/artifact/7FRScBamZSJkQPhhFyVvcS",
-      "copiedAt": "2026-10-21T21:10:00Z",
-      "namespace": "energypedia",
-      "title": "Energypedia",
-      "version": "1792614748-7108"
-    }
+    {"artifact": "https://claude.ai/artifact/7FRScBamZSJkQPhhFyVvcS", "copiedAt": "2026-10-21T21:10:00Z", "namespace": "energypedia", "title": "Energypedia", "version": "1792614748-7108"}
   ],
-  "launch": {
-    "view": "canvas"
-  },
+  "launch": {"view": "canvas"},
   "notes": {
-    "tytul": {
-      "kind": "title1",
-      "maxW": 3920,
-      "text": "Energypedia.pl — styl grafik: Konstrukcja ze słupków",
-      "w": 240,
-      "x": 0,
-      "y": -300
-    }
+    "tytul": {"kind": "title1", "maxW": 3920, "text": "Energypedia.pl — styl grafik: Konstrukcja ze słupków", "w": 240, "x": 0, "y": -300},
+    "kv": {"kind": "title1", "maxW": 3920, "text": "Key visual zdjęć — znak krawędzi", "x": 0, "y": 4330}
   },
-  "order": [
-    "Main.dc.html",
-    "Okladki.dc.html",
-    "Ikony.dc.html",
-    "Infografika.dc.html",
-    "Social.dc.html",
-    "Zdjecia.dc.html"
-  ],
+  "order": ["Main.dc.html", "Okladki.dc.html", "Ikony.dc.html", "Infografika.dc.html", "Social.dc.html", "Zdjecia.dc.html", "KV-Zasady.dc.html", "KV-Post.dc.html", "KV-Story.dc.html", "KV-Wpis.dc.html"],
   "pages": [],
   "title": "Energypedia – styl grafik"
 }

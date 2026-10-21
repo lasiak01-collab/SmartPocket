@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Key visual – post 1080×1350</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1080px; height: 1350px; display: flex; flex-direction: column; background: #0B1B33; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <div style="position: relative; height: 900px; flex: none; background: {{photoBg}}">
+    <span style="position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); font-size: 22px; font-weight: 600; color: {{photoInk}}; text-align: center; line-height: 1.5">[PRAWDZIWE ZDJĘCIE W KOLORZE]<br><span style="font-size: 18px; font-weight: 500">np. panel dyskusyjny, scena, uczestnicy</span></span>
+    <span style="position: absolute; left: 0; bottom: 91px; width: 96px; height: 24px; border-radius: 0 8px 8px 0; background: {{arm}}"></span>
+    <span style="position: absolute; left: 11px; bottom: 55px; width: 53px; height: 24px; border-radius: 8px; background: #00C2A8"></span>
+    <span style="position: absolute; left: 0; bottom: 19px; width: 79px; height: 24px; border-radius: 0 8px 8px 0; background: {{arm}}"></span>
+  </div>
+  <div style="flex: 1 1 auto; box-sizing: border-box; padding: 48px 64px 52px; display: flex; flex-direction: column; justify-content: space-between">
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <span style="font-size: 20px; font-weight: 700; letter-spacing: 0.12em; color: #00C2A8">{{kicker}} · [WYDARZENIE, MIASTO]</span>
+      <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 50px; line-height: 1.08; letter-spacing: -0.03em">[Najważniejsza teza z wydarzenia — do 70 znaków]</span>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 20px; color: #C9D4E3">
+      <span>[data] · Fot. [Imię Nazwisko]</span>
+      <span style="display: flex; align-items: center; gap: 18px"><span style="font-weight: 700; color: #FFFFFF">energypedia.pl</span><span>1/8</span></span>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tone":{"editor":"enum","options":["ciemne","jasne"],"default":"ciemne","section":"Zdjęcie"},"kind":{"editor":"enum","options":["RELACJA","WYWIAD","WPIS","NA ŻYWO"],"default":"RELACJA","section":"Treść"},"$preview":{"width":1080,"height":1350}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const light = (this.props.tone ?? 'ciemne') === 'jasne';
+    return {
+      photoBg: light ? '#D5DCE4' : '#3A4A5E',
+      photoInk: light ? '#0B1B33' : '#FFFFFF',
+      arm: light ? '#0B1B33' : '#FFFFFF',
+      kicker: this.props.kind ?? 'RELACJA'
+    };
+  }
+}
+</script>
+</body>
+</html>

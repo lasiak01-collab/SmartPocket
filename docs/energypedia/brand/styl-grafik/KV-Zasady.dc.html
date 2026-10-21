@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Key visual – znak krawędzi</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1600px; height: 1100px; box-sizing: border-box; padding: 64px 72px; background: #FFFFFF; color: #0B1B33; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; gap: 40px">
+
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; border-bottom: 2px solid #0B1B33; padding-bottom: 28px">
+    <div style="display: flex; flex-direction: column; gap: 12px; max-width: 980px">
+      <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.12em">06 · KEY VISUAL ZDJĘĆ</span>
+      <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 64px; line-height: 1; letter-spacing: -0.035em">Znak krawędzi</h2>
+      <p style="margin: 0; font-size: 20px; line-height: 1.5; color: #42526B">Lewa krawędź zdjęcia staje się pionem litery E, a z dolnego rogu wychodzą trzy krótkie słupki. Ten sam drobny znak na każdym zdjęciu z wpisów, postów i relacji — rozpoznasz Energypedię, zanim przeczytasz podpis.</p>
+    </div>
+    <span style="font-size: 15px; color: #42526B; text-align: right">Zmień „Zdjęcie” w Tweaks,<br>żeby zobaczyć wariant na jasnym kadrze.</span>
+  </div>
+
+  <div style="display: flex; gap: 56px; align-items: flex-start">
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+      <div style="position: relative; width: 760px; height: 506px; background: {{photoBg}}">
+        <span style="position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%); font-size: 15px; font-weight: 600; color: {{photoInk}}; text-align: center">[PRAWDZIWE ZDJĘCIE · {{photoLabel}}]</span>
+        <span style="position: absolute; left: 0; bottom: 152px; width: 160px; height: 40px; border-radius: 0 13px 13px 0; background: {{arm}}"></span>
+        <span style="position: absolute; left: 18px; bottom: 92px; width: 88px; height: 40px; border-radius: 13px; background: #00C2A8"></span>
+        <span style="position: absolute; left: 0; bottom: 32px; width: 132px; height: 40px; border-radius: 0 13px 13px 0; background: {{arm}}"></span>
+        <span style="position: absolute; left: 176px; bottom: 152px; height: 40px; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: {{photoInk}}"><span style="width: 24px; height: 2px; background: {{photoInk}}"></span>4 t</span>
+        <span style="position: absolute; left: 122px; bottom: 92px; height: 40px; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: {{photoInk}}"><span style="width: 24px; height: 2px; background: {{photoInk}}"></span>2,2 t · odsunięty o 0,45 t</span>
+        <span style="position: absolute; left: 148px; bottom: 32px; height: 40px; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: {{photoInk}}"><span style="width: 24px; height: 2px; background: {{photoInk}}"></span>3,3 t</span>
+        <span style="position: absolute; right: 24px; bottom: 32px; font-size: 13px; font-weight: 700; color: {{photoInk}}">margines od dołu = 0,8 t</span>
+      </div>
+      <figcaption style="font-size: 15px; color: #42526B"><strong style="color: #0B1B33">Konstrukcja.</strong> t (grubość słupka) = 2,2% krótszego boku zdjęcia: 24 px przy 1080 px, 14 px przy 630 px. Odstęp między słupkami = 0,5 t.</figcaption>
+    </figure>
+
+    <div style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 28px">
+      <div style="display: flex; gap: 20px">
+        <figure style="margin: 0; flex: 1 1 0; display: flex; flex-direction: column; gap: 8px">
+          <div style="position: relative; height: 200px; background: #3A4A5E">
+            <span style="position: absolute; left: 0; bottom: 64px; width: 56px; height: 14px; border-radius: 0 5px 5px 0; background: #FFFFFF"></span>
+            <span style="position: absolute; left: 6px; bottom: 43px; width: 31px; height: 14px; border-radius: 5px; background: #00C2A8"></span>
+            <span style="position: absolute; left: 0; bottom: 22px; width: 46px; height: 14px; border-radius: 0 5px 5px 0; background: #FFFFFF"></span>
+          </div>
+          <figcaption style="font-size: 14px"><strong>Ciemny kadr</strong> — słupki białe</figcaption>
+        </figure>
+        <figure style="margin: 0; flex: 1 1 0; display: flex; flex-direction: column; gap: 8px">
+          <div style="position: relative; height: 200px; background: #D5DCE4">
+            <span style="position: absolute; left: 0; bottom: 64px; width: 56px; height: 14px; border-radius: 0 5px 5px 0; background: #0B1B33"></span>
+            <span style="position: absolute; left: 6px; bottom: 43px; width: 31px; height: 14px; border-radius: 5px; background: #00C2A8"></span>
+            <span style="position: absolute; left: 0; bottom: 22px; width: 46px; height: 14px; border-radius: 0 5px 5px 0; background: #0B1B33"></span>
+          </div>
+          <figcaption style="font-size: 14px"><strong>Jasny kadr</strong> — słupki granatowe</figcaption>
+        </figure>
+      </div>
+      <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 16px; line-height: 1.45">
+        <li style="display: flex; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00796B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Tak" style="flex: none; margin-top: 2px"><path d="M4 12 L10 18 L20 6"></path></svg><span><strong>Zawsze lewy dolny róg</strong>, słupki przyklejone do krawędzi. Środkowy zawsze zielony.</span></li>
+        <li style="display: flex; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00796B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Tak" style="flex: none; margin-top: 2px"><path d="M4 12 L10 18 L20 6"></path></svg><span><strong>Zdjęcie w kolorze, bez filtrów</strong> — relacja ma pokazywać, jak było. Duotone zostaje dla portretów i okładek.</span></li>
+        <li style="display: flex; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00796B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Tak" style="flex: none; margin-top: 2px"><path d="M4 12 L10 18 L20 6"></path></svg><span><strong>Tekst nigdy na zdjęciu</strong> — tytuł i podpis w granatowym panelu pod kadrem.</span></li>
+        <li style="display: flex; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2.5" stroke-linecap="round" role="img" aria-label="Nie" style="flex: none; margin-top: 2px"><path d="M6 6 L18 18 M18 6 L6 18"></path></svg><span><strong>Znak nie zasłania twarzy</strong> ani napisów w kadrze — przytnij zdjęcie inaczej, nie przesuwaj znaku.</span></li>
+        <li style="display: flex; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2.5" stroke-linecap="round" role="img" aria-label="Nie" style="flex: none; margin-top: 2px"><path d="M6 6 L18 18 M18 6 L6 18"></path></svg><span><strong>Bez logo w rogu i znaków wodnych</strong> — znak krawędzi je zastępuje; adres jest w panelu.</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tone":{"editor":"enum","options":["ciemne","jasne"],"default":"ciemne","section":"Zdjęcie"},"$preview":{"width":1600,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const light = (this.props.tone ?? 'ciemne') === 'jasne';
+    return {
+      photoBg: light ? '#D5DCE4' : '#3A4A5E',
+      photoInk: light ? '#0B1B33' : '#FFFFFF',
+      photoLabel: light ? 'jasny kadr' : 'ciemny kadr',
+      arm: light ? '#0B1B33' : '#FFFFFF'
+    };
+  }
+}
+</script>
+</body>
+</html>

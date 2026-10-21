@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Key visual – relacja (story)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+.ep-live{animation:ep-pulse 2s ease-in-out infinite}
+@keyframes ep-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@media (prefers-reduced-motion: reduce){.ep-live{animation:none}}
+</style>
+</helmet>
+<div style="position: relative; width: 1080px; height: 1920px; display: flex; flex-direction: column; background: #0B1B33; color: #FFFFFF; font-family: Inter, system-ui, sans-serif">
+  <div style="position: relative; height: 1360px; flex: none; background: {{photoBg}}">
+    <span style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 24px; font-weight: 600; color: {{photoInk}}; text-align: center; line-height: 1.5">[PRAWDZIWE ZDJĘCIE W PIONIE]<br><span style="font-size: 20px; font-weight: 500">np. prelegent na scenie, kulisy, stoisko</span></span>
+    <span style="position: absolute; left: 0; bottom: 91px; width: 96px; height: 24px; border-radius: 0 8px 8px 0; background: {{arm}}"></span>
+    <span style="position: absolute; left: 11px; bottom: 55px; width: 53px; height: 24px; border-radius: 8px; background: #00C2A8"></span>
+    <span style="position: absolute; left: 0; bottom: 19px; width: 79px; height: 24px; border-radius: 0 8px 8px 0; background: {{arm}}"></span>
+  </div>
+  <div style="flex: 1 1 auto; box-sizing: border-box; padding: 56px 72px 280px; display: flex; flex-direction: column; gap: 20px">
+    <span style="display: flex; align-items: center; gap: 14px; font-size: 24px; font-weight: 700; letter-spacing: 0.12em; color: #00C2A8"><span class="ep-live" style="width: 16px; height: 16px; border-radius: 999px; background: #00C2A8"></span>NA ŻYWO · [WYDARZENIE]</span>
+    <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 56px; line-height: 1.08; letter-spacing: -0.03em">[Jedno zdanie: co właśnie się wydarzyło]</span>
+    <span style="font-size: 24px; color: #C9D4E3">[godzina] · energypedia.pl</span>
+  </div>
+  <sc-if value="{{showSafe}}" hint-placeholder-val="{{ true }}">
+    <div style="position: absolute; left: 0; right: 0; top: 0; height: 250px; border-bottom: 3px dashed #FFB4A8; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 10px; font-size: 18px; font-weight: 700; color: #FFB4A8">strefa interfejsu aplikacji — bez ważnych treści</div>
+    <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 250px; border-top: 3px dashed #FFB4A8; display: flex; align-items: flex-start; justify-content: center; padding-top: 10px; font-size: 18px; font-weight: 700; color: #FFB4A8">strefa interfejsu aplikacji — bez ważnych treści</div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tone":{"editor":"enum","options":["ciemne","jasne"],"default":"ciemne","section":"Zdjęcie"},"showSafe":{"editor":"boolean","default":true,"section":"Pomocnicze"},"$preview":{"width":1080,"height":1920}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const light = (this.props.tone ?? 'ciemne') === 'jasne';
+    return {
+      photoBg: light ? '#D5DCE4' : '#3A4A5E',
+      photoInk: light ? '#0B1B33' : '#FFFFFF',
+      arm: light ? '#0B1B33' : '#FFFFFF',
+      showSafe: this.props.showSafe ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>
