@@ -10,6 +10,12 @@ Energypedia.pl to serwis o rynku energii elektrycznej dla domów, mikrofirm, śr
 - **Oznaczenia, których nie wolno pominąć:** „Odpowiedź AI na podstawie artykułów Energypedii” + zastrzeżenie w AnswerCard; „Materiał partnera” na treściach płatnych; „REKLAMA” nad każdym slotem; link „Jak zarabiamy” przy sponsoringu.
 - **Bez emoji** w interfejsie i treściach.
 
+## Blok „W skrócie”
+
+- Każdy artykuł i poradnik zaczyna się komponentem `KeyFacts` tuż pod nagłówkiem: jedno-, dwuzdaniowa odpowiedź (pod AEO/GEO) i do 3 kluczowych liczb.
+- Wyróżniamy go typografią i linią redakcyjną, nie ramką: bez kart z kolorowym paskiem z boku, bez cieni i gradientów.
+- Słupki pod liczbami pokazują proporcję (np. 14 dni / 30 dni / 12 mies.) i powtarzają kształt słupków sygnetu; zielony (`logo-accent`) tylko dla jednej, najważniejszej liczby.
+
 ## Kolor
 
 - Tło strony `bg`; karty, kafle i pola `surface`; pierwszy ekran i wybrana karta segmentu `surface-soft`; tła drugiego planu `surface-muted`.

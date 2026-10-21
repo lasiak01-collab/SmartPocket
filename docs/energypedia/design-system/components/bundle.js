@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"Energypedia","components":[{"name":"Logo"},{"name":"Button"},{"name":"Chip"},{"name":"Badge"},{"name":"SectionHeader"},{"name":"AskBox"},{"name":"AnswerCard"},{"name":"SegmentPicker"},{"name":"StatTile"},{"name":"ContentCard"},{"name":"TrackerCard"},{"name":"FaqList"},{"name":"NewsletterForm"},{"name":"AdSlot"},{"name":"SponsorBand"}]} */
+/* @ds-bundle: {"format":4,"namespace":"Energypedia","components":[{"name":"Logo"},{"name":"Button"},{"name":"Chip"},{"name":"Badge"},{"name":"SectionHeader"},{"name":"AskBox"},{"name":"AnswerCard"},{"name":"KeyFacts"},{"name":"SegmentPicker"},{"name":"StatTile"},{"name":"ContentCard"},{"name":"TrackerCard"},{"name":"FaqList"},{"name":"NewsletterForm"},{"name":"AdSlot"},{"name":"SponsorBand"}]} */
 (function () {
   var React = window.React;
   var h = React.createElement;
@@ -106,6 +106,29 @@
       h('span', { className: 'ep-caption' }, p.disclaimer || 'Treść wygenerowana przez AI. Ma charakter informacyjny i nie jest poradą prawną w indywidualnej sprawie.'));
   }
 
+  // Blok „W skrócie”: krótka odpowiedź na górze artykułu (AEO) + do 3 kluczowych liczb ze słupkami jak w sygnecie.
+  function KeyFacts(p) {
+    var facts = (p.facts || []).slice(0, 3);
+    return h('section', { className: cx('ep-keyfacts', p.className), 'aria-labelledby': p.id || 'ep-keyfacts-title' },
+      h('div', { className: 'ep-keyfacts-head' },
+        h('h2', { id: p.id || 'ep-keyfacts-title', className: 'ep-keyfacts-title' },
+          h('svg', { width: 16, height: 16, viewBox: '18 18 72 72', 'aria-hidden': 'true', className: 'ep-logo-e' },
+            h('rect', { x: 18, y: 18, width: 18, height: 72, rx: 6 }), h('rect', { x: 18, y: 18, width: 72, height: 18, rx: 6 }),
+            h('rect', { className: 'ep-logo-mid', x: 44, y: 45, width: 40, height: 18, rx: 6 }), h('rect', { x: 18, y: 72, width: 60, height: 18, rx: 6 })),
+          p.title || 'W skrócie'),
+        p.meta ? h('span', { className: 'ep-caption' }, p.meta) : null),
+      h('p', { className: 'ep-keyfacts-summary' }, p.summary),
+      facts.length ? h('dl', { className: 'ep-keyfacts-facts', style: { gridTemplateColumns: 'repeat(' + facts.length + ', minmax(0, 1fr))' } },
+        facts.map(function (f, i) {
+          var tone = f.tone || (i === 1 ? 'accent' : 'ink');
+          return h('div', { key: i, className: 'ep-keyfacts-fact' },
+            h('dt', { className: 'ep-keyfacts-label' }, f.label),
+            h('dd', { className: cx('ep-keyfacts-value', tone === 'accent' && 'ep-keyfacts-value-accent') }, f.value, f.unit ? h('span', { className: 'ep-keyfacts-unit' }, f.unit) : null),
+            h('span', { 'aria-hidden': 'true', className: 'ep-keyfacts-bar ep-keyfacts-bar-' + tone, style: { width: Math.round(Math.max(0.08, Math.min(1, f.weight == null ? 1 : f.weight)) * 100) + '%' } }));
+        })) : null,
+      p.footnote ? h('div', { className: 'ep-keyfacts-foot' }, p.footnote) : null);
+  }
+
   function SegmentPicker(p) {
     var opts = p.options || [];
     var st = React.useState(p.defaultValue || (opts[0] && opts[0].id));
@@ -189,7 +212,7 @@
         h('a', { href: p.disclosureHref || '#' }, 'Jak zarabiamy')));
   }
 
-  var api = { Logo: Logo, Button: Button, Chip: Chip, Badge: Badge, SectionHeader: SectionHeader, AskBox: AskBox, AnswerCard: AnswerCard, SegmentPicker: SegmentPicker, StatTile: StatTile, ContentCard: ContentCard, TrackerCard: TrackerCard, FaqList: FaqList, NewsletterForm: NewsletterForm, AdSlot: AdSlot, SponsorBand: SponsorBand };
+  var api = { Logo: Logo, Button: Button, Chip: Chip, Badge: Badge, SectionHeader: SectionHeader, AskBox: AskBox, AnswerCard: AnswerCard, KeyFacts: KeyFacts, SegmentPicker: SegmentPicker, StatTile: StatTile, ContentCard: ContentCard, TrackerCard: TrackerCard, FaqList: FaqList, NewsletterForm: NewsletterForm, AdSlot: AdSlot, SponsorBand: SponsorBand };
   window.Energypedia = window.Energypedia || {};
   Object.assign(window.Energypedia, api);
 })();

@@ -86,6 +86,25 @@ a { color: inherit; }
 .ep-answer-src a { color: var(--volt-ink); font-weight: 600; text-decoration: none; }
 .ep-answer-src a:hover { text-decoration: underline; }
 
+/* KeyFacts — blok „W skrócie”: linia redakcyjna zamiast ramki, liczby ze słupkami jak w sygnecie */
+.ep-keyfacts { border-top: 2px solid var(--ink); padding-top: 14px; display: flex; flex-direction: column; gap: 18px; }
+.ep-keyfacts-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px var(--space-4); }
+.ep-keyfacts-title { margin: 0; display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.ep-keyfacts-summary { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 23px; line-height: 1.4; letter-spacing: -0.01em; }
+.ep-keyfacts-facts { margin: 0; display: grid; gap: var(--space-4); padding: var(--space-4) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.ep-keyfacts-fact { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.ep-keyfacts-label { order: 3; font-size: 14px; line-height: 1.35; color: var(--ink-muted); }
+.ep-keyfacts-value { order: 1; margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 36px; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.ep-keyfacts-value-accent { color: var(--volt-ink); }
+.ep-keyfacts-unit { font-size: 16px; font-weight: 600; letter-spacing: 0; margin-left: 4px; }
+.ep-keyfacts-bar { order: 2; height: 8px; border-radius: 3px; }
+.ep-keyfacts-bar-ink { background: var(--logo-ink); }
+.ep-keyfacts-bar-accent { background: var(--logo-accent); }
+.ep-keyfacts-bar-muted { background: var(--ink-muted); opacity: 0.55; }
+.ep-keyfacts-foot { font-size: 14px; color: var(--ink-muted); }
+.ep-keyfacts-foot a { color: var(--volt-ink); font-weight: 600; }
+@media (max-width: 480px) { .ep-keyfacts-summary { font-size: 20px; } .ep-keyfacts-value { font-size: 30px; } .ep-keyfacts-label { font-size: 13px; } }
+
 /* SegmentPicker */
 .ep-seg { display: flex; flex-wrap: wrap; gap: var(--space-4); }
 .ep-seg-item { font: inherit; flex: 1 1 220px; text-align: left; display: flex; flex-direction: column; gap: 6px; padding: 21px; border-radius: var(--radius-lg); border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); cursor: pointer; }

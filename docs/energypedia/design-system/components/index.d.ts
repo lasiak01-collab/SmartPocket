@@ -34,6 +34,20 @@ export declare function AskBox(props: AskBoxProps): React.ReactElement;
 export interface AnswerSource { label: string; href?: string }
 export interface AnswerCardProps { question: string; answer: string; sources?: AnswerSource[]; kicker?: string; disclaimer?: string }
 export declare function AnswerCard(props: AnswerCardProps): React.ReactElement;
+export interface KeyFact {
+  /** Liczba, np. '14' albo '+12'. */
+  value: string;
+  /** Jednostka obok liczby, np. 'dni', 'zł/MWh'. */
+  unit?: string;
+  /** Krótki opis pod słupkiem (do ok. 40 znaków). */
+  label: string;
+  /** Długość słupka 0–1 (proporcja między liczbami w bloku). */
+  weight?: number;
+  /** Kolor słupka; domyślnie 2. liczba 'accent', pozostałe 'ink'. */
+  tone?: 'ink' | 'accent' | 'muted';
+}
+export interface KeyFactsProps { summary: string; facts?: KeyFact[]; title?: string; meta?: string; footnote?: React.ReactNode; id?: string; className?: string }
+export declare function KeyFacts(props: KeyFactsProps): React.ReactElement;
 
 export interface SegmentOption { id: string; name: string; description?: string }
 export interface SegmentPickerProps { options: SegmentOption[]; value?: string; defaultValue?: string; onChange?: (id: string) => void; label?: string; compact?: boolean }
@@ -65,7 +79,7 @@ declare global {
   interface Window {
     Energypedia: {
       Logo: typeof Logo; Button: typeof Button; Chip: typeof Chip; Badge: typeof Badge; SectionHeader: typeof SectionHeader;
-      AskBox: typeof AskBox; AnswerCard: typeof AnswerCard; SegmentPicker: typeof SegmentPicker; StatTile: typeof StatTile;
+      AskBox: typeof AskBox; AnswerCard: typeof AnswerCard; KeyFacts: typeof KeyFacts; SegmentPicker: typeof SegmentPicker; StatTile: typeof StatTile;
       ContentCard: typeof ContentCard; TrackerCard: typeof TrackerCard; FaqList: typeof FaqList; NewsletterForm: typeof NewsletterForm;
       AdSlot: typeof AdSlot; SponsorBand: typeof SponsorBand;
     };

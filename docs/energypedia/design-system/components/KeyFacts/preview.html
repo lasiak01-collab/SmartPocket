@@ -1,0 +1,31 @@
+<!-- @dsCard group="Treść" height=420 -->
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>KeyFacts — podgląd</title>
+<style>
+  body { padding: 16px; }
+  .wrap { max-width: 720px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var E = window.Energypedia, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'wrap' },
+      h(E.KeyFacts, {
+        meta: 'Sprawdzone z ustawą · 21.10.2026',
+        summary: 'Umowę na prąd zawartą poza biurem sprzedawcy wypowiesz bez podania przyczyny i bez kary. Wystarczy, że wyślesz oświadczenie przed końcem terminu.',
+        facts: [
+          { value: '14', unit: 'dni', label: 'umowa przez telefon, internet, na ulicy', weight: 0.24 },
+          { value: '30', unit: 'dni', label: 'akwizytor przyszedł bez zapowiedzi', weight: 0.52, tone: 'accent' },
+          { value: '+12', unit: 'mies.', label: 'nikt nie poinformował Cię o tym prawie', weight: 1, tone: 'muted' }
+        ],
+        footnote: h('span', null, 'Liczy się data nadania, nie doręczenia. ', h('a', { href: '#' }, 'Wzór oświadczenia →'))
+      }))
+  );
+</script>
+</body>
+</html>

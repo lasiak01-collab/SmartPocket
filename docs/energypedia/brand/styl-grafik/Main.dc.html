@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Styl grafik – zasady</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1600px; height: 1100px; box-sizing: border-box; padding: 64px 72px; background: #FFFFFF; color: #0B1B33; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; gap: 44px">
+
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; border-bottom: 2px solid #0B1B33; padding-bottom: 28px">
+    <div style="display: flex; flex-direction: column; gap: 12px; max-width: 900px">
+      <span style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; letter-spacing: 0.12em">
+        <svg width="18" height="18" viewBox="18 18 72 72" aria-hidden="true"><rect x="18" y="18" width="18" height="72" rx="6" fill="#0B1B33"></rect><rect x="18" y="18" width="72" height="18" rx="6" fill="#0B1B33"></rect><rect x="44" y="45" width="40" height="18" rx="6" fill="#00C2A8"></rect><rect x="18" y="72" width="60" height="18" rx="6" fill="#0B1B33"></rect></svg>
+        STYL GRAFIK ENERGYPEDIA.PL
+      </span>
+      <h1 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 72px; line-height: 1; letter-spacing: -0.035em">Konstrukcja ze słupków</h1>
+      <p style="margin: 0; font-size: 21px; line-height: 1.5; color: #42526B">Każda grafika jest zbudowana z tego samego klocka co sygnet: zaokrąglonego słupka. Ilustracja, wykres i ikona mówią jednym językiem — językiem danych.</p>
+    </div>
+    <span style="font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: #42526B; white-space: nowrap">Wersja 1.0 · 21.10.2026</span>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px">
+
+    <section style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">01 · MODUŁ</h2>
+      <svg width="420" height="300" viewBox="0 0 420 300" role="img" aria-label="Siatka modułu: słupek o grubości m, zaokrąglenie m/3, sygnet na siatce 4 na 4 moduły">
+        <g stroke="#DCE3EC" stroke-width="1">
+          <path d="M20 20 V260 M80 20 V260 M140 20 V260 M200 20 V260 M260 20 V260"></path>
+          <path d="M20 20 H260 M20 80 H260 M20 140 H260 M20 200 H260 M20 260 H260"></path>
+        </g>
+        <rect x="20" y="20" width="60" height="240" rx="20" fill="#0B1B33"></rect>
+        <rect x="20" y="20" width="240" height="60" rx="20" fill="#0B1B33"></rect>
+        <rect x="107" y="110" width="133" height="60" rx="20" fill="#00C2A8"></rect>
+        <rect x="20" y="200" width="200" height="60" rx="20" fill="#0B1B33"></rect>
+        <g fill="#42526B" font-family="Inter, sans-serif" font-size="13" font-weight="600">
+          <path d="M290 20 V80" stroke="#42526B" stroke-width="1.5"></path><path d="M284 20 H296 M284 80 H296" stroke="#42526B" stroke-width="1.5"></path>
+          <text x="304" y="55">m — grubość</text>
+          <text x="304" y="128">zaokrąglenie</text><text x="304" y="146">= m / 3</text>
+          <text x="304" y="226">siatka 4 × 4 m</text>
+        </g>
+      </svg>
+      <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #42526B">Kształty składamy tylko z poziomych i pionowych słupków o jednej grubości w obrębie grafiki. Kropka (pełne koło) wolno — to „odczyt na żywo” i słońce.</p>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">02 · KOLOR I PROPORCJE</h2>
+      <div style="display: flex; height: 64px; border-radius: 10px; overflow: hidden; border: 1px solid #DCE3EC">
+        <div style="flex: 60 1 0; background: #0B1B33; color: #FFFFFF; display: flex; align-items: flex-end; padding: 8px 10px; font-size: 13px; font-weight: 700">60%</div>
+        <div style="flex: 30 1 0; background: #F2FBF9; display: flex; align-items: flex-end; padding: 8px 10px; font-size: 13px; font-weight: 700">30%</div>
+        <div style="flex: 10 1 0; background: #00C2A8; display: flex; align-items: flex-end; padding: 8px 6px; font-size: 13px; font-weight: 700">10%</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 16px; font-size: 14px">
+        <div style="display: flex; gap: 10px; align-items: center"><span style="width: 36px; height: 36px; border-radius: 8px; background: #0B1B33; flex: none"></span><span><strong>Granat #0B1B33</strong><br><span style="color: #42526B">konstrukcja, tekst</span></span></div>
+        <div style="display: flex; gap: 10px; align-items: center"><span style="width: 36px; height: 36px; border-radius: 8px; background: #00C2A8; flex: none"></span><span><strong>Prąd #00C2A8</strong><br><span style="color: #42526B">jeden kluczowy element</span></span></div>
+        <div style="display: flex; gap: 10px; align-items: center"><span style="width: 36px; height: 36px; border-radius: 8px; background: #F2FBF9; border: 1px solid #DCE3EC; flex: none"></span><span><strong>Mięta #F2FBF9</strong><br><span style="color: #42526B">tło ilustracji</span></span></div>
+        <div style="display: flex; gap: 10px; align-items: center"><span style="width: 36px; height: 36px; border-radius: 8px; background: #C9D4E3; flex: none"></span><span><strong>Mgła #C9D4E3</strong><br><span style="color: #42526B">elementy drugiego planu</span></span></div>
+        <div style="display: flex; gap: 10px; align-items: center"><span style="width: 36px; height: 36px; border-radius: 8px; background: #4F7FA8; flex: none"></span><span><strong>Seria 2 #4F7FA8</strong><br><span style="color: #42526B">tylko w wykresach</span></span></div>
+        <div style="display: flex; gap: 10px; align-items: center"><span style="width: 36px; height: 36px; border-radius: 8px; background: #C46A1A; flex: none"></span><span><strong>Seria 3 #C46A1A</strong><br><span style="color: #42526B">tylko w wykresach</span></span></div>
+      </div>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">03 · TEKST W GRAFICE</h2>
+      <div style="display: flex; flex-direction: column; gap: 6px; padding: 20px 0; border-top: 1px solid #DCE3EC; border-bottom: 1px solid #DCE3EC">
+        <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; color: #00796B">TARYFA DLA DOMÓW 2026</span>
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 64px; line-height: 1; letter-spacing: -0.035em">495,16<span style="font-size: 24px; letter-spacing: 0; margin-left: 8px">zł/MWh</span></span>
+        <span style="font-size: 16px; color: #42526B">średnia cena energii netto zatwierdzona przez Prezesa URE</span>
+        <span style="font-size: 12px; color: #42526B; margin-top: 8px">Źródło: decyzja Prezesa URE z 17.12.2025 r. · energypedia.pl</span>
+      </div>
+      <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #42526B">Liczby — Space Grotesk 700, opisy — Inter. Nadtytuł wersalikami w zieleni tekstowej #00796B. Każda liczba ma źródło i datę w stopce grafiki.</p>
+    </section>
+  </div>
+
+  <section style="display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">04 · ZASADY</h2>
+    <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 14px; border-top: 3px solid #0B1B33">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00796B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Tak"><path d="M4 12 L10 18 L20 6"></path></svg>
+        <strong style="font-size: 16px">Pion i poziom</strong>
+        <span style="font-size: 14px; color: #42526B; line-height: 1.45">Bez skosów i krzywych — poza kropką.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 14px; border-top: 3px solid #0B1B33">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00796B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Tak"><path d="M4 12 L10 18 L20 6"></path></svg>
+        <strong style="font-size: 16px">Jeden zielony słupek</strong>
+        <span style="font-size: 14px; color: #42526B; line-height: 1.45">Prąd zaznacza to, co najważniejsze w grafice.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 14px; border-top: 3px solid #0B1B33">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00796B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Tak"><path d="M4 12 L10 18 L20 6"></path></svg>
+        <strong style="font-size: 16px">Źródło przy liczbie</strong>
+        <span style="font-size: 14px; color: #42526B; line-height: 1.45">Instytucja, dokument i data w stopce.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 14px; border-top: 3px solid #B42318">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2.5" stroke-linecap="round" role="img" aria-label="Nie"><path d="M6 6 L18 18 M18 6 L6 18"></path></svg>
+        <strong style="font-size: 16px">Gradienty, cienie, 3D</strong>
+        <span style="font-size: 14px; color: #42526B; line-height: 1.45">Płasko. Głębię daje kolor, nie efekt.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 14px; border-top: 3px solid #B42318">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2.5" stroke-linecap="round" role="img" aria-label="Nie"><path d="M6 6 L18 18 M18 6 L6 18"></path></svg>
+        <strong style="font-size: 16px">Obrazy z generatorów AI</strong>
+        <span style="font-size: 14px; color: #42526B; line-height: 1.45">Żadnych świecących żarówek i ludzi z AI.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 14px; border-top: 3px solid #B42318">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2.5" stroke-linecap="round" role="img" aria-label="Nie"><path d="M6 6 L18 18 M18 6 L6 18"></path></svg>
+        <strong style="font-size: 16px">Mieszanie stylów</strong>
+        <span style="font-size: 14px; color: #42526B; line-height: 1.45">Bez ikon z banków i clipartów obok słupków.</span>
+      </div>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1600,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
