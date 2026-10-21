@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Energypedia – strona główna, wariant C (odpowiedź najpierw)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0B1B33;text-decoration:none}a:hover{color:#00796B;text-decoration:underline}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid #00C2A8;outline-offset:2px}
+</style>
+</helmet>
+<div style="background: #FFFFFF; color: #0B1B33; font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 1.55; min-height: 100vh">
+
+  <header style="border-bottom: 1px solid #DCE3EC">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center">
+      <a href="#" aria-label="Energypedia – strona główna" style="display: flex; align-items: center; gap: 8px; text-decoration: none">
+        <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0B1B33"></rect><path d="M18 5 L9 18 H15 L13 27 L23 13 H17 Z" fill="#00C2A8"></path></svg>
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.02em; color: #0B1B33">energypedia<span style="color: #00796B">.pl</span></span>
+      </a>
+      <nav aria-label="Główna nawigacja" style="display: flex; flex-wrap: wrap; gap: 4px 22px; font-weight: 600; font-size: 15px; flex: 1 1 400px">
+        <a href="#">Wiedza</a>
+        <a href="#">Poradniki</a>
+        <a href="#">Wiadomości</a>
+        <a href="#">Dane</a>
+        <a href="#">Narzędzia</a>
+        <a href="#">Regiony</a>
+      </nav>
+      <a href="#" style="font-weight: 600">Zaloguj</a>
+      <a href="#" style="background: #0B1B33; color: #FFFFFF; font-weight: 600; padding: 10px 18px; border-radius: 999px; text-decoration: none">Newsletter</a>
+    </div>
+  </header>
+
+  <section aria-labelledby="h-hero-c" style="background: #F2FBF9; border-bottom: 1px solid #DCE3EC">
+    <div style="max-width: 920px; margin: 0 auto; padding: 64px 24px 48px; display: flex; flex-direction: column; gap: 20px; align-items: stretch">
+      <span style="align-self: center; font-size: 14px; font-weight: 700; color: #00796B; letter-spacing: 0.06em">ENERGIA BEZ TAJEMNIC</span>
+      <h1 id="h-hero-c" style="margin: 0; text-align: center; font-family: 'Space Grotesk', sans-serif; font-size: 52px; line-height: 1.05; letter-spacing: -0.03em">Zapytaj o prąd. Dostaniesz odpowiedź ze źródłami.</h1>
+      <p style="margin: 0; text-align: center; font-size: 19px; color: #42526B">Rachunki, umowy, taryfy, fotowoltaika i prawo odbiorcy — wyjaśnione prosto, sprawdzone przez ekspertów.</p>
+      <form role="search" style="display: flex; gap: 8px; background: #FFFFFF; border: 2px solid #0B1B33; border-radius: 999px; padding: 6px 6px 6px 22px; align-items: center">
+        <label for="q-c" style="position: absolute; left: -9999px">Twoje pytanie o energię</label>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#42526B" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20 L16 16"></path></svg>
+        <input id="q-c" type="search" placeholder="np. Ile kosztuje 1 kWh prądu w mojej firmie?" style="flex: 1 1 auto; min-width: 0; border: 0; font-size: 18px; height: 48px; outline-offset: 4px">
+        <button type="submit" style="height: 48px; border: 0; border-radius: 999px; background: #00C2A8; color: #0B1B33; font-weight: 700; padding: 0 22px">Zapytaj</button>
+      </form>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center">
+        <sc-for list="{{questions}}" as="q" hint-placeholder-count="3">
+          <button type="button" aria-pressed="{{q.pressed}}" onClick="{{q.pick}}" style="{{q.style}}">{{q.text}}</button>
+        </sc-for>
+      </div>
+
+      <article aria-live="polite" style="background: #FFFFFF; border: 1px solid #DCE3EC; border-radius: 16px; padding: 22px 24px; display: flex; flex-direction: column; gap: 10px; text-align: left">
+        <span style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #00796B">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00796B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 L14 9 L20 11 L14 13 L12 19 L10 13 L4 11 L10 9 Z"></path></svg>
+          Odpowiedź AI na podstawie artykułów Energypedii
+        </span>
+        <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 22px">{{answerQ}}</h2>
+        <p style="margin: 0; font-size: 17px">{{answerA}}</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 14px">
+          <span style="color: #42526B">Źródła:</span>
+          <sc-for list="{{answerSources}}" as="src" hint-placeholder-count="2">
+            <a href="#" style="color: #00796B; font-weight: 600">{{src}}</a>
+          </sc-for>
+        </div>
+        <span style="font-size: 13px; color: #42526B">Treść wygenerowana przez AI. Ma charakter informacyjny i nie jest poradą prawną w indywidualnej sprawie.</span>
+      </article>
+    </div>
+  </section>
+
+  <main style="max-width: 1280px; margin: 0 auto; padding: 48px 24px 64px; display: flex; flex-direction: column; gap: 56px">
+
+    <section aria-labelledby="h-kim" style="display: flex; flex-direction: column; gap: 16px">
+      <h2 id="h-kim" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 28px">Dla kogo szukasz?</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <sc-for list="{{segs}}" as="s" hint-placeholder-count="4">
+          <button type="button" aria-pressed="{{s.pressed}}" onClick="{{s.pick}}" style="{{s.style}}">
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px">{{s.name}}</span>
+            <span style="font-size: 14px; color: #42526B">{{s.desc}}</span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="background: #F5F7FA; border-radius: 16px; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 12px 32px">
+        <sc-for list="{{segLinks}}" as="l" hint-placeholder-count="3">
+          <a href="#" style="font-weight: 600; flex: 1 1 260px">{{l}} →</a>
+        </sc-for>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-narz" style="display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px">
+        <h2 id="h-narz" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 28px">Wynik w 60 sekund</h2>
+        <span style="font-size: 14px; color: #42526B">Narzędzia bez reklam sprzedawców energii · <a href="#" style="color: #00796B">Jak zarabiamy</a></span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <sc-for list="{{tools}}" as="t" hint-placeholder-count="4">
+          <a href="#" style="flex: 1 1 260px; background: #FFFFFF; border: 1px solid #DCE3EC; border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #0B1B33">
+            <span style="align-self: flex-start; background: #FFE9B0; color: #5C4300; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px">{{t.badge}}</span>
+            <span style="font-weight: 700; font-size: 19px">{{t.name}}</span>
+            <span style="font-size: 14px; color: #42526B">{{t.desc}}</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <sc-if value="{{showAds}}" hint-placeholder-val="{{ true }}">
+      <div style="height: 250px; max-width: 970px; width: 100%; margin: 0 auto; border: 2px dashed #9AA8BA; border-radius: 8px; background: #EEF1F5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: #42526B; font-size: 14px">
+        <strong style="font-size: 13px; letter-spacing: 0.06em">REKLAMA</strong>
+        <span>EP_HP_BILLBOARD · 970×250 · poniżej pierwszego ekranu</span>
+      </div>
+    </sc-if>
+
+    <section aria-labelledby="h-pyt" style="display: flex; flex-wrap: wrap; gap: 32px">
+      <div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+        <h2 id="h-pyt" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 28px">Najczęstsze pytania w tym tygodniu</h2>
+        <div style="display: flex; flex-direction: column; border-top: 1px solid #DCE3EC">
+          <sc-for list="{{faqs}}" as="f" hint-placeholder-count="5">
+            <a href="#" style="padding: 18px 0; border-bottom: 1px solid #DCE3EC; display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: #0B1B33">
+              <span style="font-weight: 700; font-size: 18px">{{f.q}}</span>
+              <span style="font-size: 15px; color: #42526B">{{f.a}}</span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+      <aside style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+        <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px">Na bieżąco</h2>
+        <sc-for list="{{trackers}}" as="tr" hint-placeholder-count="3">
+          <a href="#" style="background: #F5F7FA; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 4px; text-decoration: none; color: #0B1B33">
+            <span style="font-size: 12px; font-weight: 700; color: #5C4300">{{tr.status}}</span>
+            <span style="font-weight: 700">{{tr.title}}</span>
+          </a>
+        </sc-for>
+        <div style="background: #0B1B33; color: #FFFFFF; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 4px">
+          <span style="font-size: 13px; color: #C9D4E3">Taryfa dla domów 2026 (średnio)</span>
+          <span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700">495,16 zł/MWh</span>
+          <span style="font-size: 13px; color: #C9D4E3">netto · URE · <a href="#" style="color: #7FE3D6">więcej danych</a></span>
+        </div>
+      </aside>
+    </section>
+
+    <section aria-labelledby="h-reco" style="display: flex; flex-direction: column; gap: 16px">
+      <h2 id="h-reco" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 24px">Może Cię też zainteresować</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <a href="#" style="flex: 1 1 280px; border: 1px solid #DCE3EC; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #0B1B33">
+          <span style="font-size: 12px; font-weight: 700; color: #00796B">PRZEWODNIK</span>
+          <span style="font-weight: 700; font-size: 18px">Rachunek za prąd — kompletny przewodnik</span>
+        </a>
+        <a href="#" style="flex: 1 1 280px; border: 1px solid #DCE3EC; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #0B1B33">
+          <span style="font-size: 12px; font-weight: 700; color: #00796B">WZÓR PISMA</span>
+          <span style="font-weight: 700; font-size: 18px">Reklamacja rachunku za prąd</span>
+        </a>
+        <a href="#" style="flex: 1 1 280px; background: #FFF8E6; border: 1px dashed #C9A23A; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #0B1B33">
+          <span style="font-size: 12px; font-weight: 700; color: #6B4E00">MATERIAŁ PARTNERA · [PARTNER]</span>
+          <span style="font-weight: 700; font-size: 18px">[Tytuł materiału partnera]</span>
+          <span style="font-size: 13px; color: #42526B">EP_NATIVE_RECO · linki rel=sponsored</span>
+        </a>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-nl-c" style="background: #0B1B33; color: #FFFFFF; border-radius: 20px; padding: 36px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between">
+      <div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 8px">
+        <h2 id="h-nl-c" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 28px">Energia w 5 minut</h2>
+        <p style="margin: 0; color: #C9D4E3">Codziennie o 7:30. Jedna zmiana na rynku, jedno wyjaśnienie, jedna rzecz do zrobienia.</p>
+      </div>
+      <form style="flex: 1 1 360px; display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end">
+        <div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 4px">
+          <label for="nl-c" style="font-size: 14px; font-weight: 600">Adres e-mail</label>
+          <input id="nl-c" type="email" placeholder="np. jan@firma.pl" style="height: 44px; border-radius: 8px; border: 0; padding: 0 12px; font-size: 16px">
+        </div>
+        <button type="submit" style="height: 44px; border-radius: 8px; border: 0; background: #00C2A8; color: #0B1B33; font-weight: 700; padding: 0 20px">Zapisz mnie</button>
+      </form>
+    </section>
+  </main>
+
+  <footer style="border-top: 1px solid #DCE3EC; font-size: 14px; color: #42526B">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 28px 24px; display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between">
+      <span>energypedia.pl · Energia bez tajemnic</span>
+      <nav aria-label="Stopka" style="display: flex; flex-wrap: wrap; gap: 8px 20px">
+        <a href="#">Jak pracujemy</a>
+        <a href="#">Jak zarabiamy</a>
+        <a href="#">Sprostowania</a>
+        <a href="#">Reklama</a>
+        <a href="#">Prywatność i cookies</a>
+        <a href="#">Dostępność</a>
+      </nav>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"showAds":{"editor":"boolean","default":true,"section":"Reklama"},"$preview":{"width":1440,"height":2900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { q: 0, seg: 0 };
+  }
+  renderVals() {
+    const qs = [
+      { text: 'Co to jest opłata mocowa?', a: 'Opłata mocowa to pozycja na rachunku, która finansuje rynek mocy, czyli płatności dla elektrowni i magazynów energii za gotowość do pracy. W 2026 r. gospodarstwo domowe zużywające 1200–2800 kWh rocznie płaci 17,18 zł netto miesięcznie.', src: ['Hasło: opłata mocowa', 'Informacja Prezesa URE o stawkach na 2026 r.'] },
+      { text: 'Ile dni mam na odstąpienie od umowy z akwizytorem?', a: 'Masz 14 dni od zawarcia umowy poza lokalem sprzedawcy. Jeśli umowę podpisano podczas nieumówionej wizyty w Twoim domu, termin wynosi 30 dni. Gdy sprzedawca nie poinformował Cię o tym prawie, termin wydłuża się do 12 miesięcy.', src: ['Poradnik: odstąpienie od umowy', 'Ustawa o prawach konsumenta, art. 27'] },
+      { text: 'Czy w 2026 r. ceny prądu są mrożone?', a: 'Nie. Mrożenie cen dla gospodarstw domowych obowiązywało do końca 2025 r. W 2026 r. obowiązują taryfy zatwierdzone przez Prezesa URE: średnio 495,16 zł/MWh netto za energię. Wzrosły za to opłaty dystrybucyjne i opłata mocowa.', src: ['Tracker: taryfy na prąd', 'Decyzja Prezesa URE z 17.12.2025 r.'] }
+    ];
+    const segDefs = [
+      { name: 'Dom', desc: 'Rachunek, taryfa, fotowoltaika', links: ['Jak czytać rachunek za prąd', 'G11 czy G12 — wyliczenie', 'Fotowoltaika w net-billingu'] },
+      { name: 'Mikrofirma', desc: 'Umowa, cena, akwizytorzy', links: ['Ile kosztuje prąd w małej firmie', 'Umowa na prąd: 10 zapisów do sprawdzenia', 'Jak wypowiedzieć umowę'] },
+      { name: 'Średnia firma', desc: 'Zakupy, moc umowna, ryzyko', links: ['Cena stała czy indeksowana', 'Moc umowna: jak nie przepłacać', 'Zapytanie ofertowe na energię'] },
+      { name: 'Duża firma i samorząd', desc: 'Przetargi, PPA, strategia', links: ['Przetarg grupowy na energię (PZP)', 'Kontrakty PPA i cPPA', 'Rynek mocy i opłaty systemowe'] }
+    ];
+    const qOn = 'border: 1px solid #0B1B33; background: #0B1B33; color: #FFFFFF; border-radius: 999px; padding: 10px 16px; min-height: 44px; font-size: 15px; font-weight: 600';
+    const qOff = 'border: 1px solid #9AA8BA; background: #FFFFFF; color: #0B1B33; border-radius: 999px; padding: 10px 16px; min-height: 44px; font-size: 15px; font-weight: 500';
+    const sOn = 'flex: 1 1 240px; text-align: left; border: 2px solid #00796B; background: #E6F7F4; color: #0B1B33; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 6px';
+    const sOff = 'flex: 1 1 240px; text-align: left; border: 1px solid #DCE3EC; background: #FFFFFF; color: #0B1B33; border-radius: 16px; padding: 21px; display: flex; flex-direction: column; gap: 6px';
+    const cur = qs[this.state.q];
+    return {
+      showAds: this.props.showAds ?? true,
+      questions: qs.map((q, i) => ({ text: q.text, pressed: i === this.state.q ? 'true' : 'false', style: i === this.state.q ? qOn : qOff, pick: () => this.setState({ q: i }) })),
+      answerQ: cur.text,
+      answerA: cur.a,
+      answerSources: cur.src,
+      segs: segDefs.map((s, i) => ({ name: s.name, desc: s.desc, pressed: i === this.state.seg ? 'true' : 'false', style: i === this.state.seg ? sOn : sOff, pick: () => this.setState({ seg: i }) })),
+      segLinks: segDefs[this.state.seg].links,
+      tools: [
+        { badge: 'Od I kw. 2027', name: 'Analizator faktury', desc: 'Wgraj fakturę: wyjaśnimy każdą pozycję i policzymy, ile możesz zaoszczędzić.' },
+        { badge: 'Od I kw. 2027', name: 'Porównywarka z pełnym kosztem umowy', desc: 'Cena, opłaty, kary i automatyczne przedłużenie w jednym wyniku.' },
+        { badge: 'Od I kw. 2027', name: 'Kalkulator taryf', desc: 'G11, G12, G12w i taryfa dynamiczna dla Twojego zużycia.' },
+        { badge: 'Od I kw. 2027', name: 'Zapytanie ofertowe dla firmy', desc: 'Przygotuj dane i porównaj oferty sprzedawców w jednej tabeli.' }
+      ],
+      faqs: [
+        { q: 'Dlaczego rachunek rośnie, choć prąd na giełdzie tanieje?', a: 'Sprzedawcy kupują energię z wyprzedzeniem, a dużą część rachunku stanowią dystrybucja i opłaty.' },
+        { q: 'Czy zmiana sprzedawcy zmienia operatora sieci?', a: 'Nie. Operator sieci zostaje ten sam; zmieniasz tylko sprzedawcę energii.' },
+        { q: 'Czy taryfa dynamiczna się opłaca?', a: 'Tylko gdy możesz przesuwać zużycie na tanie godziny. Liczymy to na przykładach.' },
+        { q: 'Co to jest CSIRE i kiedy zmiana sprzedawcy w 24 godziny?', a: 'Centralny system danych rynku energii. Ustawowy termin przystąpienia minął 19 października.' },
+        { q: 'Czy fotowoltaika nadal się opłaca w net-billingu?', a: 'Zależy od autokonsumpcji i magazynu. Pokazujemy, jak to policzyć.' }
+      ],
+      trackers: [
+        { status: 'Przed decyzją URE', title: 'Taryfy na prąd 2027' },
+        { status: 'Wdrożenie w toku', title: 'CSIRE i zmiana sprzedawcy w 24 h' },
+        { status: 'Projekt ustawy', title: 'Obligo giełdowe (80%)' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

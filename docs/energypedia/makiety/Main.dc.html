@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Energypedia – strona główna, wariant A</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0B1B33;text-decoration:none}a:hover{color:#00796B;text-decoration:underline}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid #00C2A8;outline-offset:2px}
+</style>
+</helmet>
+<div style="background: #F5F7FA; color: #0B1B33; font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 1.55; min-height: 100vh">
+
+  <div style="background: #0B1B33; color: #FFFFFF; font-size: 14px">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 8px 24px; display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between">
+      <div style="display: flex; gap: 10px; align-items: center">
+        <span style="background: #00C2A8; color: #0B1B33; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px">NA BIEŻĄCO</span>
+        <a href="#" style="color: #FFFFFF">Taryfy na prąd 2027 — śledzimy decyzje URE</a>
+      </div>
+      <div style="display: flex; gap: 20px">
+        <a href="#" style="color: #C9D4E3">Newsletter</a>
+        <a href="#" style="color: #C9D4E3">Dla prasy</a>
+        <a href="#" style="color: #C9D4E3">Reklama</a>
+      </div>
+    </div>
+  </div>
+
+  <header style="background: #FFFFFF; border-bottom: 1px solid #DCE3EC">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center">
+      <a href="#" aria-label="Energypedia – strona główna" style="display: flex; align-items: center; gap: 8px; text-decoration: none">
+        <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0B1B33"></rect><path d="M18 5 L9 18 H15 L13 27 L23 13 H17 Z" fill="#00C2A8"></path></svg>
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.02em; color: #0B1B33">energypedia<span style="color: #00796B">.pl</span></span>
+      </a>
+      <nav aria-label="Główna nawigacja" style="display: flex; flex-wrap: wrap; gap: 4px 24px; font-weight: 600; font-size: 15px; flex: 1 1 400px">
+        <a href="#">Wiadomości</a>
+        <a href="#">Wiedza</a>
+        <a href="#">Poradniki</a>
+        <a href="#">Dane</a>
+        <a href="#">Narzędzia</a>
+        <a href="#">Regiony</a>
+      </nav>
+      <div role="group" aria-label="Pokaż treści dla" style="display: flex; background: #EEF1F5; border-radius: 999px; padding: 4px">
+        <button type="button" aria-pressed="{{segDomPressed}}" onClick="{{pickDom}}" style="{{segDomStyle}}">Dom</button>
+        <button type="button" aria-pressed="{{segFirmaPressed}}" onClick="{{pickFirma}}" style="{{segFirmaStyle}}">Firma</button>
+      </div>
+      <button type="button" aria-label="Szukaj" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid #DCE3EC; background: #FFFFFF; display: flex; align-items: center; justify-content: center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B1B33" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20 L16 16"></path></svg>
+      </button>
+      <a href="#" style="background: #0B1B33; color: #FFFFFF; font-weight: 600; padding: 10px 18px; border-radius: 999px; text-decoration: none">Zapisz się</a>
+    </div>
+  </header>
+
+  <sc-if value="{{showAds}}" hint-placeholder-val="{{ true }}">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 20px 24px 0">
+      <div style="height: 250px; max-width: 970px; margin: 0 auto; border: 2px dashed #9AA8BA; border-radius: 8px; background: #EEF1F5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: #42526B; font-size: 14px">
+        <strong style="font-size: 13px; letter-spacing: 0.06em">REKLAMA</strong>
+        <span>EP_HP_BILLBOARD · 970×250 / 750×200 · wysokość zarezerwowana</span>
+      </div>
+    </div>
+  </sc-if>
+
+  <main style="max-width: 1280px; margin: 0 auto; padding: 32px 24px 64px; display: flex; flex-direction: column; gap: 48px">
+
+    <section aria-labelledby="h-top" style="display: flex; flex-wrap: wrap; gap: 32px">
+      <article style="flex: 999 1 560px; min-width: 0; background: #FFFFFF; border-radius: 16px; overflow: hidden; border: 1px solid #DCE3EC">
+        <div style="height: 340px; background: #DCE3EC; display: flex; align-items: center; justify-content: center; color: #42526B; font-size: 14px">[Zdjęcie lub wykres główny · 1200×630]</div>
+        <div style="padding: 28px 32px 32px; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; font-size: 13px; font-weight: 600">
+            <span style="color: #00796B">Umowy i zmiana sprzedawcy</span>
+            <span style="color: #42526B">· Dom i mikrofirma</span>
+          </div>
+          <h1 id="h-top" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 40px; line-height: 1.1; letter-spacing: -0.02em">CSIRE: minął ustawowy termin. Czy zmienisz sprzedawcę prądu w 24 godziny?</h1>
+          <p style="margin: 0; font-size: 18px; color: #42526B">19 października minął termin przystąpienia wszystkich operatorów do centralnego systemu informacji rynku energii. Wyjaśniamy, co już działa, gdzie są opóźnienia i co to oznacza przy zmianie umowy.</p>
+          <div style="display: flex; gap: 12px; align-items: center; font-size: 14px; color: #42526B; flex-wrap: wrap">
+            <span>[Autor] · zrecenzował [Ekspert]</span>
+            <span>· 6 min czytania</span>
+            <span>· wersja audio</span>
+          </div>
+        </div>
+      </article>
+
+      <aside aria-labelledby="h-najwazniejsze" style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+        <h2 id="h-najwazniejsze" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px">Najważniejsze dziś</h2>
+        <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0; background: #FFFFFF; border: 1px solid #DCE3EC; border-radius: 16px">
+          <sc-for list="{{news}}" as="n" hint-placeholder-count="5">
+            <li style="padding: 16px 20px; border-bottom: 1px solid #EEF1F5; display: flex; flex-direction: column; gap: 4px">
+              <span style="font-size: 12px; font-weight: 700; color: #00796B; letter-spacing: 0.04em">{{n.tag}}</span>
+              <a href="#" style="font-weight: 600; line-height: 1.35">{{n.title}}</a>
+            </li>
+          </sc-for>
+        </ol>
+        <a href="#" style="font-weight: 600; color: #00796B">Wszystkie wiadomości →</a>
+      </aside>
+    </section>
+
+    <section aria-labelledby="h-liczby" style="display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px">
+        <h2 id="h-liczby" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 24px">Energia w liczbach</h2>
+        <a href="#" style="font-weight: 600; color: #00796B">Barometr Rynku Energii →</a>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <sc-for list="{{tiles}}" as="t" hint-placeholder-count="4">
+          <div style="flex: 1 1 260px; background: #FFFFFF; border: 1px solid #DCE3EC; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+            <span style="font-size: 14px; color: #42526B">{{t.label}}</span>
+            <span style="font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700; font-variant-numeric: tabular-nums">{{t.value}}</span>
+            <span style="font-size: 13px; color: #42526B">{{t.note}}</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-biezaco" style="display: flex; flex-direction: column; gap: 16px">
+      <h2 id="h-biezaco" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 24px">Na bieżąco: tematy, które się zmieniają</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <sc-for list="{{trackers}}" as="tr" hint-placeholder-count="4">
+          <a href="#" style="flex: 1 1 260px; background: #FFFFFF; border: 1px solid #DCE3EC; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 10px; text-decoration: none">
+            <span style="align-self: flex-start; background: #FFE9B0; color: #5C4300; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px">{{tr.status}}</span>
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #0B1B33">{{tr.title}}</span>
+            <span style="font-size: 14px; color: #42526B">{{tr.desc}}</span>
+            <span style="font-size: 13px; color: #42526B">Ostatnia aktualizacja: [data, godzina]</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-dlaciebie" style="display: flex; flex-wrap: wrap; gap: 32px">
+      <div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <span style="font-size: 13px; font-weight: 700; color: #00796B; letter-spacing: 0.04em">{{segLabel}}</span>
+          <h2 id="h-dlaciebie" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 28px">{{segHeading}}</h2>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 16px">
+          <sc-for list="{{segItems}}" as="s" hint-placeholder-count="4">
+            <a href="#" style="flex: 1 1 260px; background: #FFFFFF; border: 1px solid #DCE3EC; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #0B1B33">
+              <span style="font-size: 12px; font-weight: 700; color: #42526B; letter-spacing: 0.04em">{{s.type}}</span>
+              <span style="font-weight: 700; font-size: 18px; line-height: 1.3">{{s.title}}</span>
+              <span style="font-size: 14px; color: #42526B">{{s.lead}}</span>
+            </a>
+          </sc-for>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #DCE3EC; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+          <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; align-items: baseline">
+            <h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px">Średnia cena energii na Rynku Dnia Następnego (TGE), zł/MWh</h3>
+            <span style="font-size: 13px; color: #42526B">Źródło: TGE · opracowanie: Energypedia.pl</span>
+          </div>
+          <div role="img" aria-label="Wykres słupkowy: 2020 około 210, 2021 401, 2022 796, 2023 około 534, 2024 425 zł/MWh" style="display: flex; align-items: flex-end; gap: 24px; height: 220px; padding-top: 8px; border-bottom: 1px solid #DCE3EC">
+            <sc-for list="{{bars}}" as="b" hint-placeholder-count="5">
+              <div style="flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 6px">
+                <span style="font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums">{{b.label}}</span>
+                <div style="{{b.style}}"></div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display: flex; gap: 24px">
+            <sc-for list="{{bars}}" as="b" hint-placeholder-count="5">
+              <span style="flex: 1 1 0; text-align: center; font-size: 14px; color: #42526B">{{b.year}}</span>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <aside style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+        <sc-if value="{{showAds}}" hint-placeholder-val="{{ true }}">
+          <div style="height: 600px; max-width: 300px; width: 100%; border: 2px dashed #9AA8BA; border-radius: 8px; background: #EEF1F5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: #42526B; font-size: 14px; text-align: center">
+            <strong style="font-size: 13px; letter-spacing: 0.06em">REKLAMA</strong>
+            <span>EP_SIDEBAR_HP<br>300×600 · sticky</span>
+          </div>
+        </sc-if>
+        <form style="background: #0B1B33; color: #FFFFFF; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; max-width: 360px">
+          <h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 22px">Energia w 5 minut</h3>
+          <p style="margin: 0; color: #C9D4E3; font-size: 15px">Codziennie o 7:30: co się zmieniło na rynku i co to znaczy dla Twojego rachunku.</p>
+          <label for="nl-a" style="font-size: 14px; font-weight: 600">Adres e-mail</label>
+          <input id="nl-a" type="email" placeholder="np. jan@firma.pl" style="height: 44px; border-radius: 8px; border: 0; padding: 0 12px; font-size: 16px">
+          <button type="submit" style="height: 44px; border-radius: 8px; border: 0; background: #00C2A8; color: #0B1B33; font-weight: 700">Zapisz mnie</button>
+          <span style="font-size: 12px; color: #C9D4E3">Możesz wypisać się w każdej chwili. <a href="#" style="color: #FFFFFF">Polityka prywatności</a></span>
+        </form>
+      </aside>
+    </section>
+
+    <section aria-labelledby="h-partner" style="background: #FFFFFF; border: 1px solid #DCE3EC; border-radius: 16px; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <h2 id="h-partner" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px">Akademia magazynów energii</h2>
+        <span style="font-size: 14px; color: #42526B">12 poradników · od podstaw do opłacalności w firmie</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 13px; color: #42526B">
+        <span>Partner działu</span>
+        <span style="width: 120px; height: 40px; border: 1px dashed #9AA8BA; border-radius: 6px; display: flex; align-items: center; justify-content: center">[logo]</span>
+        <a href="#" style="font-size: 13px">Jak zarabiamy</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-polecane" style="display: flex; flex-direction: column; gap: 16px">
+      <h2 id="h-polecane" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 24px">Analizy i poradniki</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <sc-for list="{{cards}}" as="c" hint-placeholder-count="3">
+          <a href="#" style="{{c.style}}">
+            <div style="height: 160px; background: #DCE3EC; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #42526B">[ilustracja]</div>
+            <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: {{c.tagColor}}">{{c.tag}}</span>
+            <span style="font-weight: 700; font-size: 18px; line-height: 1.3; color: #0B1B33">{{c.title}}</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-regiony" style="display: flex; flex-direction: column; gap: 16px">
+      <h2 id="h-regiony" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 24px">Energia w Twoim regionie</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+        <sc-for list="{{regions}}" as="r" hint-placeholder-count="16">
+          <a href="#" style="background: #FFFFFF; border: 1px solid #DCE3EC; border-radius: 999px; padding: 8px 16px; font-size: 15px; font-weight: 500">{{r}}</a>
+        </sc-for>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background: #0B1B33; color: #C9D4E3; font-size: 14px">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 360px">
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #FFFFFF">energypedia.pl</span>
+        <span>Energia bez tajemnic. Rozumiesz, porównujesz, oszczędzasz.</span>
+      </div>
+      <nav aria-label="Zaufanie i redakcja" style="display: flex; flex-direction: column; gap: 6px">
+        <a href="#" style="color: #FFFFFF">Jak pracujemy</a>
+        <a href="#" style="color: #FFFFFF">Jak zarabiamy</a>
+        <a href="#" style="color: #FFFFFF">Sprostowania</a>
+        <a href="#" style="color: #FFFFFF">Redakcja</a>
+      </nav>
+      <nav aria-label="Dla partnerów" style="display: flex; flex-direction: column; gap: 6px">
+        <a href="#" style="color: #FFFFFF">Reklama i media kit</a>
+        <a href="#" style="color: #FFFFFF">Partnerstwa leadowe</a>
+        <a href="#" style="color: #FFFFFF">Dla prasy</a>
+        <a href="#" style="color: #FFFFFF">API danych</a>
+      </nav>
+      <nav aria-label="Informacje prawne" style="display: flex; flex-direction: column; gap: 6px">
+        <a href="#" style="color: #FFFFFF">Regulamin</a>
+        <a href="#" style="color: #FFFFFF">Prywatność i cookies</a>
+        <a href="#" style="color: #FFFFFF">Ustawienia zgód</a>
+        <a href="#" style="color: #FFFFFF">Dostępność</a>
+      </nav>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"showAds":{"editor":"boolean","default":true,"section":"Reklama"},"$preview":{"width":1440,"height":3000}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { seg: 'dom' };
+  }
+  renderVals() {
+    const seg = this.state.seg;
+    const on = 'border: 0; border-radius: 999px; padding: 8px 18px; min-height: 36px; font-weight: 700; background: #0B1B33; color: #FFFFFF';
+    const off = 'border: 0; border-radius: 999px; padding: 8px 18px; min-height: 36px; font-weight: 600; background: transparent; color: #0B1B33';
+    const max = 796;
+    const bars = [
+      { year: '2020', v: 210, label: '≈210' },
+      { year: '2021', v: 401, label: '401' },
+      { year: '2022', v: 796, label: '796' },
+      { year: '2023', v: 534, label: '≈534' },
+      { year: '2024', v: 425, label: '425' }
+    ].map((b) => ({ ...b, style: 'width: 100%; max-width: 96px; border-radius: 6px 6px 0 0; background: ' + (b.v === max ? '#00796B' : '#7FD9CC') + '; height: ' + Math.round(b.v / max * 170) + 'px' }));
+    const dom = [
+      { type: 'PORADNIK', title: 'Jak czytać rachunek za prąd — pozycja po pozycji', lead: 'Cena energii, dystrybucja, opłata mocowa, akcyza i VAT na jednym przykładzie.' },
+      { type: 'PORÓWNANIE', title: 'G11 czy G12 — kiedy taryfa dwustrefowa się opłaca', lead: 'Wyliczenie dla trzech typowych domów.' },
+      { type: 'PRZEWODNIK', title: 'Fotowoltaika w net-billingu: jak liczyć opłacalność', lead: 'Autokonsumpcja, magazyn i ceny godzinowe.' },
+      { type: 'WZÓR PISMA', title: 'Odstąpienie od umowy podpisanej z akwizytorem', lead: '14 dni, a przy nieumówionej wizycie 30 dni.' }
+    ];
+    const firma = [
+      { type: 'PORADNIK', title: 'Jak czytać fakturę za prąd w firmie', lead: 'Moc umowna, energia bierna, opłaty systemowe.' },
+      { type: 'PORÓWNANIE', title: 'Cena stała czy indeksowana — co wybrać na 2027 r.', lead: 'Ryzyko, budżet i scenariusze cen.' },
+      { type: 'PORADNIK', title: 'Moc umowna: jak nie przepłacać', lead: 'Sprawdź, czy płacisz za niewykorzystaną moc.' },
+      { type: 'PRZEWODNIK', title: 'Zapytanie ofertowe na energię dla firmy', lead: 'Dane, które przygotować, i jak porównać oferty.' }
+    ];
+    return {
+      showAds: this.props.showAds ?? true,
+      segDomPressed: seg === 'dom' ? 'true' : 'false',
+      segFirmaPressed: seg === 'firma' ? 'true' : 'false',
+      segDomStyle: seg === 'dom' ? on : off,
+      segFirmaStyle: seg === 'firma' ? on : off,
+      pickDom: () => this.setState({ seg: 'dom' }),
+      pickFirma: () => this.setState({ seg: 'firma' }),
+      segLabel: seg === 'dom' ? 'DLA CIEBIE · DOM' : 'DLA CIEBIE · FIRMA',
+      segHeading: seg === 'dom' ? 'Rachunek domowy bez tajemnic' : 'Energia w firmie: koszty pod kontrolą',
+      segItems: seg === 'dom' ? dom : firma,
+      news: [
+        { tag: 'TARYFY', title: 'Taryfy na 2027 r.: czego spodziewać się przed decyzją URE' },
+        { tag: 'OPŁATY', title: 'Opłata mocowa w 2026 r. wzrosła o około 50%. Ile płacisz Ty?' },
+        { tag: 'OZE', title: 'Ograniczenia pracy OZE w 2026 r. już większe niż w całym 2025 r.' },
+        { tag: 'PRAWO', title: 'Nowe zasady przyłączania do sieci po nowelizacji Prawa energetycznego' },
+        { tag: 'OFFSHORE', title: 'Po Baltic Power: kiedy prąd z kolejnych farm na Bałtyku' }
+      ],
+      tiles: [
+        { label: 'Średnia cena energii w taryfach dla domów 2026', value: '495,16 zł/MWh', note: 'netto · decyzja Prezesa URE z 17.12.2025 r.' },
+        { label: 'Opłata mocowa 2026 (zużycie 1200–2800 kWh/rok)', value: '17,18 zł/mies.', note: 'netto · Informacja Prezesa URE' },
+        { label: 'Moc fotowoltaiki w Polsce', value: '27,1 GW', note: 'stan na 1.05.2026 r. · PSE' },
+        { label: 'Prąd na giełdzie wczoraj (RDN)', value: '[— zł/MWh]', note: 'dane dzienne TGE · aktualizacja automatyczna' }
+      ],
+      trackers: [
+        { status: 'Przed decyzją URE', title: 'Taryfy na prąd 2027', desc: 'Stawki dla domów i opłaty dystrybucyjne po zatwierdzeniu.' },
+        { status: 'Wdrożenie w toku', title: 'CSIRE i zmiana sprzedawcy w 24 h', desc: 'Którzy operatorzy przystąpili, co z opóźnieniami.' },
+        { status: 'Projekt ustawy', title: 'Obligo giełdowe (80%)', desc: 'Powrót obowiązku sprzedaży energii przez giełdę.' },
+        { status: 'Po wecie', title: 'Ustawa wiatrakowa', desc: 'Odległość turbin od domów i kolejne kroki rządu.' }
+      ],
+      bars: bars,
+      cards: [
+        { tag: 'ANALIZA DANYCH', tagColor: '#00796B', title: 'Dlaczego rachunek rośnie, choć prąd na giełdzie tanieje', style: 'flex: 1 1 300px; background: #FFFFFF; border: 1px solid #DCE3EC; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px; text-decoration: none' },
+        { tag: 'PORADNIK', tagColor: '#00796B', title: 'Akwizytor energii pod drzwiami: jak rozpoznać nieuczciwą ofertę', style: 'flex: 1 1 300px; background: #FFFFFF; border: 1px solid #DCE3EC; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px; text-decoration: none' },
+        { tag: 'MATERIAŁ PARTNERA · [PARTNER]', tagColor: '#6B4E00', title: '[Tytuł materiału partnera — oznaczony, linki rel=sponsored]', style: 'flex: 1 1 300px; background: #FFF8E6; border: 1px dashed #C9A23A; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px; text-decoration: none' }
+      ],
+      regions: ['dolnośląskie', 'kujawsko-pomorskie', 'lubelskie', 'lubuskie', 'łódzkie', 'małopolskie', 'mazowieckie', 'opolskie', 'podkarpackie', 'podlaskie', 'pomorskie', 'śląskie', 'świętokrzyskie', 'warmińsko-mazurskie', 'wielkopolskie', 'zachodniopomorskie']
+    };
+  }
+}
+</script>
+</body>
+</html>
