@@ -1,31 +1,180 @@
 {
-  "v": 3,
-  "layout": "files",
-  "createdOnFiles": {"v": 1, "at": "2026-10-21T12:00:00Z"},
-  "title": "Energypedia",
-  "namespace": "Energypedia",
-  "libraries": [{"name": "react", "version": "18"}, {"name": "react-dom", "version": "18"}],
-  "sections": {},
-  "groups": ["Logos", "Icons"],
-  "assetGroups": {
-    "Logos": {"name": "Logos", "tile": "m", "order": ["energypedia-mark.svg", "energypedia-mark-inverse.svg"], "files": {
-      "energypedia-mark.svg": {"name": "energypedia-mark.svg", "blob": "8a2b0392f475e139d2316967024c3b28", "size": 215, "type": "image/svg+xml"},
-      "energypedia-mark-inverse.svg": {"name": "energypedia-mark-inverse.svg", "blob": "af657e31e1d2142389b8c1ec121edf61", "size": 215, "type": "image/svg+xml"}
-    }},
-    "Icons": {"name": "Icons", "tile": "xs", "order": ["search.svg", "sun.svg", "moon.svg", "menu.svg", "book.svg", "calculator.svg", "mail.svg", "sparkle.svg", "close.svg", "arrow-right.svg"], "files": {
-      "search.svg": {"name": "search.svg", "blob": "9a2d6fb7efb9991c81f62a9a7365f657", "size": 252, "type": "image/svg+xml"},
-      "sun.svg": {"name": "sun.svg", "blob": "2b7816ba870ab79417f2ef2b4236f2c7", "size": 477, "type": "image/svg+xml"},
-      "moon.svg": {"name": "moon.svg", "blob": "1e42fbe5021cc105cbf8cc01c41e4591", "size": 250, "type": "image/svg+xml"},
-      "menu.svg": {"name": "menu.svg", "blob": "fa5f06fd1668ae1be9777d79eee69d7c", "size": 262, "type": "image/svg+xml"},
-      "book.svg": {"name": "book.svg", "blob": "d35c7b95e08e3089d33702f6053e0936", "size": 320, "type": "image/svg+xml"},
-      "calculator.svg": {"name": "calculator.svg", "blob": "1cfcd14cd2746f69e53e4bfe4293a9bf", "size": 373, "type": "image/svg+xml"},
-      "mail.svg": {"name": "mail.svg", "blob": "f11c41f6b34ddbb3a8c74a4bf89e3757", "size": 272, "type": "image/svg+xml"},
-      "sparkle.svg": {"name": "sparkle.svg", "blob": "55f7d0e5cb4bcfb978aad00731c8ece5", "size": 253, "type": "image/svg+xml"},
-      "close.svg": {"name": "close.svg", "blob": "24b5097359dd52bc699535993df0cc7f", "size": 240, "type": "image/svg+xml"},
-      "arrow-right.svg": {"name": "arrow-right.svg", "blob": "65d3e1d416e8eaefcd1c22d8a7c48f64", "size": 246, "type": "image/svg+xml"}
-    }}
+ "v": 3,
+ "layout": "files",
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-10-21T12:00:00Z"
+ },
+ "title": "Energypedia",
+ "namespace": "Energypedia",
+ "libraries": [
+  {
+   "name": "react",
+   "version": "18"
   },
-  "blobs": {},
-  "docs": {"readme": "project/README.md", "sections": []},
-  "lastChange": {"by": "Claude", "at": "2026-10-21T12:00:00Z", "via": "Claude Code", "note": "Pierwsza wersja systemu na podstawie zatwierdzonej strony głównej (wersja finalna)."}
+  {
+   "name": "react-dom",
+   "version": "18"
+  }
+ ],
+ "sections": {},
+ "groups": [
+  "Logos",
+  "Icons"
+ ],
+ "assetGroups": {
+  "Logos": {
+   "name": "Logos",
+   "tile": "m",
+   "order": [
+    "energypedia-logo-poziome-kolor.svg",
+    "energypedia-logo-poziome-negatyw.svg",
+    "energypedia-logo-pionowe-kolor.svg",
+    "energypedia-sygnet-kolor.svg",
+    "energypedia-sygnet-negatyw.svg",
+    "energypedia-ikona-aplikacji.svg",
+    "favicon.svg",
+    "energypedia-logo-animowane.svg"
+   ],
+   "files": {
+    "energypedia-logo-poziome-kolor.svg": {
+     "name": "energypedia-logo-poziome-kolor.svg",
+     "blob": "b674b7ac6835c68f0094846de03eff34",
+     "size": 16039,
+     "type": "image/svg+xml"
+    },
+    "energypedia-logo-poziome-negatyw.svg": {
+     "name": "energypedia-logo-poziome-negatyw.svg",
+     "blob": "82a1bd09e575bf5ae09665d05be62eb5",
+     "size": 16039,
+     "type": "image/svg+xml"
+    },
+    "energypedia-logo-pionowe-kolor.svg": {
+     "name": "energypedia-logo-pionowe-kolor.svg",
+     "blob": "21fab775c80239833c9c2c2d977af478",
+     "size": 13852,
+     "type": "image/svg+xml"
+    },
+    "energypedia-sygnet-kolor.svg": {
+     "name": "energypedia-sygnet-kolor.svg",
+     "blob": "d8acdb85b06f9f8cc0f6f8303580bc3b",
+     "size": 518,
+     "type": "image/svg+xml"
+    },
+    "energypedia-sygnet-negatyw.svg": {
+     "name": "energypedia-sygnet-negatyw.svg",
+     "blob": "13015251aa29653ed0f7057ad9718f1c",
+     "size": 518,
+     "type": "image/svg+xml"
+    },
+    "energypedia-ikona-aplikacji.svg": {
+     "name": "energypedia-ikona-aplikacji.svg",
+     "blob": "7ef02eeb0f240f811e1147d4d970693b",
+     "size": 575,
+     "type": "image/svg+xml"
+    },
+    "favicon.svg": {
+     "name": "favicon.svg",
+     "blob": "ef7af32df3d277c2ad0ae3f620dd3787",
+     "size": 559,
+     "type": "image/svg+xml"
+    },
+    "energypedia-logo-animowane.svg": {
+     "name": "energypedia-logo-animowane.svg",
+     "blob": "f597c31ebfb0987705a33b3e3fba75c9",
+     "size": 16089,
+     "type": "image/svg+xml"
+    }
+   }
+  },
+  "Icons": {
+   "name": "Icons",
+   "tile": "xs",
+   "order": [
+    "search.svg",
+    "sun.svg",
+    "moon.svg",
+    "menu.svg",
+    "book.svg",
+    "calculator.svg",
+    "mail.svg",
+    "sparkle.svg",
+    "close.svg",
+    "arrow-right.svg"
+   ],
+   "files": {
+    "search.svg": {
+     "name": "search.svg",
+     "blob": "9a2d6fb7efb9991c81f62a9a7365f657",
+     "size": 252,
+     "type": "image/svg+xml"
+    },
+    "sun.svg": {
+     "name": "sun.svg",
+     "blob": "2b7816ba870ab79417f2ef2b4236f2c7",
+     "size": 477,
+     "type": "image/svg+xml"
+    },
+    "moon.svg": {
+     "name": "moon.svg",
+     "blob": "1e42fbe5021cc105cbf8cc01c41e4591",
+     "size": 250,
+     "type": "image/svg+xml"
+    },
+    "menu.svg": {
+     "name": "menu.svg",
+     "blob": "fa5f06fd1668ae1be9777d79eee69d7c",
+     "size": 262,
+     "type": "image/svg+xml"
+    },
+    "book.svg": {
+     "name": "book.svg",
+     "blob": "d35c7b95e08e3089d33702f6053e0936",
+     "size": 320,
+     "type": "image/svg+xml"
+    },
+    "calculator.svg": {
+     "name": "calculator.svg",
+     "blob": "1cfcd14cd2746f69e53e4bfe4293a9bf",
+     "size": 373,
+     "type": "image/svg+xml"
+    },
+    "mail.svg": {
+     "name": "mail.svg",
+     "blob": "f11c41f6b34ddbb3a8c74a4bf89e3757",
+     "size": 272,
+     "type": "image/svg+xml"
+    },
+    "sparkle.svg": {
+     "name": "sparkle.svg",
+     "blob": "55f7d0e5cb4bcfb978aad00731c8ece5",
+     "size": 253,
+     "type": "image/svg+xml"
+    },
+    "close.svg": {
+     "name": "close.svg",
+     "blob": "24b5097359dd52bc699535993df0cc7f",
+     "size": 240,
+     "type": "image/svg+xml"
+    },
+    "arrow-right.svg": {
+     "name": "arrow-right.svg",
+     "blob": "65d3e1d416e8eaefcd1c22d8a7c48f64",
+     "size": 246,
+     "type": "image/svg+xml"
+    }
+   }
+  }
+ },
+ "blobs": {},
+ "docs": {
+  "readme": "project/README.md",
+  "sections": []
+ },
+ "lastChange": {
+  "by": "Claude",
+  "at": "2026-10-21T20:00:00Z",
+  "via": "Claude Code",
+  "note": "Logo 3 „E z danych” zastępuje kafel z błyskawicą: nowy komponent Logo (logotyp na krzywych, animacja A + C), tokeny logo-*, nowe pliki w Logos."
+ }
 }

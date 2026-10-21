@@ -1,29 +1,36 @@
-<!-- @dsCard group="Marka" height=120 -->
+<!-- @dsCard group="Marka" height=260 -->
 <!doctype html>
 <html lang="pl">
 <head>
 <meta charset="utf-8">
 <title>Logo — podgląd</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Space+Grotesk:wght@300..700&display=swap">
 <style>
   body { padding: 16px; }
-  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; }
-  .col { display: flex; flex-direction: column; gap: 12px; }
-  .grid { display: flex; flex-wrap: wrap; gap: 16px; }
-  .grid > * { flex: 1 1 220px; }
-  .navy { background: var(--navy); padding: 16px; border-radius: var(--radius-lg); }
+  .row { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+  .stack { display: flex; flex-direction: column; gap: 20px; }
+  .navy { background: var(--navy); padding: 20px; border-radius: var(--radius-lg); display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+  button { font: inherit; min-height: 44px; padding: 0 16px; border-radius: var(--radius-pill); border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); cursor: pointer; }
 </style>
 </head>
 <body>
 <div id="root"></div>
 <script>
   var E = window.Energypedia, h = React.createElement;
-  ReactDOM.createRoot(document.getElementById('root')).render(
-    h('div', { className: 'row' },
-      h(E.Logo, { href: '#' }),
-      h(E.Logo, { size: 'sm' }),
-      h('div', { className: 'navy' }, h(E.Logo, { tone: 'inverse' })))
-  );
+  function Demo() {
+    var s = React.useState(0), n = s[0], set = s[1];
+    return h('div', { className: 'stack' },
+      h('div', { className: 'row' },
+        h(E.Logo, { key: 'a' + n, href: '#', size: 'lg' }),
+        h('button', { type: 'button', onClick: function () { set(n + 1); } }, 'Odtwórz wejście')),
+      h('div', { className: 'row' },
+        h(E.Logo, { size: 'sm', animate: 'none' }),
+        h(E.Logo, { size: 'sm', withDomain: false, animate: 'none' }),
+        h(E.Logo, { key: 's' + n, variant: 'signet', size: 40 })),
+      h('div', { className: 'navy' },
+        h(E.Logo, { key: 'i' + n, tone: 'inverse' }),
+        h(E.Logo, { tone: 'inverse', variant: 'signet', size: 40, animate: 'none' })));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
 </script>
 </body>
 </html>

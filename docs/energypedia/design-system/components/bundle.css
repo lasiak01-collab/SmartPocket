@@ -12,17 +12,27 @@ a { color: inherit; }
 .ep-card-hover:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
 @media (prefers-reduced-motion: reduce) { .ep-live, .ep-card-hover, .ep-btn { animation: none; transition: none; } .ep-card-hover:hover { transform: none; } }
 
-/* Logo */
-.ep-logo { display: inline-flex; align-items: center; gap: var(--space-2); text-decoration: none; color: var(--ink); }
-.ep-logo-tile { fill: var(--logo-tile); }
-.ep-logo-bolt { fill: var(--logo-bolt); }
-.ep-logo-tile-inv { fill: var(--volt); }
-.ep-logo-bolt-inv { fill: var(--on-volt); }
-.ep-logo-word { font-family: var(--font-display); font-weight: 680; font-size: 22px; letter-spacing: -0.02em; line-height: 1; }
-.ep-logo-word-sm { font-size: 19px; }
-.ep-logo-word-inv { color: var(--on-navy); }
-.ep-logo-tld { color: var(--volt-ink); }
-.ep-logo-tld-inv { color: var(--volt); }
+/* Logo 3 „E z danych” + animacja A (wejście, raz) i C (odczyt na żywo, pętla) */
+.ep-logo { display: inline-flex; align-items: center; line-height: 0; text-decoration: none; }
+.ep-logo-svg { display: block; overflow: visible; }
+.ep-logo-e rect, .ep-logo-ink { fill: var(--logo-ink); }
+.ep-logo-e .ep-logo-mid { fill: var(--logo-accent); }
+.ep-logo-word-accent { fill: var(--logo-word-accent); }
+.ep-logo-tld { fill: var(--logo-tld); }
+.ep-logo-inv .ep-logo-e rect, .ep-logo-inv .ep-logo-ink { fill: var(--on-navy); }
+.ep-logo-inv .ep-logo-e .ep-logo-mid, .ep-logo-inv .ep-logo-word-accent { fill: var(--volt); }
+.ep-logo-inv .ep-logo-tld { fill: var(--on-navy-muted); }
+.ep-logo-e rect { transform-box: fill-box; transform-origin: left center; }
+.ep-logo-e .ep-logo-spine { transform-origin: center bottom; }
+.ep-logo-intro .ep-logo-spine { animation: ep-logo-grow-y 0.5s cubic-bezier(.2,.8,.2,1) both; }
+.ep-logo-intro .ep-logo-top { animation: ep-logo-grow-x 0.5s cubic-bezier(.2,.8,.2,1) 0.15s both; }
+.ep-logo-intro .ep-logo-mid { animation: ep-logo-grow-x 0.5s cubic-bezier(.2,.8,.2,1) 0.3s both; }
+.ep-logo-intro .ep-logo-bot { animation: ep-logo-grow-x 0.5s cubic-bezier(.2,.8,.2,1) 0.45s both; }
+.ep-logo-intro.ep-logo-live .ep-logo-mid { animation: ep-logo-grow-x 0.5s cubic-bezier(.2,.8,.2,1) 0.3s both, ep-logo-read 6s ease-in-out 1.4s infinite; }
+@keyframes ep-logo-grow-y { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes ep-logo-grow-x { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes ep-logo-read { 0% { transform: scaleX(1); } 30% { transform: scaleX(1.12); } 55% { transform: scaleX(0.92); } 80% { transform: scaleX(1.05); } 100% { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { .ep-logo-e rect { animation: none !important; } }
 
 /* Button */
 .ep-btn { font: inherit; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: var(--control-h); padding: 0 var(--space-5); border-radius: var(--radius-pill); border: 1px solid transparent; cursor: pointer; text-decoration: none; transition: transform 0.12s ease, filter 0.12s ease; }

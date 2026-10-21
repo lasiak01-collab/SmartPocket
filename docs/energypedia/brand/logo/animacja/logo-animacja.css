@@ -1,0 +1,10 @@
+/* Animacja sygnetu Energypedia: A (wejście, raz) + C (odczyt na żywo, pętla). Klasy: .ep-e na <g> lub <svg>, prostokąty .spine .top .mid .bot */
+.ep-e rect{transform-box:fill-box}
+.ep-e .spine{transform-origin:center bottom;animation:epGrowY .5s cubic-bezier(.2,.8,.2,1) both}
+.ep-e .top{transform-origin:left center;animation:epGrowX .5s cubic-bezier(.2,.8,.2,1) .15s both}
+.ep-e .mid{transform-origin:left center;animation:epGrowX .5s cubic-bezier(.2,.8,.2,1) .3s both,epRead 6s ease-in-out 1.4s infinite}
+.ep-e .bot{transform-origin:left center;animation:epGrowX .5s cubic-bezier(.2,.8,.2,1) .45s both}
+@keyframes epGrowY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes epGrowX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes epRead{0%{transform:scaleX(1)}30%{transform:scaleX(1.12)}55%{transform:scaleX(.92)}80%{transform:scaleX(1.05)}100%{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){.ep-e rect{animation:none!important}}

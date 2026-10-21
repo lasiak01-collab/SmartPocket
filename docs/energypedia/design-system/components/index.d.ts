@@ -1,6 +1,19 @@
 import type * as React from 'react';
 
-export interface LogoProps { tone?: 'default' | 'inverse'; size?: 'md' | 'sm'; href?: string }
+export interface LogoProps {
+  /** 'inverse' na powierzchni navy (negatyw). */
+  tone?: 'default' | 'inverse';
+  /** Wysokość: 'lg' 48 px, 'md' 40 px (nagłówek), 'sm' 32 px (telefon, stopka) albo liczba px. */
+  size?: 'lg' | 'md' | 'sm' | number;
+  /** 'horizontal' (sygnet + logotyp) albo 'signet' (sam znak E). */
+  variant?: 'horizontal' | 'signet';
+  /** Czy pokazać „.pl” (domyślnie true). */
+  withDomain?: boolean;
+  /** 'intro-live' = A (wejście raz) + C (odczyt na żywo, pętla) — domyślne w nagłówku; 'intro' = tylko A; 'none' = statyczne. */
+  animate?: 'intro-live' | 'intro' | 'none';
+  href?: string;
+  className?: string;
+}
 export declare function Logo(props: LogoProps): React.ReactElement;
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> { variant?: 'primary' | 'secondary' | 'outline' | 'ghost'; size?: 'sm' | 'md' | 'lg'; href?: string; iconOnly?: boolean }

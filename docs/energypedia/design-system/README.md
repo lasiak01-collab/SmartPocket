@@ -37,16 +37,23 @@ Energypedia.pl to serwis o rynku energii elektrycznej dla domów, mikrofirm, śr
 - Projektuj od telefonu: rzędy kart zawijają się (`flex-wrap`, karty min. ok. 220–260 px), kolumna boczna spada pod treść, rzędy kafli i trackerów na telefonie przewijają się poziomo.
 - **Pierwszy ekran bez reklamy.** Kolejność strony głównej: pytanie i odpowiedź AI → „Energia dziś” → „Dla Ciebie” → narzędzia → reklama → „Na bieżąco” → pytania + kolumna boczna → sponsor działu → polecane → newsletter.
 
+## Logo
+
+- Znak: logo 3 „E z danych” — sygnet z czterech słupków (środkowy w `logo-accent`, kolorze prądu) i logotyp „energypedia.pl” (Manrope ExtraBold na krzywych): „energy” `logo-ink`, „pedia” `logo-word-accent`, „.pl” `logo-tld`.
+- W serwisie używaj wyłącznie komponentu `Logo`. Nagłówek: `animate="intro-live"` — A (słupki wyrastają kolejno przy wejściu, ok. 0,95 s, raz) + C (środkowy słupek zmienia długość jak odczyt na żywo, cykl 6 s, pętla od 1,4 s). Stopka i materiały: wersja statyczna.
+- Wysokość w nagłówku 40 px (telefon 32 px); pole ochronne = wysokość środkowego słupka; minimum 120 px szerokości logo i 24 px sygnetu.
+- Pliki produkcyjne: grupa zasobów Logos; pełna paczka i księga znaku w `docs/energypedia/brand/logo`.
+
 ## Kształty, cienie, ruch
 
 - Promienie: `radius-sm` pola i sloty, `radius-md` karty na telefonie, `radius-lg` karty i kafle, `radius-xl` duże pasy, `radius-pill` przyciski, chipy, etykiety.
 - Karty w spoczynku nie mają cienia — tylko obramowanie `line`. `shadow-hover` wyłącznie w stanie najechania razem z uniesieniem o 2 px.
-- Ruch: mikrointerakcje (najechanie na kartę, wciśnięcie przycisku, pulsująca kropka danych na żywo) i jedno animowane słowo w H1 pierwszego ekranu. Bez animacji ozdobnych, paralaksy i 3D. Całość wyłącza `prefers-reduced-motion`.
+- Ruch: mikrointerakcje (najechanie na kartę, wciśnięcie przycisku, pulsująca kropka danych na żywo) jedno animowane słowo w H1 pierwszego ekranu i animacja sygnetu w nagłówku (A + C, patrz Logo). Bez animacji ozdobnych, paralaksy i 3D. Całość wyłącza `prefers-reduced-motion`.
 
 ## Motywy
 
 - Dwa motywy: Jasny (domyślny) i Ciemny. Respektuj ustawienie systemu, a przełącznik słońce/księżyc w nagłówku daje wybór ręczny.
-- Komponenty biorą kolory wyłącznie z tokenów; w ciemnym motywie znak logo odwraca się (`logo-tile`, `logo-bolt`).
+- Komponenty biorą kolory wyłącznie z tokenów; w ciemnym motywie logo przechodzi w negatyw (tokeny `logo-ink`, `logo-accent`, `logo-word-accent`, `logo-tld`).
 
 ## Dostępność
 

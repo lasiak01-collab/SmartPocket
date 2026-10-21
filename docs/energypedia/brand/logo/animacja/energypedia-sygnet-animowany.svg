@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36.00 36.00" role="img" aria-label="Energypedia – sygnet"><title>Energypedia – sygnet</title><style>.ep-e rect{transform-box:fill-box}
+.ep-e .spine{transform-origin:center bottom;animation:epGrowY .5s cubic-bezier(.2,.8,.2,1) both}
+.ep-e .top{transform-origin:left center;animation:epGrowX .5s cubic-bezier(.2,.8,.2,1) .15s both}
+.ep-e .mid{transform-origin:left center;animation:epGrowX .5s cubic-bezier(.2,.8,.2,1) .3s both,epRead 6s ease-in-out 1.4s infinite}
+.ep-e .bot{transform-origin:left center;animation:epGrowX .5s cubic-bezier(.2,.8,.2,1) .45s both}
+@keyframes epGrowY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes epGrowX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes epRead{0%{transform:scaleX(1)}30%{transform:scaleX(1.12)}55%{transform:scaleX(.92)}80%{transform:scaleX(1.05)}100%{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){.ep-e rect{animation:none!important}}</style><g class="ep-e"><rect class="spine" x="0.00" y="0.00" width="9.00" height="36.00" rx="3.00" fill="#0B1B33"/><rect class="top" x="0.00" y="0.00" width="36.00" height="9.00" rx="3.00" fill="#0B1B33"/><rect class="mid" x="13.00" y="13.50" width="20.00" height="9.00" rx="3.00" fill="#00C2A8"/><rect class="bot" x="0.00" y="27.00" width="30.00" height="9.00" rx="3.00" fill="#0B1B33"/></g></svg>
