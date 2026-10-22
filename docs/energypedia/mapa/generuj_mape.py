@@ -149,6 +149,7 @@ TECH = [
     ('GEO', 'Spójne encje: pełne nazwy instytucji przy pierwszym użyciu; strona O nas i Organization z sameAs; docelowo wpis w Wikidata.'),
     ('GEO', 'robots.txt: dopuszczone boty wyszukiwarek i wyszukiwarek AI; decyzja o botach trenujących modele należy do naczelnego; llms.txt jako uzupełnienie (wpływ niepotwierdzony).'),
     ('GEO', 'Pomiar: arkusz Pytania long tail jako stały zestaw pytań sprawdzanych co miesiąc w ChatGPT, Perplexity, Gemini, Copilot i AI Overviews.'),
+    ('Preferowane źródła Google', 'Wezwanie „Dodaj do preferowanych źródeł” (link https://www.google.com/preferences/source?q=energypedia.pl lub oficjalny przycisk z Search Central) pod artykułami, w panelu „Więcej” i w stopce; pomiar kliknięć; regularne newsy, bo funkcja działa w sekcji „Najważniejsze artykuły”. [DO WERYFIKACJI: wytyczne i kod przycisku]'),
     ('E-E-A-T', 'Strony: Jak pracujemy, Jak zarabiamy, Redakcja, Sprostowania, strony autorów z biogramem; podpis autora i recenzenta przy każdej publikacji.'),
     ('Google News i Discover', 'Zgłoszenie w Google Publisher Center; obrazy co najmniej 1200 px szerokości; tytuły bez clickbaitu; jasna data publikacji.'),
     ('Kanały', 'RSS/Atom: całość, obszary, trackery; API danych Barometru; wykresy do osadzenia z linkiem zwrotnym.'),

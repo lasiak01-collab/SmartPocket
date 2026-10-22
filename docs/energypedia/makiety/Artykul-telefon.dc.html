@@ -210,6 +210,14 @@ button{cursor:pointer}
         <span style="font-size: 14px; color: var(--ep-ink2)">Artykuł ma charakter informacyjny i nie jest poradą prawną w indywidualnej sprawie. Znalazłeś błąd? <a href="#" style="color: var(--ep-accent-ink); font-weight: 600">Zgłoś sprostowanie</a></span>
       </section>
 
+      <section aria-labelledby="h-pref" style="display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; padding: 16px 18px; border: 1px solid var(--ep-line); border-radius: 14px">
+        <div style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 4px">
+          <h2 id="h-pref" style="margin: 0; font-size: 17px; font-weight: 700; line-height: 1.35">Czytaj Energypedię częściej w Google</h2>
+          <span style="font-size: 14px; line-height: 1.5; color: var(--ep-ink2)">Dodaj nas do preferowanych źródeł, a nasze teksty częściej zobaczysz w sekcji „Najważniejsze artykuły”, gdy szukasz informacji o energii.</span>
+        </div>
+        <a href="https://www.google.com/preferences/source?q=energypedia.pl" target="_blank" rel="noopener" class="ep-btn" style="min-height: 44px; display: inline-flex; align-items: center; gap: 8px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--ep-ink); color: var(--ep-ink); font-size: 15px; font-weight: 600; text-decoration: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 L14.6 8.8 L20.4 9.6 L16.2 13.7 L17.2 19.5 L12 16.8 L6.8 19.5 L7.8 13.7 L3.6 9.6 L9.4 8.8 Z"></path></svg>Dodaj do preferowanych źródeł</a>
+      </section>
+
       <section aria-label="Ocena artykułu" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding: 16px 18px; background: var(--ep-muted); border-radius: 14px; font-size: 16px">
         <span style="font-weight: 600">{{helpfulText}}</span>
         <sc-if value="{{notVoted}}" hint-placeholder-val="{{ true }}">
@@ -366,6 +374,7 @@ button{cursor:pointer}
           </a>
         </sc-for>
       </div>
+      <a href="https://www.google.com/preferences/source?q=energypedia.pl" target="_blank" rel="noopener" style="margin: 0 20px 12px; min-height: 48px; display: flex; align-items: center; gap: 10px; padding: 0 14px; border-radius: 14px; border: 1px solid var(--ep-line, #DCE3EC); font-size: 15px; font-weight: 600; color: var(--ep-ink, #0B1B33)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 L14.6 8.8 L20.4 9.6 L16.2 13.7 L17.2 19.5 L12 16.8 L6.8 19.5 L7.8 13.7 L3.6 9.6 L9.4 8.8 Z"></path></svg><span style="flex: 1 1 auto">Dodaj Energypedię do preferowanych źródeł w Google</span><span aria-hidden="true">→</span></a>
       <div style="margin: 0 20px 16px; padding: 14px 16px; border-radius: 14px; background: var(--ep-muted); display: flex; flex-direction: column; gap: 10px">
         <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
           <span style="display: flex; flex-direction: column"><strong style="font-size: 15px">Twój pasek</strong><span style="font-size: 13px; color: var(--ep-ink2)">Wybierz 3 skróty. Start i Więcej zostają.</span></span>
