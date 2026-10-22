@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Energypedia – profil operatora sieci</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&amp;family=Space+Grotesk:wght@300..700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}a:hover{text-decoration:underline}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid #00C2A8;outline-offset:2px}
+.ep-skip{position:absolute;left:-9999px;top:8px;z-index:10;background:#00C2A8;color:#0B1B33;padding:10px 16px;border-radius:8px;font-weight:700}
+.ep-skip:focus{left:16px}
+.ep-card{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.ep-card:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(11,27,51,.14);text-decoration:none}
+.ep-btn{transition:transform .12s ease,filter .12s ease}
+.ep-btn:hover{filter:brightness(1.06)}
+.ep-btn:active{transform:scale(.97)}
+.ep-live{display:inline-block;width:8px;height:8px;border-radius:999px;background:#00C2A8;animation:ep-pulse 2s ease-in-out infinite}
+@keyframes ep-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.ep-word{display:inline-block;animation:ep-in .45s ease}
+@keyframes ep-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+.ep-e rect{transform-box:fill-box;transform-origin:left center}
+.ep-anim .spine{transform-origin:center bottom;animation:epGrowY .5s cubic-bezier(.2,.8,.2,1) both}
+.ep-anim .top{animation:epGrowX .5s cubic-bezier(.2,.8,.2,1) .15s both}
+.ep-anim .mid{animation:epGrowX .5s cubic-bezier(.2,.8,.2,1) .3s both,epRead 6s ease-in-out 1.4s infinite}
+.ep-anim .bot{animation:epGrowX .5s cubic-bezier(.2,.8,.2,1) .45s both}
+@keyframes epGrowY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes epGrowX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes epRead{0%{transform:scaleX(1)}30%{transform:scaleX(1.12)}55%{transform:scaleX(.92)}80%{transform:scaleX(1.05)}100%{transform:scaleX(1)}}
+@media (prefers-reduced-motion: reduce){.ep-e rect{animation:none !important}}
+</style>
+</helmet>
+<div style="{{rootStyle}}">
+<a href="#tresc" class="ep-skip">Przejdź do treści</a>
+
+  <header style="background: var(--ep-surface); border-bottom: 1px solid var(--ep-line)">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center">
+      <a href="#" aria-label="Energypedia.pl – strona główna" style="display: flex; align-items: center; text-decoration: none">
+        <svg width="302" height="40" viewBox="18 18 617.59 81.7" aria-hidden="true" style="display: block"><g class="ep-e ep-anim"><rect class="spine" x="18" y="18" width="18" height="72" rx="6" style="fill: var(--ep-ink)"></rect><rect class="top" x="18" y="18" width="72" height="18" rx="6" style="fill: var(--ep-ink)"></rect><rect class="mid" x="44" y="45" width="40" height="18" rx="6" fill="#00C2A8"></rect><rect class="bot" x="18" y="72" width="60" height="18" rx="6" style="fill: var(--ep-ink)"></rect></g><path d="M137.7 81.3Q131.3 81.3 126.5 78.5Q121.6 75.8 118.9 71Q116.1 66.1 116.1 59.9Q116.1 53.1 118.8 48.1Q121.5 43.1 126.2 40.3Q130.9 37.5 137.1 37.5Q143.6 37.5 148.2 40.6Q152.7 43.6 154.9 49.2Q157.1 54.8 156.5 62.3H146.1V58.5Q146.1 52.1 144.1 49.3Q142.1 46.6 137.5 46.6Q132.2 46.6 129.7 49.8Q127.2 53 127.2 59.4Q127.2 65.2 129.7 68.3Q132.2 71.5 137.1 71.5Q140.2 71.5 142.3 70.2Q144.5 68.8 145.7 66.3L156.1 69.3Q153.8 75 148.7 78.1Q143.7 81.3 137.7 81.3ZM123.9 62.3V54.5H151.4V62.3ZM188.8 80.1V60.5Q188.8 59.1 188.6 56.9Q188.5 54.7 187.7 52.5Q186.8 50.2 185 48.7Q183.2 47.2 179.9 47.2Q178.5 47.2 177 47.7Q175.4 48.1 174.1 49.3Q172.8 50.5 171.9 52.8Q171 55.2 171 59.1L165 56.2Q165 51.3 167 47Q169 42.7 173 40.1Q177.1 37.4 183.2 37.4Q188 37.4 191.1 39.1Q194.2 40.7 195.9 43.2Q197.6 45.8 198.3 48.5Q199.1 51.3 199.2 53.5Q199.4 55.8 199.4 56.8V80.1ZM160.4 80.1V38.6H169.7V52.4H171V80.1ZM224.4 81.3Q218 81.3 213.2 78.5Q208.3 75.8 205.6 71Q202.8 66.1 202.8 59.9Q202.8 53.1 205.5 48.1Q208.2 43.1 212.9 40.3Q217.6 37.5 223.8 37.5Q230.3 37.5 234.9 40.6Q239.5 43.6 241.6 49.2Q243.8 54.8 243.2 62.3H232.8V58.5Q232.8 52.1 230.8 49.3Q228.8 46.6 224.2 46.6Q218.9 46.6 216.4 49.8Q213.9 53 213.9 59.4Q213.9 65.2 216.4 68.3Q218.9 71.5 223.8 71.5Q226.9 71.5 229 70.2Q231.2 68.8 232.4 66.3L242.8 69.3Q240.5 75 235.4 78.1Q230.4 81.3 224.4 81.3ZM210.7 62.3V54.5H238.1V62.3ZM248.4 80.1V38.6H257.6V48.8L256.6 47.5Q257.4 45.3 258.7 43.6Q260.1 41.8 262 40.6Q263.5 39.7 265.3 39.2Q267.1 38.7 268.9 38.5Q270.8 38.4 272.7 38.6V48.4Q271 47.9 268.7 48Q266.4 48.2 264.6 49.1Q262.7 49.9 261.5 51.3Q260.2 52.7 259.5 54.6Q258.9 56.5 258.9 58.9V80.1ZM292.8 99.7Q289.2 99.7 286 98.6Q282.8 97.4 280.3 95.4Q277.8 93.4 276.2 90.7L285.9 86Q286.9 87.9 288.8 88.8Q290.6 89.8 292.8 89.8Q295.2 89.8 297.2 89Q299.3 88.2 300.6 86.7Q301.8 85.1 301.7 82.8V70.7H303V38.6H312.2V83Q312.2 84.5 312 85.9Q311.9 87.2 311.6 88.6Q310.6 92.4 307.9 94.8Q305.2 97.3 301.2 98.5Q297.3 99.7 292.8 99.7ZM291.8 81.3Q286.1 81.3 281.8 78.4Q277.5 75.5 275.1 70.6Q272.7 65.6 272.7 59.4Q272.7 53 275.1 48.1Q277.6 43.2 282 40.3Q286.4 37.5 292.4 37.5Q298.3 37.5 302.3 40.4Q306.3 43.2 308.4 48.2Q310.5 53.2 310.5 59.4Q310.5 65.6 308.4 70.6Q306.3 75.5 302.2 78.4Q298 81.3 291.8 81.3ZM293.5 72Q297 72 299.1 70.4Q301.2 68.8 302.1 66Q303 63.1 303 59.4Q303 55.6 302.1 52.8Q301.2 49.9 299.2 48.4Q297.2 46.8 293.9 46.8Q290.4 46.8 288.2 48.5Q285.9 50.2 284.8 53.1Q283.8 55.9 283.8 59.4Q283.8 62.9 284.8 65.7Q285.8 68.6 288 70.3Q290.1 72 293.5 72ZM324.8 98.5 332.8 76.6 332.9 83 314.9 38.6H325.7L337.8 70.1H335.4L347.4 38.6H357.9L334.5 98.5Z" style="fill: var(--ep-ink)"></path><path d="M380.2 81.3Q374 81.3 369.8 78.4Q365.7 75.5 363.6 70.6Q361.5 65.6 361.5 59.4Q361.5 53.2 363.6 48.2Q365.6 43.2 369.7 40.4Q373.7 37.5 379.6 37.5Q385.6 37.5 390 40.3Q394.4 43.2 396.8 48.1Q399.3 53 399.3 59.4Q399.3 65.6 396.9 70.6Q394.5 75.5 390.2 78.4Q385.9 81.3 380.2 81.3ZM359.7 98.5V38.6H368.9V67.1H370.2V98.5ZM378.5 72Q381.8 72 384 70.3Q386.1 68.6 387.2 65.7Q388.2 62.9 388.2 59.4Q388.2 55.9 387.1 53.1Q386.1 50.2 383.8 48.5Q381.6 46.8 378.1 46.8Q374.8 46.8 372.8 48.4Q370.8 49.9 369.9 52.8Q368.9 55.6 368.9 59.4Q368.9 63.1 369.9 66Q370.8 68.8 372.9 70.4Q375 72 378.5 72ZM423.5 81.3Q417.2 81.3 412.3 78.5Q407.5 75.8 404.7 71Q402 66.1 402 59.9Q402 53.1 404.6 48.1Q407.3 43.1 412.1 40.3Q416.8 37.5 422.9 37.5Q429.5 37.5 434 40.6Q438.6 43.6 440.8 49.2Q443 54.8 442.3 62.3H432V58.5Q432 52.1 430 49.3Q428 46.6 423.4 46.6Q418.1 46.6 415.5 49.8Q413 53 413 59.4Q413 65.2 415.5 68.3Q418.1 71.5 422.9 71.5Q426 71.5 428.2 70.2Q430.4 68.8 431.5 66.3L442 69.3Q439.6 75 434.6 78.1Q429.5 81.3 423.5 81.3ZM409.8 62.3V54.5H437.3V62.3ZM464.3 81.3Q458.6 81.3 454.3 78.4Q450 75.5 447.6 70.6Q445.2 65.6 445.2 59.4Q445.2 53 447.6 48.1Q450.1 43.2 454.5 40.3Q458.9 37.5 464.9 37.5Q470.8 37.5 474.8 40.4Q478.8 43.2 480.9 48.2Q483 53.2 483 59.4Q483 65.6 480.9 70.6Q478.8 75.5 474.7 78.4Q470.5 81.3 464.3 81.3ZM466 72Q469.5 72 471.6 70.4Q473.7 68.8 474.6 66Q475.5 63.1 475.5 59.4Q475.5 55.6 474.6 52.8Q473.7 49.9 471.7 48.4Q469.7 46.8 466.4 46.8Q462.9 46.8 460.7 48.5Q458.4 50.2 457.3 53.1Q456.3 55.9 456.3 59.4Q456.3 62.9 457.3 65.7Q458.3 68.6 460.5 70.3Q462.6 72 466 72ZM475.5 80.1V51.7H474.2V24.8H484.8V80.1ZM492.8 32.9V23.7H503.3V32.9ZM492.8 80.1V38.6H503.3V80.1ZM522.8 81.3Q518.4 81.3 515.3 79.6Q512.2 77.8 510.6 75Q509 72.1 509 68.7Q509 65.8 509.9 63.4Q510.8 61 512.8 59.2Q514.7 57.4 518.1 56.2Q520.4 55.3 523.6 54.7Q526.8 54 530.8 53.4Q534.8 52.8 539.7 52.1L535.9 54.2Q535.9 50.5 534.1 48.7Q532.4 47 528.2 47Q525.9 47 523.4 48.1Q520.9 49.2 519.9 52.1L510.5 49.1Q512.1 43.9 516.4 40.7Q520.7 37.5 528.2 37.5Q533.7 37.5 538 39.2Q542.2 40.9 544.4 45Q545.7 47.3 545.9 49.6Q546.1 51.9 546.1 54.8V80.1H537V71.6L538.3 73.4Q535.2 77.5 531.7 79.4Q528.2 81.3 522.8 81.3ZM525.1 73Q528 73 529.9 72Q531.9 71 533.1 69.7Q534.2 68.4 534.7 67.5Q535.5 65.8 535.6 63.6Q535.7 61.3 535.7 59.8L538.8 60.6Q534.2 61.4 531.3 61.9Q528.4 62.4 526.6 62.8Q524.9 63.3 523.5 63.8Q522 64.4 521.1 65.1Q520.1 65.8 519.7 66.6Q519.2 67.5 519.2 68.5Q519.2 69.9 519.9 71Q520.7 72 522 72.5Q523.3 73 525.1 73Z" style="fill: var(--ep-accent-ink)"></path><path d="M554.3 80.1V69.7H564.8V80.1ZM594.1 81.3Q587.9 81.3 583.8 78.4Q579.6 75.5 577.5 70.6Q575.5 65.6 575.5 59.4Q575.5 53.2 577.5 48.2Q579.6 43.2 583.6 40.4Q587.7 37.5 593.6 37.5Q599.5 37.5 603.9 40.3Q608.4 43.2 610.8 48.1Q613.2 53 613.2 59.4Q613.2 65.6 610.8 70.6Q608.4 75.5 604.1 78.4Q599.8 81.3 594.1 81.3ZM573.7 98.5V38.6H582.9V67.1H584.2V98.5ZM592.4 72Q595.8 72 598 70.3Q600.1 68.6 601.1 65.7Q602.2 62.9 602.2 59.4Q602.2 55.9 601.1 53.1Q600 50.2 597.8 48.5Q595.5 46.8 592 46.8Q588.8 46.8 586.8 48.4Q584.7 49.9 583.8 52.8Q582.9 55.6 582.9 59.4Q582.9 63.1 583.8 66Q584.7 68.8 586.8 70.4Q588.9 72 592.4 72ZM619 80.1V23.7H629.4V80.1Z" style="fill: var(--ep-ink2)"></path></svg>
+      </a>
+      <nav aria-label="Główna nawigacja" style="display: flex; flex-wrap: wrap; gap: 4px 22px; font-weight: 600; font-size: 15px; flex: 1 1 400px">
+        <a href="#">Wiedza</a>
+        <a href="#">Poradniki</a>
+        <a href="#">Wiadomości</a>
+        <a href="#">Dane</a>
+        <a href="#">Narzędzia</a>
+        <a href="#">Regiony</a>
+      </nav>
+      <button type="button" class="ep-btn" aria-label="{{themeLabel}}" onClick="{{toggleTheme}}" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--ep-line); background: var(--ep-surface); display: flex; align-items: center; justify-content: center">
+        <sc-if value="{{isDark}}" hint-placeholder-val="{{ false }}">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2 V4"></path><path d="M12 20 V22"></path><path d="M2 12 H4"></path><path d="M20 12 H22"></path><path d="M4.9 4.9 L6.3 6.3"></path><path d="M17.7 17.7 L19.1 19.1"></path><path d="M4.9 19.1 L6.3 17.7"></path><path d="M17.7 6.3 L19.1 4.9"></path></svg>
+        </sc-if>
+        <sc-if value="{{isLight}}" hint-placeholder-val="{{ true }}">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5 A8 8 0 1 1 9.5 4 A6.5 6.5 0 0 0 20 14.5 Z"></path></svg>
+        </sc-if>
+      </button>
+      <a href="#" style="font-weight: 600">Zaloguj</a>
+      <a href="#" class="ep-btn" style="background: var(--ep-inv-bg); color: var(--ep-inv-ink); font-weight: 600; padding: 10px 18px; border-radius: 999px; text-decoration: none">Newsletter</a>
+    </div>
+  </header>
+
+  <section aria-labelledby="h-firma" style="background: var(--ep-soft); border-bottom: 1px solid var(--ep-line)">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 18px 24px 32px; display: flex; flex-direction: column; gap: 22px">
+      <nav aria-label="Okruszki" style="font-size: 14px; color: var(--ep-ink2); display: flex; flex-wrap: wrap; gap: 6px">
+        <a href="#">Energypedia</a><span aria-hidden="true">/</span><a href="#">Operatorzy sieci</a><span aria-hidden="true">/</span><span aria-current="page" style="color: var(--ep-ink)">[Nazwa operatora]</span>
+      </nav>
+      <div style="display: flex; flex-wrap: wrap; gap: 24px 40px; align-items: flex-start; justify-content: space-between">
+        <div style="flex: 1 1 620px; display: flex; gap: 22px; align-items: flex-start; min-width: 0">
+          <div style="flex: none; width: 112px; height: 112px; border-radius: 20px; background: var(--ep-surface); border: 1px solid var(--ep-line); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--ep-ink2); text-align: center">[logo]</div>
+          <div style="display: flex; flex-direction: column; gap: 10px; min-width: 0">
+            <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--ep-accent-ink)">OPERATOR SYSTEMU DYSTRYBUCYJNEGO</span>
+            <h1 id="h-firma" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 46px; line-height: 1.05; letter-spacing: -0.03em">[Nazwa operatora]: awarie, wyłączenia, przyłączenie i opłaty</h1>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px">
+              <span style="font-size: 13px; font-weight: 700; padding: 4px 12px; border-radius: 999px; background: var(--ep-ink); color: var(--ep-bg)">Operator sieci · obszar [województwa]</span>
+              <span style="font-size: 13px; font-weight: 600; padding: 4px 12px; border-radius: 999px; background: var(--ep-surface); border: 1px solid var(--ep-line)">Koncesja na dystrybucję energii: [numer]</span>
+              <sc-if value="{{hasPartner}}" hint-placeholder-val="{{ true }}">
+                <span style="font-size: 13px; font-weight: 600; padding: 4px 12px; border-radius: 999px; background: var(--ep-partner-bg); color: var(--ep-partner-ink); border: 1px dashed var(--ep-partner-line)">✓ Profil zarządzany przez operatora</span>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+        <div style="flex: 0 1 340px; display: flex; flex-direction: column; gap: 10px">
+          <a href="#" class="ep-btn" style="min-height: 56px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 16px; background: #B42318; color: #FFFFFF; font-weight: 700; text-decoration: none; line-height: 1.2"><span>Brak prądu? Zgłoś awarię</span><span style="font-size: 14px; font-weight: 600">pogotowie energetyczne: [numer]</span></a>
+          <a href="#wylaczenia" class="ep-btn" style="min-height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 999px; border: 1px solid var(--ep-ink); font-weight: 600; text-decoration: none">Sprawdź planowane wyłączenia</a>
+          <span style="font-size: 13px; color: var(--ep-ink2); text-align: center">Dane redakcji: stan na [data] · <a href="#" style="color: var(--ep-accent-ink)">zgłoś błąd</a></span>
+        </div>
+      </div>
+
+      <dl style="margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; padding: 18px 0 0; border-top: 2px solid var(--ep-ink)">
+        <sc-for list="{{facts}}" as="f" hint-placeholder-count="4">
+          <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+            <dd style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">{{f.value}}</dd>
+            <dt style="font-size: 14px; color: var(--ep-ink2); line-height: 1.35">{{f.label}}</dt>
+          </div>
+        </sc-for>
+      </dl>
+    </div>
+  </section>
+
+  <nav aria-label="Sekcje profilu" style="position: sticky; top: 0; z-index: 5; background: var(--ep-surface); border-bottom: 1px solid var(--ep-line)">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; gap: 4px; overflow-x: auto">
+      <sc-for list="{{tabs}}" as="t" hint-placeholder-count="8">
+        <a href="#" aria-current="{{t.current}}" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}</a>
+      </sc-for>
+    </div>
+  </nav>
+
+  <main id="tresc" style="max-width: 1280px; margin: 0 auto; padding: 32px 24px 64px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+    <div style="flex: 999 1 720px; min-width: 0; display: flex; flex-direction: column; gap: 44px">
+
+      <section aria-labelledby="h-skrot" style="border-top: 2px solid var(--ep-ink); padding-top: 14px; display: flex; flex-direction: column; gap: 10px">
+        <h2 id="h-skrot" style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase">W skrócie</h2>
+        <p style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.4">[Nazwa operatora] dostarcza prąd siecią na obszarze [województwa]. Operatora nie można zmienić, bo zależy od miejsca przyłączenia; zmienić można sprzedawcę. Opłaty dystrybucyjne zatwierdza Prezes URE.</p>
+      </section>
+
+      <section id="wylaczenia" aria-labelledby="h-wyl" style="display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--ep-ink2)">DANE OPERATORA, AKTUALIZACJA AUTOMATYCZNA</span>
+            <h2 id="h-wyl" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 30px; letter-spacing: -0.02em">Wyłączenia i awarie</h2>
+          </div>
+          <div role="group" aria-label="Rodzaj przerw" style="display: flex; gap: 6px">
+            <sc-for list="{{kinds}}" as="k" hint-placeholder-count="2">
+              <button type="button" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}" style="{{k.style}}">{{k.label}}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap">
+          <label for="miejsc" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Miejscowość lub ulica</label>
+          <input id="miejsc" type="search" placeholder="Wpisz miejscowość lub ulicę" style="flex: 1 1 260px; min-height: 48px; border-radius: 12px; border: 1px solid var(--ep-line2); padding: 0 14px; font-size: 16px; background: var(--ep-surface); color: var(--ep-ink)">
+          <button type="button" class="ep-btn" style="min-height: 48px; padding: 0 20px; border-radius: 999px; border: 0; background: var(--ep-ink); color: var(--ep-bg); font-weight: 700">Szukaj</button>
+          <button type="button" class="ep-btn" style="min-height: 48px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--ep-line2); background: var(--ep-surface); color: var(--ep-ink); font-weight: 600">Powiadom mnie o wyłączeniach</button>
+        </div>
+        <ul style="margin: 0; padding: 0; list-style: none; border: 1px solid var(--ep-line); border-radius: 14px; overflow: hidden">
+          <sc-for list="{{outages}}" as="o" hint-placeholder-count="4">
+            <li style="padding: 14px 16px; border-top: 1px solid var(--ep-line); display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: baseline">
+              <span style="{{o.tagStyle}}">{{o.tag}}</span>
+              <strong style="font-size: 16px; font-variant-numeric: tabular-nums">{{o.when}}</strong>
+              <span style="flex: 1 1 260px; font-size: 15px; color: var(--ep-ink2)">{{o.where}}</span>
+            </li>
+          </sc-for>
+        </ul>
+        <span style="font-size: 13px; color: var(--ep-ink2)">Źródło: komunikaty [Nazwa operatora], pobrane [data, godzina] · Pełna lista na stronie operatora. [DO WERYFIKACJI: czy operator udostępnia dane w formie do pobierania automatycznego]</span>
+      </section>
+
+      <section aria-labelledby="h-obszar" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
+        <div style="flex: 1 1 360px; min-height: 280px; border-radius: 18px; background: var(--ep-muted); border: 1px solid var(--ep-line); display: flex; align-items: center; justify-content: center; text-align: center; color: var(--ep-ink2); font-size: 15px; padding: 20px">[Mapa obszaru działania operatora na tle województw; źródło: operator lub URE]</div>
+        <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 12px">
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--ep-ink2)">DANE REDAKCJI</span>
+          <h2 id="h-obszar" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 30px; letter-spacing: -0.02em">Obszar działania</h2>
+          <p style="margin: 0; font-size: 16px; color: var(--ep-ink2)">Sieć [Nazwa operatora] obejmuje [opis obszaru]. Na części obszaru mogą działać mniejsi operatorzy, np. w strefach przemysłowych.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <a href="#" style="font-size: 14px; font-weight: 600; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--ep-line2); text-decoration: none">[województwo 1]</a>
+            <a href="#" style="font-size: 14px; font-weight: 600; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--ep-line2); text-decoration: none">[województwo 2]</a>
+            <a href="#" style="font-size: 14px; font-weight: 600; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--ep-line2); text-decoration: none">[województwo 3]</a>
+          </div>
+          <a href="#" style="font-weight: 600; color: var(--ep-accent-ink)">Sprzedawca z urzędu na tym obszarze: [Nazwa sprzedawcy] →</a>
+        </div>
+      </section>
+
+      <section aria-labelledby="h-oplaty" style="display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--ep-ink2)">DANE REDAKCJI</span>
+            <h2 id="h-oplaty" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 30px; letter-spacing: -0.02em">Opłaty dystrybucyjne na rachunku</h2>
+          </div>
+          <div role="group" aria-label="Rok taryfy" style="display: flex; gap: 6px">
+            <sc-for list="{{years}}" as="y" hint-placeholder-count="2">
+              <button type="button" aria-pressed="{{y.pressed}}" onClick="{{y.pick}}" style="{{y.style}}">{{y.label}}</button>
+            </sc-for>
+          </div>
+        </div>
+        <sc-if value="{{is2027}}" hint-placeholder-val="{{ false }}">
+          <div role="note" style="background: var(--ep-chip-bg); color: var(--ep-chip-ink); border-radius: 12px; padding: 12px 16px; font-size: 15px">Taryfa dystrybucyjna na 2027 r. czeka na decyzję Prezesa URE. Uzupełnimy ją w ciągu 24 godzin od publikacji decyzji.</div>
+        </sc-if>
+        <div style="overflow-x: auto; border: 1px solid var(--ep-line); border-radius: 14px">
+          <table style="width: 100%; border-collapse: collapse; font-size: 15px">
+            <caption style="text-align: left; padding: 12px 16px; font-size: 14px; color: var(--ep-ink2)">Składniki opłat dystrybucyjnych w grupie G11 {{yearLabel}} (netto)</caption>
+            <thead><tr style="background: var(--ep-muted); text-align: left"><th scope="col" style="padding: 12px 16px">Opłata</th><th scope="col" style="padding: 12px 16px">Stawka</th><th scope="col" style="padding: 12px 16px">Od czego zależy</th></tr></thead>
+            <tbody>
+              <sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
+                <tr style="border-top: 1px solid var(--ep-line)"><th scope="row" style="padding: 12px 16px; text-align: left">{{r.g}}</th><td style="padding: 12px 16px; font-variant-numeric: tabular-nums; white-space: nowrap">{{r.e}}</td><td style="padding: 12px 16px; color: var(--ep-ink2)">{{r.d}}</td></tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+        <span style="font-size: 13px; color: var(--ep-ink2)">Źródło: taryfa [Nazwa operatora] zatwierdzona decyzją Prezesa URE z [data]. [DO WERYFIKACJI: pełna lista składników w taryfie na dany rok] · <a href="#" style="color: var(--ep-accent-ink)">Jak czytać rachunek za prąd</a></span>
+      </section>
+
+      <sc-if value="{{hasPartner}}" hint-placeholder-val="{{ true }}">
+        <section aria-labelledby="h-partner" style="background: var(--ep-partner-bg); border: 1px dashed var(--ep-partner-line); border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 22px">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px">
+            <div style="display: flex; flex-direction: column; gap: 4px">
+              <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--ep-partner-ink)">MATERIAŁ PARTNERA · TREŚCI PRZYGOTOWAŁ [NAZWA OPERATORA]</span>
+              <h2 id="h-partner" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 30px; letter-spacing: -0.02em">Od operatora: komunikaty i inwestycje</h2>
+            </div>
+            <a href="#" style="font-size: 14px; color: var(--ep-partner-ink); font-weight: 600">Jak działają profile partnerów</a>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px">
+            <sc-for list="{{news}}" as="n" hint-placeholder-count="3">
+              <article style="background: var(--ep-surface); border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 8px">
+                <span style="{{n.tagStyle}}">{{n.tag}}</span>
+                <h3 style="margin: 0; font-size: 17px; line-height: 1.35">{{n.title}}</h3>
+                <span style="font-size: 13px; color: var(--ep-ink2)">{{n.meta}}</span>
+              </article>
+            </sc-for>
+          </div>
+          <sc-if value="{{isPremium}}" hint-placeholder-val="{{ true }}">
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
+              <div style="flex: 1 1 380px; min-height: 200px; border-radius: 16px; background: var(--ep-ink); color: var(--ep-bg); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 15px; padding: 20px">[Wideo lub mapa inwestycji sieciowych operatora, 16:9]</div>
+              <div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 10px">
+                <h3 style="margin: 0; font-size: 20px">Inwestycje w regionie</h3>
+                <p style="margin: 0; font-size: 16px; line-height: 1.6">[Opis planu inwestycji przygotowany przez operatora, do 1500 znaków: modernizacja linii, kablowanie, przyłączanie OZE.]</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px">
+                  <a href="#" rel="sponsored" class="ep-btn" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; border: 1px solid var(--ep-ink); font-weight: 600; text-decoration: none">Kampania operatora</a>
+                  <a href="#" rel="sponsored" class="ep-btn" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; border: 1px solid var(--ep-ink); font-weight: 600; text-decoration: none">Praca u operatora</a>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+          <span style="font-size: 13px; color: var(--ep-ink2)">Treści przygotowuje operator. Dane o wyłączeniach, opłatach i jakości dostaw prowadzi redakcja niezależnie od pakietu.</span>
+        </section>
+      </sc-if>
+      <sc-if value="{{noPartner}}" hint-placeholder-val="{{ false }}">
+        <section aria-label="Profil bez udziału operatora" style="border: 1px dashed var(--ep-line2); border-radius: 18px; padding: 22px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between">
+          <span style="font-size: 15px; color: var(--ep-ink2); max-width: 680px">Ten profil przygotowała redakcja na podstawie danych publicznych. Operator nie dodał komunikatów.</span>
+          <a href="#" style="font-weight: 600; color: var(--ep-accent-ink)">Reprezentujesz tę firmę? Zweryfikuj profil →</a>
+        </section>
+      </sc-if>
+
+      <section aria-labelledby="h-przyl" style="display: flex; flex-direction: column; gap: 14px">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--ep-ink2)">DANE REDAKCJI</span>
+        <h2 id="h-przyl" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 30px; letter-spacing: -0.02em">Przyłączenie do sieci krok po kroku</h2>
+        <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+          <sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+            <li style="border-top: 3px solid #00C2A8; padding-top: 12px; display: flex; flex-direction: column; gap: 6px">
+              <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; color: var(--ep-accent-ink)">{{s.n}}</span>
+              <strong style="font-size: 16px">{{s.t}}</strong>
+              <span style="font-size: 14px; color: var(--ep-ink2)">{{s.d}}</span>
+            </li>
+          </sc-for>
+        </ol>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px 20px">
+          <a href="#" style="font-weight: 600; color: var(--ep-accent-ink)">Przyłączenie fotowoltaiki (mikroinstalacji) →</a>
+          <a href="#" style="font-weight: 600; color: var(--ep-accent-ink)">Zwiększenie mocy przyłączeniowej →</a>
+          <a href="#" style="font-weight: 600; color: var(--ep-accent-ink)">Wymiana licznika →</a>
+        </div>
+      </section>
+
+      <section aria-labelledby="h-jakosc" style="display: flex; flex-direction: column; gap: 14px">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--ep-ink2)">DANE REDAKCJI</span>
+        <h2 id="h-jakosc" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 30px; letter-spacing: -0.02em">Jakość dostaw: jak często i jak długo brakuje prądu</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px">
+          <sc-for list="{{quality}}" as="q" hint-placeholder-count="3">
+            <div style="background: var(--ep-surface); border: 1px solid var(--ep-line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 4px">
+              <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 26px; font-variant-numeric: tabular-nums">{{q.v}}</span>
+              <strong style="font-size: 15px">{{q.t}}</strong>
+              <span style="font-size: 13px; color: var(--ep-ink2)">{{q.d}}</span>
+            </div>
+          </sc-for>
+        </div>
+        <span style="font-size: 13px; color: var(--ep-ink2)">SAIDI to średni łączny czas przerw w dostawie na odbiorcę w roku, SAIFI to średnia liczba przerw. Źródło: [raport operatora lub URE, rok]. [DO WERYFIKACJI: gdzie URE publikuje wskaźniki dla wszystkich dużych OSD]</span>
+      </section>
+
+      <section aria-labelledby="h-kontakt" style="display: flex; flex-direction: column; gap: 14px">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--ep-ink2)">DANE REDAKCJI</span>
+        <h2 id="h-kontakt" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 30px; letter-spacing: -0.02em">Kontakt i reklamacje</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px">
+          <sc-for list="{{channels}}" as="c" hint-placeholder-count="3">
+            <div style="background: var(--ep-surface); border: 1px solid var(--ep-line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 16px">{{c.t}}</strong><span style="font-size: 14px; color: var(--ep-ink2)">{{c.d}}</span></div>
+          </sc-for>
+        </div>
+        <p style="margin: 0; font-size: 16px">Reklamację dotyczącą przerw w dostawie, napięcia lub odczytu licznika składasz u operatora; reklamację ceny energii u sprzedawcy. Za przerwy dłuższe niż dopuszczalne może przysługiwać bonifikata [DO WERYFIKACJI: warunki i podstawa prawna].</p>
+        <a href="#" style="font-weight: 600; color: var(--ep-accent-ink)">Wzór wniosku o bonifikatę za przerwę w dostawie →</a>
+      </section>
+
+      <section aria-labelledby="h-faq" style="display: flex; flex-direction: column; gap: 12px">
+        <h2 id="h-faq" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 30px; letter-spacing: -0.02em">Najczęstsze pytania</h2>
+        <div style="border-top: 1px solid var(--ep-line)">
+          <sc-for list="{{faqs}}" as="f" hint-placeholder-count="5">
+            <div style="border-bottom: 1px solid var(--ep-line)">
+              <h3 style="margin: 0"><button type="button" aria-expanded="{{f.expanded}}" onClick="{{f.toggle}}" style="width: 100%; min-height: 56px; padding: 14px 0; border: 0; background: transparent; display: flex; justify-content: space-between; gap: 12px; align-items: center; text-align: left; font-weight: 700; font-size: 17px">{{f.q}}<span aria-hidden="true" style="font-size: 22px; color: var(--ep-accent-ink)">{{f.icon}}</span></button></h3>
+              <sc-if value="{{f.open}}" hint-placeholder-val="{{ false }}"><p style="margin: 0 0 16px; font-size: 16px; color: var(--ep-ink2)">{{f.a}}</p></sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+
+    <aside style="flex: 1 1 300px; min-width: 0; max-width: 340px; display: flex; flex-direction: column; gap: 20px; position: sticky; top: 64px">
+      <div style="background: var(--ep-inv-bg); color: var(--ep-inv-ink); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--ep-inv-ink2)">BRAK PRĄDU</span>
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 30px; font-variant-numeric: tabular-nums">[numer]</span>
+        <span style="font-size: 14px; color: var(--ep-inv-ink2)">Pogotowie energetyczne [Nazwa operatora], całą dobę. Najpierw sprawdź bezpieczniki i wyłączniki w domu.</span>
+      </div>
+      <div style="border: 1px solid var(--ep-line); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+        <strong style="font-size: 16px">Kto jest moim operatorem?</strong>
+        <span style="font-size: 14px; color: var(--ep-ink2)">Nazwa operatora jest na rachunku i w umowie. Możesz też sprawdzić po adresie.</span>
+        <a href="#" class="ep-btn" style="min-height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 999px; background: #00C2A8; color: #0B1B33; font-weight: 700; text-decoration: none">Sprawdź po adresie</a>
+      </div>
+      <div style="border: 1px solid var(--ep-line); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+        <strong style="font-size: 16px">Inni duzi operatorzy</strong>
+        <a href="#" style="font-weight: 600">[Operator 2] →</a><a href="#" style="font-weight: 600">[Operator 3] →</a><a href="#" style="font-weight: 600">[Operator 4] →</a><a href="#" style="font-weight: 600">[Operator 5] →</a>
+      </div>
+      <div style="border: 1px solid var(--ep-line); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: var(--ep-ink2)">
+        <strong style="font-size: 16px; color: var(--ep-ink)">Jak powstaje ten profil</strong>
+        <span>Dane o wyłączeniach, opłatach, przyłączeniu i jakości dostaw zbiera redakcja ze źródeł publicznych. Sekcję „Od operatora” przygotowuje firma w ramach płatnego pakietu; jest oznaczona jako materiał partnera.</span>
+        <a href="#" style="color: var(--ep-accent-ink); font-weight: 600">Jak zarabiamy</a>
+      </div>
+    </aside>
+  </main>
+
+  <footer style="border-top: 1px solid var(--ep-line); background: var(--ep-surface); font-size: 14px; color: var(--ep-ink2)">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; gap: 24px 40px; justify-content: space-between">
+      <div style="display: flex; flex-direction: column; gap: 6px; max-width: 340px">
+        <span role="img" aria-label="Energypedia.pl"><svg width="212" height="28" viewBox="18 18 617.59 81.7" aria-hidden="true" style="display: block"><g class="ep-e"><rect class="spine" x="18" y="18" width="18" height="72" rx="6" style="fill: var(--ep-ink)"></rect><rect class="top" x="18" y="18" width="72" height="18" rx="6" style="fill: var(--ep-ink)"></rect><rect class="mid" x="44" y="45" width="40" height="18" rx="6" fill="#00C2A8"></rect><rect class="bot" x="18" y="72" width="60" height="18" rx="6" style="fill: var(--ep-ink)"></rect></g><path d="M137.7 81.3Q131.3 81.3 126.5 78.5Q121.6 75.8 118.9 71Q116.1 66.1 116.1 59.9Q116.1 53.1 118.8 48.1Q121.5 43.1 126.2 40.3Q130.9 37.5 137.1 37.5Q143.6 37.5 148.2 40.6Q152.7 43.6 154.9 49.2Q157.1 54.8 156.5 62.3H146.1V58.5Q146.1 52.1 144.1 49.3Q142.1 46.6 137.5 46.6Q132.2 46.6 129.7 49.8Q127.2 53 127.2 59.4Q127.2 65.2 129.7 68.3Q132.2 71.5 137.1 71.5Q140.2 71.5 142.3 70.2Q144.5 68.8 145.7 66.3L156.1 69.3Q153.8 75 148.7 78.1Q143.7 81.3 137.7 81.3ZM123.9 62.3V54.5H151.4V62.3ZM188.8 80.1V60.5Q188.8 59.1 188.6 56.9Q188.5 54.7 187.7 52.5Q186.8 50.2 185 48.7Q183.2 47.2 179.9 47.2Q178.5 47.2 177 47.7Q175.4 48.1 174.1 49.3Q172.8 50.5 171.9 52.8Q171 55.2 171 59.1L165 56.2Q165 51.3 167 47Q169 42.7 173 40.1Q177.1 37.4 183.2 37.4Q188 37.4 191.1 39.1Q194.2 40.7 195.9 43.2Q197.6 45.8 198.3 48.5Q199.1 51.3 199.2 53.5Q199.4 55.8 199.4 56.8V80.1ZM160.4 80.1V38.6H169.7V52.4H171V80.1ZM224.4 81.3Q218 81.3 213.2 78.5Q208.3 75.8 205.6 71Q202.8 66.1 202.8 59.9Q202.8 53.1 205.5 48.1Q208.2 43.1 212.9 40.3Q217.6 37.5 223.8 37.5Q230.3 37.5 234.9 40.6Q239.5 43.6 241.6 49.2Q243.8 54.8 243.2 62.3H232.8V58.5Q232.8 52.1 230.8 49.3Q228.8 46.6 224.2 46.6Q218.9 46.6 216.4 49.8Q213.9 53 213.9 59.4Q213.9 65.2 216.4 68.3Q218.9 71.5 223.8 71.5Q226.9 71.5 229 70.2Q231.2 68.8 232.4 66.3L242.8 69.3Q240.5 75 235.4 78.1Q230.4 81.3 224.4 81.3ZM210.7 62.3V54.5H238.1V62.3ZM248.4 80.1V38.6H257.6V48.8L256.6 47.5Q257.4 45.3 258.7 43.6Q260.1 41.8 262 40.6Q263.5 39.7 265.3 39.2Q267.1 38.7 268.9 38.5Q270.8 38.4 272.7 38.6V48.4Q271 47.9 268.7 48Q266.4 48.2 264.6 49.1Q262.7 49.9 261.5 51.3Q260.2 52.7 259.5 54.6Q258.9 56.5 258.9 58.9V80.1ZM292.8 99.7Q289.2 99.7 286 98.6Q282.8 97.4 280.3 95.4Q277.8 93.4 276.2 90.7L285.9 86Q286.9 87.9 288.8 88.8Q290.6 89.8 292.8 89.8Q295.2 89.8 297.2 89Q299.3 88.2 300.6 86.7Q301.8 85.1 301.7 82.8V70.7H303V38.6H312.2V83Q312.2 84.5 312 85.9Q311.9 87.2 311.6 88.6Q310.6 92.4 307.9 94.8Q305.2 97.3 301.2 98.5Q297.3 99.7 292.8 99.7ZM291.8 81.3Q286.1 81.3 281.8 78.4Q277.5 75.5 275.1 70.6Q272.7 65.6 272.7 59.4Q272.7 53 275.1 48.1Q277.6 43.2 282 40.3Q286.4 37.5 292.4 37.5Q298.3 37.5 302.3 40.4Q306.3 43.2 308.4 48.2Q310.5 53.2 310.5 59.4Q310.5 65.6 308.4 70.6Q306.3 75.5 302.2 78.4Q298 81.3 291.8 81.3ZM293.5 72Q297 72 299.1 70.4Q301.2 68.8 302.1 66Q303 63.1 303 59.4Q303 55.6 302.1 52.8Q301.2 49.9 299.2 48.4Q297.2 46.8 293.9 46.8Q290.4 46.8 288.2 48.5Q285.9 50.2 284.8 53.1Q283.8 55.9 283.8 59.4Q283.8 62.9 284.8 65.7Q285.8 68.6 288 70.3Q290.1 72 293.5 72ZM324.8 98.5 332.8 76.6 332.9 83 314.9 38.6H325.7L337.8 70.1H335.4L347.4 38.6H357.9L334.5 98.5Z" style="fill: var(--ep-ink)"></path><path d="M380.2 81.3Q374 81.3 369.8 78.4Q365.7 75.5 363.6 70.6Q361.5 65.6 361.5 59.4Q361.5 53.2 363.6 48.2Q365.6 43.2 369.7 40.4Q373.7 37.5 379.6 37.5Q385.6 37.5 390 40.3Q394.4 43.2 396.8 48.1Q399.3 53 399.3 59.4Q399.3 65.6 396.9 70.6Q394.5 75.5 390.2 78.4Q385.9 81.3 380.2 81.3ZM359.7 98.5V38.6H368.9V67.1H370.2V98.5ZM378.5 72Q381.8 72 384 70.3Q386.1 68.6 387.2 65.7Q388.2 62.9 388.2 59.4Q388.2 55.9 387.1 53.1Q386.1 50.2 383.8 48.5Q381.6 46.8 378.1 46.8Q374.8 46.8 372.8 48.4Q370.8 49.9 369.9 52.8Q368.9 55.6 368.9 59.4Q368.9 63.1 369.9 66Q370.8 68.8 372.9 70.4Q375 72 378.5 72ZM423.5 81.3Q417.2 81.3 412.3 78.5Q407.5 75.8 404.7 71Q402 66.1 402 59.9Q402 53.1 404.6 48.1Q407.3 43.1 412.1 40.3Q416.8 37.5 422.9 37.5Q429.5 37.5 434 40.6Q438.6 43.6 440.8 49.2Q443 54.8 442.3 62.3H432V58.5Q432 52.1 430 49.3Q428 46.6 423.4 46.6Q418.1 46.6 415.5 49.8Q413 53 413 59.4Q413 65.2 415.5 68.3Q418.1 71.5 422.9 71.5Q426 71.5 428.2 70.2Q430.4 68.8 431.5 66.3L442 69.3Q439.6 75 434.6 78.1Q429.5 81.3 423.5 81.3ZM409.8 62.3V54.5H437.3V62.3ZM464.3 81.3Q458.6 81.3 454.3 78.4Q450 75.5 447.6 70.6Q445.2 65.6 445.2 59.4Q445.2 53 447.6 48.1Q450.1 43.2 454.5 40.3Q458.9 37.5 464.9 37.5Q470.8 37.5 474.8 40.4Q478.8 43.2 480.9 48.2Q483 53.2 483 59.4Q483 65.6 480.9 70.6Q478.8 75.5 474.7 78.4Q470.5 81.3 464.3 81.3ZM466 72Q469.5 72 471.6 70.4Q473.7 68.8 474.6 66Q475.5 63.1 475.5 59.4Q475.5 55.6 474.6 52.8Q473.7 49.9 471.7 48.4Q469.7 46.8 466.4 46.8Q462.9 46.8 460.7 48.5Q458.4 50.2 457.3 53.1Q456.3 55.9 456.3 59.4Q456.3 62.9 457.3 65.7Q458.3 68.6 460.5 70.3Q462.6 72 466 72ZM475.5 80.1V51.7H474.2V24.8H484.8V80.1ZM492.8 32.9V23.7H503.3V32.9ZM492.8 80.1V38.6H503.3V80.1ZM522.8 81.3Q518.4 81.3 515.3 79.6Q512.2 77.8 510.6 75Q509 72.1 509 68.7Q509 65.8 509.9 63.4Q510.8 61 512.8 59.2Q514.7 57.4 518.1 56.2Q520.4 55.3 523.6 54.7Q526.8 54 530.8 53.4Q534.8 52.8 539.7 52.1L535.9 54.2Q535.9 50.5 534.1 48.7Q532.4 47 528.2 47Q525.9 47 523.4 48.1Q520.9 49.2 519.9 52.1L510.5 49.1Q512.1 43.9 516.4 40.7Q520.7 37.5 528.2 37.5Q533.7 37.5 538 39.2Q542.2 40.9 544.4 45Q545.7 47.3 545.9 49.6Q546.1 51.9 546.1 54.8V80.1H537V71.6L538.3 73.4Q535.2 77.5 531.7 79.4Q528.2 81.3 522.8 81.3ZM525.1 73Q528 73 529.9 72Q531.9 71 533.1 69.7Q534.2 68.4 534.7 67.5Q535.5 65.8 535.6 63.6Q535.7 61.3 535.7 59.8L538.8 60.6Q534.2 61.4 531.3 61.9Q528.4 62.4 526.6 62.8Q524.9 63.3 523.5 63.8Q522 64.4 521.1 65.1Q520.1 65.8 519.7 66.6Q519.2 67.5 519.2 68.5Q519.2 69.9 519.9 71Q520.7 72 522 72.5Q523.3 73 525.1 73Z" style="fill: var(--ep-accent-ink)"></path><path d="M554.3 80.1V69.7H564.8V80.1ZM594.1 81.3Q587.9 81.3 583.8 78.4Q579.6 75.5 577.5 70.6Q575.5 65.6 575.5 59.4Q575.5 53.2 577.5 48.2Q579.6 43.2 583.6 40.4Q587.7 37.5 593.6 37.5Q599.5 37.5 603.9 40.3Q608.4 43.2 610.8 48.1Q613.2 53 613.2 59.4Q613.2 65.6 610.8 70.6Q608.4 75.5 604.1 78.4Q599.8 81.3 594.1 81.3ZM573.7 98.5V38.6H582.9V67.1H584.2V98.5ZM592.4 72Q595.8 72 598 70.3Q600.1 68.6 601.1 65.7Q602.2 62.9 602.2 59.4Q602.2 55.9 601.1 53.1Q600 50.2 597.8 48.5Q595.5 46.8 592 46.8Q588.8 46.8 586.8 48.4Q584.7 49.9 583.8 52.8Q582.9 55.6 582.9 59.4Q582.9 63.1 583.8 66Q584.7 68.8 586.8 70.4Q588.9 72 592.4 72ZM619 80.1V23.7H629.4V80.1Z" style="fill: var(--ep-ink2)"></path></svg></span>
+        <span>Energia bez tajemnic. Rozumiesz, porównujesz, oszczędzasz.</span>
+      </div>
+      <nav aria-label="Zaufanie" style="display: flex; flex-direction: column; gap: 6px">
+        <a href="#">Jak pracujemy</a>
+        <a href="#">Jak zarabiamy</a>
+        <a href="#">Sprostowania</a>
+        <a href="#">Redakcja i eksperci</a>
+      </nav>
+      <nav aria-label="Dla partnerów" style="display: flex; flex-direction: column; gap: 6px">
+        <a href="#">Reklama i media kit</a>
+        <a href="#">Partnerstwa leadowe</a>
+        <a href="#">Dla prasy</a>
+        <a href="#">API danych</a>
+      </nav>
+      <nav aria-label="Informacje prawne" style="display: flex; flex-direction: column; gap: 6px">
+        <a href="#">Regulamin</a>
+        <a href="#">Prywatność i cookies</a>
+        <a href="#">Ustawienia zgód</a>
+        <a href="#">Dostępność</a>
+      </nav>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["jasny","ciemny"],"default":"jasny","section":"Wygląd"},"pakiet":{"editor":"enum","options":["bez umowy","Profil Plus","Profil Premium"],"default":"Profil Premium","section":"Pakiet operatora"},"$preview":{"width":1440,"height":5000}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 0, year: 0, kind: 0, faq: 0, dark: null };
+  }
+  renderVals() {
+    const dark = this.state.dark === null ? (this.props.theme === 'ciemny') : this.state.dark;
+    const T = dark ? {
+      bg: '#0A1626', soft: '#0F2238', muted: '#12253D', surface: '#13283F', ink: '#EAF1F8', ink2: '#A9B8CB', line: '#24405F', line2: '#4F6A8A',
+      accentInk: '#4FD8C6', chipBg: '#4A3A0E', chipInk: '#FFE29A', partnerBg: '#2A2310', partnerLine: '#8C7330', partnerInk: '#F2D27A',
+      invBg: '#1B3554', invInk: '#FFFFFF', invInk2: '#C9D4E3', adBg: '#1A2E47', adLine: '#4F6A8A', blob: '#123C4A'
+    } : {
+      bg: '#FFFFFF', soft: '#F2FBF9', muted: '#F5F7FA', surface: '#FFFFFF', ink: '#0B1B33', ink2: '#42526B', line: '#DCE3EC', line2: '#9AA8BA',
+      accentInk: '#00796B', chipBg: '#FFE9B0', chipInk: '#5C4300', partnerBg: '#FFF8E6', partnerLine: '#C9A23A', partnerInk: '#6B4E00',
+      invBg: '#0B1B33', invInk: '#FFFFFF', invInk2: '#C9D4E3', adBg: '#EEF1F5', adLine: '#9AA8BA', blob: '#C9F0EA'
+    };
+    const rootStyle = '--ep-bg: ' + T.bg + '; --ep-soft: ' + T.soft + '; --ep-muted: ' + T.muted + '; --ep-surface: ' + T.surface + '; --ep-ink: ' + T.ink + '; --ep-ink2: ' + T.ink2 + '; --ep-line: ' + T.line + '; --ep-line2: ' + T.line2 + '; --ep-accent-ink: ' + T.accentInk + '; --ep-chip-bg: ' + T.chipBg + '; --ep-chip-ink: ' + T.chipInk + '; --ep-partner-bg: ' + T.partnerBg + '; --ep-partner-line: ' + T.partnerLine + '; --ep-partner-ink: ' + T.partnerInk + '; --ep-inv-bg: ' + T.invBg + '; --ep-inv-ink: ' + T.invInk + '; --ep-inv-ink2: ' + T.invInk2 + '; --ep-ad-bg: ' + T.adBg + '; --ep-ad-line: ' + T.adLine + '; --ep-blob: ' + T.blob + '; background: var(--ep-bg); color: var(--ep-ink); font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 1.55; min-height: 100vh; position: relative; color-scheme: ' + (dark ? 'dark' : 'light');
+    const s = this.state;
+    const pakiet = this.props.pakiet ?? 'Profil Premium';
+    const tabsDef = ['Przegląd', 'Wyłączenia i awarie', 'Obszar', 'Opłaty dystrybucyjne', 'Od operatora', 'Przyłączenie', 'Jakość dostaw', 'Kontakt', 'Pytania'];
+    const tOn = 'flex: none; padding: 16px 14px 13px; border-bottom: 3px solid #00C2A8; font-weight: 700; color: var(--ep-ink); text-decoration: none; white-space: nowrap';
+    const tOff = 'flex: none; padding: 16px 14px; font-weight: 500; color: var(--ep-ink2); text-decoration: none; white-space: nowrap';
+    const yOn = 'min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--ep-ink); background: var(--ep-ink); color: var(--ep-bg); font-weight: 600';
+    const yOff = 'min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--ep-line2); background: var(--ep-surface); color: var(--ep-ink); font-weight: 500';
+    const tag = (kind) => 'flex: none; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; ' + (kind === 'awaria' ? 'background: #B42318; color: #FFFFFF' : kind === 'chip' ? 'background: var(--ep-chip-bg); color: var(--ep-chip-ink)' : 'background: var(--ep-soft); color: var(--ep-accent-ink)');
+    const is2027 = s.year === 1;
+    const v = (txt) => is2027 ? '[po decyzji URE]' : txt;
+    const planned = [
+      { tag: 'Planowane', tagStyle: tag('plan'), when: '[data] · [godz.]–[godz.]', where: '[Miejscowość]: ulice [nazwy ulic]' },
+      { tag: 'Planowane', tagStyle: tag('plan'), when: '[data] · [godz.]–[godz.]', where: '[Miejscowość]: [numery posesji]' },
+      { tag: 'Planowane', tagStyle: tag('plan'), when: '[data] · [godz.]–[godz.]', where: '[Gmina]: [obszar]' },
+      { tag: 'Planowane', tagStyle: tag('plan'), when: '[data] · [godz.]–[godz.]', where: '[Miejscowość]: [obszar]' }
+    ];
+    const failures = [
+      { tag: 'Awaria', tagStyle: tag('awaria'), when: 'od [godz.] · usunięcie ok. [godz.]', where: '[Miejscowość]: [obszar] · [liczba] odbiorców bez prądu' },
+      { tag: 'Awaria', tagStyle: tag('awaria'), when: 'od [godz.] · usunięcie ok. [godz.]', where: '[Gmina]: [obszar]' }
+    ];
+    const faqDefs = [
+      { q: 'Czy mogę zmienić operatora sieci?', a: 'Nie. Operator zależy od tego, do czyjej sieci przyłączony jest budynek. Zmienić można sprzedawcę energii; opłaty dystrybucyjne nadal pobiera ten sam operator.' },
+      { q: 'Czym różni się operator od sprzedawcy?', a: 'Operator utrzymuje sieć, usuwa awarie, montuje i odczytuje liczniki. Sprzedawca sprzedaje energię i wystawia rachunek, na którym zwykle są też opłaty dystrybucyjne.' },
+      { q: 'Kiedy dowiem się o planowanym wyłączeniu?', a: 'Operator ogłasza planowane przerwy z wyprzedzeniem [DO WERYFIKACJI: wymagany termin i podstawa prawna]. Na Energypedii możesz zapisać się na powiadomienia dla swojej miejscowości.' },
+      { q: 'Jak przyłączyć fotowoltaikę do sieci?', a: 'Instalator zgłasza mikroinstalację operatorowi, a operator wymienia lub przeprogramowuje licznik. Szczegóły i terminy opisujemy w poradniku o przyłączeniu fotowoltaiki.' },
+      { q: 'Skąd Energypedia ma te dane?', a: 'Z taryf zatwierdzonych przez Prezesa URE, komunikatów i raportów operatora oraz publikacji URE. Przy każdej sekcji podajemy datę stanu danych.' }
+    ];
+    return {
+      rootStyle: rootStyle,
+      isDark: dark, isLight: !dark,
+      themeLabel: dark ? 'Włącz tryb jasny' : 'Włącz tryb ciemny',
+      toggleTheme: () => this.setState({ dark: !dark }),
+      hasPartner: pakiet !== 'bez umowy', noPartner: pakiet === 'bez umowy',
+      isPremium: pakiet === 'Profil Premium', isPlusOnly: pakiet === 'Profil Plus',
+      facts: [
+        { value: '[liczba]', label: 'odbiorców przyłączonych do sieci (dane spółki, [rok])' },
+        { value: '[x] tys. km', label: 'długość linii energetycznych' },
+        { value: '[x] min', label: 'SAIDI: średni czas przerw na odbiorcę w roku' },
+        { value: v('[x] zł/mies.'), label: 'opłata stała sieciowa w G11, netto' }
+      ],
+      tabs: tabsDef.map((l, i) => ({ label: l, current: i === s.tab ? 'location' : 'false', style: i === s.tab ? tOn : tOff, pick: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ tab: i }); } })),
+      kinds: ['Planowane wyłączenia', 'Awarie teraz'].map((l, i) => ({ label: l, pressed: i === s.kind ? 'true' : 'false', style: i === s.kind ? yOn : yOff, pick: () => this.setState({ kind: i }) })),
+      outages: s.kind === 1 ? failures : planned,
+      years: ['Taryfa 2026', 'Taryfa 2027'].map((l, i) => ({ label: l, pressed: i === s.year ? 'true' : 'false', style: i === s.year ? yOn : yOff, pick: () => this.setState({ year: i }) })),
+      is2027: is2027,
+      yearLabel: is2027 ? 'na 2027 r.' : 'na 2026 r.',
+      rows: [
+        { g: 'Opłata sieciowa zmienna', e: v('[x] zł/kWh'), d: 'zużycie energii' },
+        { g: 'Opłata sieciowa stała', e: v('[x] zł/mies.'), d: 'liczba faz i moc przyłączeniowa' },
+        { g: 'Opłata jakościowa', e: v('[x] zł/kWh'), d: 'zużycie energii' },
+        { g: 'Opłata abonamentowa', e: v('[x] zł/mies.'), d: 'okres rozliczeniowy' },
+        { g: 'Opłata OZE i kogeneracyjna', e: v('[x] zł/kWh'), d: 'zużycie energii; stawki ustalane centralnie' },
+        { g: 'Opłata mocowa', e: v('[x] zł/mies.'), d: 'przedział rocznego zużycia; stawki ustalane centralnie' }
+      ],
+      news: [
+        { tag: 'Komunikat', tagStyle: tag('plan'), title: '[Tytuł komunikatu operatora]', meta: '[data] · [region]' },
+        { tag: 'Inwestycja', tagStyle: tag('plan'), title: '[Nazwa inwestycji sieciowej]', meta: '[gmina] · zakończenie [termin]' },
+        { tag: 'Bezpieczeństwo', tagStyle: tag('chip'), title: '[Tytuł kampanii edukacyjnej]', meta: '[data]' }
+      ],
+      steps: [
+        { n: '1', t: 'Wniosek o warunki przyłączenia', d: 'online lub w biurze operatora · [załączniki]' },
+        { n: '2', t: 'Warunki przyłączenia', d: 'operator wydaje je w terminie [DO WERYFIKACJI]' },
+        { n: '3', t: 'Umowa o przyłączenie i opłata', d: 'opłata według taryfy · [stawka]' },
+        { n: '4', t: 'Budowa przyłącza i licznik', d: 'termin z umowy · potem umowa ze sprzedawcą' }
+      ],
+      quality: [
+        { v: '[x] min', t: 'SAIDI, przerwy nieplanowane', d: '[rok] · średnia dużych operatorów: [x] min' },
+        { v: '[x]', t: 'SAIFI, liczba przerw', d: '[rok] · średnia dużych operatorów: [x]' },
+        { v: '[x]%', t: 'liczniki zdalnego odczytu', d: 'udział u odbiorców operatora, [rok]' }
+      ],
+      channels: [
+        { t: 'Pogotowie energetyczne', d: '[numer] · całą dobę' },
+        { t: 'Infolinia i e-BOK', d: '[numer] · [godziny] · [adres]' },
+        { t: 'Biura obsługi', d: '[liczba] w [województwa] · mapa' }
+      ],
+      faqs: faqDefs.map((f, i) => ({ q: f.q, a: f.a, open: i === s.faq, expanded: i === s.faq ? 'true' : 'false', icon: i === s.faq ? '−' : '+', toggle: () => this.setState({ faq: s.faq === i ? -1 : i }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

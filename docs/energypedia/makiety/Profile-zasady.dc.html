@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Profile firm – zasady, pakiety i edycja</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1600px; height: 1640px; box-sizing: border-box; padding: 56px 72px; background: #FFFFFF; color: #0B1B33; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; gap: 34px">
+
+  <div style="display: flex; flex-direction: column; gap: 10px; border-bottom: 2px solid #0B1B33; padding-bottom: 24px">
+    <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 52px; line-height: 1; letter-spacing: -0.035em">Profile sprzedawców i operatorów</h2>
+    <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #42526B; max-width: 1200px">Każdy profil ma dwie strefy. <strong style="color: #0B1B33">Strefę redakcji</strong> (dane, audyt umowy, obsługa, decyzje urzędów) prowadzimy sami i firma jej nie edytuje. <strong style="color: #0B1B33">Strefę partnera</strong> (opis, oferty, aktualności) firma edytuje w panelu w ramach umowy reklamowej; jest zawsze oznaczona jako materiał partnera. Wartość profilu dla firmy bierze się z wiarygodności strefy redakcji, więc tej granicy nie przesuwamy.</p>
+  </div>
+
+  <section style="display: flex; flex-direction: column; gap: 12px">
+    <h3 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">PAKIETY (PRZEŁĄCZNIK „PAKIET” NA MAKIECIE POKAZUJE KAŻDY WARIANT)</h3>
+    <table style="width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.4">
+      <thead><tr style="text-align: left; background: #F5F7FA"><th scope="col" style="padding: 12px">Element profilu</th><th scope="col" style="padding: 12px; width: 170px">Bez umowy</th><th scope="col" style="padding: 12px; width: 220px">Profil Plus</th><th scope="col" style="padding: 12px; width: 260px; background: #FFF8E6">Profil Premium</th></tr></thead>
+      <tbody>
+        <tr><th scope="row" style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; text-align: left; font-weight: 600">Dane redakcji: taryfa, audyt umowy, obsługa, decyzje URE i UOKiK, pytania</th><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top"><span style="color: #00796B; font-weight: 700">✓</span></td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top"><span style="color: #00796B; font-weight: 700">✓</span></td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; background: #FFFBF0"><span style="color: #00796B; font-weight: 700">✓</span></td></tr>
+        <tr><th scope="row" style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; text-align: left; font-weight: 600">Logo, dane kontaktowe i odnośnik do serwisu firmy</th><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top">logo z rejestru</td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top"><span style="color: #00796B; font-weight: 700">✓</span></td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; background: #FFFBF0"><span style="color: #00796B; font-weight: 700">✓</span></td></tr>
+        <tr><th scope="row" style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; text-align: left; font-weight: 600">Oznaczenie „Profil zarządzany przez firmę”</th><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top"><span style="color: #9AA8BA">–</span></td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top"><span style="color: #00796B; font-weight: 700">✓</span></td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; background: #FFFBF0"><span style="color: #00796B; font-weight: 700">✓</span></td></tr>
+        <tr><th scope="row" style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; text-align: left; font-weight: 600">Opis firmy</th><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top"><span style="color: #9AA8BA">–</span></td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top">do 600 znaków</td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; background: #FFFBF0">do 1500 znaków + 3 wyróżniki</td></tr>
+        <tr><th scope="row" style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; text-align: left; font-weight: 600">Oferty promocyjne (karty z ceną i warunkami)</th><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top"><span style="color: #9AA8BA">–</span></td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top">do 3</td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; background: #FFFBF0">do 3 na stronie + archiwum [propozycja]</td></tr>
+        <tr><th scope="row" style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; text-align: left; font-weight: 600">Wideo lub zdjęcie główne 16:9</th><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top"><span style="color: #9AA8BA">–</span></td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top"><span style="color: #9AA8BA">–</span></td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; background: #FFFBF0"><span style="color: #00796B; font-weight: 700">✓</span></td></tr>
+        <tr><th scope="row" style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; text-align: left; font-weight: 600">Aktualności firmy / komunikaty operatora</th><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top"><span style="color: #9AA8BA">–</span></td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top"><span style="color: #9AA8BA">–</span></td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; background: #FFFBF0">[x] wpisów miesięcznie</td></tr>
+        <tr><th scope="row" style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; text-align: left; font-weight: 600">Formularz zapytań dla firm (leady B2B)</th><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top"><span style="color: #9AA8BA">–</span></td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top"><span style="color: #9AA8BA">–</span></td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; background: #FFFBF0"><span style="color: #00796B; font-weight: 700">✓</span></td></tr>
+        <tr><th scope="row" style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; text-align: left; font-weight: 600">Statystyki profilu w panelu partnera</th><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top"><span style="color: #9AA8BA">–</span></td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top">wyświetlenia i kliknięcia</td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; background: #FFFBF0">pełne + liczba zapytań</td></tr>
+        <tr><th scope="row" style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; text-align: left; font-weight: 600">Cena pakietu</th><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top"><span style="color: #9AA8BA">–</span></td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top">[do ustalenia: Handlowiec]</td><td style="padding: 10px 12px; border-top: 1px solid #DCE3EC; vertical-align: top; background: #FFFBF0">[do ustalenia: Handlowiec]</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 12px">
+    <h3 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">JAK FIRMA EDYTUJE PROFIL</h3>
+    <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+      <li style="border-top: 3px solid #00C2A8; padding-top: 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; color: #00796B">1</span><strong style="font-size: 17px">Weryfikacja firmy</strong><span style="font-size: 14px; line-height: 1.45; color: #42526B">umowa reklamowa, osoba upoważniona, e-mail w domenie firmy</span></li>
+      <li style="border-top: 3px solid #00C2A8; padding-top: 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; color: #00796B">2</span><strong style="font-size: 17px">Edycja w panelu partnera</strong><span style="font-size: 14px; line-height: 1.45; color: #42526B">role: właściciel konta i redaktor firmy; podgląd przed wysłaniem</span></li>
+      <li style="border-top: 3px solid #00C2A8; padding-top: 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; color: #00796B">3</span><strong style="font-size: 17px">Moderacja redakcji</strong><span style="font-size: 14px; line-height: 1.45; color: #42526B">zgodność ofert z cennikiem i warunkami, oznaczenia, język; odpowiedź w [x] dni roboczych</span></li>
+      <li style="border-top: 3px solid #00C2A8; padding-top: 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; color: #00796B">4</span><strong style="font-size: 17px">Publikacja i wersje</strong><span style="font-size: 14px; line-height: 1.45; color: #42526B">historia zmian, przywracanie wersji; oferta znika automatycznie po dacie końca</span></li>
+    </ol>
+  </section>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 40px">
+      <section style="display: flex; flex-direction: column; gap: 8px">
+        <h3 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">ZASADY BEZ WYJĄTKÓW</h3>
+        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.45">
+          <li>Firma nie edytuje strefy redakcji. Błąd zgłasza formularzem „zgłoś błąd” z dowodem; poprawka trafia do rejestru korekt.</li>
+          <li>Pakiet nie wpływa na kolejność w porównywarce, rankingach ani w listach sprzedawców.</li>
+          <li>Na profilu nie ma ocen gwiazdkowych ani opinii dodawanych przez firmę.</li>
+          <li>Odnośniki ze strefy partnera mają <code>rel="sponsored"</code>.</li>
+          <li>Profil bez umowy jest pełnowartościowy dla czytelnika; różni się tylko brakiem strefy partnera.</li>
+        </ul>
+      </section>
+
+      <section style="display: flex; flex-direction: column; gap: 8px">
+        <h3 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">POLA EDYTOWALNE PRZEZ FIRMĘ</h3>
+        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.45">
+          <li>Logo (SVG lub PNG), odnośnik do serwisu, dane kontaktowe dla klientów.</li>
+          <li>Opis: limit znaków według pakietu, bez superlatywów bez dowodu („najtańszy”, „nr 1”).</li>
+          <li>Oferta: nazwa, cena, jednostka, okres umowy, opłaty dodatkowe, data końca, link do regulaminu; przy obniżce najniższa cena z 30 dni [DO WERYFIKACJI: Prawnik, czy dotyczy sprzedaży energii].</li>
+          <li>Premium: wideo lub zdjęcie, aktualności, opis oferty dla firm, adres do zapytań B2B.</li>
+        </ul>
+      </section>
+
+      <section style="display: flex; flex-direction: column; gap: 8px">
+        <h3 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">PRAWO I DANE OSOBOWE [DO WERYFIKACJI: PRAWNIK]</h3>
+        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.45">
+          <li>Oznaczenie materiałów reklamowych zgodnie z Prawem prasowym i przepisami o nieuczciwych praktykach rynkowych.</li>
+          <li>Formularz B2B: Energypedia przekazuje dane firmie za zgodą użytkownika; klauzula informacyjna i podstawa przetwarzania do opisania.</li>
+          <li>Umowa reklamowa określa odpowiedzialność firmy za treść ofert i tryb usuwania treści niezgodnych z zasadami.</li>
+        </ul>
+      </section>
+
+      <section style="display: flex; flex-direction: column; gap: 8px">
+        <h3 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">SEO I DANE STRUKTURALNE</h3>
+        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.45">
+          <li>Adres <code>/sprzedawcy/[nazwa]/</code> i <code>/operatorzy/[nazwa]/</code>; jedna strona na firmę.</li>
+          <li>WebPage z polem about wskazującym Organization (logo, sameAs), BreadcrumbList; pytania jako FAQPage.</li>
+          <li>Bez AggregateRating i Review. Treści partnera indeksowane, ale oznaczone i z linkami sponsorowanymi.</li>
+          <li>Data stanu danych przy każdej sekcji redakcji; taryfy 2027 uzupełniane do 24 godzin od decyzji URE.</li>
+        </ul>
+      </section>
+
+      <section style="display: flex; flex-direction: column; gap: 8px">
+        <h3 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">OPERATORZY SIECI</h3>
+        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.45">
+          <li>Strefa redakcji: wyłączenia i awarie (automatycznie z komunikatów operatora), obszar, opłaty dystrybucyjne, przyłączenie, jakość dostaw (SAIDI, SAIFI), kontakt.</li>
+          <li>Strefa partnera: komunikaty, inwestycje w regionie, kampanie bezpieczeństwa, rekrutacja.</li>
+          <li>Numer pogotowia energetycznego zawsze widoczny na górze, niezależnie od pakietu.</li>
+        </ul>
+      </section>
+
+      <section style="display: flex; flex-direction: column; gap: 8px">
+        <h3 style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; color: #42526B">POMIAR DLA PARTNERA</h3>
+        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.45">
+          <li>Panel: wyświetlenia profilu, kliknięcia ofert i odnośników, zapytania B2B, porównanie z poprzednim miesiącem.</li>
+          <li>Raport miesięczny e-mailem; dane zagregowane, bez danych osobowych czytelników.</li>
+          <li>Te same zdarzenia mierzymy w GA4 dla redakcji i sprzedaży.</li>
+        </ul>
+      </section>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1600,"height":1640}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

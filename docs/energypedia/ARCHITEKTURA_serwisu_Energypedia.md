@@ -140,6 +140,14 @@ energypedia.pl
 
 **Katalog operatorów sieci (`/operatorzy/`, w MVP).** Na start 5 dużych operatorów: PGE Dystrybucja, TAURON Dystrybucja, Enea Operator, Energa-Operator, Stoen Operator. [DO WERYFIKACJI: aktualne nazwy w wykazie URE] Profil: obszar działania (mapa na podstawie danych operatorów, jeśli licencja na to pozwala), taryfa dystrybucyjna i opłaty, przyłączenie, zgłaszanie awarii i planowane wyłączenia, wskaźniki niezawodności SAIDI i SAIFI z raportów URE, kontakt. Mali operatorzy z wykazu URE w 2027 r.
 
+**Profile partnerów: płatna strefa w profilu firmy (sprzedaż od 2027 r., [termin do decyzji naczelnego]).** Makiety: plansze „Profil sprzedawcy”, „Profil operatora sieci” i „Profile firm · pakiety i zasady edycji” (`makiety/`).
+- **Dwie strefy.** Strefa redakcji (taryfa, audyt umowy, obsługa, decyzje urzędów; u operatora także wyłączenia, opłaty, przyłączenie, SAIDI i SAIFI) jest zawsze i firma jej nie edytuje. Strefa partnera (opis, oferty, aktualności, wideo, formularz B2B) ma etykietę „Materiał partnera · treści przygotował [firma]”, tło w kolorze materiałów partnera i linki `rel="sponsored"`.
+- **Pakiety:** bez umowy (pełny profil redakcyjny i zachęta „Zweryfikuj profil”), Profil Plus (logo, oznaczenie „Profil zarządzany przez firmę”, opis do 600 znaków, do 3 ofert, podstawowe statystyki), Profil Premium (dodatkowo opis do 1500 znaków z wyróżnikami, wideo lub zdjęcie, aktualności, formularz zapytań B2B, pełne statystyki). Ceny ustala Handlowiec z naczelnym; nie podajemy ich w makietach.
+- **Edycja w portalu partnera (rozdz. 8):** weryfikacja firmy (umowa, osoba upoważniona, e-mail w domenie firmy) → edycja przez role „właściciel konta” i „redaktor firmy” z podglądem → moderacja redakcji (zgodność oferty z cennikiem i warunkami, oznaczenia, język, [x] dni roboczych) → publikacja z historią wersji; oferta znika automatycznie po dacie końca.
+- **Pola oferty:** nazwa, cena i jednostka, okres umowy, opłaty dodatkowe, data końca, link do regulaminu; przy obniżce najniższa cena z 30 dni przed obniżką. [DO WERYFIKACJI: Prawnik, czy obowiązek dotyczy sprzedaży energii, oraz wymogi oznaczania reklamy]
+- **Nienaruszalne:** pakiet nie zmienia kolejności w porównywarce, rankingach ani listach; brak ocen i opinii dodawanych przez firmę; błąd w strefie redakcji firma zgłasza z dowodem przez „zgłoś błąd”, a poprawka trafia do rejestru korekt; numer pogotowia energetycznego operatora widoczny zawsze, niezależnie od pakietu.
+- **Model treści (CMS):** typ `organizacja` (dane redakcji) i powiązany typ `profil_partnera` (pola strefy partnera, pakiet, daty umowy, status moderacji, wersje); po wygaśnięciu umowy strefa partnera znika, a profil wraca do wariantu „bez umowy”.
+
 **Rankingi (`/rankingi/`) i zestawienia (`/zestawienia/`, od 2027 r.).**
 - Ranking ofert: kolejność według całkowitego kosztu dla podanego profilu zużycia (porównywarka).
 - Ranking sprzedawców jako firm: jawna metodyka (ceny, uczciwość zapisów umów według audytu redakcji, decyzje URE i UOKiK, test obsługi), wagi opublikowane przed rankingiem.
@@ -550,6 +558,7 @@ flowchart LR
 | ADR-9 | Katalogi firm w MVP | 5 sprzedawców z urzędu i 5 dużych operatorów sieci, dane publiczne ze źródłem | Pełny katalog od startu (ryzyko błędów, brak czasu) | **Decyzja: tak (22.10.2026)** |
 | ADR-10 | Dział gazu | Od II kw. 2027 r. | W MVP | **Decyzja: od II kw. 2027 (22.10.2026)** |
 | ADR-11 | Rankingi | Od 2027 r., jawna metodyka, produkty jako zestawienia parametrów | Rankingi „najlepszy” bez testów | Tak, metodyka po przeglądzie Prawnika |
+| ADR-12 | Profile partnerów | Dwie strefy: redakcji (nieedytowalna) i partnera (edycja w portalu, moderacja, pakiety Plus i Premium) | Firma edytuje cały profil; profil jako zwykły artykuł sponsorowany | Rekomendacja: tak; ceny i termin sprzedaży do decyzji naczelnego |
 
 **Ryzyka:**
 | Ryzyko | Ograniczenie |
