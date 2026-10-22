@@ -7,7 +7,7 @@
 | Arkusz | Zawartość |
 |---|---|
 | Obszary | 10 obszarów tematycznych, każdy ze stroną przewodnią (filarem) i frazą główną |
-| Publikacje MVP | 74 publikacje do 31.12.2026 r.: 5 przewodników, 2 trackery, 20 artykułów i porównań, 5 analiz danych, 25 poradników, 5 wzorów pism oraz katalog (5 sprzedawców z urzędu, 5 operatorów sieci, 2 strony zbiorcze); dla każdej: H1, fraza główna, long tail, intencja, segment, URL, format pozycji zerowej, dane strukturalne, priorytet, sezonowość, termin, dowód popularności |
+| Publikacje MVP | 75 publikacji do 31.12.2026 r.: 5 przewodników, 2 trackery, temat miesiąca, 20 artykułów i porównań, 5 analiz danych, 25 poradników, 5 wzorów pism oraz katalog (5 sprzedawców z urzędu, 5 operatorów sieci, 2 strony zbiorcze); dla każdej: H1, fraza główna, long tail, intencja, segment, URL, format pozycji zerowej, dane strukturalne, priorytet, sezonowość, termin, dowód popularności |
 | Hasła | 300 haseł encyklopedii z adresem `/wiedza/…`; 120 oznaczonych jako MVP |
 | Pytania long tail | 200 pytań odbiorców (po 20 na obszar); jednocześnie stały zestaw do comiesięcznego pomiaru cytowań w wyszukiwarkach AI |
 | Kanibalizacja | 11 fraz, o które walczyłyby hasło i publikacja, z decyzją, która strona jest główna |
@@ -80,3 +80,5 @@ Pełna lista jest w arkuszu „Technika SEO i GEO”. Najważniejsze punkty:
 - **Katalog w MVP:** profile 5 sprzedawców z urzędu (PGE Obrót, TAURON Sprzedaż, Enea, Energa Obrót oraz E.ON na obszarze Stoen Operator) i 5 dużych operatorów sieci, ze stronami zbiorczymi `/sprzedawcy` i `/operatorzy`. Nazwy firm są stronami encji: nie tworzymy dla nich osobnych haseł encyklopedii. [DO WERYFIKACJI: pełne nazwy w zestawieniu URE]
 - **Dział gazu:** od II kw. 2027 r. (obszar „gaz” dopiszemy do mapy przed startem działu).
 - **Rankingi i zestawienia produktów:** od 2027 r., według jawnej metodyki zatwierdzonej przez Prawnika (szczegóły w `ARCHITEKTURA_serwisu_Energypedia.md`, rozdział 2.5).
+- **Temat miesiąca na start:** „Zmiana sprzedawcy prądu 2027: kiedy wypowiedzieć umowę” (`/temat/zmiana-sprzedawcy-2027`, fala 1); budowa i zastrzeżenia prawne w `STRONA_GLOWNA_start_listopad.md`, rozdz. 3a.
+- **Asystent AI „Zapytaj Energypedię” od startu:** zestaw 200 pytań z arkusza „Pytania long tail” służy też jako test jakości asystenta przed startem.

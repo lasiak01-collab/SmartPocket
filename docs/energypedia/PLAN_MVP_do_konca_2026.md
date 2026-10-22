@@ -22,11 +22,12 @@ Mamy około **10 tygodni** (20 X – 31 XII 2026 r.; uwaga na święta 11 XI ora
 | 7 | **Barometr Odbiorców (badanie) #0** | Badanie na panelu internetowym: około 1000 gospodarstw domowych i około 300–500 firm | Raport, wykresy CC BY, informacja prasowa |
 | 8 | **Newsletter** | „Energia w 5 minut” (dni robocze) + tygodniowy dla firm | ≥ 2000 subskrybentów na 31 XII (z listy oczekujących) |
 | 9 | **Pokój prasowy i baza ekspertów** | Wykresy do pobrania, kontakt do dyżurnego eksperta, informacje prasowe | ≥ 10 cytowań w mediach w grudniu |
+| 11 | **Asystent AI „Zapytaj Energypedię”** (decyzja naczelnego 22.10.2026 r.) | Odpowiedzi wyłącznie na podstawie opublikowanych treści Energypedii (hasła, poradniki, przewodniki, trackery, profile firm), z przypisami do źródeł i datą aktualizacji; oznaczenie „Odpowiedź wygenerowana przez AI”; odmowa i odesłanie, gdy nie ma podstawy w naszych treściach albo pytanie wymaga porady prawnej w indywidualnej sprawie; pytania bez odpowiedzi trafiają do redakcji jako tematy | Zestaw 200 pytań testowych z mapy tematów: ≥ 90% odpowiedzi poprawnych według recenzenta, 0 odpowiedzi bez źródła, odmowa w 100% pytań spoza zakresu |
 | 10 | **Fundament prawny** | Regulamin, polityka prywatności i cookies, statut redakcji, polityka sprostowań, „Jak zarabiamy” | Zatwierdzone przez prawnika |
 
 **Kamień milowy kluczowy:** **miękki start w dniu ogłoszenia przez URE taryf na 2027 r.** (w 2025 r. URE zatwierdziło taryfy 17 grudnia). Planujemy gotowość serwisu na **10 grudnia 2026 r.**, a datę startu przesuwamy na dzień decyzji URE. Taryfy to najczęściej wyszukiwany temat energetyczny roku i najlepszy moment na pierwsze cytowania.
 
-**Czego NIE robimy przed końcem roku** (żeby zdążyć): analizatora faktury, porównywarki, rankingów firm i produktów, działu gazu (start w II kw. 2027 r.), leadów, panelu PRO, asystenta AI, aplikacji, wydarzeń. Wyjątek: **lista oczekujących** na narzędzia (zapis e-mail), żeby zebrać bazę przed styczniem.
+**Czego NIE robimy przed końcem roku** (żeby zdążyć): analizatora faktury, porównywarki, rankingów firm i produktów, działu gazu (start w II kw. 2027 r.), leadów, panelu PRO, aplikacji, wydarzeń. Asystent AI jest w MVP (decyzja naczelnego 22.10.2026 r.), ale tylko na naszych treściach: bez kalkulacji rachunku i bez danych użytkownika. Wyjątek: **lista oczekujących** na narzędzia (zapis e-mail), żeby zebrać bazę przed styczniem.
 
 ---
 
@@ -190,6 +191,7 @@ Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwi
 | 7.6 | SEO techniczne: mapy witryny, dane strukturalne (Article, FAQ, HowTo, Dataset, Person, Organization), przekierowania, canonicale, Core Web Vitals | 4 XII |
 | 7.7 | Analityka z trybem zgody (baner cookies), monitoring błędów, kopie zapasowe, CDN, certyfikat SSL | 4 XII |
 | 7.8 | Testy: dostępność, telefony, szybkość, test obciążeniowy na dzień taryf | 9 XII |
+| 7.9 | **Asystent AI (RAG):** indeks treści z CMS aktualizowany przy każdej publikacji, odpowiedzi z cytowaniem fragmentów, limity zapytań, filtr pytań spoza zakresu i ochrona przed wstrzykiwaniem poleceń, logi bez danych osobowych, dostawca modelu z przetwarzaniem w UE i umową powierzenia; panel redakcji z pytaniami bez odpowiedzi | prototyp 20 XI, testy na 200 pytaniach 27 XI – 4 XII, gotowość ze startem |
 
 **Koszt orientacyjny:** 60–90 tys. zł (wykonawca) + 2–4 tys. zł miesięcznie (hosting, CMS, newsletter, analityka). To zastępuje na start część nakładów na MVP z biznesplanu; narzędzia budujemy w styczniu–marcu 2027 r.
 
@@ -203,6 +205,7 @@ Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwi
 | 8.4 | Wniosek o **rejestrację tytułu prasowego** w sądzie okręgowym | złożony do 4 XII |
 | 8.5 | Licencje: dane rynkowe (TGE), zdjęcia (bank zdjęć), czcionki | 4 XII |
 | 8.6 | Deklaracja dostępności | 9 XII |
+| 8.7 | Asystent AI: oznaczenia wymagane przez AI Act, zastrzeżenie o charakterze informacyjnym, regulamin usługi, ocena skutków dla ochrony danych, umowa z dostawcą modelu [DO WERYFIKACJI: Prawnik, zakres obowiązków z art. 50 AI Act i data ich stosowania] | 27 XI |
 
 **Budżet:** 15–20 tys. zł (kancelaria, pakiet dokumentów).
 
@@ -310,7 +313,8 @@ Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwi
 | Prawo, RODO, rejestracja tytułu, badanie znaku | 18 000 – 24 000 |
 | Narzędzia (hosting, CMS, newsletter, monitoring mediów, bank zdjęć) | 10 000 – 15 000 |
 | Promocja listy oczekujących i startu (niewielki budżet) | 10 000 – 20 000 |
-| **Razem** | **około 340 000 – 410 000** |
+| Asystent AI: wdrożenie przez wykonawcę i koszt modelu językowego do 31 XII | [DO WYCENY: oferta wykonawcy i cennik dostawcy modelu] |
+| **Razem** | **około 340 000 – 410 000 + asystent AI [do wyceny]** |
 
 Kwota mieści się w kosztach XI–XII z modelu finansowego (około 570 tys. zł). Różnica wynika z przesunięcia budowy narzędzi i kampanii startowej na I kwartał 2027 r.
 
@@ -325,6 +329,7 @@ Kwota mieści się w kosztach XI–XII z modelu finansowego (około 570 tys. zł
 | Autorzy nie dowożą wolumenu | < 80% planu tygodniowego 2 tygodnie z rzędu | Dodatkowi autorzy z puli rezerwowej, cięcie do **100 haseł**, ale bez obniżania standardu |
 | Opóźnienie serwisu | Szablony nie gotowe 27 XI | Start na uproszczonym szablonie; wykresy jako obrazy z danymi CSV do pobrania |
 | Taryfy URE ogłoszone wcześniej niż gotowość | Decyzja przed 10 XII | Publikujemy pakiet taryfowy na stronie startowej + newsletter + LinkedIn; reszta serwisu dochodzi w kolejnych dniach |
+| Asystent AI nie przechodzi testów (< 90% poprawnych) | Wynik testu 4 XII | Start asystenta w trybie „tylko odpowiedzi z haseł i poradników” z węższym zakresem pytań; pełny zakres po poprawkach, bez publikowania odpowiedzi niesprawdzonych |
 | Badanie panelowe się opóźnia | Brak danych 8 XII | Barometr Odbiorców #0 publikujemy 5–8 I (to i tak dobry termin medialnie) |
 
 ---

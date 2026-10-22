@@ -51,7 +51,7 @@ def dowod(*frazy):
     return ' | '.join(out) if out else '[DO WERYFIKACJI w narzędziu SEO]'
 
 SCHEMA = {'przewodnik': 'Article + BreadcrumbList + FAQPage', 'tracker': 'NewsArticle (aktualizowany) + BreadcrumbList', 'artykuł': 'Article + BreadcrumbList + FAQPage',
-          'analiza': 'Article + Dataset + BreadcrumbList', 'poradnik': 'Article (HowTo jako struktura treści) + BreadcrumbList + FAQPage', 'wzór pisma': 'Article + DigitalDocument + BreadcrumbList', 'katalog': 'CollectionPage + ItemList + BreadcrumbList', 'profil sprzedawcy': 'WebPage (about: Organization) + BreadcrumbList', 'profil operatora': 'WebPage (about: Organization) + BreadcrumbList'}
+          'analiza': 'Article + Dataset + BreadcrumbList', 'poradnik': 'Article (HowTo jako struktura treści) + BreadcrumbList + FAQPage', 'wzór pisma': 'Article + DigitalDocument + BreadcrumbList', 'katalog': 'CollectionPage + ItemList + BreadcrumbList', 'profil sprzedawcy': 'WebPage (about: Organization) + BreadcrumbList', 'profil operatora': 'WebPage (about: Organization) + BreadcrumbList', 'temat miesiąca': 'CollectionPage + Article + BreadcrumbList + FAQPage'}
 
 wb = Workbook()
 ws = wb.active; ws.title = 'Instrukcja'

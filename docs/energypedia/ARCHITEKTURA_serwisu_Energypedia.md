@@ -534,7 +534,7 @@ flowchart LR
 
 | Etap | Termin | Zakres | Koszt orientacyjny (netto) |
 |---|---|---|---|
-| **0. MVP treściowe** | do 10.12.2026 r. | Next.js + Payload CMS + PostgreSQL; szablony: główna, artykuł, hasło, poradnik, przewodnik, tracker, Barometr/dane, region, autor, strony zaufania, `/reklama` (media kit), `/prasa`; wyszukiwarka (bez AI); wykresy z eksportem; newsletter; CMP TCF 2.2 + Consent Mode v2; analityka; **GAM ze slotami i reklamami własnymi** (rezerwacja miejsc, bez sprzedaży do stycznia); SEO techniczne; dostępność | 60–90 tys. zł (zgodnie z planem MVP) |
+| **0. MVP treściowe** | do 10.12.2026 r. | Next.js + Payload CMS + PostgreSQL; szablony: główna, artykuł, hasło, poradnik, przewodnik, tracker, Barometr/dane, region, autor, strony zaufania, `/reklama` (media kit), `/prasa`; wyszukiwarka i asystent „Zapytaj Energypedię” (RAG na opublikowanych treściach; decyzja naczelnego 22.10.2026 r.); wykresy z eksportem; newsletter; CMP TCF 2.2 + Consent Mode v2; analityka; **GAM ze slotami i reklamami własnymi** (rezerwacja miejsc, bez sprzedaży do stycznia); SEO techniczne; dostępność | 60–90 tys. zł (zgodnie z planem MVP) |
 | **1. Narzędzia i monetyzacja** | I kw. 2027 r. | Kalkulator taryf, analizator faktury, porównywarka, generator zapytań; konto (passkeys); leady + rejestr zgód + portal partnera v1; materiały partnerów i sponsoring w CMS; kampanie bezpośrednie i programmatic; raporty kampanii; asystent AI (beta); PWA | 200–280 tys. zł |
 | **2. Skala i dane** | II–III kw. 2027 r. | PRO (bez reklam, alerty, panel), API danych, osadzane wykresy, mapa regionalna, wydarzenia, panel reklamodawcy, kalendarz rezerwacji, Prebid.js (przy ruchu ≥ 1 mln odsłon), Gemius/Mediapanel | 150–250 tys. zł |
 | **3. Automatyzacja** | 2028 r. | Samoobsługowy zakup reklam, marketplace partnerów, serwer MCP, wersja angielska (opcja), wideo z pre-roll | wg potrzeb |
@@ -559,6 +559,7 @@ flowchart LR
 | ADR-10 | Dział gazu | Od II kw. 2027 r. | W MVP | **Decyzja: od II kw. 2027 (22.10.2026)** |
 | ADR-11 | Rankingi | Od 2027 r., jawna metodyka, produkty jako zestawienia parametrów | Rankingi „najlepszy” bez testów | Tak, metodyka po przeglądzie Prawnika |
 | ADR-12 | Profile partnerów | Dwie strefy: redakcji (nieedytowalna) i partnera (edycja w portalu, moderacja, pakiety Plus i Premium) | Firma edytuje cały profil; profil jako zwykły artykuł sponsorowany | Rekomendacja: tak; ceny i termin sprzedaży do decyzji naczelnego |
+| ADR-13 | Asystent AI | W MVP od startu, wyłącznie na treściach Energypedii, z przypisami i odmową poza zakresem | Asystent od 2027 r. | **Decyzja: od startu (22.10.2026)** |
 
 **Ryzyka:**
 | Ryzyko | Ograniczenie |

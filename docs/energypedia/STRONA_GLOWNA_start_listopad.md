@@ -1,6 +1,11 @@
 # Strona główna Energypedia.pl na start (listopad 2026 r.)
 
-Stan: propozycja z 22.10.2026 r. do decyzji naczelnego. Podstawa: makiety „FINAL · strona główna (komputer)” i „FINAL · telefon”, `PLAN_MVP_do_konca_2026.md`, `ARCHITEKTURA_serwisu_Energypedia.md`, `MAPA_TEMATOW.md`.
+Stan: propozycja z 22.10.2026 r., zaktualizowana po decyzjach naczelnego z tego samego dnia (rozdz. 0). Podstawa: makiety „FINAL · strona główna (komputer)” i „FINAL · telefon”, `PLAN_MVP_do_konca_2026.md`, `ARCHITEKTURA_serwisu_Energypedia.md`, `MAPA_TEMATOW.md`.
+
+## 0. Decyzje naczelnego (22.10.2026 r.)
+- **Asystent AI zostaje w pierwszym ekranie i działa od startu.** Dopisany do zakresu MVP (`PLAN_MVP_do_konca_2026.md`, pozycja 11 i zadanie 7.9; ADR-13 w architekturze).
+- **Temat miesiąca zostaje:** „Zmiana sprzedawcy prądu 2027: kiedy wypowiedzieć umowę” (rozdz. 3a).
+- **Lista najnowszych wiadomości zostaje** na komputerze i na telefonie.
 
 ## 1. Analiza obecnych makiet
 
@@ -12,7 +17,7 @@ Stan: propozycja z 22.10.2026 r. do decyzji naczelnego. Podstawa: makiety „FIN
 - **Dolne menu na telefonie, newsletter, przycisk preferowanych źródeł Google, stopka zaufania.**
 
 ### Co nie zadziała w listopadzie
-1. **Pierwszy ekran opiera się na asystencie AI („Zapytaj”), którego nie ma w zakresie MVP** (plan MVP: „Czego NIE robimy przed końcem roku”). Najważniejsze miejsce strony obiecuje funkcję, której czytelnik nie dostanie.
+1. ~~Pierwszy ekran opiera się na asystencie AI, którego nie było w zakresie MVP.~~ Rozwiązane: asystent jest w MVP od startu (decyzja z 22.10.2026 r.).
 2. **Sekcja „Wynik w 60 sekund” pokazuje narzędzia dostępne od I kw. 2027 r.** Na telefonie dwie z trzech kart mają etykietę „Od I kw. 2027”. Na starcie to sygnał „jeszcze nie gotowe”.
 3. **Brak rzeki najnowszych wiadomości na komputerze.** Na starcie nowy serwis musi pokazać, że żyje: godzina, tytuł, dział. Na telefonie lista jest tylko w panelu dolnego menu.
 4. **Barometr Odbiorców pokazuje wynik, którego nie będzie.** Badanie w terenie trwa 24 XI – 4 XII, wyniki będą w grudniu.
@@ -40,8 +45,8 @@ Kolejność dla komputera; na telefonie ta sama treść w jednej kolumnie (róż
 | # | Sekcja | Co widzi czytelnik | Co widzi reklamodawca | Gotowe w MVP |
 |---|---|---|---|---|
 | 0 | **Pasek dnia** | Data, „Taryfy 2027: czekamy na decyzję URE” z linkiem do trackera, godzina ostatniej aktualizacji | Serwis żyje i jest aktualny | Tak |
-| 1 | **Pierwszy ekran: hasło marki i wyszukiwarka** | „Zrozum [temat] w minutę. Ze źródłami.” Wyszukiwarka po hasłach i poradnikach z podpowiedziami najczęstszych pytań. Pod nią karta „W skrócie” z prawdziwego hasła (zamiast odpowiedzi AI); obok kafle „Energia dziś” | Profesjonalny, „danowy” wizerunek | Tak (wyszukiwarka bez AI jest w MVP); asystent AI później, w tym samym miejscu |
-| 2 | **Temat miesiąca: Taryfy na prąd 2027** | Co wiemy, scenariusze, co zrobić przed 1 stycznia; przycisk „Powiadom mnie w dniu decyzji URE” (e-mail lub push) | Największy ruch roku; zapowiedź pierwszej sprzedaży powierzchni przy tym temacie w 2027 r. | Tak (tracker) |
+| 1 | **Pierwszy ekran: hasło marki i asystent AI** | „Zrozum [temat] w minutę. Ze źródłami.” Pole „Zapytaj Energypedię” z podpowiedziami pytań z tematu miesiąca; odpowiedź z przypisami i oznaczeniem AI; obok kafle „Energia dziś” | Nowoczesny, „danowy” wizerunek; funkcja, której nie mają konkurenci [DO WERYFIKACJI: przegląd serwisów konkurencyjnych] | Tak (decyzja 22.10.2026 r.) |
+| 2 | **Temat miesiąca: Zmiana sprzedawcy prądu 2027: kiedy wypowiedzieć umowę** | Licznik dni do terminu, kalkulator „kiedy skończy się moja umowa”, trzy ścieżki według rodzaju umowy, wzór wypowiedzenia; obok mniejszy tracker „Taryfy 2027” z przyciskiem „Powiadom mnie w dniu decyzji URE” | Odbiorcy w momencie decyzji o sprzedawcy; argument do rozmów o profilach firm i pakietach na 2027 r. | Tak (rozdz. 3a) |
 | 3 | **Najnowsze** (rzeka newsów, 6–8 pozycji) + **Najczęściej czytane** | Godzina, dział, tytuł; komentarz dnia | Rytm wydawniczy medium, nie bloga | Tak (newsroom od 16 XI na próbę) |
 | 4 | **Sprawdź swoją sytuację** | 3 szybkie ścieżki: „Kto jest moim sprzedawcą i operatorem?” (województwo lub kod pocztowy → profile), „Jak czytać rachunek” (rachunek z objaśnieniami), „Masz ofertę od akwizytora?” (14 dni na odstąpienie, wzór pisma) | Pokazuje, że trafiamy do ludzi w momencie decyzji | Tak (katalog, poradnik, wzór); bez porównywarki |
 | 5 | **Trzy działy tematyczne** | „Rachunek i sprzedawca”, „Fotowoltaika”, „Magazyn energii i dotacje” (PME2): po 1 przewodniku, 3 poradnikach i 1 haśle | Trzy „domy” dla trzech kategorii reklamodawców; od 2027 r. miejsce na „Partner działu” | Tak (treści z fali 1 i 2) |
@@ -58,6 +63,34 @@ Kolejność dla komputera; na telefonie ta sama treść w jednej kolumnie (róż
 **Reklamy na starcie.** Zgodnie z planem do stycznia sloty wyświetlają reklamy własne (newsletter, powiadomienie o taryfach, Akademia, „Reklama w Energypedii”). Zostawiamy: billboard pod pierwszym ekranem i 1 slot w bocznej kolumnie; jeden materiał partnera w „Może Cię też zainteresować” dopiero po pierwszej umowie. Zasada ADR-4 bez zmian: żadnych reklam sprzedawców energii przy narzędziach i porównaniach.
 
 **Liczby dla reklamodawców.** Do czasu własnych danych z analityki pokazujemy wyłącznie dane rynkowe ze źródłem, np. liczbę zmian sprzedawcy w I półroczu 2026 r. (URE) i wolumeny wyszukiwań „fotowoltaika” i „magazyn energii” (narzędzia SEO). [DO WERYFIKACJI: każda liczba na stronie źródłowej przed publikacją] Nie podajemy prognoz zasięgu jako faktów.
+
+## 3a. Temat miesiąca: „Zmiana sprzedawcy prądu 2027: kiedy wypowiedzieć umowę”
+
+**Adres:** `/temat/zmiana-sprzedawcy-2027` (strona zbiorcza; w mapie tematów jako „temat miesiąca”, fraza główna „kiedy wypowiedzieć umowę na prąd”). Łączy przewodnik o zmianie sprzedawcy, poradnik krok po kroku, wzór wypowiedzenia, tracker CSIRE, katalog sprzedawców i tracker taryf.
+
+**Oś tematu: termin.** Według brzmienia art. 4j ust. 4 Prawa energetycznego (w wersji cytowanej w wynikach wyszukiwania) umowa odbiorcy w gospodarstwie domowym rozwiązuje się z ostatnim dniem miesiąca następującego po miesiącu, w którym oświadczenie o wypowiedzeniu dotarło do sprzedawcy; odbiorca może wskazać późniejszy termin. Wynika z tego, że wypowiedzenie, które dotrze do sprzedawcy w listopadzie, kończy umowę 31 grudnia, a w grudniu: 31 stycznia. **[DO WERYFIKACJI przed publikacją: aktualny tekst art. 4j w ISAP (serwis był niedostępny z naszego środowiska) oraz opinia Prawnika, jak przepis działa przy zmianie sprzedawcy przez pełnomocnictwo i w procesie CSIRE]**
+
+**Budowa strony tematu**
+1. **Odpowiedź w pierwszym akapicie** (blok „W skrócie”): kiedy wypowiedzieć, żeby od 1 stycznia mieć nowego sprzedawcę, i od czego to zależy.
+2. **Kalkulator terminu:** data dotarcia wypowiedzenia i rodzaj umowy → data końca umowy. Prosta reguła, bez AI i bez danych osobowych; wynik z odnośnikiem do przepisu.
+3. **Trzy ścieżki według umowy:**
+   - umowa na czas nieoznaczony (np. taryfa sprzedawcy z urzędu): wypowiedzenie bez kosztów, opłacone zostaje tylko zużycie i dystrybucja (art. 4j ust. 3, do weryfikacji jak wyżej);
+   - umowa na czas oznaczony, np. promocja kończąca się 31.12.2026 r.: sprawdź automatyczne przedłużenie, cenę po okresie promocji i karę za wcześniejsze rozwiązanie; u gospodarstw domowych koszty nie mogą przekraczać bezpośrednich strat sprzedawcy (art. 4j ust. 3a, do weryfikacji);
+   - umowa od akwizytora: odstąpienie w terminie z ustawy o prawach konsumenta [DO WERYFIKACJI: 14 czy 30 dni w zależności od sposobu zawarcia umowy].
+4. **Dylemat grudnia:** taryfy na 2027 r. będą znane dopiero po decyzji URE (w 2025 r. zapadła 17 grudnia). Pokazujemy scenariusze „zmieniam teraz”, „czekam na taryfę” i „zostaję”, bez rekomendowania konkretnego sprzedawcy.
+5. **CSIRE:** co zmienia szybsza zmiana sprzedawcy, a czego nie zmienia (okres wypowiedzenia umowy). [DO WERYFIKACJI: stan przystąpienia operatorów do CSIRE po 19.10.2026 r.]
+6. **Co przygotować:** numer punktu poboru energii, numer klienta, aktualna umowa i warunki ogólne; wzór wypowiedzenia do pobrania.
+7. **Porównanie ofert:** odnośnik do porównywarki ofert Prezesa URE (do czasu własnej porównywarki w 2027 r.) i do profili 5 sprzedawców z urzędu.
+8. **Pytania i asystent AI** z podpowiedziami: „Czy zapłacę karę za zerwanie umowy?”, „Czy zmiana sprzedawcy zmienia operatora?”, „Co, jeśli umowa przedłużyła się automatycznie?”.
+9. **Firmy:** osobny akapit, bo termin z art. 4j ust. 4 dotyczy gospodarstw domowych; u firm decydują zapisy umowy.
+
+**Neutralność:** na stronie tematu nie ma reklam ani materiałów sprzedawców energii (zasada jak dla narzędzi, ADR-4). Sprzedawcy zyskują na temacie pośrednio: ruch do katalogu i profili.
+
+**Promocja:** newsletter z odliczaniem do końca listopada, informacja prasowa z terminem (media regionalne), krótkie wideo „kiedy wypowiedzieć umowę”, pytania z tematu w asystencie AI.
+
+**Termin startu a temat.** Jeżeli przepis potwierdzi się, termin „do 30 listopada” jest najmocniejszym argumentem tematu, ale traci sens przy starcie 30 XI. Dwie możliwości:
+- **A (rekomendowana, jeśli wykonawca potwierdzi szablony i asystenta do 12 XI):** start publiczny w poniedziałek 16 listopada; temat i asystent jako trzon strony, reszta treści dochodzi w kolejnych dniach. Odbiorcy mają dwa tygodnie na decyzję, a media dostają temat z terminem.
+- **B:** start 30 XI zgodnie z wcześniejszą propozycją; temat prowadzimy jako „zmiana od 1 lutego i decyzja po taryfach URE”. Bezpieczniej technicznie, słabszy temat medialny.
 
 ## 4. Telefon: różnice
 - **Pierwszy ekran:** hasło marki, wyszukiwarka, 4 przewijane w poziomie kafle „Energia dziś”; temat miesiąca zaraz pod nimi.
@@ -78,8 +111,8 @@ Kolejność dla komputera; na telefonie ta sama treść w jednej kolumnie (róż
 - **Reklamodawcy:** pobrania media kitu, wejścia na `/reklama`, zapytania „Partner założycielski”, zgłoszenia weryfikacji profili firm.
 
 ## 7. Decyzje dla naczelnego
-1. Data startu publicznego: rekomendacja 30 XI 2026 r. (alternatywa: zgodnie z planem, w dniu decyzji URE).
-2. Pierwszy ekran bez asystenta AI na start (rekomendacja: tak).
+1. Data startu publicznego: wariant A (16 XI) albo B (30 XI), rozdz. 3a.
+2. ~~Asystent AI na start~~: zdecydowane, asystent od startu.
 3. Segmenty na start: Dom i Firma (rekomendacja) czy cztery.
 4. Akademia magazynów energii jako kurs w newsletterze od startu.
 5. Oferta „Partner założycielski 2027”: liczba miejsc i warunki (z Handlowcem).
