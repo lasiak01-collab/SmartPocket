@@ -88,14 +88,13 @@ Liczba pytań dziennie; odsetek odpowiedzi z przypisami (cel 100%); odsetek odm�
 ## 9. Asystent a reklamodawcy
 Asystent nie wyświetla reklam ani treści partnerów i nie wymienia sprzedawców jako rekomendacji. Wartość dla rynku jest pośrednia: zbiorcze, anonimowe zestawienia tematów pytań („o co pytają odbiorcy energii”) mogą trafić do raportów Energypedii i do oferty PRO, bez danych pojedynczych użytkowników. [DO WERYFIKACJI: Prawnik, podstawa i zakres takiego wykorzystania danych]
 
-## 10. Harmonogram budowy (wariant startu w grudniu; przy starcie 16 XI wszystko o 3 tygodnie wcześniej)
+## 10. Harmonogram budowy (start publiczny 16 XI 2026 r.)
 
 | Tydzień | Zakres |
 |---|---|
-| 26–30 X | Model danych fragmentów, PostgreSQL z pgvector, kolejka indeksowania z CMS |
-| 2–6 XI | Podział treści na fragmenty, wektory, wyszukiwanie hybrydowe; pierwsze testy wyszukiwania na 20 pytaniach |
-| 9–13 XI | Generacja z przypisami, format odpowiedzi, kontrole po generacji, filtr danych osobowych |
-| 16–20 XI | Prototyp w serwisie testowym (strona główna, `/zapytaj`, panel w dolnym menu) |
-| 23–27 XI | Zestaw 250 pytań, porównanie modeli, wybór; dokumenty prawne (zadanie 8.7) |
-| 30 XI – 4 XII | Pełny test, poprawki, zatwierdzone odpowiedzi dla 50 pytań, panel redakcji |
-| 7–11 XII | Zamrożenie zakresu, test obciążeniowy, limity kosztów; gotowość do startu |
+| 26–30 X | Model danych fragmentów, PostgreSQL z pgvector, kolejka indeksowania z CMS, podział treści na fragmenty |
+| 2–6 XI | Wektory i wyszukiwanie hybrydowe, generacja z przypisami, format odpowiedzi; **prototyp 6 XI** w serwisie testowym (strona główna, `/zapytaj`, panel w dolnym menu) |
+| 9–13 XI | Kontrole po generacji, filtr danych osobowych, limity kosztów i zapytań; porównanie modeli i wybór; **test startowy**: 60 pytań z obszarów pakietu startowego (umowy, taryfy i ceny, rachunek) + 50 kontrolnych; zatwierdzone odpowiedzi dla 20 najczęstszych pytań tematu miesiąca; dokumenty prawne (zadanie 8.7); **zamrożenie 12 XI** |
+| 16 XI | **Start** wersji 1.0 na treściach pakietu startowego; codzienny przegląd pytań bez odpowiedzi |
+| 16 XI – 11 XII | Indeks rośnie z każdą publikacją; panel redakcji; zatwierdzone odpowiedzi dla 50 pytań; **pełny test na 250 pytaniach do 11 XII** |
+| 14–18 XII | Tryb wysokiego ruchu na dzień decyzji URE (zatwierdzone odpowiedzi o taryfach 2027 publikowane razem z pakietem taryfowym) |

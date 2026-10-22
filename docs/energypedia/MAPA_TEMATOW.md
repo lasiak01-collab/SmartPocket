@@ -44,7 +44,7 @@ Priorytet = popyt × wartość × szansa × pilność (każdy 1–3, maks. 81). 
 14. Jak czytać rachunek za prąd
 15. Jak ubiegać się o dotację do magazynu energii i fotowoltaiki (fala 1, warunki PME2 do weryfikacji w NFOŚiGW)
 
-**Fala 1** (do 20.11): 26 publikacji z najwyższym priorytetem. **Fala 2** (do 4.12): pozostałe 43, w tym katalog sprzedawców i operatorów (aktualizacja taryf 2027 w ciągu 24 godzin od decyzji URE). **Tydzień startu:** 5 analiz danych.
+**Start publiczny 16.11.2026 r.** z pakietem startowym (`PLAN_MVP_do_konca_2026.md`, rozdz. 1a), gotowym 12.11. **Fala 1** (do 27.11): publikacje z najwyższym priorytetem. **Fala 2** (do 18.12): pozostałe, w tym operatorzy sieci (aktualizacja taryf 2027 w ciągu 24 godzin od decyzji URE). **Grudzień:** 5 analiz danych (Barometr Rynku #1 1 XII).
 
 ## 4. Decyzje porządkowe
 

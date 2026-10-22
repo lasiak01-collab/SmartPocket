@@ -6,6 +6,7 @@ Stan: propozycja z 22.10.2026 r., zaktualizowana po decyzjach naczelnego z tego 
 - **Asystent AI zostaje w pierwszym ekranie i działa od startu.** Dopisany do zakresu MVP (`PLAN_MVP_do_konca_2026.md`, pozycja 11 i zadanie 7.9; ADR-13 w architekturze).
 - **Temat miesiąca zostaje:** „Zmiana sprzedawcy prądu 2027: kiedy wypowiedzieć umowę” (rozdz. 3a).
 - **Lista najnowszych wiadomości zostaje** na komputerze i na telefonie.
+- **Start publiczny: poniedziałek 16 listopada 2026 r. (wariant A).** Harmonogram w `PLAN_MVP_do_konca_2026.md` (rozdz. 1 i 1a).
 
 ## 1. Analiza obecnych makiet
 
@@ -111,7 +112,7 @@ Kolejność dla komputera; na telefonie ta sama treść w jednej kolumnie (róż
 - **Reklamodawcy:** pobrania media kitu, wejścia na `/reklama`, zapytania „Partner założycielski”, zgłoszenia weryfikacji profili firm.
 
 ## 7. Decyzje dla naczelnego
-1. Data startu publicznego: wariant A (16 XI) albo B (30 XI), rozdz. 3a.
+1. ~~Data startu publicznego~~: zdecydowane, 16 XI (wariant A).
 2. ~~Asystent AI na start~~: zdecydowane, asystent od startu.
 3. Segmenty na start: Dom i Firma (rekomendacja) czy cztery.
 4. Akademia magazynów energii jako kurs w newsletterze od startu.

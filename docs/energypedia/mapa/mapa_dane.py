@@ -104,7 +104,7 @@ for h1, f, url in [
     ('Wzór wniosku o zmianę grupy taryfowej', 'wniosek o zmianę taryfy wzór', '/wzory-pism/zmiana-grupy-taryfowej'),
     ('Wzór wniosku o bonifikatę za przerwę w dostawie energii', 'bonifikata za brak prądu wzór', '/wzory-pism/bonifikata-za-przerwe-w-dostawie'),
 ]:
-    pub('wzór pisma', 'umowy' if 'taryf' not in url else 'taryfy-ceny', h1, f, '', 'transakcyjna (pobranie)', 'dom, mikro', url, 'lista', 2, 3, 3, 1, 'cały rok', 2)
+    pub('wzór pisma', 'umowy' if 'taryf' not in url else 'taryfy-ceny', h1, f, '', 'transakcyjna (pobranie)', 'dom, mikro', url, 'lista', 2, 3, 3, 1, 'cały rok', 1 if ('wypowiedzenie' in url or 'odstapienie' in url) else 2)
 
 # Hasła encyklopedii: (obszar, hasło). Pierwsze hasła w każdym obszarze mają pierwszeństwo w MVP.
 HASLA = {
@@ -137,9 +137,9 @@ PYTANIA = {
 REGIONY = ['dolnośląskie', 'kujawsko-pomorskie', 'lubelskie', 'lubuskie', 'łódzkie', 'małopolskie', 'mazowieckie', 'opolskie', 'podkarpackie', 'podlaskie', 'pomorskie', 'śląskie', 'świętokrzyskie', 'warmińsko-mazurskie', 'wielkopolskie', 'zachodniopomorskie']
 
 # Katalog sprzedawców i operatorów (decyzja naczelnego 22.10.2026 r.: w MVP). Nazwy do potwierdzenia w zestawieniu URE „Masz wybór”.
-pub('katalog', 'umowy', 'Sprzedawcy prądu w Polsce: kto jest Twoim sprzedawcą z urzędu', 'sprzedawcy prądu', 'sprzedawca z urzędu; lista sprzedawców energii; jak sprawdzić sprzedawcę prądu', 'informacyjna i nawigacyjna', 'dom, mikro', '/sprzedawcy', 'tabela', 2, 3, 3, 2, 'grudzień–styczeń (taryfy)', 2)
+pub('katalog', 'umowy', 'Sprzedawcy prądu w Polsce: kto jest Twoim sprzedawcą z urzędu', 'sprzedawcy prądu', 'sprzedawca z urzędu; lista sprzedawców energii; jak sprawdzić sprzedawcę prądu', 'informacyjna i nawigacyjna', 'dom, mikro', '/sprzedawcy', 'tabela', 2, 3, 3, 2, 'grudzień–styczeń (taryfy)', 1)
 for nazwa, slug_s, obszar_osd in [('PGE Obrót', 'pge-obrot', 'PGE Dystrybucja'), ('TAURON Sprzedaż', 'tauron-sprzedaz', 'TAURON Dystrybucja'), ('Enea', 'enea', 'Enea Operator'), ('Energa Obrót', 'energa-obrot', 'Energa-Operator'), ('E.ON', 'eon', 'Stoen Operator')]:
-    pub('profil sprzedawcy', 'umowy', nazwa + ': taryfa, ceny prądu i kontakt', nazwa + ' taryfa', nazwa + ' cennik prądu 2026; ' + nazwa + ' taryfa 2027; ' + nazwa + ' kontakt reklamacja', 'nawigacyjna i informacyjna', 'dom, mikro', '/sprzedawcy/' + slug_s, 'tabela', 2, 3, 3, 3, 'grudzień–styczeń (taryfy)', 2)
+    pub('profil sprzedawcy', 'umowy', nazwa + ': taryfa, ceny prądu i kontakt', nazwa + ' taryfa', nazwa + ' cennik prądu 2026; ' + nazwa + ' taryfa 2027; ' + nazwa + ' kontakt reklamacja', 'nawigacyjna i informacyjna', 'dom, mikro', '/sprzedawcy/' + slug_s, 'tabela', 2, 3, 3, 3, 'grudzień–styczeń (taryfy)', 1)
 pub('katalog', 'regiony', 'Operatorzy sieci w Polsce: kto dostarcza prąd w Twoim regionie', 'operator sieci dystrybucyjnej', 'OSD lista; dystrybutor prądu w moim regionie; mapa operatorów', 'informacyjna i nawigacyjna', 'wszyscy', '/operatorzy', 'tabela', 2, 2, 3, 2, 'cały rok', 2)
 for nazwa, slug_o in [('PGE Dystrybucja', 'pge-dystrybucja'), ('TAURON Dystrybucja', 'tauron-dystrybucja'), ('Enea Operator', 'enea-operator'), ('Energa-Operator', 'energa-operator'), ('Stoen Operator', 'stoen-operator')]:
     pub('profil operatora', 'regiony', nazwa + ': taryfa dystrybucyjna, awarie, przyłącza i kontakt', nazwa, nazwa + ' awaria; ' + nazwa + ' wyłączenia prądu; ' + nazwa + ' przyłącze; ' + nazwa + ' taryfa 2027', 'nawigacyjna i informacyjna', 'wszyscy', '/operatorzy/' + slug_o, 'tabela', 2, 2, 3, 2, 'awarie: zima, burze letnie', 2)

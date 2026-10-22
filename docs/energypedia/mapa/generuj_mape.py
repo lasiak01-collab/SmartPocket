@@ -91,7 +91,7 @@ for i, p in enumerate(sorted(P, key=lambda p: -(p['popyt'] * p['wartosc'] * p['s
     pub_frazy[norm(p['fraza'])] = p['url']
     rows.append([i, p['typ'], OBN[p['obszar']], p['h1'], p['fraza'], p['poboczne'], p['intencja'], p['segment'], p['url'], FILAR[p['obszar']],
                  p['format_pz'], SCHEMA[p['typ']], p['popyt'], p['wartosc'], p['szansa'], p['pilnosc'], w, p['sezon'],
-                 {1: 'Fala 1 (do 20.11)', 2: 'Fala 2 (do 4.12)', 'start': 'Tydzień startu'}[p['fala']], dowod(p['fraza'], p['poboczne'])])
+                 {1: 'Fala 1 (do 27.11; pakiet startowy do 12.11)', 2: 'Fala 2 (do 18.12)', 'start': 'Grudzień (Barometr, taryfy)'}[p['fala']], dowod(p['fraza'], p['poboczne'])])
 sheet(wb, 'Publikacje MVP', ['Lp.', 'Typ', 'Obszar', 'Tytuł roboczy (H1)', 'Fraza główna', 'Frazy poboczne i long tail', 'Intencja', 'Segment', 'URL', 'Link do filaru',
                              'Format pozycji zerowej', 'Dane strukturalne', 'Popyt (1–3)', 'Wartość (1–3)', 'Szansa (1–3)', 'Pilność (1–3)', 'Priorytet (maks. 81)',
                              'Sezonowość', 'Termin', 'Dowód popularności (ze źródłem)'],
