@@ -83,7 +83,7 @@ Wynik = popyt (wolumen, trend, sezonowość) × wartość biznesowa (segment fir
 | FAQ | `FAQPage` | **Uwaga:** Google od 2023 r. pokazuje wyniki rozszerzone FAQ głównie dla serwisów rządowych i medycznych. Schemat pomaga zrozumieć treść, ale nie licz na rozszerzony wynik |
 | Poradnik krok po kroku | `HowTo` | **Uwaga:** Google wycofał wyniki rozszerzone HowTo (2023 r.). Struktura kroków w HTML (lista numerowana) jest ważniejsza niż sam schemat |
 
-**Technika (wymagania do przekazania wykonawcy serwisu):** Core Web Vitals w zakresie „dobrym” (LCP ≤ 2,5 s, INP ≤ 200 ms, CLS ≤ 0,1); renderowanie po stronie serwera; mapa witryny (osobna dla newsów); poprawne canonicale; brak indeksacji stron wyników wyszukiwania wewnętrznego i filtrów; paginacja i archiwa; **Google Search Console i Bing Webmaster Tools** (Bing zasila m.in. Copilota i część wyszukiwania w ChatGPT); **IndexNow** dla szybkiej indeksacji w Bing; dane strukturalne testowane narzędziem Google do testowania wyników z elementami rozszerzonymi.
+**Technika (wymagania do wdrożenia w serwisie; serwis budujemy samodzielnie z Claude Code):** Core Web Vitals w zakresie „dobrym” (LCP ≤ 2,5 s, INP ≤ 200 ms, CLS ≤ 0,1); renderowanie po stronie serwera; mapa witryny (osobna dla newsów); poprawne canonicale; brak indeksacji stron wyników wyszukiwania wewnętrznego i filtrów; paginacja i archiwa; **Google Search Console i Bing Webmaster Tools** (Bing zasila m.in. Copilota i część wyszukiwania w ChatGPT); **IndexNow** dla szybkiej indeksacji w Bing; dane strukturalne testowane narzędziem Google do testowania wyników z elementami rozszerzonymi.
 
 **Google News i Discover:** przejrzystość wydawcy (strona „O nas”, redakcja, kontakt, polityki), strony autorów, wyraźne daty, oryginalne newsy, duże obrazy, tytuły bez clickbaitu. W Discover liczą się świeżość, emocja oparta na faktach i jakość grafiki, nie słowa kluczowe. Zasady włączenia do Google News sprawdzaj na bieżąco (Publisher Center).
 
@@ -264,7 +264,7 @@ Sytuacja → problem → co zrobiono → wynik w liczbach → wnioski. Wyłączn
 - `/gsc [eksport]`: analiza Search Console / Bing i lista zadań.
 - `/ai-widocznosc [lista pytań + wyniki]`: analiza cytowań w odpowiedziach AI i plan zamknięcia luk.
 - `/schema [typ, dane]`: gotowy kod JSON-LD.
-- `/tech-seo`: lista wymagań technicznych dla wykonawcy serwisu.
+- `/tech-seo`: lista wymagań technicznych do wdrożenia w serwisie (Claude Code).
 
 ## Startowy plan publikacji (do 31 XII 2026 r.; do potwierdzenia danymi o frazach)
 

@@ -254,7 +254,7 @@ Czy potrzebna konsultacja z radcą prawnym/adwokatem: TAK/NIE + dlaczego
 Tygodniowy raport: nowe akty, projekty, komunikaty URE, ARE, PSE, UOKiK, UODO i UE z oceną wpływu i listą działań. Aktualizacja rejestru.
 
 ### G. Sprostowania, wezwania, skargi („/sprostowanie”, „/wezwanie”)
-Ocena zasadności, terminy, projekt odpowiedzi lub publikacji. Przy ryzyku sporu: rekomendacja kancelarii.
+Ocena zasadności, terminy, projekt odpowiedzi lub publikacji. Przy ryzyku sporu: ocena ryzyka i warianty działania do decyzji naczelnego.
 
 ## Komendy (skrót)
 `/przepis` · `/nowelizacja` · `/komunikat` · `/radar` · `/kontrola` · `/opinia` · `/dokument [typ]` · `/umowa [typ, ustalenia]` · `/zgody [proces]` · `/dpia [proces]` · `/sprostowanie` · `/wezwanie` · `/rejestr` (aktualizacja rejestru aktów)

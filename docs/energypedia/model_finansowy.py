@@ -59,16 +59,18 @@ D["data_rev"] = ("Raporty, licencje danych, API / mies. [zł]", steps({"2027-04"
 D["events"] = ("Wydarzenia regionalne / webinary sponsorowane / mies.", steps({"2027-03": 1, "2027-06": 2, "2027-09": 2, "2028-01": 3}))
 D["event_margin"] = ("Marża netto na wydarzeniu [zł]", steps({"2027-03": 18000}))
 # koszty
-D["payroll"] = ("Wynagrodzenia zespołu (B2B/UoP, z narzutami) [zł]", steps({"2026-11": 59000, "2026-12": 97000, "2027-01": 136000, "2027-03": 166000, "2027-06": 186000, "2028-01": 230000}))
-D["experts"] = ("Rada ekspertów, felietoniści, freelancerzy [zł]", steps({"2026-12": 12000, "2028-01": 15000}))
+# Serwis, asystent AI i treści robimy samodzielnie (naczelny + wirtualny zespół + Claude Code); bez wykonawców, agencji i autorów zewnętrznych.
+# Etaty tylko poza redakcją i technologią: growth marketer (XII 2026), key account i weryfikacja leadów (I 2027), drugi weryfikator i koordynator regionów (III 2027).
+D["payroll"] = ("Wynagrodzenia zespołu poza redakcją i technologią (z narzutami) [zł]", steps({"2026-12": 14000, "2027-01": 33000, "2027-03": 50000, "2028-01": 62000}))
+D["experts"] = ("Rada Ekspertów (bez wynagrodzeń; współpraca honorowa) [zł]", steps({"2026-11": 0}))
 D["marketing"] = ("Marketing i PR (płatne, kampanie, influencerzy) [zł]", steps({"2026-12": 40000, "2027-01": 180000, "2027-02": 120000, "2027-03": 110000, "2027-04": 100000, "2027-06": 120000, "2027-07": 80000, "2028-01": 90000}))
 D["tech"] = ("Technologia: hosting, CDN, SaaS, AI API, CRM [zł]", steps({"2026-11": 4000, "2026-12": 9000, "2027-06": 12000, "2028-01": 15000}))
 D["datalic"] = ("Licencje danych rynkowych (TGE i in.) [zł]", steps({"2026-12": 4000, "2027-07": 6000}))
-D["research"] = ("Badania (barometr kwartalny na panelu) [zł]", [20000 if (m in (1, 4, 7, 10)) else 0 for y, m in months])
-D["legal"] = ("Prawo, IOD/RODO, księgowość [zł]", steps({"2026-11": 9000}))
+D["research"] = ("Badania (Barometr Odbiorców: własna ankieta online) [zł]", steps({"2026-11": 0}))
+D["legal"] = ("Księgowość, opłaty urzędowe, ubezpieczenia (dokumenty prawne przygotowuje rola Prawnik) [zł]", steps({"2026-11": 9000}))
 D["office"] = ("Biuro/coworking, sprzęt, inne [zł]", steps({"2026-11": 6000, "2027-06": 9000}))
-D["capex"] = ("Nakłady jednorazowe: marka, MVP (software house), prawo, znak [zł]", [0.0] * N)
-for l, v in {"2026-11": 60000 + 30000 + 4000 + 110000, "2026-12": 110000, "2027-01": 60000, "2027-06": 40000}.items():
+D["capex"] = ("Nakłady jednorazowe: znak towarowy i domeny (identyfikację, serwis i asystenta AI robimy sami) [zł]", [0.0] * N)
+for l, v in {"2026-11": 4000}.items():
     D["capex"][1][idx[l]] = v
 D["lead_qa_b2b"] = ("Koszt weryfikacji 1 leada MŚP (telefon, KRS, PPE) [zł]", steps({"2026-12": 25}))
 D["lead_qa_hh"] = ("Koszt weryfikacji 1 leada GD/OZE (SMS/e-mail/telefon) [zł]", steps({"2027-01": 5}))

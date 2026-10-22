@@ -19,7 +19,7 @@ Mamy około **10 tygodni** (20 X – 31 XII 2026 r.; uwaga na święta 11 XI ora
 | 4 | **Strony regionalne** | **16 województw** (wersja podstawowa) | Operator sieci, jego opłaty, linki do dotacji, kontakt do instytucji |
 | 5 | **Wiadomości** | Codziennie w dni robocze od miękkiego startu: 3–5 newsów i 1 komentarz | Rytm utrzymany przez 10 dni roboczych z rzędu |
 | 6 | **Barometr Rynku Energii #1** | Miesięczny pulpit danych z komentarzem: ceny hurtowe, taryfy 2027 r., opłaty dystrybucyjne, generacja OZE | Publikacja i informacja prasowa |
-| 7 | **Barometr Odbiorców (badanie) #0** | Badanie na panelu internetowym: około 1000 gospodarstw domowych i około 300–500 firm | Raport, wykresy CC BY, informacja prasowa |
+| 7 | **Barometr Odbiorców (badanie) #0** | Własna ankieta internetowa wśród czytelników, listy oczekujących i obserwujących; jawna metodyka i informacja, że próba nie jest reprezentatywna | Raport, wykresy CC BY, informacja prasowa |
 | 8 | **Newsletter** | „Energia w 5 minut” (dni robocze) + tygodniowy dla firm | ≥ 2000 subskrybentów na 31 XII (z listy oczekujących) |
 | 9 | **Pokój prasowy i baza ekspertów** | Wykresy do pobrania, kontakt do dyżurnego eksperta, informacje prasowe | ≥ 10 cytowań w mediach w grudniu |
 | 11 | **Asystent AI „Zapytaj Energypedię”** (decyzja naczelnego 22.10.2026 r.) | Odpowiedzi wyłącznie na podstawie opublikowanych treści Energypedii (hasła, poradniki, przewodniki, trackery, profile firm), z przypisami do źródeł i datą aktualizacji; oznaczenie „Odpowiedź wygenerowana przez AI”; odmowa i odesłanie, gdy nie ma podstawy w naszych treściach albo pytanie wymaga porady prawnej w indywidualnej sprawie; pytania bez odpowiedzi trafiają do redakcji jako tematy | Zestaw 200 pytań testowych z mapy tematów: ≥ 90% odpowiedzi poprawnych według recenzenta, 0 odpowiedzi bez źródła, odmowa w 100% pytań spoza zakresu |
@@ -31,20 +31,22 @@ Mamy około **10 tygodni** (20 X – 31 XII 2026 r.; uwaga na święta 11 XI ora
 
 ---
 
+> **Zasada od 22.10.2026 r.: wszystko robimy samodzielnie.** Serwis, asystenta AI i treści przygotowuje naczelny z wirtualnym zespołem ról AI (`zespol/`) i z Claude Code jako narzędziem programistycznym. Nie planujemy wykonawców, agencji, autorów zewnętrznych, kancelarii ani zapytań ofertowych i wycen, teraz ani później. Asystent AI „Zapytaj Energypedię” to jedna z głównych funkcji serwisu; specyfikacja budowy jest w `ASYSTENT_AI_Energypedia.md`.
+
 ## 1. Kolejność prac w skrócie (ścieżka krytyczna)
 
 ```
-TYDZ. 1 (20–23 X)  Decyzje: nazwa/znak, domena, spółka, budżet, naczelny ─┐
-TYDZ. 2 (26–30 X)  Zasady redakcyjne, mapa tematów, wybór CMS i barometru ├─► BLOKUJE wszystko dalej
-TYDZ. 3 (2–6 XI)   Szablony treści, zespół autorów, strona „wkrótce” + lista oczekujących
-TYDZ. 4–7 (9 XI – 4 XII)  PRODUKCJA TREŚCI (hasła, poradniki, regiony) ║ budowa serwisu ║ badanie barometru
+TYDZ. 1 (20–23 X)  Decyzje: nazwa/znak, domena, spółka, budżet ─┐
+TYDZ. 2 (26–30 X)  Zasady redakcyjne, mapa tematów, start budowy serwisu ├─► BLOKUJE wszystko dalej
+TYDZ. 3 (2–6 XI)   Szablony treści, strona „wkrótce” + lista oczekujących, indeks asystenta AI
+TYDZ. 4–7 (9 XI – 4 XII)  PRODUKCJA TREŚCI (hasła, poradniki, regiony) ║ budowa serwisu i asystenta AI ║ ankieta barometru
 TYDZ. 5–7          „Próba generalna” newsroomu (newsy publikowane wewnętrznie)
 TYDZ. 8 (7–11 XII) Kontrola jakości, SEO, prawo, gotowość 10 XII
 TYDZ. 9 (14–18 XII) MIĘKKI START w dniu taryf URE + Barometr #1 + informacja prasowa
 TYDZ. 10–11 (21–31 XII) Stabilizacja, Barometr Odbiorców #0 (jeśli nie w tyg. 9), podsumowanie roku, plan na styczeń
 ```
 
-Trzy ścieżki idą **równolegle** od tygodnia 3: **(A) treści**, **(B) serwis i technologia**, **(C) dane i barometr**. Ścieżka treści jest najdłuższa, dlatego rusza pierwsza.
+Trzy ścieżki idą **równolegle** od tygodnia 3: **(A) treści**, **(B) serwis, technologia i asystent AI**, **(C) dane i barometr**. Wszystkie prowadzi naczelny z wirtualnym zespołem, więc kolejność dnia ustala priorytet: najpierw weryfikacja treści, potem kod, potem reszta.
 
 ---
 
@@ -55,14 +57,12 @@ Trzy ścieżki idą **równolegle** od tygodnia 3: **(A) treści**, **(B) serwis
 | # | Zadanie | Wynik | Kto |
 |---|---|---|---|
 | 1.1 | Sprawdzić, czy **domena energypedia.pl** jest Twoja albo do kupienia; zarejestrować warianty (energypedia.com.pl, energiapedia.pl, literówki) | Domeny zabezpieczone | Właściciel |
-| 1.2 | Zlecić rzecznikowi patentowemu **badanie znaku *energypedia*** (EUIPO, WIPO, UPRP) z odpowiedzią w 7–10 dni | Decyzja: nazwa OK / wariant z wyróżnikiem | Właściciel + rzecznik |
+| 1.2 | **Własne badanie znaku *energypedia*** w bazach UPRP, EUIPO (TMview) i WIPO (Global Brand Database) z analizą roli Prawnik | Decyzja: nazwa OK / wariant z wyróżnikiem | Naczelny + Prawnik (rola AI) |
 | 1.3 | Zająć profile: LinkedIn (strona firmowa), YouTube, Instagram, TikTok, Facebook, X, Threads | Profile zarezerwowane | Właściciel |
 | 1.4 | Założyć spółkę (lub prowadzić start na istniejącej działalności, z przeniesieniem później) | Podmiot do umów | Właściciel + księgowy |
-| 1.5 | Zatwierdzić **budżet MVP: około 350–400 tys. zł** do 31 XII (rozdział 6) | Budżet | Właściciel |
-| 1.6 | Rozmowy z **kandydatami na redaktora naczelnego** (3 osoby). Jeśli nie zdążysz, zatrudnij **redaktora prowadzącego** na start, a naczelnego od stycznia | Oferta złożona | Właściciel |
-| 1.7 | Zarezerwować **panel badawczy** dla barometru (zapytanie do 3 agencji: termin realizacji badania 24 XI – 4 XII) | 3 oferty | Właściciel |
+| 1.5 | Zatwierdzić **budżet MVP** (rozdział 6: koszty działania, bez wykonawców) | Budżet | Właściciel |
 
-> **Dlaczego tak:** bez decyzji o nazwie nie zamawiamy identyfikacji, a bez naczelnego nie ma standardów redakcyjnych. Badanie panelowe ma najdłuższy czas realizacji (około 4 tygodni od zlecenia do raportu), więc rezerwujemy termin od razu.
+> **Dlaczego tak:** bez decyzji o nazwie nie ma sensu rozwijać identyfikacji i domen. Naczelnym jest Mariusz Lach, więc standardy redakcyjne powstają od razu.
 
 ### KROK 2. Zasady redakcyjne i plan treści (tydzień 2: 26–30 października)
 
@@ -73,20 +73,20 @@ Trzy ścieżki idą **równolegle** od tygodnia 3: **(A) treści**, **(B) serwis
 | 2.3 | **Mapa tematów (SEO)**: około 3000 fraz w klastrach; z niej **lista 300 haseł** i **60 poradników** z priorytetem (popyt × zgodność z modelem przychodów × sezonowość) | Arkusz: fraza, intencja, segment, priorytet, autor, termin |
 | 2.4 | **Taksonomia serwisu**: działy, segmenty (dom / mikrofirma / MŚP / duża firma i samorząd), tagi (taryfy, dystrybucja, OZE, regulacje, rynek hurtowy, CSIRE…), regiony | Struktura w CMS |
 | 2.5 | **Rejestr źródeł pierwotnych** (URE, PSE, Ministerstwo Energii, Sejm i ISAP, Dziennik Ustaw, TGE, GUS, KE, ACER, operatorzy sieci, sprzedawcy z cennikami) + monitoring (RSS, alerty, listy na X i LinkedIn) | Lista z adresami i częstotliwością sprawdzania |
-| 2.6 | **Wybór technologii serwisu** (rozdział 3, ścieżka B) i wykonawcy | Umowa z wykonawcą |
-| 2.7 | **Wybór agencji badawczej** i zlecenie Barometru Odbiorców #0 | Umowa, termin badania |
+| 2.6 | **Start budowy serwisu** we własnym zakresie: repozytorium, Next.js + Payload CMS + PostgreSQL z pgvector, środowisko testowe (krok 7) | Działające środowisko testowe |
+| 2.7 | **Kwestionariusz Barometru Odbiorców #0** jako własna ankieta internetowa (krok 6) | Projekt ankiety |
 
 ### KROK 3. Szablony, zespół i lista oczekujących (tydzień 3: 2–6 listopada)
 
 | # | Zadanie | Wynik |
 |---|---|---|
 | 3.1 | **Szablony treści** w CMS i jako dokumenty dla autorów: hasło, poradnik, news, komentarz, strona regionalna, barometr (wzory w załączniku A) | 6 szablonów |
-| 3.2 | **Zespół autorów:** naczelny lub prowadzący + 2 dziennikarzy/analityków + lider SEO + **6–10 autorów zewnętrznych** (inżynierowie, prawnicy energetyczni, doradcy OZE) + **3–5 recenzentów merytorycznych** z Rady Ekspertów | Umowy, stawki, terminy |
-| 3.3 | **Test autorów:** każdy pisze 2 hasła próbne; zostają ci, którzy trzymają standard | Pula sprawdzonych autorów |
+| 3.2 | **Rytm produkcji treści:** naczelny + wirtualny zespół (Redaktor SEO, Analityk rynku, Recenzent, Prawnik); każdy tekst przechodzi recenzję roli Recenzent i akceptację naczelnego. Eksperci z Rady Ekspertów są źródłami i rozmówcami, bez umów o pisanie | Plan tygodniowy |
+| 3.3 | **Test standardu:** 5 haseł próbnych przez pełny proces (szkic, recenzja, weryfikacja źródeł, akceptacja); pomiar czasu na tekst | Norma dzienna dla naczelnego |
 | 3.4 | **Strona „wkrótce” na energypedia.pl** z zapisem na newsletter i listę oczekujących na narzędzia (zgody RODO osobno dla newslettera i dla powiadomień o narzędziach) | Strona działa od 6 XI |
-| 3.5 | **Identyfikacja wizualna w wersji 1.0** (logotyp, kolory, krój pisma, **styl wykresów**), pełna identyfikacja w I kwartale 2027 r. | Pakiet do serwisu i social mediów |
-| 3.6 | **Baza dziennikarzy** (300 kontaktów: gospodarka, energetyka, media regionalne, radio) + zamówienie **monitoringu mediów** od 1 XII | Baza w CRM, umowa monitoringu |
-| 3.7 | **Licencja na dane rynkowe** (np. TGE) do publikacji w Barometrze – zapytanie i umowa | Umowa lub decyzja o źródłach publicznych |
+| 3.5 | **Identyfikacja wizualna** (logo, design system, styl grafik i wykresów): **gotowa**, wykonana samodzielnie (`brand/`, `design-system/`) | Pakiet do serwisu i social mediów |
+| 3.6 | **Baza dziennikarzy** (300 kontaktów: gospodarka, energetyka, media regionalne, radio) + **własny monitoring mediów** od 1 XII (codzienny przegląd przez rolę Analityk rynku, alerty, rejestr cytowań) | Baza w CRM, rejestr cytowań |
+| 3.7 | **Dane rynkowe** do Barometru: sprawdzić regulaminy i publiczne cenniki TGE i PSE; gdzie licencja nie jest potrzebna, korzystamy z danych publicznych z przypisem | Decyzja o źródłach |
 
 ### KROK 4. Produkcja treści – fala 1 i 2 (tygodnie 4–7: 9 listopada – 4 grudnia)
 
@@ -155,7 +155,7 @@ Proponuję rozdzielić barometr na **dwa produkty**, bo mają różny cykl i kos
 
 | Wskaźnik | Źródło | Uwagi |
 |---|---|---|
-| Ceny hurtowe: rynek dnia następnego (średnia miesięczna, szczyt/pozaszczyt), kontrakt roczny na 2027 r. | TGE (licencja na publikację lub dane podawane publicznie) | Komentarz: co to znaczy dla cen ofert dla firm |
+| Ceny hurtowe: rynek dnia następnego (średnia miesięczna, szczyt/pozaszczyt), kontrakt roczny na 2027 r. | TGE (dane podawane publicznie; licencja tylko, jeśli wymaga jej regulamin) | Komentarz: co to znaczy dla cen ofert dla firm |
 | Ceny w taryfach URE dla gospodarstw (G11) i opłaty dystrybucyjne według operatorów sieci | URE, taryfy operatorów sieci | Zmiana r/r |
 | Godziny z cenami ujemnymi, udział OZE w produkcji | PSE (dane publiczne), TGE | Wątek dla prosumentów i taryf dynamicznych |
 | Ceny uprawnień do emisji CO2 | Dane publiczne / licencja | Krótki kontekst |
@@ -163,15 +163,15 @@ Proponuję rozdzielić barometr na **dwa produkty**, bo mają różny cykl i kos
 
 Metodyka publikowana na stronie /dane/metodyka. **Od stycznia–lutego 2027 r.** dochodzi **Energypedia Index** z danych z zapytań ofertowych (po starcie narzędzi).
 
-**B. Barometr Odbiorców Energii (kwartalny, badanie)** – #0 w grudniu 2026 r.
+**B. Barometr Odbiorców Energii (kwartalny, własna ankieta)** – #0 w grudniu 2026 r. Ankietę przygotowujemy i prowadzimy sami (formularz w serwisie, newsletter, media społecznościowe). Wynik opisujemy uczciwie: próba nie jest reprezentatywna, podajemy jej strukturę i ewentualne ważenie. Badanie na panelu reprezentatywnym tylko z decyzji naczelnego.
 
 | Etap | Termin | Szczegóły |
 |---|---|---|
-| Zlecenie agencji | do 6 XI | Panel internetowy (CAWI), gospodarstwa domowe n≈1000 (reprezentatywna próba dorosłych), firmy n≈300–500 (mikro, małe, średnie) |
+| Przygotowanie ankiety | do 6 XI | Formularz w serwisie lub na stronie „wkrótce”, zgody RODO, pytania o segment (dom, firma), województwo i wiek do opisu struktury próby |
 | Kwestionariusz | 9–19 XI | 15–20 pytań, w tym **pytania stałe** (powtarzane co kwartał, żeby budować trend) |
-| Badanie w terenie | 24 XI – 4 XII | |
+| Zbieranie odpowiedzi | 24 XI – 4 XII | Zaproszenie: lista oczekujących, newsletter, media społecznościowe |
 | Dane i analiza | 7–11 XII | Tabele, wykresy w stylu Energypedii |
-| Publikacja | **w tygodniu startu (14–18 XII)** albo osobno w pierwszym tygodniu stycznia, jeśli taryfy URE „zjedzą” uwagę mediów | Raport + 16 wyników wojewódzkich (jeśli próba pozwala) |
+| Publikacja | **w tygodniu startu (14–18 XII)** albo osobno w pierwszym tygodniu stycznia, jeśli taryfy URE „zjedzą” uwagę mediów | Raport z opisem metody i ograniczeń; wyniki wojewódzkie tylko przy wystarczającej liczbie odpowiedzi |
 
 **Pytania stałe (propozycja):** ocena wysokości rachunku (skala), czy rachunek jest zrozumiały, oczekiwania cenowe na 12 miesięcy, znajomość możliwości zmiany sprzedawcy, czy w ostatnim roku zmienił/a sprzedawcę lub taryfę, plany inwestycyjne (PV, magazyn, pompa, EV), zaufanie do źródeł informacji. **Dla firm dodatkowo:** udział kosztów energii w kosztach firmy, typ umowy (stała/indeksowana), data końca umowy, kto decyduje o zakupie energii.
 
@@ -183,7 +183,7 @@ Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwi
 
 | # | Zadanie | Termin |
 |---|---|---|
-| 7.1 | Wybór wykonawcy (freelancer lub małe studio) i stosu: **Next.js + headless CMS** (np. Sanity lub Payload) **albo** szybszy wariant: WordPress z dobrym motywem i porządnym SEO. Rekomendacja: Next.js + headless CMS, bo to fundament pod narzędzia w 2027 r. | 30 X |
+| 7.1 | Budowa we własnym zakresie (naczelny + Claude Code): **Next.js + Payload CMS + PostgreSQL z pgvector** (jedna baza na treści i indeks asystenta AI); repozytorium, środowisko testowe i produkcyjne w UE, automatyczne wdrożenia | 30 X |
 | 7.2 | Strona „wkrótce” z zapisem na newsletter | 6 XI |
 | 7.3 | Modele treści w CMS (hasło, poradnik, news, region, barometr, autor, źródło) z polami: segment, data weryfikacji, recenzent, źródła | 13 XI – autorzy zaczynają pisać w CMS |
 | 7.4 | Szablony stron, wyszukiwarka, nawigacja po segmentach, strona autora, spis treści, przypisy, „ostatnia aktualizacja” | 27 XI |
@@ -191,9 +191,9 @@ Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwi
 | 7.6 | SEO techniczne: mapy witryny, dane strukturalne (Article, FAQ, HowTo, Dataset, Person, Organization), przekierowania, canonicale, Core Web Vitals | 4 XII |
 | 7.7 | Analityka z trybem zgody (baner cookies), monitoring błędów, kopie zapasowe, CDN, certyfikat SSL | 4 XII |
 | 7.8 | Testy: dostępność, telefony, szybkość, test obciążeniowy na dzień taryf | 9 XII |
-| 7.9 | **Asystent AI (RAG):** indeks treści z CMS aktualizowany przy każdej publikacji, odpowiedzi z cytowaniem fragmentów, limity zapytań, filtr pytań spoza zakresu i ochrona przed wstrzykiwaniem poleceń, logi bez danych osobowych, dostawca modelu z przetwarzaniem w UE i umową powierzenia; panel redakcji z pytaniami bez odpowiedzi | prototyp 20 XI, testy na 200 pytaniach 27 XI – 4 XII, gotowość ze startem |
+| 7.9 | **Asystent AI (RAG), budowa własna według `ASYSTENT_AI_Energypedia.md`:** indeks treści z CMS aktualizowany przy każdej publikacji, odpowiedzi z cytowaniem fragmentów, limity zapytań, filtr pytań spoza zakresu i ochrona przed wstrzykiwaniem poleceń, logi bez danych osobowych, dostawca modelu z przetwarzaniem w UE i umową powierzenia; panel redakcji z pytaniami bez odpowiedzi | prototyp 20 XI, testy na 200 pytaniach 27 XI – 4 XII, gotowość ze startem |
 
-**Koszt orientacyjny:** 60–90 tys. zł (wykonawca) + 2–4 tys. zł miesięcznie (hosting, CMS, newsletter, analityka). To zastępuje na start część nakładów na MVP z biznesplanu; narzędzia budujemy w styczniu–marcu 2027 r.
+**Koszt:** bez kosztu budowy (robimy samodzielnie); koszty działania około 4–9 tys. zł miesięcznie (hosting, baza danych, CMS, newsletter, analityka, model językowy asystenta AI). Narzędzia budujemy sami w styczniu–marcu 2027 r.
 
 ### KROK 8. Prawo i zgodność przed publikacją (tygodnie 3–8)
 
@@ -207,7 +207,7 @@ Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwi
 | 8.6 | Deklaracja dostępności | 9 XII |
 | 8.7 | Asystent AI: oznaczenia wymagane przez AI Act, zastrzeżenie o charakterze informacyjnym, regulamin usługi, ocena skutków dla ochrony danych, umowa z dostawcą modelu [DO WERYFIKACJI: Prawnik, zakres obowiązków z art. 50 AI Act i data ich stosowania] | 27 XI |
 
-**Budżet:** 15–20 tys. zł (kancelaria, pakiet dokumentów).
+**Wykonanie:** dokumenty przygotowuje rola Prawnik na podstawie źródeł pierwotnych, decyzję i podpis daje naczelny. Koszty to wyłącznie opłaty urzędowe i sądowe.
 
 ### KROK 9. Kontrola jakości i gotowość (tydzień 8: 7–11 grudnia)
 
@@ -244,7 +244,7 @@ Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwi
 | 11.3 | Poprawki na podstawie danych (Search Console: frazy z wyświetleniami bez kliknięć → nowe hasła) |
 | 11.4 | „Energia 2027: 10 rzeczy, które zmienią Twój rachunek” – tekst przewodni na Nowy Rok |
 | 11.5 | Retrospektywa zespołu i plan na I kwartał 2027 r.: publiczny start z narzędziami, kampania startowa, Energypedia Index, Barometr Odbiorców I kw. |
-| 11.6 | Brief dla wykonawcy narzędzi (analizator faktury, porównywarka, generator zapytań ofertowych) – start prac 4 I 2027 r. |
+| 11.6 | Plan budowy narzędzi we własnym zakresie (analizator faktury, porównywarka, generator zapytań ofertowych dla firm) i asystenta AI 2.0 – start prac 4 I 2027 r. |
 
 ---
 
@@ -252,11 +252,11 @@ Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwi
 
 | Tydz. | Daty | Treści (A) | Serwis (B) | Dane i barometr (C) | Organizacja, prawo, PR |
 |---|---|---|---|---|---|
-| 1 | 20–23 X | – | – | Zapytanie do 3 agencji badawczych | Domena, znak, spółka, budżet, kandydaci na naczelnego |
-| 2 | 26–30 X | Statut, przewodnik stylu, mapa tematów, lista 300 haseł | Wybór stosu i wykonawcy | Wybór agencji, umowa | Rejestr źródeł |
-| 3 | 2–6 XI | Szablony, rekrutacja i test autorów | Strona „wkrótce” + newsletter | Zlecenie badania, zapytanie o licencję danych | Identyfikacja 1.0, baza dziennikarzy |
+| 1 | 20–23 X | – | – | – | Domena, własne badanie znaku, spółka, budżet |
+| 2 | 26–30 X | Statut, przewodnik stylu, mapa tematów, lista 300 haseł | Start budowy: repozytorium, CMS, baza danych | Projekt ankiety Barometru | Rejestr źródeł |
+| 3 | 2–6 XI | Szablony, test standardu (5 haseł) | Strona „wkrótce” + newsletter; indeks asystenta AI | Ankieta gotowa, regulaminy źródeł danych | Baza dziennikarzy |
 | 4 | 9–13 XI | 25 haseł, 4 poradniki | Modele treści w CMS | Kwestionariusz | Dokumenty prawne (start) |
-| 5 | 16–20 XI | 60 / 10 / 8 regionów; próba newsroomu | Szablony stron | Kwestionariusz zatwierdzony | Monitoring mediów zamówiony |
+| 5 | 16–20 XI | 60 / 10 / 8 regionów; próba newsroomu | Szablony stron; prototyp asystenta AI | Kwestionariusz zatwierdzony | Własny monitoring mediów uruchomiony |
 | 6 | 23–27 XI | 100 / 17 / 16 | Wykresy, wyszukiwarka | **Badanie w terenie** | Polityki RODO |
 | 7 | 30 XI – 4 XII | 135 / 22; pakiet „taryfy 2027” | SEO techniczne, analityka | Dane do Barometru Rynku #1 | Wniosek o rejestrację tytułu |
 | 8 | 7–11 XII | 32 publikacje / 120 haseł / 25 poradników; kontrola jakości | Testy, **gotowość 10 XII** | Analiza badania, wykresy | Lista kontrolna startu |
@@ -269,16 +269,11 @@ Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwi
 
 | Rola | Forma | Od | Zadania |
 |---|---|---|---|
-| Właściciel / wydawca | – | 20 X | Decyzje, budżet, rekrutacja, relacje, PR |
-| Redaktor naczelny lub prowadzący | Etat / B2B | 1–15 XI | Standardy, kolegium, akceptacja treści, kontakty z mediami |
-| Dziennikarz/analityk × 2 | B2B | 16–20 XI | Newsy, poradniki, pakiet taryfowy, barometr |
-| Lider SEO i bazy wiedzy | B2B | 2 XI | Mapa tematów, briefy, linkowanie, SEO techniczne z wykonawcą |
-| Autorzy zewnętrzni × 6–10 | Umowa o dzieło / zlecenie | 2 XI | Hasła i poradniki (około 400 zł za hasło, 1200 zł za poradnik) |
-| Recenzenci merytoryczni × 3–5 | Honorarium | 9 XI | Recenzja haseł z danej dziedziny |
-| Wykonawca serwisu | Umowa | 30 X | Serwis, CMS, wykresy, SEO techniczne |
-| Projektant(ka) | Zlecenie | 2 XI | Identyfikacja 1.0, grafiki, schematy, styl wykresów |
-| Agencja badawcza | Umowa | 6 XI | Barometr Odbiorców #0 |
-| Kancelaria / IOD | Umowa | 9 XI | Dokumenty prawne, RODO, rejestracja tytułu |
+| Redaktor naczelny i wydawca: Mariusz Lach | właściciel | 20 X | Decyzje, akceptacja każdej treści, budowa serwisu i asystenta AI z Claude Code, relacje z mediami |
+| Wirtualny zespół ról AI (`zespol/`): Recenzent, Analityk rynku, Social media, Specjalista kampanii, Sprzedawca reklam, Redaktor SEO/AEO/GEO, Prawnik | narzędzie | 20 X | Szkice treści, recenzja, analizy, SEO, dokumenty prawne, materiały sprzedażowe; każdy wynik akceptuje naczelny |
+| Claude Code | narzędzie | 26 X | Kod serwisu, CMS, asystenta AI, testy, wdrożenia |
+| Rada Ekspertów | współpraca honorowa | XI | Rozmówcy i źródła, konsultacja trudnych tematów; bez umów o pisanie |
+| Growth marketer (opcjonalnie) | etat / B2B | XII | Newsletter, kanały płatne, social media |
 
 ---
 
@@ -301,22 +296,18 @@ Na MVP nie potrzebujemy pełnej platformy z biznesplanu, tylko **szybkiego serwi
 
 | Pozycja | Kwota (zł netto) |
 |---|---:|
-| Redaktor naczelny/prowadzący (XI–XII) | 36 000 |
-| 2 dziennikarzy/analityków (około 1,5 miesiąca) | 36 000 |
-| Lider SEO (XI–XII) | 28 000 |
-| Autorzy zewnętrzni (120 haseł × ~400 zł + 25 poradników × ~1200 zł + 27 artykułów i stron przewodnich × ~450 zł średnio; przy pracy z wirtualnym zespołem pozycja w większości odpada) | 90 000 |
-| Recenzenci merytoryczni | 10 000 |
-| Serwis (wykonawca) | 60 000 – 90 000 |
-| Identyfikacja 1.0 i grafiki | 20 000 – 30 000 |
-| Barometr Odbiorców #0 (badanie panelowe) | 15 000 – 25 000 |
-| Licencja danych rynkowych | 4 000 – 8 000 |
-| Prawo, RODO, rejestracja tytułu, badanie znaku | 18 000 – 24 000 |
-| Narzędzia (hosting, CMS, newsletter, monitoring mediów, bank zdjęć) | 10 000 – 15 000 |
-| Promocja listy oczekujących i startu (niewielki budżet) | 10 000 – 20 000 |
-| Asystent AI: wdrożenie przez wykonawcę i koszt modelu językowego do 31 XII | [DO WYCENY: oferta wykonawcy i cennik dostawcy modelu] |
-| **Razem** | **około 340 000 – 410 000 + asystent AI [do wyceny]** |
+| Serwis, asystent AI, treści, identyfikacja, grafiki, dokumenty prawne | 0 (robimy samodzielnie: naczelny, wirtualny zespół, Claude Code) |
+| Technologia: hosting w UE, baza danych, CMS, newsletter, analityka, model językowy asystenta AI (rozliczenie za użycie z miesięcznym limitem ustawionym przez nas) | 13 000 |
+| Dane rynkowe (tylko jeśli regulamin źródła wymaga licencji) | 0 – 4 000 |
+| Znak towarowy i domeny (opłaty urzędowe) | 4 000 [DO WERYFIKACJI: aktualne opłaty UPRP lub EUIPO] |
+| Rejestracja tytułu prasowego (opłata sądowa) | [DO WERYFIKACJI: wysokość opłaty] |
+| Księgowość, ubezpieczenia | 18 000 |
+| Biuro, sprzęt, inne | 12 000 |
+| Growth marketer (od XII, opcjonalnie) | 14 000 |
+| Promocja listy oczekujących i startu | do 40 000 |
+| **Razem** | **około 100 000 – 105 000** (zgodnie z modelem finansowym: XI 23 000, XII 82 250) |
 
-Kwota mieści się w kosztach XI–XII z modelu finansowego (około 570 tys. zł). Różnica wynika z przesunięcia budowy narzędzi i kampanii startowej na I kwartał 2027 r.
+Barometr Odbiorców #0 prowadzimy jako własną ankietę, bez kosztu zewnętrznego. Nie ma pozycji na wykonawców, autorów zewnętrznych, agencje ani kancelarię i nie planujemy dla nich wycen.
 
 ---
 
@@ -324,13 +315,13 @@ Kwota mieści się w kosztach XI–XII z modelu finansowego (około 570 tys. zł
 
 | Ryzyko | Sygnał | Reakcja |
 |---|---|---|
-| Brak naczelnego do 15 XI | Brak podpisanej umowy | Redaktor prowadzący na start, właściciel przejmuje kontakty z mediami; naczelny od stycznia |
+| Przeciążenie naczelnego | Opóźnienie > 3 dni w dwóch ścieżkach naraz | Zamrożenie nowych funkcji, priorytet: weryfikacja treści i asystent AI; cięcie do **100 haseł** bez obniżania standardu |
 | Problem z nazwą (znak) | Negatywne badanie | Wariant z wyróżnikiem; identyfikację zamawiamy dopiero po decyzji (tydzień 3); treści i CMS powstają niezależnie od nazwy |
-| Autorzy nie dowożą wolumenu | < 80% planu tygodniowego 2 tygodnie z rzędu | Dodatkowi autorzy z puli rezerwowej, cięcie do **100 haseł**, ale bez obniżania standardu |
+| Treści nie powstają w tempie planu | < 80% planu tygodniowego 2 tygodnie z rzędu | Więcej szkiców od wirtualnego zespołu, krótsze formy haseł, przesunięcie regionów na styczeń; nigdy publikacja bez weryfikacji |
 | Opóźnienie serwisu | Szablony nie gotowe 27 XI | Start na uproszczonym szablonie; wykresy jako obrazy z danymi CSV do pobrania |
 | Taryfy URE ogłoszone wcześniej niż gotowość | Decyzja przed 10 XII | Publikujemy pakiet taryfowy na stronie startowej + newsletter + LinkedIn; reszta serwisu dochodzi w kolejnych dniach |
 | Asystent AI nie przechodzi testów (< 90% poprawnych) | Wynik testu 4 XII | Start asystenta w trybie „tylko odpowiedzi z haseł i poradników” z węższym zakresem pytań; pełny zakres po poprawkach, bez publikowania odpowiedzi niesprawdzonych |
-| Badanie panelowe się opóźnia | Brak danych 8 XII | Barometr Odbiorców #0 publikujemy 5–8 I (to i tak dobry termin medialnie) |
+| Za mało odpowiedzi w ankiecie | Mniej niż [x] odpowiedzi 4 XII (próg ustala naczelny) | Barometr Odbiorców #0 publikujemy 5–8 I (to i tak dobry termin medialnie) |
 
 ---
 
@@ -388,4 +379,4 @@ Metodyka (link) · Dane do pobrania (CSV) · Licencja wykresów CC BY
 
 ---
 
-> **Zastrzeżenie.** Terminy zewnętrzne (decyzja URE o taryfach, czas realizacji badań, rejestracja tytułu prasowego) są szacunkami na podstawie wcześniejszych lat i praktyki rynkowej. Należy je potwierdzić z instytucjami i wykonawcami w tygodniach 1–2.
+> **Zastrzeżenie.** Terminy zewnętrzne (decyzja URE o taryfach, czas realizacji badań, rejestracja tytułu prasowego) są szacunkami na podstawie wcześniejszych lat i praktyki rynkowej. Należy je potwierdzić u instytucji w tygodniach 1–2.

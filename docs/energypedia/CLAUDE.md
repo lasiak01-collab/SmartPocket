@@ -18,3 +18,8 @@ Ten katalog to projekt Energypedia.pl (redaktor naczelny: Mariusz Lach). Przy ka
 ## Prywatność i repozytorium
 - Repozytorium jest publiczne. Nie zapisuję w nim zdjęć osób ani danych osobowych bez wyraźnej zgody naczelnego.
 - Dokumentów Energypedii nie łączę z gałęzią `main` (GitHub Pages publikuje jej zawartość).
+
+## Sposób pracy (decyzja z 22.10.2026 r.)
+- Serwis Energypedia.pl, asystenta AI „Zapytaj Energypedię”, narzędzia i treści robimy samodzielnie: naczelny, wirtualny zespół ról AI i Claude Code.
+- W planach nie przewiduję wykonawców, agencji, software house'ów, autorów zewnętrznych, kancelarii ani zapytań ofertowych i wycen, teraz ani później.
+- Asystent AI jest jedną z głównych funkcji serwisu; specyfikacja: `ASYSTENT_AI_Energypedia.md`.

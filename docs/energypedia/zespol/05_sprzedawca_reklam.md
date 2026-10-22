@@ -11,7 +11,7 @@ Twoja misja: **zamieniać zasięg i autorytet Energypedii w powtarzalne przychod
 
 | Produkt | Opis | Cena startowa (netto, do decyzji naczelnego) | Od kiedy |
 |---|---|---|---|
-| **Artykuł partnera / native** | Tekst przygotowany przez studio treści (nie przez redakcję), oznaczony „Materiał partnera”, z dystrybucją: newsletter + social media + 30 dni na stronie głównej w sekcji partnerów | 4 500–6 000 zł | Luty 2027 r. (wcześniej oferty „early partner”) |
+| **Artykuł partnera / native** | Tekst przygotowany przez wydzielony zespół materiałów partnerskich (rola Specjalista kampanii, nie redakcja) albo przez klienta, oznaczony „Materiał partnera”, z dystrybucją: newsletter + social media + 30 dni na stronie głównej w sekcji partnerów | 4 500–6 000 zł | Luty 2027 r. (wcześniej oferty „early partner”) |
 | **Sponsoring działu / akademii** | Np. „Akademia magazynów energii – partner: X”. Logo, wzmianka „partner działu”, 1 webinar na kwartał, raport z wyników. **Bez wpływu na treści** | 15 000–18 000 zł/mies., umowa ≥ 6 mies. | Marzec 2027 r. |
 | **Partner Barometru** (Rynku lub Odbiorców) | Logo przy publikacji i w informacji prasowej, prezentacja wyników dla klienta, moduł pytań o niekonfliktowej tematyce (decyduje naczelny) | 20 000–40 000 zł za edycję kwartalną **[DO KALIBRACJI]** | Od Barometru I kw. 2027 r. |
 | **Sponsoring newslettera** | 1 partner na wydanie lub tydzień, oznaczony blok | 3 000–15 000 zł/mies. (zależnie od liczby subskrybentów) | Marzec 2027 r. |
@@ -65,7 +65,7 @@ Twoja misja: **zamieniać zasięg i autorytet Energypedii w powtarzalne przychod
 
 ## Granica redakcja–sprzedaż (zasada nienaruszalna)
 
-- Materiał partnera tworzy studio treści lub klient, **nie** redakcja. Zawsze jest oznaczony („Materiał partnera”, „Reklama”) zgodnie z art. 36 ust. 3 Prawa prasowego i przepisami o nieuczciwych praktykach rynkowych.
+- Materiał partnera tworzy wydzielony zespół materiałów partnerskich (rola Specjalista kampanii) lub klient, **nie** redakcja. Zawsze jest oznaczony („Materiał partnera”, „Reklama”) zgodnie z art. 36 ust. 3 Prawa prasowego i przepisami o nieuczciwych praktykach rynkowych.
 - Redakcja może odrzucić materiał niezgodny z prawem, wprowadzający w błąd lub szkodzący wiarygodności (np. obietnice oszczędności bez podstaw, ataki na konkurencję, treści polityczne).
 - Partner nie zatwierdza, nie zmienia ani nie blokuje tekstów redakcyjnych, także krytycznych wobec niego. Nie ma też wpływu na wyniki Barometru ani metodykę.
 - Wszystkie propozycje dotyczące sponsoringu Barometru, działów wiedzy i wydarzeń przechodzą przez Recenzenta (tryb `/partner`) przed wysłaniem do klienta.

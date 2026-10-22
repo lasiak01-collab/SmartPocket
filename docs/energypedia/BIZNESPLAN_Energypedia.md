@@ -56,16 +56,18 @@
 | Wizyty miesięcznie | 400 tys. | 650 tys. | 1,1 mln |
 | Kwalifikowane leady MŚP miesięcznie | 280 | 500 | 990 |
 | Przychody miesięczne | 279 tys. zł | 432 tys. zł | 855 tys. zł |
-| Wynik miesięczny | −141 tys. zł | +78 tys. zł | +409 tys. zł |
+| Wynik miesięczny | +47 tys. zł | +226 tys. zł | +592 tys. zł |
 
 - Przychody: 0,76 mln zł w okresie XI 2026 – VI 2027, 2,96 mln zł w 2027 r. i 8,8 mln zł w 2028 r.
-- Wynik: −1,33 mln zł w 2027 r. i +3,48 mln zł w 2028 r.
-- **Maksymalne zapotrzebowanie na kapitał: 2,07 mln zł (sierpień 2027).** Rekomendujemy zabezpieczenie **2,6 mln zł** (25% rezerwy).
-- Trwała rentowność miesięczna od września 2027 r.
+- Wynik: +0,50 mln zł w 2027 r. i +5,76 mln zł w 2028 r.
+- **Maksymalne zapotrzebowanie na kapitał: 0,65 mln zł (maj 2027).** Rekomendujemy zabezpieczenie **0,8 mln zł** (25% rezerwy).
+- Trwała rentowność miesięczna od czerwca 2027 r.
 
-W scenariuszu ostrożnym zapotrzebowanie rośnie do 2,45 mln zł, a rentowność przesuwa się na luty 2028 r.
+W scenariuszu ostrożnym zapotrzebowanie rośnie do 0,71 mln zł, a rentowność przesuwa się na lipiec 2027 r.
 
-**Uczciwie o „dochodzie pasywnym”.** Przez pierwsze 12–18 miesięcy ten biznes nie będzie pasywny. To praca na pełen etat właściciela plus zespół około 15 osób. Pasywność da się zbudować dopiero od 2028 r. Wymaga to trzech rzeczy: przychodów powtarzalnych (PRO, licencje danych, roczne pakiety sponsorskie, stałe umowy na leady), automatyzacji obsługi leadów oraz zatrudnienia dyrektora zarządzającego. Właściciel przechodzi wtedy do roli rady nadzorczej lub wydawcy (rozdział 14.4).
+**Założenie z 22.10.2026 r.: serwis, asystenta AI i treści robimy samodzielnie** (naczelny z wirtualnym zespołem ról AI i Claude Code), bez wykonawców zewnętrznych, agencji, autorów zewnętrznych i zapytań ofertowych. Dlatego w modelu nie ma kosztu budowy serwisu, identyfikacji ani zespołu redakcji. Model nie uwzględnia wynagrodzenia właściciela, który jest jednocześnie naczelnym; największym ryzykiem staje się przepustowość jednej osoby (rozdział 18).
+
+**Uczciwie o „dochodzie pasywnym”.** Przez pierwsze 12–18 miesięcy ten biznes nie będzie pasywny. To praca na pełen etat właściciela, który jest naczelnym i prowadzi budowę serwisu z wirtualnym zespołem, plus kilka etatów poza redakcją (sprzedaż, weryfikacja leadów, marketing, regiony). Pasywność da się zbudować dopiero od 2028 r. Wymaga to trzech rzeczy: przychodów powtarzalnych (PRO, licencje danych, roczne pakiety sponsorskie, stałe umowy na leady), automatyzacji obsługi leadów oraz zatrudnienia dyrektora zarządzającego. Właściciel przechodzi wtedy do roli rady nadzorczej lub wydawcy (rozdział 14.4).
 
 **Najważniejsze decyzje do podjęcia teraz.**
 1. Sprawdzić prawa do nazwy. W Niemczech działa międzynarodowa platforma wiedzy *energypedia* (energypedia UG, energypedia.info) **[Ź7]**. Trzeba zbadać rejestry EUIPO, WIPO i UPRP oraz ewentualnie przyjąć wariant marki z wyróżnikiem (rozdział 6.4).
@@ -81,12 +83,12 @@ W scenariuszu ostrożnym zapotrzebowanie rośnie do 2,45 mln zł, a rentowność
 | Wymiar | Miernik | Źródło pomiaru | Próg „top 3” (do kalibracji w XI 2026) |
 |---|---|---|---|
 | **Zasięg** | Wizyty miesięcznie wśród polskich serwisów o energetyce i OZE | Similarweb (porównanie z konkurentami) i własna analityka; docelowo Mediapanel (Gemius/PBI) | Pozycja w top 3. Punkt odniesienia: lider deklaruje około 820 tys. wizyt w lipcu 2026 r. według Similarweb **[Ź8]**, więc próg top 3 to prawdopodobnie 300–450 tys. wizyt **[Z]** |
-| **Opiniotwórczość** | Liczba cytowań Energypedii w mediach ogólnopolskich (prasa, radio, TV, internet) | Monitoring mediów (IMM lub PRESS-SERVICE), który publikuje też rankingi najbardziej opiniotwórczych mediów **[Ź9]** | Top 3 wśród mediów branżowych o energetyce pod względem cytowań w II kwartale 2027 r.; co najmniej 150 cytowań w kwartale **[Z]** |
+| **Opiniotwórczość** | Liczba cytowań Energypedii w mediach ogólnopolskich (prasa, radio, TV, internet) | Własny monitoring mediów (przegląd codzienny przez rolę Analityk rynku, alerty wyszukiwarek, rejestr cytowań); publiczne rankingi najbardziej opiniotwórczych mediów (IMM) jako punkt odniesienia **[Ź9]** | Top 3 wśród mediów branżowych o energetyce pod względem cytowań w II kwartale 2027 r.; co najmniej 150 cytowań w kwartale **[Z]** |
 | **Autorytet ekspercki** | Zaproszenia do mediów i instytucji, obecność w odpowiedziach wyszukiwarek AI | Rejestr wystąpień; regularny pomiar „share of answer” w ChatGPT, Gemini, Perplexity i Google AI Overviews na 200 pytań | Co najmniej 30 wystąpień ekspertów Energypedii w mediach w II kwartale 2027 r.; co najmniej 25% udziału w odpowiedziach AI w temacie „ceny prądu dla firm” |
 
 **Dlaczego w 8 miesięcy to wykonalne, choć trudne.** Zasięg można kupić i wypracować przez SEO, ale opiniotwórczości kupić się nie da. Media cytują tych, którzy **mają własne dane**, odpowiadają szybko i mają rozpoznawalnych ekspertów. Dlatego trzonem planu są trzy aktywa:
 1. **Energypedia Index**: miesięczny indeks rynkowych cen energii dla firm (mikro, MŚP, duże), liczony z anonimizowanych danych z zapytań ofertowych i ofert sprzedawców.
-2. **Kwartalny Barometr Energetyczny Polaków i Firm**: badanie na panelu internetowym (około 1000 gospodarstw i 500 firm) o rachunkach, nastrojach i planach inwestycyjnych.
+2. **Kwartalny Barometr Energetyczny Polaków i Firm**: własna ankieta internetowa (serwis, newsletter, media społecznościowe) o rachunkach, nastrojach i planach inwestycyjnych, z jawną metodyką i informacją, że próba nie jest reprezentatywna. Badanie na panelu reprezentatywnym tylko z decyzji naczelnego.
 3. **Redakcja z rozpoznawalnymi nazwiskami** oraz **Rada Ekspertów** (prawnik energetyczny, analityk rynku hurtowego, ekspert OZE, przedstawiciel samorządu, ekonomista).
 
 **Ryzyko celu.** Najtrudniejszy do osiągnięcia jest próg cytowań. Jeśli w kwietniu 2027 r. kwartalna liczba cytowań będzie poniżej 60, uruchamiamy plan B: partnerstwa treściowe z dużym medium ogólnopolskim, np. wspólny barometr publikowany przez dziennik gospodarczy (rozdział 8.5).
@@ -341,7 +343,7 @@ Jeśli w kwietniu 2027 r. cytowań jest poniżej progu, uruchamiamy:
 | 3 | **Leady gospodarstw domowych (energia)** | Zmiana sprzedawcy, taryfa dynamiczna, oferty pakietowe | 25–40 zł za lead | 6% | 6% |
 | 4 | **Leady OZE i efektywności** | PV, magazyny, pompy ciepła, ładowarki EV, audyty; sprzedaż do sieci certyfikowanych instalatorów | 80–200 zł za lead | 13% | 12% |
 | 5 | **Reklama programmatic** | Ograniczona liczba miejsc, bez wyskakujących okien | Przychód 10–14 zł na 1000 wizyt | 1% | 2% |
-| 6 | **Artykuły natywne i sponsorowane** | Oznaczone „Materiał partnera”, przygotowane przez studio treści (nie przez redakcję) | 4,5–6 tys. zł za publikację z dystrybucją | 16% | 11% |
+| 6 | **Artykuły natywne i sponsorowane** | Oznaczone „Materiał partnera”, przygotowane przez wydzielony zespół materiałów partnerskich (nie przez redakcję) | 4,5–6 tys. zł za publikację z dystrybucją | 16% | 11% |
 | 7 | **Sponsoring działów i akademii** | Np. „Akademia magazynów energii, partner: X”. Partner nie ma wpływu na treść, ma logo, wydarzenia i raport | 15–18 tys. zł miesięcznie, umowy co najmniej 6-miesięczne | 16% | 13% |
 | 8 | **Sponsoring newslettera** | Jeden partner na wydanie lub tydzień | 3–15 tys. zł miesięcznie (zależnie od liczby subskrybentów) | 2% | 2% |
 | 9 | **Energypedia PRO** | Abonament dla firm: alerty cenowe, Index w pełnej wersji, symulatory, raporty, eksport, konsultacja kwartalna | 199 / 299 / 990 zł miesięcznie (Start / Firma / Enterprise) | 4% | 16% |
@@ -431,7 +433,7 @@ Szyfrowanie danych, minimalizacja (faktury usuwane po 24 godzinach bez zgody na 
 
 ### 13.3. Sposób budowy
 
-MVP budowany przez software house (koszt około 280 tys. zł w okresie XI 2026 – I 2027 **[Z]**), równolegle zatrudnienie 1 dewelopera wewnętrznego (od stycznia 2027 r.) i drugiego w czerwcu 2027 r. Od II połowy 2027 r. produkt jest rozwijany wewnętrznie. Własny kod i dane to wartość firmy przy wycenie.
+Serwis, narzędzia i asystenta AI budujemy samodzielnie: naczelny z Claude Code jako narzędziem programistycznym i z wirtualnym zespołem ról AI (decyzja z 22.10.2026 r.). Nie korzystamy z software house'u ani wykonawców i nie zbieramy ofert. Własny kod i dane to wartość firmy.
 
 ---
 
@@ -442,25 +444,20 @@ MVP budowany przez software house (koszt około 280 tys. zł w okresie XI 2026 �
 | Obszar | Rola | Od | Koszt miesięczny (z narzutami) **[Z]** |
 |---|---|---|---:|
 | Zarząd | Właściciel lub CEO (wydawca, sprzedaż strategiczna) | XI 2026 r. | poza modelem (wynagrodzenie właściciela wg decyzji) |
-| Redakcja | Redaktor naczelny lub naczelna | XI 2026 r. | 18 000 |
-| Redakcja | Analityk lub dziennikarz × 3 | XI 2026 r. – XII 2026 r. | 36 000 |
-| Dane | Analityk danych (Index, barometr) | III 2027 r. | 13 000 |
-| Produkt | Product designer (UX/UI) | XI 2026 r. | 15 000 |
-| SEO | Lider SEO i bazy wiedzy | XI 2026 r. | 14 000 |
+| Redakcja, produkt, dane, SEO i technologia | Redaktor naczelny (Mariusz Lach) z wirtualnym zespołem ról AI (`zespol/`) i Claude Code | XI 2026 r. | poza modelem (właściciel) |
 | Marketing | Growth marketer (kanały płatne, newsletter, social) | XII 2026 r. | 14 000 |
-| Technologia | Deweloperzy × 2 | I 2027 r. / VI 2027 r. | 40 000 |
 | Sprzedaż | Key account (leady, sponsoring, PRO) i prowizja | I 2027 r. | 12 000 |
 | Leady | Specjalista weryfikacji leadów × 2 | I 2027 r. / III 2027 r. | 14 000 |
 | Regiony | Koordynator programu regionalnego | III 2027 r. | 10 000 |
-| **Razem** | około 14–15 osób | | **około 186 000** |
+| **Razem** | naczelny + 5 etatów | | **około 50 000** (od 2028 r. w modelu 62 000) |
 
-Do tego dochodzą: Rada Ekspertów i freelancerzy (12 tys. zł miesięcznie), obsługa prawna, księgowość i inspektor ochrony danych (9 tys. zł miesięcznie) oraz studio treści natywnych (na zlecenie, opłacane z marży).
+Do tego dochodzą: księgowość, opłaty urzędowe i ubezpieczenia (9 tys. zł miesięcznie w modelu). Rada Ekspertów działa bez wynagrodzeń (współpraca honorowa). Dokumenty prawne przygotowuje rola Prawnik z wirtualnego zespołu, a decyzję podejmuje naczelny. Materiały partnerów przygotowuje wydzielona rola poza redakcją (Specjalista kampanii z Prawnikiem), nie studio zewnętrzne.
 
 ### 14.2. Kluczowe zatrudnienia (najwyższe ryzyko)
 
-1. **Redaktor naczelny lub naczelna:** bez rozpoznawalnego nazwiska cel opiniotwórczości w 8 miesięcy jest mało realny. Rozważ udział w zysku lub opcje.
+1. **Przepustowość naczelnego:** redakcja, budowa serwisu i asystenta AI spoczywają na jednej osobie z wirtualnym zespołem. Granicą jest czas na weryfikację treści, a nie ich pisanie.
 2. **Szef sprzedaży B2B z kontaktami w spółkach obrotu.**
-3. **Lider SEO** z doświadczeniem w dużych serwisach poradnikowych lub porównywarkach.
+3. **Specjaliści weryfikacji leadów:** jakość leadów decyduje o odnowieniach umów.
 
 ### 14.3. Kultura i procesy
 
@@ -480,14 +477,14 @@ Cotygodniowy przegląd KPI, kwartalne cele (OKR), statut redakcyjny, kodeks rozd
 
 | Miesiąc | Produkt i technologia | Treści i redakcja | Marketing i PR | Sprzedaż i partnerzy | Kamienie milowe |
 |---|---|---|---|---|---|
-| **XI 2026** | Wybór software house; makiety i projekt UX; architektura danych | Rekrutacja naczelnego i 1 analityka; mapa 3000 fraz; 100 pierwszych haseł | Badanie nazwy i znaku; identyfikacja wizualna; zajęcie profili społecznościowych | Lista 40 docelowych sprzedawców; wywiady z 10 sprzedawcami (cennik leadów) | Spółka założona; finansowanie zapewnione; naczelny podpisany |
-| **XII 2026** | Wersja beta: CMS, baza wiedzy, kalkulator taryf, Index (beta) | **Miękki start w dniu ogłoszenia taryf URE na 2027 r.**: serwis z newsami i 200 hasłami; 2 dziennikarzy | Pokój prasowy, baza dziennikarzy, monitoring mediów; newsletter (lista oczekujących) | Listy intencyjne od 3 kupujących leady | Pierwsze cytowania; 25 tys. wizyt |
-| **I 2027** | **Start publiczny**: analizator faktury, porównywarka z całkowitym kosztem, generator zapytań ofertowych, CRM leadów | 250 haseł, 40 poradników, 16 stron regionalnych; **Index #1** | **Kampania startowa** (180 tys. zł); pierwszy barometr (badanie) | 5 kupujących leady; pierwsze przychody z leadów | 90 tys. wizyt; 40 leadów MŚP |
+| **XI 2026** | Budowa serwisu i asystenta AI we własnym zakresie (Next.js, Payload, PostgreSQL z pgvector); makiety i projekt UX gotowe | Naczelny z wirtualnym zespołem; mapa tematów; pierwsze hasła i poradniki | Własne badanie nazwy w bazach znaków; identyfikacja wizualna gotowa; zajęcie profili społecznościowych | Lista 40 docelowych sprzedawców; wywiady z 10 sprzedawcami (cennik leadów) | Spółka założona; finansowanie zapewnione; asystent AI przechodzi pierwsze testy |
+| **XII 2026** | Wersja beta: CMS, baza wiedzy, kalkulator taryf, Index (beta) | **Start serwisu z asystentem AI** (termin w `PLAN_MVP_do_konca_2026.md`): newsy, 120 haseł, temat miesiąca; pakiet taryfowy w dniu decyzji URE | Pokój prasowy, baza dziennikarzy, własny monitoring mediów; newsletter (lista oczekujących) | Listy intencyjne od 3 kupujących leady | Pierwsze cytowania; 25 tys. wizyt |
+| **I 2027** | **Start publiczny**: analizator faktury, porównywarka z całkowitym kosztem, generator zapytań ofertowych, CRM leadów | 250 haseł, 40 poradników, 16 stron regionalnych; **Index #1** | **Kampania startowa** (180 tys. zł, prowadzona samodzielnie); pierwszy Barometr Odbiorców (własna ankieta) | 5 kupujących leady; pierwsze przychody z leadów | 90 tys. wizyt; 40 leadów MŚP |
 | **II 2027** | Kalkulator PV, magazynu i pompy ciepła; panel partnera | Seria wideo „Rachunek bez tajemnic”; **Barometr I kw.** (publikacja) | LinkedIn Live; partnerstwa z izbami | Sieć instalatorów OZE (leady); pierwsze artykuły natywne | 140 tys. wizyt |
 | **III 2027** | Przypominajka o końcu umowy; aplikacja mobilna jako PWA | 120 nowych haseł; komentarze w radiu regionalnym | Rekrutacja 16 ambasadorów regionalnych | Pierwszy pakiet sponsoringu działu; **pierwsze śniadanie energetyczne** | 200 tys. wizyt; 8 kupujących leady |
 | **IV 2027** | Asystent AI 2.0 (dane z Barometru, połączenie z kalkulatorami; wersja 1.0 działa od startu MVP); **start Energypedia PRO** | Barometr I kw. w podziale na regiony (16 informacji prasowych) | Kampania PRO dla firm | Pierwszy kontrakt dużego odbiorcy (success fee); pierwsza licencja danych | **Przegląd celu „top 3”**: decyzja o planie B |
 | **V 2027** | Mapa regionalna; API danych (beta) | Raport „Rynek energii dla firm 2027” (szkic) | Zapowiedzi kongresu | 2 pakiety sponsoringu; sprzedaż kongresu | 320 tys. wizyt |
-| **VI 2027** | Drugi deweloper; optymalizacja konwersji | **Raport roczny i Kongres Odbiorców Energii** | Kampania raportu; media ogólnopolskie | 15 kupujących leady; 3 pakiety sponsoringu; 40 abonentów PRO | **Ocena celu: zasięg, cytowania, autorytet**; 400 tys. wizyt |
+| **VI 2027** | Optymalizacja konwersji; rozwój asystenta AI na podstawie pytań czytelników | **Raport roczny i Kongres Odbiorców Energii** | Kampania raportu; media ogólnopolskie | 15 kupujących leady; 3 pakiety sponsoringu; 40 abonentów PRO | **Ocena celu: zasięg, cytowania, autorytet**; 400 tys. wizyt |
 
 ---
 
@@ -499,24 +496,24 @@ Cotygodniowy przegląd KPI, kwartalne cele (OKR), statut redakcyjny, kodeks rozd
 
 | Pozycja | Kwota | Kiedy |
 |---|---:|---|
-| Identyfikacja marki (strategia, logo, system wizualny, system wykresów) | 60 000 | XI 2026 r. |
-| MVP serwisu i narzędzi (software house) | 280 000 | XI 2026 r. – I 2027 r. |
-| Obsługa prawna na start (opinia o modelu, regulaminy, DPIA, umowy) | 30 000 | XI 2026 r. |
-| Znak towarowy, domeny | 4 000 | XI 2026 r. |
-| Rozbudowa platformy (API, panel partnera, mapa) | 40 000 | VI 2027 r. |
-| **Razem** | **414 000** | |
+| Identyfikacja marki (logo, system wizualny, system wykresów) | 0 (gotowa, wykonana samodzielnie) | X 2026 r. |
+| Serwis, narzędzia i asystent AI | 0 (budujemy samodzielnie) | XI 2026 r. – 2027 r. |
+| Dokumenty prawne (regulaminy, DPIA, umowy) | 0 (rola Prawnik, decyzja naczelnego) | XI 2026 r. |
+| Znak towarowy, domeny (opłaty) | 4 000 [DO WERYFIKACJI: opłaty urzędowe UPRP lub EUIPO] | XI 2026 r. |
+| Rozbudowa platformy (API, panel partnera, mapa) | 0 (budujemy samodzielnie) | 2027 r. |
+| **Razem** | **4 000** | |
 
 ### 16.2. Koszty operacyjne miesięcznie (scenariusz bazowy)
 
 | Pozycja | XI 2026 | I 2027 | VI 2027 | 2028 (miesięcznie) |
 |---|---:|---:|---:|---:|
-| Zespół | 59 000 | 136 000 | 186 000 | 230 000 |
+| Zespół (poza redakcją i technologią) | 0 | 33 000 | 50 000 | 62 000 |
 | Marketing i PR | 0 | 180 000 | 120 000 | 90 000 |
-| Rada Ekspertów i freelancerzy | 0 | 12 000 | 12 000 | 15 000 |
-| Technologia (hosting, SaaS, AI, CRM) | 4 000 | 9 000 | 12 000 | 15 000 |
-| Licencje danych | 0 | 4 000 | 4 000 | 6 000 |
-| Badania (barometr co kwartał) | 0 | 20 000 | 0 (IV: 20 000) | średnio 6 667 |
-| Prawo, IOD, księgowość | 9 000 | 9 000 | 9 000 | 9 000 |
+| Rada Ekspertów | 0 | 0 | 0 | 0 |
+| Technologia (hosting, SaaS, model językowy asystenta AI, CRM) | 4 000 | 9 000 | 12 000 | 15 000 |
+| Licencje danych (według publicznych cenników) | 0 | 4 000 | 4 000 | 6 000 |
+| Badania (Barometr Odbiorców: własna ankieta) | 0 | 0 | 0 | 0 |
+| Księgowość, opłaty, ubezpieczenia | 9 000 | 9 000 | 9 000 | 9 000 |
 | Biuro i inne | 6 000 | 6 000 | 9 000 | 9 000 |
 | Koszty zmienne (weryfikacja leadów: 25 zł za lead MŚP i 5 zł za lead GD/OZE; prowizje 10% od sponsoringu) | – | około 2 200 | około 27 600 | rośnie z przychodem |
 
@@ -538,34 +535,34 @@ Cotygodniowy przegląd KPI, kwartalne cele (OKR), statut redakcyjny, kodeks rozd
 | Dane, raporty, API | 0 | 0 | 0 | 0 | 0 | 8 000 | 8 000 | 20 000 | 20 000 | 35 000 | 50 000 | 70 000 |
 | Wydarzenia | 0 | 0 | 0 | 0 | 18 000 | 18 000 | 18 000 | 36 000 | 36 000 | 36 000 | 54 000 | 54 000 |
 | **PRZYCHODY** | **0** | **960** | **8 985** | **36 800** | **97 880** | **144 267** | **187 808** | **278 820** | **348 583** | **432 240** | **712 626** | **855 410** |
-| **KOSZTY (z CAPEX)** | 282 000 | 287 250 | 438 176 | 301 356 | 328 100 | 341 224 | 325 956 | 419 600 | 347 433 | 354 489 | 435 709 | 446 400 |
-| **WYNIK** | −282 000 | −286 290 | −429 191 | −264 556 | −230 220 | −196 958 | −138 148 | −140 780 | 1 150 | 77 751 | 276 917 | 409 010 |
-| **Wynik skumulowany** | −282 000 | −568 290 | −997 481 | −1 262 037 | −1 492 257 | −1 689 215 | −1 827 363 | −1 968 143 | −2 068 793 | −1 900 279 | −550 067 | +1 581 878 |
+| **KOSZTY (z CAPEX)** | 23 000 | 82 250 | 243 176 | 186 356 | 200 100 | 193 224 | 197 956 | 231 600 | 199 433 | 206 489 | 252 709 | 263 400 |
+| **WYNIK** | −23 000 | −81 290 | −234 191 | −149 556 | −102 220 | −48 958 | −10 148 | +47 220 | +149 150 | +225 751 | +459 917 | +592 010 |
+| **Wynik skumulowany** | −23 000 | −104 290 | −338 481 | −488 037 | −590 257 | −639 215 | −649 362 | −602 142 | −238 793 | +393 721 | +2 881 933 | +6 151 878 |
 
 ### 16.4. Scenariusze
 
 | Scenariusz | Założenie | Przychody XI 26 – VI 27 | Przychody 2027 | Wynik 2027 | Przychody 2028 | Wynik 2028 | Maks. zapotrzebowanie na kapitał | Trwała rentowność od |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
-| **Ostrożny** | Ruch i sprzedaż ×0,6; koszty zespołu i marketingu ×0,85 | 0,45 mln | 1,77 mln | −1,91 mln | 5,28 mln | +0,84 mln | **2,45 mln** | II 2028 r. |
-| **Bazowy** | Jak w tabeli 16.3 | 0,76 mln | 2,96 mln | −1,33 mln | 8,80 mln | +3,48 mln | **2,07 mln** | IX 2027 r. |
-| **Ambitny** | Ruch i sprzedaż ×1,4; koszty ×1,15 | 1,06 mln | 4,14 mln | −0,76 mln | 12,32 mln | +6,13 mln | **1,98 mln** | VIII 2027 r. |
+| **Ostrożny** | Ruch i sprzedaż ×0,6; koszty zespołu i marketingu ×0,85 | 0,45 mln | 1,77 mln | −0,30 mln | 5,28 mln | +2,81 mln | **0,71 mln** | VII 2027 r. |
+| **Bazowy** | Jak w tabeli 16.3 | 0,76 mln | 2,96 mln | +0,50 mln | 8,80 mln | +5,76 mln | **0,65 mln** | VI 2027 r. |
+| **Ambitny** | Ruch i sprzedaż ×1,4; koszty ×1,15 | 1,06 mln | 4,14 mln | +1,30 mln | 12,32 mln | +8,70 mln | **0,65 mln** | V 2027 r. |
 
 **Wnioski z analizy wrażliwości:**
 - Największy wpływ na wynik mają **wolumen ruchu** i **konwersja na leady MŚP i OZE**. Wzrost konwersji o 0,01 pp. (0,07% → 0,08%) daje w czerwcu 2027 r. około 5,7 tys. zł miesięcznie więcej, a w grudniu 2028 r. około 18 tys. zł miesięcznie.
 - Abonament **PRO** w 2028 r. to około 16% przychodów i najbardziej „pasywny” strumień. Każde 100 abonentów to około 30 tys. zł miesięcznie.
-- Scenariusz ostrożny jest rentowny dopiero od lutego 2028 r. Warunek przeżycia to kapitał co najmniej 2,45 mln zł albo ograniczenie kosztów (rozdział 16.5).
+- Scenariusz ostrożny jest rentowny od lipca 2027 r. przy kapitale około 0,71 mln zł. Największą pozycją kosztów jest marketing (kampania startowa 180 tys. zł w styczniu 2027 r.).
 
-**Ważne ograniczenia modelu:** model nie uwzględnia wynagrodzenia właściciela, VAT (przepływy VAT są neutralne, ale obciążają płynność), podatku dochodowego (CIT 9% dla małego podatnika, do potwierdzenia z księgowym), terminów płatności partnerów (zwykle 14–30 dni, więc dochodzi potrzeba kapitału obrotowego około 1 miesiąca przychodów) ani amortyzacji. Przychody 2028 r. zakładają utrzymanie tempa wzrostu ruchu i rozbudowę sprzedaży. To najbardziej niepewna część prognozy.
+**Ważne ograniczenia modelu:** model nie uwzględnia wynagrodzenia właściciela (naczelnego, który buduje serwis i prowadzi redakcję), VAT (przepływy VAT są neutralne, ale obciążają płynność), podatku dochodowego (CIT 9% dla małego podatnika, do potwierdzenia z księgowym), terminów płatności partnerów (zwykle 14–30 dni, więc dochodzi potrzeba kapitału obrotowego około 1 miesiąca przychodów) ani amortyzacji. Przychody 2028 r. zakładają utrzymanie tempa wzrostu ruchu i rozbudowę sprzedaży. To najbardziej niepewna część prognozy.
 
-### 16.5. Wariant oszczędny (jeśli kapitał jest mniejszy niż 1 mln zł)
+### 16.5. Wariant oszczędny (jeśli kapitał jest mniejszy niż 0,5 mln zł)
 
-Zespół 6 osób (naczelny, 2 autorów, SEO, deweloper, sprzedaż), MVP na gotowych komponentach (CMS, kalkulatory, formularz zapytania), marketing 30–40 tys. zł miesięcznie, bez kongresu w 2027 r. Zapotrzebowanie na kapitał spada do około 0,9–1,1 mln zł, ale **cel „top 3” przesuwa się realnie na koniec 2027 r. lub I połowę 2028 r.** Rentowność też przesuwa się o 6–9 miesięcy.
+Marketing 35 tys. zł miesięcznie od stycznia 2027 r. zamiast kampanii startowej, przy założeniu wolniejszego wzrostu ruchu i sprzedaży (×0,6), bez kongresu w 2027 r. Według modelu zapotrzebowanie na kapitał spada do około 0,36 mln zł, ale **cel „top 3” przesuwa się realnie na koniec 2027 r. lub I połowę 2028 r.**
 
 ### 16.6. Finansowanie
 
 | Źródło | Plusy | Minusy | Rekomendacja |
 |---|---|---|---|
-| Kapitał własny i aniołowie biznesu (np. 20–30% udziałów za 2–2,6 mln zł) | Szybkość, kontakty | Rozwodnienie | **Rekomendowane** jako główne źródło; aniołowie z branży mediów lub energii (bez sprzedawców energii, ze względu na neutralność) |
+| Kapitał własny i aniołowie biznesu (zapotrzebowanie około 0,8 mln zł z rezerwą) | Szybkość, kontakty | Rozwodnienie | **Rekomendowane** jako główne źródło; aniołowie z branży mediów lub energii (bez sprzedawców energii, ze względu na neutralność) |
 | Fundusze VC (seed) | Większe kwoty | Oczekiwanie skali europejskiej | Jako opcja przy ekspansji (np. CEE) |
 | Inwestor strategiczny (grupa medialna) | Dystrybucja i zasięg | Utrata niezależności | Rozważyć jako partnerstwo treściowe, nie kapitał |
 | Inwestor z branży energetycznej | Kapitał, dane | **Podważa neutralność** | **Nie rekomendowane** |
@@ -607,7 +604,9 @@ Zespół 6 osób (naczelny, 2 autorów, SEO, deweloper, sprzedaż), MVP na gotow
 | 8 | **Opóźnienia CSIRE** **[Ź3]** utrudniające zmianę sprzedawcy | Średnie / niski | Edukacja, komunikacja w czasie rzeczywistym; to też okazja na cytowania |
 | 9 | **Błędy w kalkulatorach** (zła taryfa, nieaktualne opłaty) | Średnie / wysoki | Testy jednostkowe taryf, data aktualizacji przy wyniku, cykl weryfikacji, zgłaszanie błędów |
 | 10 | **Odejście kluczowej osoby** (naczelny, sprzedaż) | Średnie / wysoki | Opcje i udział w zysku, dokumentacja procesów, rozpoznawalna marka zbiorowa (Rada Ekspertów) |
-| 11 | **Opóźnienie MVP** | Średnie / średni | Miękki start w grudniu (treści), narzędzia wdrażane etapami, ograniczony zakres MVP |
+| 11 | **Opóźnienie MVP** | Średnie / średni | Start z ograniczonym zakresem treści, narzędzia wdrażane etapami, ograniczony zakres MVP |
+| 13 | **Przepustowość jednej osoby** (naczelny prowadzi redakcję i budowę serwisu) | Wysokie / wysoki | Wirtualny zespół ról AI do przygotowania treści i kodu, stały rytm tygodnia, zamrożenie zakresu na 2 tygodnie przed startem, priorytet: weryfikacja treści przed ilością |
+| 14 | **Błędna odpowiedź asystenta AI** (szkoda dla czytelnika i reputacji) | Średnie / wysoki | Odpowiedzi tylko z naszych treści z przypisami, odmowa poza zakresem, test na 200 pytaniach przed startem i co miesiąc, zgłaszanie błędów w każdej odpowiedzi, rejestr korekt (`ASYSTENT_AI_Energypedia.md`) |
 | 12 | **Płynność** (terminy płatności, sezonowość) | Średnie / średni | Rezerwa 25%, przedpłaty pakietów, faktoring |
 
 ---
@@ -621,21 +620,20 @@ Zespół 6 osób (naczelny, 2 autorów, SEO, deweloper, sprzedaż), MVP na gotow
 | Ceny leadów MŚP (120–400 zł) i gotowość do zakupu | 10 wywiadów z działami sprzedaży B2B spółek obrotu; 3 listy intencyjne | 15 XII 2026 r. |
 | Konwersja ruchu na leady (0,04–0,09%) | Testy na stronach docelowych z płatnym ruchem (budżet 10 tys. zł) w grudniu | 31 I 2027 r. |
 | Ceny leadów OZE (80–200 zł) | Rozmowy z 5 sieciami instalatorów i platformami leadowymi | 15 XII 2026 r. |
-| Próg „top 3” według ruchu i cytowań | Pomiar konkurencji (Similarweb), zamówienie raportu monitoringu mediów za 6 miesięcy | 30 XI 2026 r. |
+| Próg „top 3” według ruchu i cytowań | Pomiar konkurencji (Similarweb), własny monitoring cytowań w mediach i w wyszukiwarkach AI | 30 XI 2026 r. |
 | Liczba punktów poboru i odbiorców według segmentów | Dane URE, GUS i operatorów sieci | 30 XI 2026 r. |
-| Koszt MVP (280 tys. zł) | 3 oferty software house'ów na podstawie specyfikacji | 20 XI 2026 r. |
-| Status prawny modelu leadów i success fee | Opinia kancelarii (prawo energetyczne, RODO, prawo konsumenckie) | 10 XII 2026 r. |
-| Kolizja znaku *energypedia* | Badanie rzecznika patentowego | 10 XI 2026 r. |
-| Koszt licencji na dane rynkowe | Zapytanie ofertowe do dostawców danych | 30 XI 2026 r. |
+| Status prawny modelu leadów i success fee | Analiza roli Prawnik (prawo energetyczne, RODO, prawo konsumenckie) na źródłach pierwotnych; decyzja naczelnego | 10 XII 2026 r. |
+| Kolizja znaku *energypedia* | Własne wyszukiwanie w bazach UPRP, EUIPO (TMview) i WIPO | 10 XI 2026 r. |
+| Warunki korzystania z danych rynkowych | Regulaminy i publiczne cenniki TGE i innych źródeł; tam, gdzie licencja nie jest potrzebna, korzystamy z danych publicznych z przypisem | 30 XI 2026 r. |
 
 ### 19.2. Plan na pierwsze 30 dni (do 20 listopada 2026 r.)
 
-1. **Dni 1–5:** badanie nazwy i znaku; zabezpieczenie domen i profili; założenie spółki; rozmowy z 3 kandydatami na naczelnego.
-2. **Dni 1–10:** specyfikacja MVP (ten dokument, rozdział 7) i zapytanie do 3 software house'ów; wybór identyfikacji (konkurs na 2–3 agencje lub projektanta).
+1. **Dni 1–5:** własne badanie nazwy w bazach znaków; zabezpieczenie domen i profili; założenie spółki.
+2. **Dni 1–10:** specyfikacja MVP (ten dokument, rozdział 7, i `ARCHITEKTURA_serwisu_Energypedia.md`), start budowy serwisu i asystenta AI we własnym zakresie; identyfikacja wizualna gotowa.
 3. **Dni 5–20:** 10 wywiadów ze sprzedawcami energii i 5 z sieciami instalatorów OZE (weryfikacja cennika leadów).
 4. **Dni 10–25:** rozmowy z inwestorami (materiał: ten biznesplan i model); decyzja o wariancie (pełny albo oszczędny).
-5. **Dni 15–30:** kancelaria (opinia o modelu i dokumentach), firma monitoringu mediów, panel badawczy (barometr w styczniu); zatrudnienie naczelnego i lidera SEO.
-6. **Dzień 30:** komitet „go / no-go” w oparciu o wyniki wywiadów, ofert i finansowania; aktualizacja modelu.
+5. **Dni 15–30:** dokumenty prawne z rolą Prawnik, własny monitoring mediów, ankieta Barometru Odbiorców; przegląd postępu budowy serwisu i testów asystenta AI.
+6. **Dzień 30:** decyzja „go / no-go” w oparciu o wyniki wywiadów, stan serwisu i finansowania; aktualizacja modelu.
 
 ---
 
@@ -652,4 +650,4 @@ Zespół 6 osób (naczelny, 2 autorów, SEO, deweloper, sprzedaż), MVP na gotow
 - **[Ź9]** Rankingi najbardziej opiniotwórczych mediów (IMM): [imm.com.pl](https://www.imm.com.pl/tag/ranking), [mmponline.pl: IMM](https://mmponline.pl/szukaj/tagi/Instytut+Monitorowania+Medi%C3%B3w/)
 - **[Ź10]** Przykładowa komercyjna porównywarka: [enerad.pl: porównywarka cen prądu](https://enerad.pl/porownywarka-cen-pradu/)
 
-> **Zastrzeżenie.** Dane rynkowe pochodzą z publicznie dostępnych źródeł według stanu na październik 2026 r. Część z nich (np. ruch konkurentów) to deklaracje samych serwisów. Założenia finansowe **[Z]** są hipotezami do weryfikacji w procesie opisanym w rozdziale 19. Dokument nie stanowi porady prawnej ani podatkowej. Rozwiązania prawne wymagają potwierdzenia przez kancelarię.
+> **Zastrzeżenie.** Dane rynkowe pochodzą z publicznie dostępnych źródeł według stanu na październik 2026 r. Część z nich (np. ruch konkurentów) to deklaracje samych serwisów. Założenia finansowe **[Z]** są hipotezami do weryfikacji w procesie opisanym w rozdziale 19. Dokument nie stanowi porady prawnej ani podatkowej. Rozwiązania prawne przygotowuje rola Prawnik na źródłach pierwotnych; decyzję podejmuje naczelny.

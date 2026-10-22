@@ -2,7 +2,7 @@
 
 **Wersja:** 1.0 · **Data:** 21 października 2026 r. · **Powiązane dokumenty:** `BIZNESPLAN_Energypedia.md`, `PLAN_MVP_do_konca_2026.md`, `zespol/06_redaktor_seo_aeo_geo.md`, `zespol/07_prawnik.md`
 
-> **Cel dokumentu:** jedna, spójna specyfikacja dla wykonawcy serwisu, redakcji i sprzedaży. Opisuje architekturę informacji, wzorce stron, model treści, doświadczenie użytkownika, architekturę techniczną, **architekturę reklamową i partnerską**, prywatność i bezpieczeństwo, wydajność, SEO/AEO/GEO oraz etapy wdrożenia (MVP grudzień 2026 r. → 2028 r.).
+> **Cel dokumentu:** jedna, spójna specyfikacja dla budowy serwisu we własnym zakresie (naczelny z Claude Code), redakcji i sprzedaży. Serwisu, asystenta AI i narzędzi nie zlecamy na zewnątrz (decyzja z 22.10.2026 r.). Opisuje architekturę informacji, wzorce stron, model treści, doświadczenie użytkownika, architekturę techniczną, **architekturę reklamową i partnerską**, prywatność i bezpieczeństwo, wydajność, SEO/AEO/GEO oraz etapy wdrożenia (MVP grudzień 2026 r. → 2028 r.).
 
 ---
 
@@ -231,7 +231,7 @@ Dozwolone poniżej: [AD: EP_TOOL_BOTTOM] tylko kategorie niekonfliktowe (np. ban
 
 **Region / OSD / branża**: dane lokalne (stawki OSD, sprzedawca z urzędu, dotacje) · wydarzenia w regionie · [AD: EP_REGION_PARTNER] (Partner regionu) · lokalne newsy.
 
-**Materiał partnera** (`/partnerzy/{partner}/{slug}`): wyraźna etykieta „Materiał partnera / Reklama” nad tytułem i w metadanych; logo partnera; ramka „Ten materiał przygotował partner. Redakcja nie odpowiada za jego treść” (lub „przygotowany przez studio treści na zlecenie”); linki `rel="sponsored"`; brak reklam konkurencji partnera; wyłączony z rekomendacji redakcyjnych.
+**Materiał partnera** (`/partnerzy/{partner}/{slug}`): wyraźna etykieta „Materiał partnera / Reklama” nad tytułem i w metadanych; logo partnera; ramka „Ten materiał przygotował partner. Redakcja nie odpowiada za jego treść” (lub „przygotowany przez zespół materiałów partnerskich Energypedii na zamówienie partnera”); linki `rel="sponsored"`; brak reklam konkurencji partnera; wyłączony z rekomendacji redakcyjnych.
 
 ### 3.2. Zasady gęstości i jakości reklam
 - Zgodność ze standardami **Coalition for Better Ads**: bez wyskakujących okien, bez reklam pełnoekranowych z odliczaniem, bez autoodtwarzania wideo z dźwiękiem, sticky na telefonie do około 30% ekranu (u nas ≤ 15%).
@@ -306,6 +306,9 @@ Role: Naczelny (wszystko), Redaktor (szkice), Recenzent/Prawnik (komentarze, sta
 - **Osadzane wykresy** (`<iframe>` lub web component) z linkiem zwrotnym i licencją: mechanizm zdobywania linków i cytowań.
 
 ### 6.3. AI w serwisie
+
+> Asystent „Zapytaj Energypedię” jest jedną z głównych funkcji serwisu, działa od startu i budujemy go samodzielnie. Pełna specyfikacja: `ASYSTENT_AI_Energypedia.md`.
+
 - **„Zapytaj Energypedię”** (RAG): indeks wektorowy (np. pgvector) z treści opublikowanych i zbiorów danych → LLM generuje odpowiedź **wyłącznie z cytowanych fragmentów**, z linkami do źródeł, datą aktualizacji i oznaczeniem „Odpowiedź wygenerowana przez AI” (AI Act). Odmowa przy pytaniach spoza zakresu lub o charakterze porady prawnej indywidualnej (odesłanie do poradnika lub Rzecznika).
 - **Bezpieczeństwo:** filtry treści, ochrona przed prompt injection z treści użytkownika, limity zapytań, brak danych osobowych w logach, umowa powierzenia z dostawcą LLM i przetwarzanie w UE, jeśli to możliwe.
 - **Wewnętrznie:** wsparcie redakcji (wirtualny zespół), automatyczne propozycje linków wewnętrznych, wykrywanie treści do aktualizacji, transkrypcje i wersje audio.
@@ -442,7 +445,7 @@ flowchart TB
 ### 9.2. Stos technologiczny (rekomendacja)
 | Warstwa | Wybór | Dlaczego |
 |---|---|---|
-| Front-end | **Next.js** (aktualna wersja stabilna), React Server Components, TypeScript | SEO, wydajność, ekosystem, łatwa rekrutacja wykonawców |
+| Front-end | **Next.js** (aktualna wersja stabilna), React Server Components, TypeScript | SEO, wydajność, ekosystem, dobra obsługa w Claude Code |
 | CMS | **Payload CMS** (open source, w aplikacji Next.js, PostgreSQL); alternatywa: Sanity | Dane w UE i we własnej bazie, brak opłat za użytkowników, pełna kontrola modelu treści i ról; alternatywa: wygodniejsza edycja w chmurze |
 | Baza | **PostgreSQL** (zarządzany, region UE) + pgvector | Jedno źródło prawdy: treści, dane, leady, zgody, wektory |
 | Wyszukiwarka | **Typesense** lub Meilisearch (hostowane w UE) | Szybkie, tanie, wyszukiwanie z literówkami po polsku; wektory w Postgres dla AI |
@@ -532,14 +535,14 @@ flowchart LR
 
 ## 15. Etapy wdrożenia i budżet
 
-| Etap | Termin | Zakres | Koszt orientacyjny (netto) |
+| Etap | Termin | Zakres | Wykonanie |
 |---|---|---|---|
-| **0. MVP treściowe** | do 10.12.2026 r. | Next.js + Payload CMS + PostgreSQL; szablony: główna, artykuł, hasło, poradnik, przewodnik, tracker, Barometr/dane, region, autor, strony zaufania, `/reklama` (media kit), `/prasa`; wyszukiwarka i asystent „Zapytaj Energypedię” (RAG na opublikowanych treściach; decyzja naczelnego 22.10.2026 r.); wykresy z eksportem; newsletter; CMP TCF 2.2 + Consent Mode v2; analityka; **GAM ze slotami i reklamami własnymi** (rezerwacja miejsc, bez sprzedaży do stycznia); SEO techniczne; dostępność | 60–90 tys. zł (zgodnie z planem MVP) |
-| **1. Narzędzia i monetyzacja** | I kw. 2027 r. | Kalkulator taryf, analizator faktury, porównywarka, generator zapytań; konto (passkeys); leady + rejestr zgód + portal partnera v1; materiały partnerów i sponsoring w CMS; kampanie bezpośrednie i programmatic; raporty kampanii; asystent AI (beta); PWA | 200–280 tys. zł |
-| **2. Skala i dane** | II–III kw. 2027 r. | PRO (bez reklam, alerty, panel), API danych, osadzane wykresy, mapa regionalna, wydarzenia, panel reklamodawcy, kalendarz rezerwacji, Prebid.js (przy ruchu ≥ 1 mln odsłon), Gemius/Mediapanel | 150–250 tys. zł |
-| **3. Automatyzacja** | 2028 r. | Samoobsługowy zakup reklam, marketplace partnerów, serwer MCP, wersja angielska (opcja), wideo z pre-roll | wg potrzeb |
+| **0. MVP treściowe** | do 10.12.2026 r. | Next.js + Payload CMS + PostgreSQL; szablony: główna, artykuł, hasło, poradnik, przewodnik, tracker, Barometr/dane, region, autor, strony zaufania, `/reklama` (media kit), `/prasa`; wyszukiwarka i asystent „Zapytaj Energypedię” (RAG na opublikowanych treściach; decyzja naczelnego 22.10.2026 r.); wykresy z eksportem; newsletter; CMP TCF 2.2 + Consent Mode v2; analityka; **GAM ze slotami i reklamami własnymi** (rezerwacja miejsc, bez sprzedaży do stycznia); SEO techniczne; dostępność | samodzielnie (naczelny + Claude Code) |
+| **1. Narzędzia i monetyzacja** | I kw. 2027 r. | Kalkulator taryf, analizator faktury, porównywarka, generator zapytań; konto (passkeys); leady + rejestr zgód + portal partnera v1; materiały partnerów i sponsoring w CMS; kampanie bezpośrednie i programmatic; raporty kampanii; asystent AI (beta); PWA | samodzielnie (naczelny + Claude Code) |
+| **2. Skala i dane** | II–III kw. 2027 r. | PRO (bez reklam, alerty, panel), API danych, osadzane wykresy, mapa regionalna, wydarzenia, panel reklamodawcy, kalendarz rezerwacji, Prebid.js (przy ruchu ≥ 1 mln odsłon), Gemius/Mediapanel | samodzielnie (naczelny + Claude Code) |
+| **3. Automatyzacja** | 2028 r. | Samoobsługowy zakup reklam, marketplace partnerów, serwer MCP, wersja angielska (opcja), wideo z pre-roll | samodzielnie (naczelny + Claude Code) |
 
-**Koszty stałe (miesięcznie, po etapie 1):** hosting i baza 1–3 tys. zł, wyszukiwarka 0,3–1 tys. zł, CMP 0,2–1 tys. zł, ESP 0,3–1,5 tys. zł, LLM i OCR 1–5 tys. zł (zależnie od ruchu), monitoring i narzędzia 0,5–1,5 tys. zł [szacunki do weryfikacji w ofertach].
+**Koszty stałe (miesięcznie, po etapie 1; to jedyne koszty technologii, bo budujemy sami):** hosting i baza 1–3 tys. zł, wyszukiwarka 0,3–1 tys. zł, CMP 0,2–1 tys. zł, ESP 0,3–1,5 tys. zł, LLM i OCR 1–5 tys. zł (zależnie od ruchu), monitoring i narzędzia 0,5–1,5 tys. zł [szacunki do weryfikacji w ofertach].
 
 ---
 
@@ -559,7 +562,8 @@ flowchart LR
 | ADR-10 | Dział gazu | Od II kw. 2027 r. | W MVP | **Decyzja: od II kw. 2027 (22.10.2026)** |
 | ADR-11 | Rankingi | Od 2027 r., jawna metodyka, produkty jako zestawienia parametrów | Rankingi „najlepszy” bez testów | Tak, metodyka po przeglądzie Prawnika |
 | ADR-12 | Profile partnerów | Dwie strefy: redakcji (nieedytowalna) i partnera (edycja w portalu, moderacja, pakiety Plus i Premium) | Firma edytuje cały profil; profil jako zwykły artykuł sponsorowany | Rekomendacja: tak; ceny i termin sprzedaży do decyzji naczelnego |
-| ADR-13 | Asystent AI | W MVP od startu, wyłącznie na treściach Energypedii, z przypisami i odmową poza zakresem | Asystent od 2027 r. | **Decyzja: od startu (22.10.2026)** |
+| ADR-13 | Asystent AI | W MVP od startu, budowany samodzielnie, wyłącznie na treściach Energypedii, z przypisami i odmową poza zakresem; jedna z głównych funkcji serwisu (`ASYSTENT_AI_Energypedia.md`) | Asystent od 2027 r. lub gotowa usługa czatu | **Decyzja: od startu, własna budowa (22.10.2026)** |
+| ADR-14 | Sposób budowy | Serwis, narzędzia, asystent AI i treści robimy samodzielnie; bez wykonawców, agencji i zapytań ofertowych | Software house | **Decyzja (22.10.2026)** |
 
 **Ryzyka:**
 | Ryzyko | Ograniczenie |
@@ -574,4 +578,4 @@ flowchart LR
 
 ---
 
-> **Następny krok:** na podstawie tego dokumentu przygotować **brief dla wykonawcy** (zakres etapu 0, kryteria odbioru, harmonogram 30.10–10.12.2026 r.) i zebrać 2–3 oferty. Kryteria odbioru etapu 0: szablony z rozdz. 3, model treści z rozdz. 4, cele z rozdz. 11, CMP i sloty reklamowe z rozdz. 7.3, kontrole przed publikacją z rozdz. 13.
+> **Następny krok:** budowa etapu 0 we własnym zakresie według tego dokumentu i `ASYSTENT_AI_Energypedia.md`. Kryteria odbioru etapu 0: szablony z rozdz. 3, model treści z rozdz. 4, cele z rozdz. 11, CMP i sloty reklamowe z rozdz. 7.3, kontrole przed publikacją z rozdz. 13, testy asystenta AI na 200 pytaniach.

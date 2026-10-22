@@ -30,7 +30,7 @@ W Claude (claude.ai lub aplikacja) utwórz **7 projektów**, np. „EP | Recenze
      - Social: kalendarz wydarzeń, biblioteka odpowiedzi, statystyki z poprzedniego miesiąca;
      - Kampanie: plan pomiaru, eksporty wyników kampanii, ceny leadów;
      - Sprzedaż: aktualny media kit, cennik, pipeline, wzory umów;
-     - Prawnik: rejestr aktów i komunikatów (radar prawny), wzory dokumentów, podpisane umowy bez danych osobowych, opinie zewnętrzne kancelarii;
+     - Prawnik: rejestr aktów i komunikatów (radar prawny), wzory dokumentów, podpisane umowy bez danych osobowych, opinie prawne przygotowane przez rolę Prawnik;
      - Redaktor SEO: mapa tematów i plan publikacji, rejestr opublikowanych adresów, przewodnik stylu, lista opublikowanych adresów (do linkowania), eksporty z Google Search Console.
 3. **Narzędzia:** włącz **wyszukiwanie w sieci** we wszystkich projektach (fakty zmieniają się szybko). U Analityka włącz też **analizę danych / wykonywanie kodu**.
 4. **Test startowy:** w każdym projekcie napisz: „Przedstaw się, opisz w 5 punktach, jak będziesz pracować, i zadaj mi 3 pytania, których odpowiedzi poprawią Twoją pracę”. Odpowiedzi dopisz do wiedzy projektu.

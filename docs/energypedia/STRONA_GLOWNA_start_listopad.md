@@ -32,7 +32,7 @@ Stan: propozycja z 22.10.2026 r., zaktualizowana po decyzjach naczelnego z tego 
 Obecny plan zakłada stronę „wkrótce” od 6 XI, gotowość serwisu 10 XII i miękki start w dniu decyzji URE o taryfach. Według planu produkcji na koniec listopada będzie około 18 publikacji i 75 haseł, a szablony stron mają być gotowe 27 XI.
 
 **Rekomendacja: start publiczny w poniedziałek 30 listopada 2026 r., z tą stroną główną w wersji startowej.** Następnie w dniu decyzji URE strona przełącza się w „tryb taryf”, co daje drugi impuls medialny. Warunki:
-- szablony i SEO techniczne przyspieszone o około tydzień (wykonawca: termin 27 XI to minimum);
+- szablony i SEO techniczne przyspieszone o około tydzień (budujemy sami, więc to kwestia priorytetów naczelnego, a nie umowy z wykonawcą);
 - strona „wkrótce” od 6 XI już z zapisem „Powiadom mnie o taryfach 2027”, żeby w dniu startu mieć bazę;
 - treści fali 1 o taryfach, rachunku, zmianie sprzedawcy i magazynach energii gotowe do 27 XI.
 
@@ -89,7 +89,7 @@ Kolejność dla komputera; na telefonie ta sama treść w jednej kolumnie (róż
 **Promocja:** newsletter z odliczaniem do końca listopada, informacja prasowa z terminem (media regionalne), krótkie wideo „kiedy wypowiedzieć umowę”, pytania z tematu w asystencie AI.
 
 **Termin startu a temat.** Jeżeli przepis potwierdzi się, termin „do 30 listopada” jest najmocniejszym argumentem tematu, ale traci sens przy starcie 30 XI. Dwie możliwości:
-- **A (rekomendowana, jeśli wykonawca potwierdzi szablony i asystenta do 12 XI):** start publiczny w poniedziałek 16 listopada; temat i asystent jako trzon strony, reszta treści dochodzi w kolejnych dniach. Odbiorcy mają dwa tygodnie na decyzję, a media dostają temat z terminem.
+- **A (rekomendowana, jeśli szablony i prototyp asystenta przejdą testy do 12 XI; harmonogram w `ASYSTENT_AI_Energypedia.md`, rozdz. 10):** start publiczny w poniedziałek 16 listopada; temat i asystent jako trzon strony, reszta treści dochodzi w kolejnych dniach. Odbiorcy mają dwa tygodnie na decyzję, a media dostają temat z terminem.
 - **B:** start 30 XI zgodnie z wcześniejszą propozycją; temat prowadzimy jako „zmiana od 1 lutego i decyzja po taryfach URE”. Bezpieczniej technicznie, słabszy temat medialny.
 
 ## 4. Telefon: różnice

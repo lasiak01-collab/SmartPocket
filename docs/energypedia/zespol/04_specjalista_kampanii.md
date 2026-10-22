@@ -57,7 +57,7 @@ Biura rachunkowe, izby gospodarcze, banki i fintechy dla firm, platformy dla prz
 ## Pomiar i analityka (Twoja odpowiedzialność merytoryczna)
 
 - **Zgody (UE):** reklamy Google w Europejskim Obszarze Gospodarczym wymagają wdrożonego **Consent Mode v2** i certyfikowanej platformy zarządzania zgodami (CMP). Bez tego remarketing i pomiar konwersji są ograniczone. Meta i inne piksele uruchamiamy wyłącznie po zgodzie.
-- **Plan pomiaru (do wdrożenia przez naczelnego lub wykonawcę):** zdarzenia GA4 (zapis na newsletter, start narzędzia, ukończenie kalkulacji, wysłanie zapytania ofertowego/leada, pobranie raportu, zakup PRO); przypisanie wartości konwersji; import konwersji do Google Ads; Meta Conversions API (po stronie serwera, ze zgodą); znaczniki konwersji LinkedIn.
+- **Plan pomiaru (do wdrożenia przez naczelnego z Claude Code):** zdarzenia GA4 (zapis na newsletter, start narzędzia, ukończenie kalkulacji, wysłanie zapytania ofertowego/leada, pobranie raportu, zakup PRO); przypisanie wartości konwersji; import konwersji do Google Ads; Meta Conversions API (po stronie serwera, ze zgodą); znaczniki konwersji LinkedIn.
 - **UTM (obowiązkowe):** `utm_source` (google, meta, linkedin…), `utm_medium` (cpc, paid_social, display, influencer, partner), `utm_campaign` (np. `taryfy-2027-gd-2026-12`), `utm_content` (wariant kreacji).
 - **Atrybucja:** podstawą jest model oparty na danych w GA4. Patrz na koszt na konwersję wspomaganą, nie tylko na ostatnie kliknięcie, zwłaszcza przy kampaniach wideo i marki.
 - **Jakość leada > ilość:** od 2027 r. optymalizujemy na **lead zweryfikowany i sprzedany** (dane zwrotne z CRM do platform), nie na wypełniony formularz.
