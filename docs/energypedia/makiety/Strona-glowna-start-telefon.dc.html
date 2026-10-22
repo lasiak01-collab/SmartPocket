@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Energypedia – strona główna na start, telefon</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&amp;family=Space+Grotesk:wght@300..700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}a:hover{text-decoration:underline}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid #00C2A8;outline-offset:2px}
+.ep-btn{transition:transform .12s ease}
+.ep-btn:active{transform:scale(.97)}
+.ep-live{display:inline-block;width:8px;height:8px;border-radius:999px;background:#00C2A8;animation:ep-pulse 2s ease-in-out infinite}
+@keyframes ep-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.ep-word{display:inline-block;animation:ep-in .45s ease}
+@keyframes ep-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+.ep-e rect{transform-box:fill-box;transform-origin:left center}
+.ep-anim .spine{transform-origin:center bottom;animation:epGrowY .5s cubic-bezier(.2,.8,.2,1) both}
+.ep-anim .top{animation:epGrowX .5s cubic-bezier(.2,.8,.2,1) .15s both}
+.ep-anim .mid{animation:epGrowX .5s cubic-bezier(.2,.8,.2,1) .3s both,epRead 6s ease-in-out 1.4s infinite}
+.ep-anim .bot{animation:epGrowX .5s cubic-bezier(.2,.8,.2,1) .45s both}
+@keyframes epGrowY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes epGrowX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes epRead{0%{transform:scaleX(1)}30%{transform:scaleX(1.12)}55%{transform:scaleX(.92)}80%{transform:scaleX(1.05)}100%{transform:scaleX(1)}}
+@media (prefers-reduced-motion: reduce){.ep-e rect{animation:none !important}}
+.ep-sheet{transition:transform .28s cubic-bezier(.2,.8,.2,1)}
+.ep-scrim{transition:opacity .2s ease}
+.ep-tab:active{transform:scale(.96)}
+@media (prefers-reduced-motion: reduce){.ep-sheet,.ep-scrim{transition:none}}
+</style>
+</helmet>
+<div style="{{rootStyle}}">
+<a href="#tresc" class="ep-skip">Przejdź do treści</a>
+
+  <div style="background: var(--ep-inv-bg); color: var(--ep-inv-ink); font-size: 14px">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 8px 16px; display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center">
+      <strong style="font-family: 'Space Grotesk', sans-serif">{{dayLabel}}</strong>
+      <a href="#temat" style="display: inline-flex; gap: 8px; align-items: center"><span class="ep-live" aria-hidden="true"></span>Temat miesiąca: do kiedy wypowiedzieć umowę na prąd?</a>
+      
+    </div>
+  </div>
+  <header style="height: 60px; padding: 0 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--ep-line); background: var(--ep-surface)">
+    <a href="#" aria-label="Energypedia.pl – strona główna" style="display: flex; align-items: center; flex: 1 1 auto; text-decoration: none">
+      <svg width="227" height="30" viewBox="18 18 617.59 81.7" aria-hidden="true" style="display: block"><g class="ep-e ep-anim"><rect class="spine" x="18" y="18" width="18" height="72" rx="6" style="fill: var(--ep-ink)"></rect><rect class="top" x="18" y="18" width="72" height="18" rx="6" style="fill: var(--ep-ink)"></rect><rect class="mid" x="44" y="45" width="40" height="18" rx="6" fill="#00C2A8"></rect><rect class="bot" x="18" y="72" width="60" height="18" rx="6" style="fill: var(--ep-ink)"></rect></g><path d="M137.7 81.3Q131.3 81.3 126.5 78.5Q121.6 75.8 118.9 71Q116.1 66.1 116.1 59.9Q116.1 53.1 118.8 48.1Q121.5 43.1 126.2 40.3Q130.9 37.5 137.1 37.5Q143.6 37.5 148.2 40.6Q152.7 43.6 154.9 49.2Q157.1 54.8 156.5 62.3H146.1V58.5Q146.1 52.1 144.1 49.3Q142.1 46.6 137.5 46.6Q132.2 46.6 129.7 49.8Q127.2 53 127.2 59.4Q127.2 65.2 129.7 68.3Q132.2 71.5 137.1 71.5Q140.2 71.5 142.3 70.2Q144.5 68.8 145.7 66.3L156.1 69.3Q153.8 75 148.7 78.1Q143.7 81.3 137.7 81.3ZM123.9 62.3V54.5H151.4V62.3ZM188.8 80.1V60.5Q188.8 59.1 188.6 56.9Q188.5 54.7 187.7 52.5Q186.8 50.2 185 48.7Q183.2 47.2 179.9 47.2Q178.5 47.2 177 47.7Q175.4 48.1 174.1 49.3Q172.8 50.5 171.9 52.8Q171 55.2 171 59.1L165 56.2Q165 51.3 167 47Q169 42.7 173 40.1Q177.1 37.4 183.2 37.4Q188 37.4 191.1 39.1Q194.2 40.7 195.9 43.2Q197.6 45.8 198.3 48.5Q199.1 51.3 199.2 53.5Q199.4 55.8 199.4 56.8V80.1ZM160.4 80.1V38.6H169.7V52.4H171V80.1ZM224.4 81.3Q218 81.3 213.2 78.5Q208.3 75.8 205.6 71Q202.8 66.1 202.8 59.9Q202.8 53.1 205.5 48.1Q208.2 43.1 212.9 40.3Q217.6 37.5 223.8 37.5Q230.3 37.5 234.9 40.6Q239.5 43.6 241.6 49.2Q243.8 54.8 243.2 62.3H232.8V58.5Q232.8 52.1 230.8 49.3Q228.8 46.6 224.2 46.6Q218.9 46.6 216.4 49.8Q213.9 53 213.9 59.4Q213.9 65.2 216.4 68.3Q218.9 71.5 223.8 71.5Q226.9 71.5 229 70.2Q231.2 68.8 232.4 66.3L242.8 69.3Q240.5 75 235.4 78.1Q230.4 81.3 224.4 81.3ZM210.7 62.3V54.5H238.1V62.3ZM248.4 80.1V38.6H257.6V48.8L256.6 47.5Q257.4 45.3 258.7 43.6Q260.1 41.8 262 40.6Q263.5 39.7 265.3 39.2Q267.1 38.7 268.9 38.5Q270.8 38.4 272.7 38.6V48.4Q271 47.9 268.7 48Q266.4 48.2 264.6 49.1Q262.7 49.9 261.5 51.3Q260.2 52.7 259.5 54.6Q258.9 56.5 258.9 58.9V80.1ZM292.8 99.7Q289.2 99.7 286 98.6Q282.8 97.4 280.3 95.4Q277.8 93.4 276.2 90.7L285.9 86Q286.9 87.9 288.8 88.8Q290.6 89.8 292.8 89.8Q295.2 89.8 297.2 89Q299.3 88.2 300.6 86.7Q301.8 85.1 301.7 82.8V70.7H303V38.6H312.2V83Q312.2 84.5 312 85.9Q311.9 87.2 311.6 88.6Q310.6 92.4 307.9 94.8Q305.2 97.3 301.2 98.5Q297.3 99.7 292.8 99.7ZM291.8 81.3Q286.1 81.3 281.8 78.4Q277.5 75.5 275.1 70.6Q272.7 65.6 272.7 59.4Q272.7 53 275.1 48.1Q277.6 43.2 282 40.3Q286.4 37.5 292.4 37.5Q298.3 37.5 302.3 40.4Q306.3 43.2 308.4 48.2Q310.5 53.2 310.5 59.4Q310.5 65.6 308.4 70.6Q306.3 75.5 302.2 78.4Q298 81.3 291.8 81.3ZM293.5 72Q297 72 299.1 70.4Q301.2 68.8 302.1 66Q303 63.1 303 59.4Q303 55.6 302.1 52.8Q301.2 49.9 299.2 48.4Q297.2 46.8 293.9 46.8Q290.4 46.8 288.2 48.5Q285.9 50.2 284.8 53.1Q283.8 55.9 283.8 59.4Q283.8 62.9 284.8 65.7Q285.8 68.6 288 70.3Q290.1 72 293.5 72ZM324.8 98.5 332.8 76.6 332.9 83 314.9 38.6H325.7L337.8 70.1H335.4L347.4 38.6H357.9L334.5 98.5Z" style="fill: var(--ep-ink)"></path><path d="M380.2 81.3Q374 81.3 369.8 78.4Q365.7 75.5 363.6 70.6Q361.5 65.6 361.5 59.4Q361.5 53.2 363.6 48.2Q365.6 43.2 369.7 40.4Q373.7 37.5 379.6 37.5Q385.6 37.5 390 40.3Q394.4 43.2 396.8 48.1Q399.3 53 399.3 59.4Q399.3 65.6 396.9 70.6Q394.5 75.5 390.2 78.4Q385.9 81.3 380.2 81.3ZM359.7 98.5V38.6H368.9V67.1H370.2V98.5ZM378.5 72Q381.8 72 384 70.3Q386.1 68.6 387.2 65.7Q388.2 62.9 388.2 59.4Q388.2 55.9 387.1 53.1Q386.1 50.2 383.8 48.5Q381.6 46.8 378.1 46.8Q374.8 46.8 372.8 48.4Q370.8 49.9 369.9 52.8Q368.9 55.6 368.9 59.4Q368.9 63.1 369.9 66Q370.8 68.8 372.9 70.4Q375 72 378.5 72ZM423.5 81.3Q417.2 81.3 412.3 78.5Q407.5 75.8 404.7 71Q402 66.1 402 59.9Q402 53.1 404.6 48.1Q407.3 43.1 412.1 40.3Q416.8 37.5 422.9 37.5Q429.5 37.5 434 40.6Q438.6 43.6 440.8 49.2Q443 54.8 442.3 62.3H432V58.5Q432 52.1 430 49.3Q428 46.6 423.4 46.6Q418.1 46.6 415.5 49.8Q413 53 413 59.4Q413 65.2 415.5 68.3Q418.1 71.5 422.9 71.5Q426 71.5 428.2 70.2Q430.4 68.8 431.5 66.3L442 69.3Q439.6 75 434.6 78.1Q429.5 81.3 423.5 81.3ZM409.8 62.3V54.5H437.3V62.3ZM464.3 81.3Q458.6 81.3 454.3 78.4Q450 75.5 447.6 70.6Q445.2 65.6 445.2 59.4Q445.2 53 447.6 48.1Q450.1 43.2 454.5 40.3Q458.9 37.5 464.9 37.5Q470.8 37.5 474.8 40.4Q478.8 43.2 480.9 48.2Q483 53.2 483 59.4Q483 65.6 480.9 70.6Q478.8 75.5 474.7 78.4Q470.5 81.3 464.3 81.3ZM466 72Q469.5 72 471.6 70.4Q473.7 68.8 474.6 66Q475.5 63.1 475.5 59.4Q475.5 55.6 474.6 52.8Q473.7 49.9 471.7 48.4Q469.7 46.8 466.4 46.8Q462.9 46.8 460.7 48.5Q458.4 50.2 457.3 53.1Q456.3 55.9 456.3 59.4Q456.3 62.9 457.3 65.7Q458.3 68.6 460.5 70.3Q462.6 72 466 72ZM475.5 80.1V51.7H474.2V24.8H484.8V80.1ZM492.8 32.9V23.7H503.3V32.9ZM492.8 80.1V38.6H503.3V80.1ZM522.8 81.3Q518.4 81.3 515.3 79.6Q512.2 77.8 510.6 75Q509 72.1 509 68.7Q509 65.8 509.9 63.4Q510.8 61 512.8 59.2Q514.7 57.4 518.1 56.2Q520.4 55.3 523.6 54.7Q526.8 54 530.8 53.4Q534.8 52.8 539.7 52.1L535.9 54.2Q535.9 50.5 534.1 48.7Q532.4 47 528.2 47Q525.9 47 523.4 48.1Q520.9 49.2 519.9 52.1L510.5 49.1Q512.1 43.9 516.4 40.7Q520.7 37.5 528.2 37.5Q533.7 37.5 538 39.2Q542.2 40.9 544.4 45Q545.7 47.3 545.9 49.6Q546.1 51.9 546.1 54.8V80.1H537V71.6L538.3 73.4Q535.2 77.5 531.7 79.4Q528.2 81.3 522.8 81.3ZM525.1 73Q528 73 529.9 72Q531.9 71 533.1 69.7Q534.2 68.4 534.7 67.5Q535.5 65.8 535.6 63.6Q535.7 61.3 535.7 59.8L538.8 60.6Q534.2 61.4 531.3 61.9Q528.4 62.4 526.6 62.8Q524.9 63.3 523.5 63.8Q522 64.4 521.1 65.1Q520.1 65.8 519.7 66.6Q519.2 67.5 519.2 68.5Q519.2 69.9 519.9 71Q520.7 72 522 72.5Q523.3 73 525.1 73Z" style="fill: var(--ep-accent-ink)"></path><path d="M554.3 80.1V69.7H564.8V80.1ZM594.1 81.3Q587.9 81.3 583.8 78.4Q579.6 75.5 577.5 70.6Q575.5 65.6 575.5 59.4Q575.5 53.2 577.5 48.2Q579.6 43.2 583.6 40.4Q587.7 37.5 593.6 37.5Q599.5 37.5 603.9 40.3Q608.4 43.2 610.8 48.1Q613.2 53 613.2 59.4Q613.2 65.6 610.8 70.6Q608.4 75.5 604.1 78.4Q599.8 81.3 594.1 81.3ZM573.7 98.5V38.6H582.9V67.1H584.2V98.5ZM592.4 72Q595.8 72 598 70.3Q600.1 68.6 601.1 65.7Q602.2 62.9 602.2 59.4Q602.2 55.9 601.1 53.1Q600 50.2 597.8 48.5Q595.5 46.8 592 46.8Q588.8 46.8 586.8 48.4Q584.7 49.9 583.8 52.8Q582.9 55.6 582.9 59.4Q582.9 63.1 583.8 66Q584.7 68.8 586.8 70.4Q588.9 72 592.4 72ZM619 80.1V23.7H629.4V80.1Z" style="fill: var(--ep-ink2)"></path></svg>
+    </a>
+    <button type="button" class="ep-btn" aria-label="{{themeLabel}}" onClick="{{toggleTheme}}" style="width: 44px; height: 44px; border: 1px solid var(--ep-line); border-radius: 12px; background: var(--ep-surface); display: flex; align-items: center; justify-content: center">
+      <sc-if value="{{isDark}}" hint-placeholder-val="{{ false }}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2 V4"></path><path d="M12 20 V22"></path><path d="M2 12 H4"></path><path d="M20 12 H22"></path></svg>
+      </sc-if>
+      <sc-if value="{{isLight}}" hint-placeholder-val="{{ true }}">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5 A8 8 0 1 1 9.5 4 A6.5 6.5 0 0 0 20 14.5 Z"></path></svg>
+      </sc-if>
+    </button>
+    <button type="button" aria-label="Otwórz menu" style="width: 44px; height: 44px; border: 1px solid var(--ep-line); border-radius: 12px; background: var(--ep-surface); display: flex; align-items: center; justify-content: center">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7 H20"></path><path d="M4 12 H20"></path><path d="M4 17 H20"></path></svg>
+    </button>
+  </header>
+
+  <section aria-labelledby="h-hero" style="position: relative; overflow: hidden; background: var(--ep-soft); border-bottom: 1px solid var(--ep-line)">
+    <svg aria-hidden="true" width="310" height="260" viewBox="0 0 620 520" style="position: absolute; right: -120px; top: -90px; opacity: 0.5"><path d="M412 38 C520 70 608 168 590 282 C572 398 452 486 330 498 C206 510 86 448 44 344 C2 240 60 112 166 60 C250 18 330 14 412 38 Z" style="fill: var(--ep-blob)"></path></svg>
+    <svg aria-hidden="true" width="360" height="300" viewBox="0 0 360 300" style="position: absolute; left: -120px; bottom: -150px; opacity: 0.5"><path d="M210 18 C292 34 350 104 334 180 C318 258 236 296 158 288 C78 280 14 226 10 152 C6 78 72 6 150 6 C170 6 190 12 210 18 Z" style="fill: var(--ep-blob)"></path></svg>
+    <div style="position: relative; max-width: 940px; margin: 0 auto; padding: 28px 16px 28px; display: flex; flex-direction: column; gap: 14px">
+      <span style="align-self: center; font-size: 14px; font-weight: 700; color: var(--ep-accent-ink); letter-spacing: 0.08em">ENERGIA BEZ TAJEMNIC</span>
+      <h1 id="h-hero" style="margin: 0; text-align: center; font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 34px; line-height: 1.08; letter-spacing: -0.03em">Zrozum <span class="ep-word" aria-live="off" style="color: var(--ep-accent-ink); font-weight: 700">{{word}}</span><br>w minutę. Ze źródłami.</h1>
+      <p style="margin: 0; text-align: center; font-size: 16px; color: var(--ep-ink2)">Rachunki, umowy, taryfy, fotowoltaika i prawa odbiorcy – wyjaśnione prosto, sprawdzone przez ekspertów.</p>
+      <form role="search" style="display: flex; gap: 8px; background: var(--ep-surface); border: 2px solid var(--ep-ink); border-radius: 999px; padding: 4px 4px 4px 14px; align-items: center">
+        <label for="q-f" style="position: absolute; left: -9999px">Twoje pytanie o energię</label>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="color: var(--ep-ink2)"><circle cx="11" cy="11" r="7"></circle><path d="M20 20 L16 16"></path></svg>
+        <input id="q-f" type="search" placeholder="np. Do kiedy mam wypowiedzieć umowę, żeby od stycznia zmienić sprzedawcę?" style="flex: 1 1 auto; min-width: 0; border: 0; background: transparent; font-size: 16px; height: 44px">
+        <button type="submit" class="ep-btn" style="height: 44px; border: 0; border-radius: 999px; background: #00C2A8; color: #0B1B33; font-weight: 700; padding: 0 16px">Zapytaj</button>
+      </form>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center">
+        <sc-for list="{{questions}}" as="q" hint-placeholder-count="3">
+          <button type="button" class="ep-btn" aria-pressed="{{q.pressed}}" onClick="{{q.pick}}" style="{{q.style}}">{{q.text}}</button>
+        </sc-for>
+      </div>
+      <article aria-live="polite" style="background: var(--ep-surface); border: 1px solid var(--ep-line); border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+        <span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--ep-accent-ink)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 L14 9 L20 11 L14 13 L12 19 L10 13 L4 11 L10 9 Z"></path></svg>
+          Odpowiedź AI na podstawie artykułów Energypedii
+          <span style="margin-left: auto; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: var(--ep-chip-ink); background: var(--ep-chip-bg); padding: 2px 8px; border-radius: 999px">MAKIETA: TREŚĆ DO WERYFIKACJI</span>
+        </span>
+        <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 620; font-size: 22px">{{answerQ}}</h2>
+        <p style="margin: 0; font-size: 17px">{{answerA}}</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 14px">
+          <span style="color: var(--ep-ink2)">Źródła:</span>
+          <sc-for list="{{answerSources}}" as="src" hint-placeholder-count="2">
+            <a href="#" style="color: var(--ep-accent-ink); font-weight: 600">{{src}}</a>
+          </sc-for>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; font-size: 13px; color: var(--ep-ink2)">
+          <span style="flex: 1 1 320px">Treść wygenerowana przez AI. Ma charakter informacyjny i nie jest poradą prawną w indywidualnej sprawie.</span>
+          <span>Pomogło?</span>
+          <button type="button" class="ep-btn" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--ep-line2); background: var(--ep-surface); font-size: 13px">Tak</button>
+          <button type="button" class="ep-btn" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--ep-line2); background: var(--ep-surface); font-size: 13px">Nie</button>
+          <a href="#" style="color: var(--ep-accent-ink); font-weight: 600">Zgłoś błąd</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <main id="tresc" style="max-width: 1280px; margin: 0 auto; padding: 24px 16px 40px; display: flex; flex-direction: column; gap: 36px">
+
+    <section aria-labelledby="h-dzis" style="display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px">
+        <h2 id="h-dzis" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 620; font-size: 24px; display: flex; align-items: center; gap: 10px"><span class="ep-live" aria-hidden="true"></span>Energia dziś</h2>
+        <a href="#" style="font-weight: 600; color: var(--ep-accent-ink)">Barometr Rynku Energii: pierwsze wydanie 1 grudnia →</a>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <sc-for list="{{tiles}}" as="t" hint-placeholder-count="4">
+          <a href="#" class="ep-card" style="flex: 1 1 150px; background: var(--ep-surface); border: 1px solid var(--ep-line); border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 4px; text-decoration: none">
+            <span style="font-size: 14px; color: var(--ep-ink2)">{{t.label}}</span>
+            <span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 680; font-variant-numeric: tabular-nums">{{t.value}}</span>
+            <span style="font-size: 13px; color: var(--ep-ink2)">{{t.note}}</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <section id="temat" aria-labelledby="h-temat" style="background: var(--ep-inv-bg); color: var(--ep-inv-ink); border-radius: 20px; padding: 22px 18px; display: flex; flex-direction: column; gap: 20px; margin: 0 -8px; position: relative; overflow: hidden">
+      <svg aria-hidden="true" width="130" height="90" viewBox="0 0 260 180" style="position: absolute; right: 14px; top: 14px; opacity: 0.18"><rect x="0" y="0" width="40" height="180" rx="10" fill="#00C2A8"></rect><rect x="0" y="0" width="260" height="40" rx="10" fill="#00C2A8"></rect><rect x="0" y="70" width="190" height="40" rx="10" fill="#00C2A8"></rect><rect x="0" y="140" width="260" height="40" rx="10" fill="#00C2A8"></rect></svg>
+      <div style="display: flex; flex-wrap: wrap; gap: 24px 40px; align-items: flex-end; justify-content: space-between; position: relative">
+        <div style="flex: 1 1 100%; display: flex; flex-direction: column; gap: 10px; min-width: 0">
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #00C2A8">TEMAT MIESIĄCA · LISTOPAD 2026</span>
+          <h2 id="h-temat" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 680; font-size: 28px; line-height: 1.12; letter-spacing: -0.025em">Zmiana sprzedawcy prądu 2027: kiedy wypowiedzieć umowę</h2>
+          <p style="margin: 0; font-size: 16px; color: var(--ep-inv-ink2)">Jeśli chcesz mieć nowego sprzedawcę od 1 stycznia, liczy się dzień, w którym wypowiedzenie dotrze do obecnego. Sprawdź, co to oznacza dla Twojej umowy.</p>
+        </div>
+        <div aria-live="polite" style="flex: 1 1 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 18px; padding: 18px 20px; display: flex; flex-direction: column; gap: 4px">
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--ep-inv-ink2)">{{cdLabel}}</span>
+          <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 38px; line-height: 1; font-variant-numeric: tabular-nums">{{cdValue}}</span>
+          <span style="font-size: 14px; color: var(--ep-inv-ink2)">{{cdNote}}</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; position: relative">
+        <form aria-labelledby="h-kalk" style="flex: 1 1 100%; min-width: 0; background: var(--ep-surface); color: var(--ep-ink); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 16px">
+          <h3 id="h-kalk" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 22px">Kiedy skończy się moja umowa?</h3>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <span id="l-mies" style="font-size: 14px; font-weight: 600">Wypowiedzenie dotrze do sprzedawcy</span>
+            <div role="group" aria-labelledby="l-mies" style="display: flex; flex-wrap: wrap; gap: 8px">
+              <sc-for list="{{months}}" as="m" hint-placeholder-count="3">
+                <button type="button" class="ep-btn" aria-pressed="{{m.pressed}}" onClick="{{m.pick}}" style="{{m.style}}">{{m.label}}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <span id="l-typ" style="font-size: 14px; font-weight: 600">Rodzaj umowy</span>
+            <div role="group" aria-labelledby="l-typ" style="display: flex; flex-wrap: wrap; gap: 8px">
+              <sc-for list="{{kinds}}" as="k" hint-placeholder-count="3">
+                <button type="button" class="ep-btn" aria-pressed="{{k.pressed}}" onClick="{{k.pick}}" style="{{k.style}}">{{k.label}}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div aria-live="polite" style="background: var(--ep-soft); border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px">
+            <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--ep-accent-ink)">WYNIK</span>
+            <strong style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; line-height: 1.25">{{resTitle}}</strong>
+            <span style="font-size: 15px; color: var(--ep-ink2)">{{resText}}</span>
+          </div>
+          <span style="font-size: 12px; color: var(--ep-ink2)">MAKIETA. Reguła z art. 4j ust. 4 Prawa energetycznego dla gospodarstw domowych [DO WERYFIKACJI w aktualnym tekście ustawy i przez Prawnika przed publikacją]. Kalkulator działa bez AI i bez zapisywania danych.</span>
+        </form>
+
+        <div style="flex: 1 1 100%; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+          <sc-for list="{{paths}}" as="p" hint-placeholder-count="3">
+            <a href="#" class="ep-card" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); border-radius: 16px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; text-decoration: none; color: var(--ep-inv-ink)">
+              <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #00C2A8">{{p.tag}}</span>
+              <strong style="font-size: 17px">{{p.title}}</strong>
+              <span style="font-size: 14px; color: var(--ep-inv-ink2)">{{p.desc}}</span>
+            </a>
+          </sc-for>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px">
+            <a href="#" class="ep-btn" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; background: #00C2A8; color: #0B1B33; font-weight: 700; text-decoration: none">Cały temat →</a>
+            <a href="#" class="ep-btn" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.5); font-weight: 600; text-decoration: none">Wzór wypowiedzenia</a>
+            <a href="#" class="ep-btn" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.5); font-weight: 600; text-decoration: none">Zapytaj asystenta</a>
+          </div>
+          <span style="font-size: 13px; color: var(--ep-inv-ink2)">W temacie miesiąca nie ma reklam ani materiałów sprzedawców energii. Oferty porównasz w porównywarce Prezesa URE.</span>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-nowe" style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+      <div style="flex: 1 1 100%; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px">
+          <h2 id="h-nowe" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 620; font-size: 23px">Najnowsze</h2>
+          <span style="font-size: 13px; color: var(--ep-ink2)">MAKIETA: przykładowe tytuły · <a href="#" style="color: var(--ep-accent-ink); font-weight: 600">Wszystkie wiadomości →</a></span>
+        </div>
+        <ol style="margin: 0; padding: 0; list-style: none; border-top: 2px solid var(--ep-ink)">
+          <sc-for list="{{news}}" as="n" hint-placeholder-count="7">
+            <li style="border-bottom: 1px solid var(--ep-line)"><a href="#" style="display: flex; gap: 16px; padding: 14px 0; align-items: baseline; text-decoration: none">
+              <span style="flex: none; width: 48px; font-size: 14px; font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ep-accent-ink)">{{n.time}}</span>
+              <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--ep-ink2)">{{n.section}}</span><span style="font-weight: 650; font-size: 16px; line-height: 1.35">{{n.title}}</span></span>
+            </a></li>
+          </sc-for>
+        </ol>
+      </div>
+      <aside style="flex: 1 1 100%; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+        <div style="background: var(--ep-surface); border: 1px solid var(--ep-line); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 10px">
+          <h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 620; font-size: 18px">Najczęściej czytane</h3>
+          <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+            <sc-for list="{{popular}}" as="p" hint-placeholder-count="5">
+              <li style="display: flex; gap: 12px; align-items: baseline"><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; color: var(--ep-accent-ink); width: 18px">{{p.n}}</span><a href="#" style="font-weight: 600; line-height: 1.35">{{p.title}}</a></li>
+            </sc-for>
+          </ol>
+        </div>
+    <sc-if value="{{showAds}}" hint-placeholder-val="{{ true }}">
+      <div style="height: 250px; max-width: 300px; margin: 0 auto; width: 100%; border: 2px dashed var(--ep-ad-line); border-radius: 10px; background: var(--ep-ad-bg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--ep-ink2); font-size: 14px; text-align: center; padding: 0 16px; box-sizing: border-box">
+        <strong style="font-size: 12px; letter-spacing: 0.06em">REKLAMA WŁASNA (DO STYCZNIA 2027 R.)</strong>
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 20px; color: var(--ep-ink)">Powiadom mnie o taryfach 2027</span>
+        <span style="font-size: 12px">EP_M_HP_1 · 300×250</span>
+      </div>
+    </sc-if>
+      </aside>
+    </section>
+
+    <section aria-labelledby="h-syt" style="display: flex; flex-direction: column; gap: 16px">
+      <h2 id="h-syt" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 620; font-size: 23px">Sprawdź swoją sytuację</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <sc-for list="{{checks}}" as="c" hint-placeholder-count="3">
+          <a href="#" class="ep-card" style="flex: 1 1 100%; background: var(--ep-surface); border: 1px solid var(--ep-line); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 8px; text-decoration: none">
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 26px; color: var(--ep-accent-ink)">{{c.n}}</span>
+            <span style="font-weight: 700; font-size: 20px">{{c.title}}</span>
+            <span style="font-size: 15px; color: var(--ep-ink2)">{{c.desc}}</span>
+            <span style="margin-top: auto; font-weight: 600; color: var(--ep-accent-ink)">{{c.cta}} →</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <sc-if value="{{showAds}}" hint-placeholder-val="{{ true }}">
+      <div style="height: 250px; max-width: 300px; width: 100%; margin: 0 auto; border: 2px dashed var(--ep-ad-line); border-radius: 10px; background: var(--ep-ad-bg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--ep-ink2); font-size: 14px; text-align: center; padding: 0 16px; box-sizing: border-box">
+        <strong style="font-size: 12px; letter-spacing: 0.06em">REKLAMA WŁASNA (DO STYCZNIA 2027 R.)</strong>
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 20px; color: var(--ep-ink)">Weź udział w pierwszym Barometrze Odbiorców Energii</span>
+        <span style="font-size: 12px">EP_M_HP_2 · 300×250</span>
+      </div>
+    </sc-if>
+
+    <section aria-labelledby="h-dzialy" style="display: flex; flex-direction: column; gap: 16px">
+      <h2 id="h-dzialy" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 620; font-size: 23px">Rachunek, fotowoltaika, magazyn energii</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <sc-for list="{{pillars}}" as="p" hint-placeholder-count="3">
+          <div style="flex: 1 1 100%; background: var(--ep-surface); border: 1px solid var(--ep-line); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
+            <div style="height: 84px; background: {{p.bg}}; display: flex; align-items: flex-end; padding: 16px 20px; box-sizing: border-box">
+              <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 26px; color: #FFFFFF">{{p.name}}</span>
+            </div>
+            <div style="padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px">
+              <a href="#" style="font-weight: 700; font-size: 17px">{{p.guide}} →</a>
+              <sc-for list="{{p.links}}" as="l" hint-placeholder-count="3">
+                <a href="#" style="font-size: 15px; color: var(--ep-ink2)">{{l}}</a>
+              </sc-for>
+              <span style="font-size: 13px; color: var(--ep-ink2)">Hasło: <a href="#" style="color: var(--ep-accent-ink); font-weight: 600">{{p.term}}</a></span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-biez" style="display: flex; flex-direction: column; gap: 16px">
+      <h2 id="h-biez" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 620; font-size: 23px">Na bieżąco: tematy, które się zmieniają</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <sc-for list="{{trackers}}" as="tr" hint-placeholder-count="4">
+          <a href="#" class="ep-card" style="flex: 1 1 250px; background: var(--ep-surface); border: 1px solid var(--ep-line); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 10px; text-decoration: none">
+            <span style="align-self: flex-start; background: var(--ep-chip-bg); color: var(--ep-chip-ink); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px">{{tr.status}}</span>
+            <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 20px">{{tr.title}}</span>
+            <span style="font-size: 14px; color: var(--ep-ink2)">{{tr.desc}}</span>
+            <span style="font-size: 13px; color: var(--ep-ink2)">Ostatnia aktualizacja: [data, godzina]</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-dla" style="display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch">
+      <div style="flex: 1 1 100%; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 id="h-dla" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 620; font-size: 23px">Dla Ciebie</h2>
+            <span style="font-size: 15px; color: var(--ep-ink2)">Zapamiętamy wybór tylko w Twojej przeglądarce.</span>
+          </div>
+          <div role="group" aria-label="Kim jesteś" style="display: flex; gap: 6px">
+            <sc-for list="{{segs}}" as="s" hint-placeholder-count="2">
+              <button type="button" class="ep-btn" aria-pressed="{{s.pressed}}" onClick="{{s.pick}}" style="{{s.style}}">{{s.name}}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="background: var(--ep-muted); border-radius: 18px; padding: 22px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto">
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--ep-accent-ink)">{{segBadge}}</span>
+          <sc-for list="{{segLinks}}" as="l" hint-placeholder-count="3">
+            <a href="#" style="font-weight: 600; font-size: 17px">{{l}} →</a>
+          </sc-for>
+        </div>
+      </div>
+      <div style="flex: 1 1 100%; min-width: 0; background: var(--ep-surface); border: 1px solid var(--ep-line); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 10px">
+        <label for="region-f" style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--ep-ink2)">TWOJE WOJEWÓDZTWO</label>
+        <select id="region-f" onChange="{{pickRegion}}" style="height: 44px; border-radius: 10px; border: 1px solid var(--ep-line2); background: var(--ep-surface); padding: 0 12px; font-size: 15px">
+          <sc-for list="{{regionOptions}}" as="r" hint-placeholder-count="16">
+            <option value="{{r.value}}" selected="{{r.selected}}">{{r.label}}</option>
+          </sc-for>
+        </select>
+        <span style="font-size: 15px">Sprzedawca z urzędu i operator sieci w Twoim regionie, ich taryfy i kontakt.</span>
+        <a href="#" style="font-weight: 600; color: var(--ep-accent-ink)">Energia: {{regionLabel}} →</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-firmy" style="display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px">
+        <h2 id="h-firmy" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 620; font-size: 23px">Sprzedawcy z urzędu</h2>
+        <a href="#" style="font-weight: 600; color: var(--ep-accent-ink)">Jak sprawdzić swojego sprzedawcę →</a>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px">
+        <sc-for list="{{sellers}}" as="x" hint-placeholder-count="5">
+          <a href="#" class="ep-card" style="flex: 1 1 140px; background: var(--ep-surface); border: 1px solid var(--ep-line); border-radius: 18px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; text-decoration: none">
+            <strong style="font-size: 17px">{{x.name}}</strong>
+            <span style="font-size: 13px; color: var(--ep-ink2)">{{x.area}}</span>
+          </a>
+        </sc-for>
+      </div>
+      <span style="font-size: 13px; color: var(--ep-ink2)">Profile przygotowuje redakcja z danych publicznych. Kolejność alfabetyczna. [DO WERYFIKACJI: pełne nazwy i obszary w zestawieniu URE] Operatorzy sieci dołączą w grudniu.</span>
+    </section>
+
+    <section aria-labelledby="h-baro" style="display: flex; flex-wrap: wrap; gap: 20px">
+      <div style="flex: 1 1 100%; min-width: 0; background: var(--ep-soft); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--ep-accent-ink)">BAROMETR ODBIORCÓW ENERGII #0</span>
+        <h2 id="h-baro" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 22px">Jak oceniasz swój rachunek za prąd? Weź udział w pierwszym badaniu</h2>
+        <p style="margin: 0; font-size: 16px; color: var(--ep-ink2)">Ankieta trwa do 4 grudnia i zajmuje [x] minut. Wyniki opublikujemy w grudniu, z opisem metody: to badanie wśród czytelników, nie próba reprezentatywna.</p>
+        <a href="#" class="ep-btn" style="align-self: flex-start; min-height: 48px; display: inline-flex; align-items: center; padding: 0 22px; border-radius: 999px; background: var(--ep-ink); color: var(--ep-bg); font-weight: 700; text-decoration: none">Wypełnij ankietę</a>
+      </div>
+      <div style="flex: 1 1 100%; min-width: 0; background: var(--ep-surface); border: 1px solid var(--ep-line); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--ep-accent-ink)">AKADEMIA MAGAZYNÓW ENERGII</span>
+        <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 24px">6 lekcji w skrzynce: od podstaw do opłacalności</h2>
+        <p style="margin: 0; font-size: 15px; color: var(--ep-ink2)">Jak działa magazyn, kiedy się opłaca, jak go dobrać i jak skorzystać z dotacji. Jedna lekcja co dwa dni.</p>
+        <a href="#" style="font-weight: 700; color: var(--ep-accent-ink)">Zapisz się na kurs →</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-red" style="display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px">
+        <h2 id="h-red" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 620; font-size: 23px">Redakcja i eksperci</h2>
+        <a href="#" style="font-weight: 600; color: var(--ep-accent-ink)">Jak pracujemy →</a>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <sc-for list="{{people}}" as="p" hint-placeholder-count="4">
+          <a href="#" class="ep-card" style="flex: 1 1 100%; background: var(--ep-surface); border: 1px solid var(--ep-line); border-radius: 18px; padding: 18px; display: flex; gap: 14px; align-items: center; text-decoration: none">
+            <span aria-hidden="true" style="flex: none; width: 64px; height: 64px; border-radius: 14px; background: #0B1B33; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 12px; text-align: center">[zdjęcie]</span>
+            <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><strong style="font-size: 17px">{{p.name}}</strong><span style="font-size: 14px; color: var(--ep-ink2)">{{p.role}}</span></span>
+          </a>
+        </sc-for>
+      </div>
+      <span style="font-size: 13px; color: var(--ep-ink2)">Zdjęcia w duotonie z ramą ze słupków, tylko za zgodą osób.</span>
+    </section>
+
+    <section aria-labelledby="h-nl" style="background: var(--ep-inv-bg); color: var(--ep-inv-ink); border-radius: 18px; padding: 22px 18px; display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between">
+      <div style="flex: 1 1 100%; display: flex; flex-direction: column; gap: 8px">
+        <h2 id="h-nl" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 28px">Energia w 5 minut</h2>
+        <p style="margin: 0; color: var(--ep-inv-ink2)">Codziennie o 7:30. Jedna zmiana na rynku, jedno wyjaśnienie, jedna rzecz do zrobienia. Do 30 listopada: odliczanie do terminu wypowiedzenia.</p>
+        <a href="https://www.google.com/preferences/source?q=energypedia.pl" target="_blank" rel="noopener" style="font-size: 14px; color: var(--ep-inv-ink); text-decoration: underline">Dodaj Energypedię do preferowanych źródeł w Google</a>
+      </div>
+      <form style="flex: 1 1 100%; display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end">
+        <div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 4px">
+          <label for="nl-f" style="font-size: 14px; font-weight: 600">Adres e-mail</label>
+          <input id="nl-f" type="email" placeholder="np. jan@firma.pl" style="height: 44px; border-radius: 10px; border: 0; padding: 0 12px; font-size: 16px; background: #FFFFFF; color: #0B1B33">
+        </div>
+        <button type="submit" class="ep-btn" style="height: 44px; border-radius: 10px; border: 0; background: #00C2A8; color: #0B1B33; font-weight: 700; padding: 0 20px">Zapisz mnie</button>
+        <span style="flex-basis: 100%; font-size: 12px; color: var(--ep-inv-ink2)">Możesz wypisać się w każdej chwili. <a href="#" style="text-decoration: underline">Polityka prywatności</a></span>
+      </form>
+    </section>
+
+    <section aria-labelledby="h-b2b" style="border-top: 2px solid var(--ep-ink); padding-top: 24px; display: flex; flex-wrap: wrap; gap: 24px 40px; align-items: flex-start">
+      <div style="flex: 1 1 100%; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--ep-ink2)">DLA FIRM Z BRANŻY ENERGII I OZE</span>
+        <h2 id="h-b2b" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 650; font-size: 21px">Docieraj do osób, które właśnie decydują o prądzie, fotowoltaice i magazynie energii</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px">
+          <sc-for list="{{b2b}}" as="b" hint-placeholder-count="3">
+            <div style="flex: 1 1 100%; background: var(--ep-muted); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px">
+              <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; font-variant-numeric: tabular-nums">{{b.v}}</span>
+              <span style="font-size: 13px; color: var(--ep-ink2)">{{b.l}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="flex: 1 1 100%; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+        <strong style="font-size: 17px">Partner założycielski 2027</strong>
+        <span style="font-size: 15px; color: var(--ep-ink2)">Ograniczona liczba miejsc [liczba do decyzji naczelnego]. Profile firm, sponsoring działów, newsletter. Redakcja i porównania pozostają niezależne.</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <a href="#" class="ep-btn" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; background: var(--ep-ink); color: var(--ep-bg); font-weight: 600; text-decoration: none">Media kit</a>
+          <a href="#" class="ep-btn" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; border: 1px solid var(--ep-ink); font-weight: 600; text-decoration: none">Porozmawiajmy</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="padding: 24px 16px 170px; font-size: 14px; color: var(--ep-ink2); display: flex; flex-wrap: wrap; gap: 8px 16px">
+    <a href="#">Jak pracujemy</a>
+    <a href="#">Jak zarabiamy</a>
+    <a href="#">Reklama</a>
+    <a href="#">Prywatność</a>
+    <a href="#">Ustawienia zgód</a>
+  </footer>
+  <sc-if value="{{showAds}}" hint-placeholder-val="{{ true }}">
+    <div style="position: absolute; left: 0; right: 0; bottom: 84px; z-index: 9; height: 58px; background: var(--ep-surface); border-top: 1px solid var(--ep-line); align-items: center; justify-content: center; gap: 8px; display: flex; {{mAdStyle}}">
+      <div style="width: 300px; height: 50px; border: 2px dashed var(--ep-ad-line); border-radius: 6px; background: var(--ep-ad-bg); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--ep-ink2)">REKLAMA · EP_M_STICKY 320×50</div>
+      <button type="button" aria-label="Zamknij reklamę" style="width: 44px; height: 44px; border: 1px solid var(--ep-line); border-radius: 999px; background: var(--ep-surface); font-size: 18px">×</button>
+    </div>
+  </sc-if>
+  <div class="ep-scrim" onClick="{{mClose}}" aria-hidden="true" style="{{mScrimStyle}}"></div>
+
+  <section class="ep-sheet" role="dialog" aria-modal="true" aria-labelledby="ep-sheet-title" style="{{mSheetStyle}}">
+    <div style="display: flex; justify-content: center; padding-top: 8px"><span style="width: 40px; height: 4px; border-radius: 999px; background: var(--ep-line2)"></span></div>
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 16px 4px 20px">
+      <h2 id="ep-sheet-title" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.02em">{{mSheetTitle}}</h2>
+      <button type="button" aria-label="Zamknij panel" onClick="{{mClose}}" style="width: 44px; height: 44px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18"></path></svg></button>
+    </div>
+
+    <sc-if value="{{mIsNowe}}" hint-placeholder-val="{{ false }}">
+      <div role="group" aria-label="Filtr sekcji" style="display: flex; gap: 8px; overflow-x: auto; padding: 4px 20px 12px">
+        <sc-for list="{{mFilters}}" as="f" hint-placeholder-count="5">
+          <button type="button" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}" style="{{f.style}}">{{f.label}}</button>
+        </sc-for>
+      </div>
+      <ul style="margin: 0; padding: 0 20px 16px; list-style: none; display: flex; flex-direction: column">
+        <sc-for list="{{mNews}}" as="n" hint-placeholder-count="6">
+          <li style="border-top: 1px solid var(--ep-line)">
+            <a href="#" style="display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 10px; padding: 12px 0; min-height: 44px">
+              <span style="{{n.timeStyle}}">{{n.time}}</span>
+              <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600; line-height: 1.35">{{n.title}}</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--ep-ink2)">{{n.section}}</span></span>
+            </a>
+          </li>
+        </sc-for>
+      </ul>
+    </sc-if>
+
+    <sc-if value="{{mIsDane}}" hint-placeholder-val="{{ false }}">
+      <div style="padding: 4px 20px 16px; display: flex; flex-direction: column; gap: 10px">
+        <span style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ep-ink2)"><span class="ep-live" style="width: 8px; height: 8px; border-radius: 999px; background: #00C2A8"></span>Barometr Rynku Energii · aktualizacja: [data, godzina]</span>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+          <sc-for list="{{mTiles}}" as="t" hint-placeholder-count="4">
+            <a href="#" style="border: 1px solid var(--ep-line); border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 2px">
+              <span style="font-size: 12px; color: var(--ep-ink2); line-height: 1.3">{{t.label}}</span>
+              <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; font-variant-numeric: tabular-nums">{{t.value}}</span>
+              <span style="font-size: 11px; color: var(--ep-ink2); line-height: 1.3">{{t.note}}</span>
+            </a>
+          </sc-for>
+        </div>
+        <a href="#" style="align-self: flex-start; font-weight: 600; color: var(--ep-accent-ink); min-height: 44px; display: flex; align-items: center">Cały Barometr →</a>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{mIsWiecej}}" hint-placeholder-val="{{ false }}">
+      <div style="padding: 4px 12px 8px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px">
+        <sc-for list="{{mShortcuts}}" as="s" hint-placeholder-count="8">
+          <a href="#" style="min-height: 72px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; border-radius: 12px; font-size: 13px; font-weight: 600; text-align: center">
+            <span style="width: 40px; height: 40px; border-radius: 12px; background: var(--ep-soft); display: flex; align-items: center; justify-content: center; color: var(--ep-ink)">
+              <sc-if value="{{s.iWiedza}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5 H10 A2 2 0 0 1 12 7 V20 A2 2 0 0 0 10 18 H4 Z"></path><path d="M20 5 H14 A2 2 0 0 0 12 7 V20 A2 2 0 0 1 14 18 H20 Z"></path></svg></sc-if>
+              <sc-if value="{{s.iNarzedzia}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"></rect><path d="M8 7 H16"></path><path d="M8 11 H10"></path><path d="M14 11 H16"></path><path d="M8 15 H10"></path><path d="M14 15 H16"></path></svg></sc-if>
+              <sc-if value="{{s.iRegiony}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21 C12 21 5 14.5 5 9.5 A7 7 0 0 1 19 9.5 C19 14.5 12 21 12 21 Z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></sc-if>
+              <sc-if value="{{s.iTrackery}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12 H7 L10 5 L14 19 L17 12 H21"></path></svg></sc-if>
+              <sc-if value="{{s.iNewsletter}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7 L12 13 L21 7"></path></svg></sc-if>
+              <sc-if value="{{s.iZapytaj}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20 L16 16"></path></svg></sc-if>
+              <sc-if value="{{s.iDane}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 20 V13"></path><path d="M12 20 V6"></path><path d="M19 20 V10"></path></svg></sc-if>
+              <sc-if value="{{s.iNowe}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5 V12 L15 14"></path></svg></sc-if>
+            </span>
+            {{s.label}}
+          </a>
+        </sc-for>
+      </div>
+      <a href="https://www.google.com/preferences/source?q=energypedia.pl" target="_blank" rel="noopener" style="margin: 0 20px 12px; min-height: 48px; display: flex; align-items: center; gap: 10px; padding: 0 14px; border-radius: 14px; border: 1px solid var(--ep-line, var(--ep-line)); font-size: 15px; font-weight: 600; color: var(--ep-ink, var(--ep-ink))"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 L14.6 8.8 L20.4 9.6 L16.2 13.7 L17.2 19.5 L12 16.8 L6.8 19.5 L7.8 13.7 L3.6 9.6 L9.4 8.8 Z"></path></svg><span style="flex: 1 1 auto">Dodaj Energypedię do preferowanych źródeł w Google</span><span aria-hidden="true">→</span></a>
+      <div style="margin: 0 20px 16px; padding: 14px 16px; border-radius: 14px; background: var(--ep-muted); display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+          <span style="display: flex; flex-direction: column"><strong style="font-size: 15px">Twój pasek</strong><span style="font-size: 13px; color: var(--ep-ink2)">Wybierz 3 skróty. Start i Więcej zostają.</span></span>
+          <button type="button" aria-pressed="{{mEditPressed}}" onClick="{{mToggleEdit}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--ep-line2); background: var(--ep-surface); font-weight: 600; font-size: 14px">{{mEditLabel}}</button>
+        </div>
+        <sc-if value="{{mEditing}}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <sc-for list="{{mCatalog}}" as="c" hint-placeholder-count="8">
+              <button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.toggle}}" style="{{c.style}}">{{c.mark}} {{c.label}}</button>
+            </sc-for>
+          </div>
+          <span aria-live="polite" style="font-size: 13px; color: var(--ep-ink2)">{{mEditHint}}</span>
+        </sc-if>
+      </div>
+    </sc-if>
+  </section>
+
+  <nav aria-label="Menu dolne" style="position: absolute; left: 0; right: 0; bottom: 0; z-index: 12; background: var(--ep-surface); border-top: 1px solid var(--ep-line); padding: 6px 4px 22px; display: grid; {{mNavCols}}">
+    <a href="#" aria-label="Energypedia – strona główna" onClick="{{mGoStart}}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 56px">
+      <span style="width: 48px; height: 40px; border-radius: 12px; background: #0B1B33; display: flex; align-items: center; justify-content: center">
+        <svg width="24" height="24" viewBox="18 18 72 72" aria-hidden="true"><g class="ep-e ep-anim"><rect class="spine" x="18" y="18" width="18" height="72" rx="6" fill="#FFFFFF"></rect><rect class="top" x="18" y="18" width="72" height="18" rx="6" fill="#FFFFFF"></rect><rect class="mid" x="44" y="45" width="40" height="18" rx="6" fill="#00C2A8"></rect><rect class="bot" x="18" y="72" width="60" height="18" rx="6" fill="#FFFFFF"></rect></g></svg>
+      </span>
+    </a>
+    <sc-for list="{{mTabs}}" as="t" hint-placeholder-count="4">
+      <button type="button" class="ep-tab" aria-expanded="{{t.expanded}}" aria-current="{{t.current}}" onClick="{{t.pick}}" style="{{t.style}}">
+        <span style="{{t.barStyle}}"></span>
+        <span style="position: relative; display: flex">
+          <sc-if value="{{t.iZapytaj}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20 L16 16"></path></svg></sc-if>
+          <sc-if value="{{t.iDane}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 20 V13"></path><path d="M12 20 V6"></path><path d="M19 20 V10"></path></svg></sc-if>
+          <sc-if value="{{t.iNowe}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5 V12 L15 14"></path></svg></sc-if>
+          <sc-if value="{{t.iWiedza}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5 H10 A2 2 0 0 1 12 7 V20 A2 2 0 0 0 10 18 H4 Z"></path><path d="M20 5 H14 A2 2 0 0 0 12 7 V20 A2 2 0 0 1 14 18 H20 Z"></path></svg></sc-if>
+          <sc-if value="{{t.iNarzedzia}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"></rect><path d="M8 7 H16"></path><path d="M8 11 H10"></path><path d="M14 11 H16"></path><path d="M8 15 H10"></path><path d="M14 15 H16"></path></svg></sc-if>
+          <sc-if value="{{t.iRegiony}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21 C12 21 5 14.5 5 9.5 A7 7 0 0 1 19 9.5 C19 14.5 12 21 12 21 Z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></sc-if>
+          <sc-if value="{{t.iTrackery}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12 H7 L10 5 L14 19 L17 12 H21"></path></svg></sc-if>
+          <sc-if value="{{t.iNewsletter}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7 L12 13 L21 7"></path></svg></sc-if>
+          <sc-if value="{{t.iWiecej}}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle></svg></sc-if>
+          <sc-if value="{{t.live}}" hint-placeholder-val="{{ false }}"><span class="ep-live" style="position: absolute; right: -4px; top: -2px; width: 8px; height: 8px; border-radius: 999px; background: #00C2A8; border: 2px solid var(--ep-surface)"></span></sc-if>
+        </span>
+        <span style="font-size: 12px; font-weight: 600">{{t.label}}</span>
+      </button>
+    </sc-for>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["jasny","ciemny"],"default":"jasny","section":"Wygląd"},"kinetic":{"editor":"boolean","default":true,"section":"Wygląd"},"showAds":{"editor":"boolean","default":true,"section":"Reklama"},"dzien":{"editor":"enum","options":["16 listopada","23 listopada","30 listopada","1 grudnia"],"default":"16 listopada","section":"Dzień podglądu"},"$preview":{"width":390,"height":9400}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { q: 0, seg: 0, region: 'mazowieckie', w: 0, dark: null, month: 0, kind: 0 };
+    this.state.menu = { sheet: null, active: null, pinned: ['zapytaj', 'dane', 'nowe'], filter: 'all', editing: false };
+  }
+  componentDidMount() {
+    const reduce = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      this.timer = setInterval(() => {
+        if ((this.props.kinetic ?? true) === false) return;
+        this.setState({ w: (this.state.w + 1) % 4 });
+      }, 2400);
+    }
+  }
+  componentWillUnmount() {
+    if (this.timer) clearInterval(this.timer);
+  }
+  menuVals() {
+    const s = this.state.menu;
+    const set = (patch) => this.setState({ menu: Object.assign({}, s, patch) });
+    const CAT = {
+      zapytaj: { label: 'Zapytaj' }, dane: { label: 'Dane', sheet: 'dane', live: true }, nowe: { label: 'Nowe', sheet: 'nowe' },
+      wiedza: { label: 'Wiedza' }, narzedzia: { label: 'Narzędzia' }, regiony: { label: 'Regiony' },
+      trackery: { label: 'Trackery' }, newsletter: { label: 'Newsletter' }, wiecej: { label: 'Więcej', sheet: 'wiecej' }
+    };
+    const icon = (id) => ({ iZapytaj: id === 'zapytaj', iDane: id === 'dane', iNowe: id === 'nowe', iWiedza: id === 'wiedza', iNarzedzia: id === 'narzedzia', iRegiony: id === 'regiony', iTrackery: id === 'trackery', iNewsletter: id === 'newsletter', iWiecej: id === 'wiecej' });
+    const open = (id) => {
+      const c = CAT[id];
+      if (c.sheet) set({ sheet: s.sheet === c.sheet ? null : c.sheet, active: s.sheet === c.sheet ? null : id, editing: false });
+      else set({ sheet: null, active: id, editing: false });
+    };
+    const tabIds = s.pinned.concat(['wiecej']);
+    const sheetOpen = !!s.sheet;
+    const titles = { nowe: 'Najnowsze', dane: 'Energia dziś', wiecej: 'Więcej skrótów' };
+    const news = [
+      { t: '4 min', fresh: true, title: 'Taryfy na prąd 2027: czego spodziewać się przed decyzją URE', sec: 'wiadomosci', secLabel: 'WIADOMOŚCI' },
+      { t: '18 min', fresh: true, title: 'Jak czytać rachunek za prąd: pozycja po pozycji', sec: 'poradniki', secLabel: 'PORADNIK' },
+      { t: '21:40', title: 'CSIRE i zmiana sprzedawcy w 24 godziny: co już działa', sec: 'trackery', secLabel: 'TRACKER' },
+      { t: '20:15', title: 'Opłata mocowa w 2026 r.: kto i ile płaci', sec: 'wiedza', secLabel: 'HASŁO' },
+      { t: '18:02', title: 'G11 czy G12: kiedy taryfa dwustrefowa się opłaca', sec: 'poradniki', secLabel: 'PORADNIK' },
+      { t: '16:30', title: 'Umowa od akwizytora: jak odstąpić w 14 lub 30 dni', sec: 'poradniki', secLabel: 'PORADNIK' }
+    ];
+    const filterDefs = [['all', 'Wszystko'], ['wiadomosci', 'Wiadomości'], ['poradniki', 'Poradniki'], ['trackery', 'Trackery'], ['wiedza', 'Wiedza']];
+    const chipOn = 'flex: 0 0 auto; min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--ep-ink); background: var(--ep-ink); color: var(--ep-bg); font-size: 14px; font-weight: 600';
+    const chipOff = 'flex: 0 0 auto; min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--ep-line2); background: var(--ep-surface); color: var(--ep-ink); font-size: 14px; font-weight: 500';
+    const pinIds = ['zapytaj', 'dane', 'nowe', 'wiedza', 'narzedzia', 'regiony', 'trackery', 'newsletter'];
+    const full = s.pinned.length >= 3;
+    return {
+      mAdStyle: sheetOpen ? 'display: none' : '',
+      mNavCols: 'grid-template-columns: repeat(' + (tabIds.length + 1) + ', minmax(0, 1fr))',
+      mScrimStyle: 'position: absolute; inset: 0; z-index: 10; background: rgba(11, 27, 51, 0.45); opacity: ' + (sheetOpen ? '1' : '0') + '; pointer-events: ' + (sheetOpen ? 'auto' : 'none'),
+      mSheetStyle: 'position: absolute; left: 0; right: 0; bottom: 84px; z-index: 11; max-height: 640px; overflow-y: auto; background: var(--ep-surface); color: var(--ep-ink); border-radius: 20px 20px 0 0; box-shadow: 0 -8px 24px rgba(11, 27, 51, 0.12); transform: translateY(' + (sheetOpen ? '0' : 'calc(100% + 100px)') + ')' + (sheetOpen ? '' : '; visibility: hidden'),
+      mSheetTitle: titles[s.sheet] || '',
+      mIsNowe: s.sheet === 'nowe', mIsDane: s.sheet === 'dane', mIsWiecej: s.sheet === 'wiecej',
+      mClose: () => set({ sheet: null, active: null, editing: false }),
+      mGoStart: (e) => { if (e && e.preventDefault) e.preventDefault(); set({ sheet: null, active: null, editing: false }); },
+      mTabs: tabIds.map((id) => {
+        const on = s.active === id;
+        return Object.assign({
+          label: CAT[id].label, live: !!CAT[id].live,
+          expanded: CAT[id].sheet ? (s.sheet === CAT[id].sheet ? 'true' : 'false') : null,
+          current: on && !CAT[id].sheet ? 'page' : 'false',
+          pick: () => open(id),
+          style: 'position: relative; min-height: 56px; border: 0; background: transparent; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: ' + (on ? 'var(--ep-accent-ink)' : 'var(--ep-ink)'),
+          barStyle: 'position: absolute; top: -6px; left: 50%; transform: translateX(-50%); height: 4px; border-radius: 0 0 3px 3px; background: #00C2A8; width: ' + (on ? '28px' : '0')
+        }, icon(id));
+      }),
+      mFilters: filterDefs.map(([id, label]) => ({ label: label, pressed: s.filter === id ? 'true' : 'false', style: s.filter === id ? chipOn : chipOff, pick: () => set({ filter: id }) })),
+      mNews: news.filter((n) => s.filter === 'all' || n.sec === s.filter).map((n) => ({ time: n.t, title: n.title, section: n.secLabel, timeStyle: 'font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; color: ' + (n.fresh ? 'var(--ep-accent-ink)' : 'var(--ep-ink2)') })),
+      mTiles: [
+        { label: 'Taryfa dla domów 2026 (średnio)', value: '495,16 zł/MWh', note: 'netto · decyzja Prezesa URE z 17.12.2025 r.' },
+        { label: 'Prąd na giełdzie wczoraj (RDN)', value: '[… zł/MWh]', note: 'TGE · aktualizacja codzienna' },
+        { label: 'Opłata mocowa 2026 (1200–2800 kWh)', value: '17,18 zł/mies.', note: 'netto · Prezes URE' },
+        { label: 'Zmiany sprzedawcy', value: '[liczba]', note: 'URE · ostatni kwartał' }
+      ],
+      mShortcuts: ['wiedza', 'narzedzia', 'regiony', 'trackery', 'newsletter', 'zapytaj', 'dane', 'nowe'].map((id) => Object.assign({ label: CAT[id].label }, icon(id))),
+      mEditing: s.editing,
+      mEditPressed: s.editing ? 'true' : 'false',
+      mEditLabel: s.editing ? 'Gotowe' : 'Dostosuj',
+      mToggleEdit: () => set({ editing: !s.editing }),
+      mEditHint: full ? 'Masz 3 skróty. Odepnij jeden, żeby dodać inny.' : 'Wybierz jeszcze ' + (3 - s.pinned.length) + '.',
+      mCatalog: pinIds.map((id) => {
+        const on = s.pinned.indexOf(id) >= 0;
+        return {
+          label: CAT[id].label, mark: on ? '✓' : '+', pressed: on ? 'true' : 'false',
+          style: 'min-height: 40px; padding: 0 14px; border-radius: 999px; font-size: 14px; font-weight: 600; ' + (on ? 'border: 2px solid var(--ep-accent-ink); background: var(--ep-soft); color: var(--ep-ink)' : 'border: 1px solid var(--ep-line2); background: var(--ep-surface); color: ' + (full ? 'var(--ep-ink2)' : 'var(--ep-ink)')),
+          toggle: () => { const p = s.pinned.slice(); const k = p.indexOf(id); if (k >= 0) p.splice(k, 1); else if (p.length < 3) p.push(id); set({ pinned: p }); }
+        };
+      })
+    };
+  }
+  renderVals() {
+    const dark = this.state.dark === null ? (this.props.theme === 'ciemny') : this.state.dark;
+    const T = dark ? {
+      bg: '#0A1626', soft: '#0F2238', muted: '#12253D', surface: '#13283F', ink: '#EAF1F8', ink2: '#A9B8CB', line: '#24405F', line2: '#4F6A8A',
+      accentInk: '#4FD8C6', chipBg: '#4A3A0E', chipInk: '#FFE29A', partnerBg: '#2A2310', partnerLine: '#8C7330', partnerInk: '#F2D27A',
+      invBg: '#1B3554', invInk: '#FFFFFF', invInk2: '#C9D4E3', adBg: '#1A2E47', adLine: '#4F6A8A', blob: '#123C4A'
+    } : {
+      bg: '#FFFFFF', soft: '#F2FBF9', muted: '#F5F7FA', surface: '#FFFFFF', ink: '#0B1B33', ink2: '#42526B', line: '#DCE3EC', line2: '#9AA8BA',
+      accentInk: '#00796B', chipBg: '#FFE9B0', chipInk: '#5C4300', partnerBg: '#FFF8E6', partnerLine: '#C9A23A', partnerInk: '#6B4E00',
+      invBg: '#0B1B33', invInk: '#FFFFFF', invInk2: '#C9D4E3', adBg: '#EEF1F5', adLine: '#9AA8BA', blob: '#C9F0EA'
+    };
+    const rootStyle = '--ep-bg: ' + T.bg + '; --ep-soft: ' + T.soft + '; --ep-muted: ' + T.muted + '; --ep-surface: ' + T.surface + '; --ep-ink: ' + T.ink + '; --ep-ink2: ' + T.ink2 + '; --ep-line: ' + T.line + '; --ep-line2: ' + T.line2 + '; --ep-accent-ink: ' + T.accentInk + '; --ep-chip-bg: ' + T.chipBg + '; --ep-chip-ink: ' + T.chipInk + '; --ep-partner-bg: ' + T.partnerBg + '; --ep-partner-line: ' + T.partnerLine + '; --ep-partner-ink: ' + T.partnerInk + '; --ep-inv-bg: ' + T.invBg + '; --ep-inv-ink: ' + T.invInk + '; --ep-inv-ink2: ' + T.invInk2 + '; --ep-ad-bg: ' + T.adBg + '; --ep-ad-line: ' + T.adLine + '; --ep-blob: ' + T.blob + '; background: var(--ep-bg); color: var(--ep-ink); font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 1.55; width: 390px; position: relative; color-scheme: ' + (dark ? 'dark' : 'light');
+    const words = ['umowę na prąd', 'swój rachunek', 'taryfę', 'zmianę sprzedawcy'];
+    const qs = [
+      { text: 'Do kiedy wypowiedzieć umowę, żeby od stycznia zmienić sprzedawcę?', a: 'Umowa gospodarstwa domowego rozwiązuje się z ostatnim dniem miesiąca następującego po miesiącu, w którym wypowiedzenie dotarło do sprzedawcy. Jeśli dotrze w listopadzie, umowa skończy się 31 grudnia. Sprawdź też, czy masz umowę na czas określony.', src: ['Temat miesiąca: kiedy wypowiedzieć umowę', 'Prawo energetyczne, art. 4j ust. 4'] },
+      { text: 'Czy zapłacę karę za zerwanie umowy na prąd?', a: 'Umowę na czas nieoznaczony wypowiesz bez kosztów, płacisz tylko za zużytą energię i dystrybucję. Przy umowie na czas określony sprzedawca może naliczyć opłatę z umowy, ale u gospodarstw domowych nie wyższą niż jego bezpośrednie straty.', src: ['Poradnik: jak wypowiedzieć umowę na prąd', 'Prawo energetyczne, art. 4j ust. 3 i 3a'] },
+      { text: 'Czy zmiana sprzedawcy zmienia operatora sieci?', a: 'Nie. Operator sieci zależy od miejsca przyłączenia i zostaje ten sam. Zmieniasz tylko sprzedawcę energii; opłaty dystrybucyjne nadal pobiera ten sam operator.', src: ['Przewodnik: zmiana sprzedawcy prądu', 'Hasło: operator systemu dystrybucyjnego'] }
+    ];
+    const segDefs = [
+      { name: 'Dom', links: ['Zmiana sprzedawcy prądu: prawa odbiorcy, umowy i pułapki', 'Jak czytać rachunek za prąd: pozycja po pozycji', 'Taryfy na prąd 2027: co wiemy przed decyzją URE'] },
+      { name: 'Firma', links: ['Prąd dla firm: ceny, umowy i zakupy energii', 'Jak wypowiedzieć umowę na prąd w firmie', 'Cena stała czy indeksowana na 2027 r.'] }
+    ];
+    const regions = ['dolnośląskie', 'kujawsko-pomorskie', 'lubelskie', 'lubuskie', 'łódzkie', 'małopolskie', 'mazowieckie', 'opolskie', 'podkarpackie', 'podlaskie', 'pomorskie', 'śląskie', 'świętokrzyskie', 'warmińsko-mazurskie', 'wielkopolskie', 'zachodniopomorskie'];
+    const qOn = 'border: 1px solid var(--ep-ink); background: var(--ep-ink); color: var(--ep-bg); border-radius: 999px; padding: 10px 16px; min-height: 44px; font-size: 15px; font-weight: 600';
+    const qOff = 'border: 1px solid var(--ep-line2); background: var(--ep-surface); color: var(--ep-ink); border-radius: 999px; padding: 10px 16px; min-height: 44px; font-size: 15px; font-weight: 500';
+    const cur = qs[this.state.q];
+    const seg = segDefs[this.state.seg];
+    const dzien = this.props.dzien ?? '16 listopada';
+    const dayNum = { '16 listopada': 16, '23 listopada': 23, '30 listopada': 30, '1 grudnia': 31 }[dzien] ?? 16;
+    const dayName = { '16 listopada': 'Poniedziałek, 16 listopada 2026', '23 listopada': 'Poniedziałek, 23 listopada 2026', '30 listopada': 'Poniedziałek, 30 listopada 2026', '1 grudnia': 'Wtorek, 1 grudnia 2026' }[dzien] ?? 'Poniedziałek, 16 listopada 2026';
+    const left = 30 - dayNum;
+    const dni = (n) => n === 1 ? '1 dzień' : n + ' dni';
+    const cd = left > 0 ? { l: 'DO 30 LISTOPADA ZOSTAŁO', v: dni(left), n: 'Wypowiedzenie, które dotrze w listopadzie, kończy umowę 31 grudnia.' }
+      : left === 0 ? { l: 'OSTATNI DZIEŃ', v: 'Dziś', n: 'Wypowiedzenie musi dotrzeć do sprzedawcy dzisiaj, żeby umowa skończyła się 31 grudnia.' }
+      : { l: 'TERMIN NA STYCZEŃ MINĄŁ', v: '1 lutego', n: 'Wypowiedzenie, które dotrze w grudniu, kończy umowę 31 stycznia 2027 r.' };
+    const bOn = 'min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--ep-ink); background: var(--ep-ink); color: var(--ep-bg); font-weight: 600';
+    const bOff = 'min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--ep-line2); background: var(--ep-surface); color: var(--ep-ink); font-weight: 500';
+    const monthDefs = [
+      { label: 'w listopadzie 2026', end: '31 grudnia 2026 r.', start: '1 stycznia 2027 r.' },
+      { label: 'w grudniu 2026', end: '31 stycznia 2027 r.', start: '1 lutego 2027 r.' },
+      { label: 'w styczniu 2027', end: '28 lutego 2027 r.', start: '1 marca 2027 r.' }
+    ];
+    const kindDefs = ['Na czas nieoznaczony', 'Na czas określony', 'Od akwizytora'];
+    const md = monthDefs[this.state.month];
+    const res = this.state.kind === 0 ? { t: 'Umowa skończy się ' + md.end, x: 'Nowy sprzedawca może dostarczać energię od ' + md.start + ' Wypowiedzenie jest bez kosztów; płacisz za zużytą energię i dystrybucję do końca umowy.' }
+      : this.state.kind === 1 ? { t: 'Sprawdź datę końca w umowie', x: 'Jeśli umowa kończy się później niż ' + md.end + ', sprzedawca może naliczyć opłatę za wcześniejsze rozwiązanie, u gospodarstw domowych nie wyższą niż jego bezpośrednie straty. Sprawdź też automatyczne przedłużenie.' }
+      : { t: 'Najpierw sprawdź prawo odstąpienia', x: 'Od umowy zawartej poza lokalem sprzedawcy możesz odstąpić bez kosztów w terminie z ustawy o prawach konsumenta [DO WERYFIKACJI: 14 czy 30 dni zależnie od sposobu zawarcia]. Po tym terminie obowiązują zasady wypowiedzenia.' };
+    return Object.assign(this.menuVals(), {
+      rootStyle: rootStyle,
+      isDark: dark,
+      isLight: !dark,
+      themeLabel: dark ? 'Włącz tryb jasny' : 'Włącz tryb ciemny',
+      toggleTheme: () => this.setState({ dark: !dark }),
+      showAds: this.props.showAds ?? true,
+      dayLabel: dayName,
+      word: words[(this.props.kinetic ?? true) ? this.state.w : 0],
+      questions: qs.map((q, i) => ({ text: q.text, pressed: i === this.state.q ? 'true' : 'false', style: i === this.state.q ? qOn : qOff, pick: () => this.setState({ q: i }) })),
+      answerQ: cur.text,
+      answerA: cur.a,
+      answerSources: cur.src,
+      cdLabel: cd.l, cdValue: cd.v, cdNote: cd.n,
+      months: monthDefs.map((m, i) => ({ label: m.label, pressed: i === this.state.month ? 'true' : 'false', style: i === this.state.month ? bOn : bOff, pick: () => this.setState({ month: i }) })),
+      kinds: kindDefs.map((k, i) => ({ label: k, pressed: i === this.state.kind ? 'true' : 'false', style: i === this.state.kind ? bOn : bOff, pick: () => this.setState({ kind: i }) })),
+      resTitle: res.t, resText: res.x,
+      paths: [
+        { tag: 'UMOWA BEZTERMINOWA', title: 'Masz taryfę sprzedawcy z urzędu?', desc: 'Wypowiedzenie bez kosztów. Liczy się dzień, w którym dotrze do sprzedawcy.' },
+        { tag: 'UMOWA TERMINOWA', title: 'Promocja kończy się 31 grudnia?', desc: 'Sprawdź automatyczne przedłużenie i cenę po okresie promocji.' },
+        { tag: 'UMOWA OD AKWIZYTORA', title: 'Podpisałeś umowę w domu?', desc: 'Najpierw prawo odstąpienia, potem wypowiedzenie. Wzór pisma do pobrania.' }
+      ],
+      news: [
+        { time: '[godz.]', section: 'TEMAT MIESIĄCA', title: 'Do kiedy wypowiedzieć umowę na prąd, żeby od stycznia zmienić sprzedawcę' },
+        { time: '[godz.]', section: 'WIADOMOŚCI', title: 'Energypedia startuje: jak pracujemy i skąd bierzemy dane' },
+        { time: '[godz.]', section: 'TRACKER', title: 'Taryfy na prąd 2027: co wiemy przed decyzją URE' },
+        { time: '[godz.]', section: 'CSIRE', title: 'Zmiana sprzedawcy w 24 godziny: co już działa po 19 października' },
+        { time: '[godz.]', section: 'PORADNIK', title: 'Jak czytać rachunek za prąd: pozycja po pozycji' },
+        { time: '[godz.]', section: 'FIRMY', title: 'Umowa na prąd dla firmy na 2027 r.: na co zwrócić uwagę' },
+        { time: '7:30', section: 'NEWSLETTER', title: 'Energia w 5 minut: wydanie pierwsze' }
+      ],
+      popular: [
+        { n: '1', title: 'Kiedy wypowiedzieć umowę na prąd' },
+        { n: '2', title: 'Ceny prądu w Polsce: taryfy, stawki i prognozy' },
+        { n: '3', title: 'Jak zmienić sprzedawcę prądu krok po kroku' },
+        { n: '4', title: 'Rachunek za prąd: z czego się składa' },
+        { n: '5', title: 'Wzór wypowiedzenia umowy sprzedaży energii' }
+      ],
+      checks: [
+        { n: '1', title: 'Kto jest moim sprzedawcą i operatorem?', desc: 'Wybierz województwo albo sprawdź na rachunku. Pokażemy profil sprzedawcy z urzędu.', cta: 'Sprawdź' },
+        { n: '2', title: 'Co oznacza każda pozycja na rachunku?', desc: 'Rachunek z objaśnieniami: energia, dystrybucja, opłata mocowa, podatki.', cta: 'Zobacz rachunek' },
+        { n: '3', title: 'Akwizytor podsunął mi umowę', desc: 'Jak sprawdzić ofertę, jak odstąpić od umowy i gdzie zgłosić nieuczciwe praktyki.', cta: 'Co zrobić' }
+      ],
+      pillars: [
+        { name: 'Rachunek i sprzedawca', bg: '#0B1B33', guide: 'Zmiana sprzedawcy prądu: prawa odbiorcy, umowy i pułapki', links: ['Jak zmienić sprzedawcę krok po kroku', 'Taryfa G11 czy G12', 'Opłaty dystrybucyjne na rachunku'], term: 'sprzedawca z urzędu' },
+        { name: 'Fotowoltaika', bg: '#00796B', guide: 'Fotowoltaika w domu: net-billing, opłacalność i rozliczenia', links: ['Jak działa net-billing', 'Wartość rynkowa energii dla prosumenta', 'Fotowoltaika z magazynem energii'], term: 'net-billing' },
+        { name: 'Magazyn energii i dotacje', bg: '#1B3554', guide: 'Magazyn energii w domu: kiedy się opłaca', links: ['Jak dobrać pojemność magazynu', 'Dotacja do magazynu energii: warunki i nabór', 'Magazyn energii a taryfa dynamiczna'], term: 'magazyn energii' }
+      ],
+      trackers: [
+        { status: 'Przed decyzją URE', title: 'Taryfy na prąd 2027', desc: 'Stawki dla domów i opłaty dystrybucyjne po zatwierdzeniu.' },
+        { status: 'Po terminie 19.10.2026', title: 'CSIRE i zmiana sprzedawcy w 24 h', desc: 'Którzy operatorzy działają w systemie i co to zmienia.' },
+        { status: '[stan naboru]', title: 'Dotacja do magazynu energii', desc: 'Warunki, terminy i kto może skorzystać. [DO WERYFIKACJI w NFOŚiGW]' },
+        { status: 'Od 1 stycznia 2027', title: 'Co się zmieni na rachunku', desc: 'Opłaty, taryfy i terminy, które dotyczą każdego odbiorcy.' }
+      ],
+      segs: segDefs.map((x, i) => ({ name: x.name, pressed: i === this.state.seg ? 'true' : 'false', style: i === this.state.seg ? bOn : bOff, pick: () => this.setState({ seg: i }) })),
+      segBadge: 'POLECAMY · ' + seg.name.toUpperCase(),
+      segLinks: seg.links,
+      regionOptions: regions.map((r) => ({ value: r, label: r, selected: r === this.state.region })),
+      pickRegion: (e) => this.setState({ region: e.target.value }),
+      regionLabel: this.state.region,
+      tiles: [
+        { label: 'Taryfa dla domów 2026 (średnio)', value: '495,16 zł/MWh', note: 'netto · decyzja Prezesa URE z 17.12.2025 r.' },
+        { label: 'Prąd na giełdzie wczoraj (RDN)', value: '[… zł/MWh]', note: 'TGE · aktualizacja codzienna' },
+        { label: 'Opłata mocowa 2026 (1200–2800 kWh)', value: '17,18 zł/mies.', note: 'netto' },
+        { label: 'Zmiany sprzedawcy w I półroczu 2026 r.', value: '[liczba]', note: 'URE · [DO WERYFIKACJI u źródła]' }
+      ],
+      sellers: [
+        { name: 'E.ON', area: 'obszar Stoen Operator' },
+        { name: 'Enea', area: 'obszar Enea Operator' },
+        { name: 'Energa Obrót', area: 'obszar Energa-Operator' },
+        { name: 'PGE Obrót', area: 'obszar PGE Dystrybucja' },
+        { name: 'TAURON Sprzedaż', area: 'obszar TAURON Dystrybucja' }
+      ],
+      people: [
+        { name: 'Mariusz Lach', role: 'Redaktor naczelny' },
+        { name: '[Ekspert 1]', role: '[specjalizacja, np. prawo energetyczne]' },
+        { name: '[Ekspert 2]', role: '[specjalizacja, np. rynek hurtowy]' },
+        { name: '[Ekspert 3]', role: '[specjalizacja, np. OZE i magazyny]' }
+      ],
+      b2b: [
+        { v: '[liczba]', l: 'zmian sprzedawcy prądu w I półroczu 2026 r. (URE) [DO WERYFIKACJI]' },
+        { v: '[liczba]', l: 'wyszukiwań „magazyn energii” miesięcznie (narzędzie SEO) [DO WERYFIKACJI]' },
+        { v: '[liczba]', l: 'czytelników newslettera (dane własne, gdy będą)' }
+      ]
+    });
+  }
+}
+</script>
+</body>
+</html>
