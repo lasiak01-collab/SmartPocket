@@ -15,6 +15,7 @@ Mamy około **10 tygodni** (20 X – 31 XII 2026 r.; uwaga na święta 11 XI ora
 | 2 | **Publikacje evergreen** | **5 stron przewodnich, 2 trackery („Taryfy 2027 – na bieżąco”, „CSIRE – stan wdrożenia”), 20 artykułów wyjaśniających i porównań, 5 analiz danych** (plan w `zespol/06_redaktor_seo_aeo_geo.md`) | Każda publikacja ma strukturę SEO/AEO/GEO, ocenę jakości ≥ 80/100 i przeszła recenzję |
 | 2a | **Encyklopedia (hasła)** | **120 haseł** (z listy 300 priorytetowych; najpierw pojęcia linkowane z publikacji) | Każde hasło przeszło recenzję merytoryczną i ma datę weryfikacji |
 | 3 | **Poradniki krok po kroku** | **25 poradników** + 5 wzorów pism do pobrania | Checklista, wzór, sekcja „najczęstsze błędy” |
+| 4a | **Katalog sprzedawców i operatorów** | **5 profili sprzedawców z urzędu** (PGE Obrót, TAURON Sprzedaż, Enea, Energa Obrót, E.ON na obszarze Stoen Operator) i **5 profili dużych operatorów sieci** (PGE Dystrybucja, TAURON Dystrybucja, Enea Operator, Energa-Operator, Stoen Operator) + strony zbiorcze | Dane publiczne ze źródłem i datą; aktualizacja taryf 2027 w ciągu 24 h od decyzji URE |
 | 4 | **Strony regionalne** | **16 województw** (wersja podstawowa) | Operator sieci, jego opłaty, linki do dotacji, kontakt do instytucji |
 | 5 | **Wiadomości** | Codziennie w dni robocze od miękkiego startu: 3–5 newsów i 1 komentarz | Rytm utrzymany przez 10 dni roboczych z rzędu |
 | 6 | **Barometr Rynku Energii #1** | Miesięczny pulpit danych z komentarzem: ceny hurtowe, taryfy 2027 r., opłaty dystrybucyjne, generacja OZE | Publikacja i informacja prasowa |
@@ -25,7 +26,7 @@ Mamy około **10 tygodni** (20 X – 31 XII 2026 r.; uwaga na święta 11 XI ora
 
 **Kamień milowy kluczowy:** **miękki start w dniu ogłoszenia przez URE taryf na 2027 r.** (w 2025 r. URE zatwierdziło taryfy 17 grudnia). Planujemy gotowość serwisu na **10 grudnia 2026 r.**, a datę startu przesuwamy na dzień decyzji URE. Taryfy to najczęściej wyszukiwany temat energetyczny roku i najlepszy moment na pierwsze cytowania.
 
-**Czego NIE robimy przed końcem roku** (żeby zdążyć): analizatora faktury, porównywarki, leadów, panelu PRO, asystenta AI, aplikacji, wydarzeń. Wyjątek: **lista oczekujących** na narzędzia (zapis e-mail), żeby zebrać bazę przed styczniem.
+**Czego NIE robimy przed końcem roku** (żeby zdążyć): analizatora faktury, porównywarki, rankingów firm i produktów, działu gazu (start w II kw. 2027 r.), leadów, panelu PRO, asystenta AI, aplikacji, wydarzeń. Wyjątek: **lista oczekujących** na narzędzia (zapis e-mail), żeby zebrać bazę przed styczniem.
 
 ---
 

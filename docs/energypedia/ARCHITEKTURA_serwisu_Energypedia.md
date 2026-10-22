@@ -85,7 +85,14 @@ energypedia.pl
 │   └── /dla-firm/mikro | /msp | /duze-i-samorzady
 ├── /regiony/                           16 województw → miasta
 │   └── /regiony/{wojewodztwo}/{miasto}
-├── /operatorzy/{osd}                   Strony OSD (taryfy, opłaty, kontakt)
+├── /sprzedawcy/                        Katalog sprzedawców energii (MVP: 5 sprzedawców z urzędu)
+│   └── /sprzedawcy/{sprzedawca}        Profil: obszar, taryfa lub cennik, OWU, decyzje URE i UOKiK, kontakt
+├── /operatorzy/                        Katalog operatorów sieci (MVP: 5 dużych OSD) + mapa obszarów
+│   └── /operatorzy/{osd}               Profil: obszar, taryfa dystrybucyjna, przyłącza, awarie, SAIDI/SAIFI, kontakt
+├── /rankingi/                          Rankingi ofert i firm według jawnej metodyki (od 2027 r.)
+│   └── /rankingi/{kategoria}           np. /rankingi/sprzedawcy-pradu, /rankingi/oferty-pradu-dla-domu
+├── /zestawienia/{kategoria}            Porównania parametrów produktów: panele, falowniki, magazyny energii (od 2027 r.)
+├── /gaz/                               Dział gazu (od II kw. 2027 r.): sprzedawcy, PSG i operatorzy, taryfy, rachunek za gaz
 ├── /branze/{branza}                    Energia dla branż (piekarnie, HoReCa, warsztaty…)
 ├── /tematy/{tag}                       Strony tematów (agregaty)
 ├── /autorzy/{slug}  /eksperci/         Autorzy, Rada Ekspertów
@@ -122,6 +129,27 @@ energypedia.pl
 | Typ treści | news, analiza, opinia, przewodnik, poradnik, porównanie, lista, hasło, tracker, dane, wzór, partner | Szablony, schema, raporty |
 | Tagi (kontrolowane) | Słownik ok. 300 pojęć powiązanych z hasłami | Linkowanie, strony tematów |
 | Encje | Instytucje (URE, PSE…), firmy, akty prawne, programy | Dane strukturalne, linkowanie, GEO |
+
+
+### 2.5. Katalogi, rankingi i dział gazu
+
+**Katalog sprzedawców energii (`/sprzedawcy/`, w MVP).** Na start 5 profili sprzedawców z urzędu: PGE Obrót, TAURON Sprzedaż, Enea i Energa Obrót (taryfy na 2026 r. zatwierdził Prezes URE) oraz E.ON na obszarze Stoen Operator (taryfa niezatwierdzana przez Prezesa URE). [DO WERYFIKACJI: pełne nazwy spółek i obszary w zestawieniu URE „Masz wybór”]
+- Profil zawiera wyłącznie dane publiczne ze źródłem i datą: obszar sprzedawcy z urzędu, taryfa lub cennik dla gospodarstw domowych, ogólne warunki umowy, kanały kontaktu i reklamacji, decyzje Prezesa URE i UOKiK dotyczące spółki, link do porównywarki ofert Prezesa URE.
+- Strona zbiorcza `/sprzedawcy/` wyjaśnia, czym jest sprzedawca z urzędu i jak sprawdzić swojego; po 2027 r. katalog rozszerzamy o sprzedawców z listy URE.
+- Po decyzji URE o taryfach na 2027 r. profile aktualizujemy w ciągu 24 godzin (powiązanie z trackerem `/na-biezaco/taryfy-na-prad`).
+
+**Katalog operatorów sieci (`/operatorzy/`, w MVP).** Na start 5 dużych operatorów: PGE Dystrybucja, TAURON Dystrybucja, Enea Operator, Energa-Operator, Stoen Operator. [DO WERYFIKACJI: aktualne nazwy w wykazie URE] Profil: obszar działania (mapa na podstawie danych operatorów, jeśli licencja na to pozwala), taryfa dystrybucyjna i opłaty, przyłączenie, zgłaszanie awarii i planowane wyłączenia, wskaźniki niezawodności SAIDI i SAIFI z raportów URE, kontakt. Mali operatorzy z wykazu URE w 2027 r.
+
+**Rankingi (`/rankingi/`) i zestawienia (`/zestawienia/`, od 2027 r.).**
+- Ranking ofert: kolejność według całkowitego kosztu dla podanego profilu zużycia (porównywarka).
+- Ranking sprzedawców jako firm: jawna metodyka (ceny, uczciwość zapisów umów według audytu redakcji, decyzje URE i UOKiK, test obsługi), wagi opublikowane przed rankingiem.
+- Panele, falowniki, magazyny energii: „zestawienia” parametrów z kart katalogowych (sprawność, gwarancja, cykle, cena za kWh pojemności) bez wskazywania zwycięzcy, dopóki nie mamy własnych testów.
+- Firmy instalacyjne: katalog z kryteriami weryfikacji (certyfikaty, staż, ubezpieczenie), bez rankingu jakości.
+- Zasady: metodyka i data danych na każdej stronie; płatność i relacje leadowe nie wpływają na kolejność; informacja o głównych parametrach decydujących o kolejności (wymóg przepisów o nieuczciwych praktykach rynkowych, [DO WERYFIKACJI: Prawnik]); bez reklam firm z tej samej kategorii (ADR-4); bez ocen gwiazdkowych w danych strukturalnych bez własnych, udokumentowanych ocen.
+
+**Dział gazu (`/gaz/`, od II kw. 2027 r.).** Sprzedawcy gazu i sprzedawca z urzędu, Polska Spółka Gazownictwa (PSG) i inni operatorzy, taryfy gazowe zatwierdzane przez Prezesa URE, rachunek za gaz, ogrzewanie (porównanie z pompą ciepła). Mapę sieci PSG pokazujemy jako link lub osadzenie tylko na warunkach licencji PSG; własna mapa wyłącznie z danych, które wolno wykorzystać. [DO WERYFIKACJI: licencja danych PSG, aktualne nazwy sprzedawców gazu]
+
+**Dane strukturalne:** profil firmy to `WebPage` z `about` → `Organization` (nazwa, adres, `sameAs` do oficjalnej strony) i `BreadcrumbList`; ranking to `ItemList` + `Article` z metodyką; zestawienie to `ItemList` + `Product` bez `AggregateRating`.
 
 ---
 
@@ -519,6 +547,9 @@ flowchart LR
 | ADR-6 | Boty trenujące AI | Wyszukiwarki AI dopuszczone; trenowanie: decyzja biznesowa | Blokada wszystkich (spadek cytowań AI) | Tak |
 | ADR-7 | Komentarze | Nie w MVP; Q&A moderowane od 2027 r. | Komentarze od startu (moderacja, DSA) | Tak |
 | ADR-8 | Wyszukiwarka | Typesense/Meilisearch + pgvector | Algolia (droższa, szybsza w starcie) | Tak |
+| ADR-9 | Katalogi firm w MVP | 5 sprzedawców z urzędu i 5 dużych operatorów sieci, dane publiczne ze źródłem | Pełny katalog od startu (ryzyko błędów, brak czasu) | **Decyzja: tak (22.10.2026)** |
+| ADR-10 | Dział gazu | Od II kw. 2027 r. | W MVP | **Decyzja: od II kw. 2027 (22.10.2026)** |
+| ADR-11 | Rankingi | Od 2027 r., jawna metodyka, produkty jako zestawienia parametrów | Rankingi „najlepszy” bez testów | Tak, metodyka po przeglądzie Prawnika |
 
 **Ryzyka:**
 | Ryzyko | Ograniczenie |

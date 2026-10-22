@@ -7,7 +7,7 @@
 | Arkusz | Zawartość |
 |---|---|
 | Obszary | 10 obszarów tematycznych, każdy ze stroną przewodnią (filarem) i frazą główną |
-| Publikacje MVP | 62 publikacje do 31.12.2026 r.: 5 przewodników, 2 trackery, 20 artykułów i porównań, 5 analiz danych, 25 poradników, 5 wzorów pism; dla każdej: H1, fraza główna, long tail, intencja, segment, URL, format pozycji zerowej, dane strukturalne, priorytet, sezonowość, termin, dowód popularności |
+| Publikacje MVP | 74 publikacje do 31.12.2026 r.: 5 przewodników, 2 trackery, 20 artykułów i porównań, 5 analiz danych, 25 poradników, 5 wzorów pism oraz katalog (5 sprzedawców z urzędu, 5 operatorów sieci, 2 strony zbiorcze); dla każdej: H1, fraza główna, long tail, intencja, segment, URL, format pozycji zerowej, dane strukturalne, priorytet, sezonowość, termin, dowód popularności |
 | Hasła | 300 haseł encyklopedii z adresem `/wiedza/…`; 120 oznaczonych jako MVP |
 | Pytania long tail | 200 pytań odbiorców (po 20 na obszar); jednocześnie stały zestaw do comiesięcznego pomiaru cytowań w wyszukiwarkach AI |
 | Kanibalizacja | 11 fraz, o które walczyłyby hasło i publikacja, z decyzją, która strona jest główna |
@@ -44,7 +44,7 @@ Priorytet = popyt × wartość × szansa × pilność (każdy 1–3, maks. 81). 
 14. Jak czytać rachunek za prąd
 15. Jak ubiegać się o dotację do magazynu energii i fotowoltaiki (fala 1, warunki PME2 do weryfikacji w NFOŚiGW)
 
-**Fala 1** (do 20.11): 26 publikacji z najwyższym priorytetem. **Fala 2** (do 4.12): pozostałe 31. **Tydzień startu:** 5 analiz danych.
+**Fala 1** (do 20.11): 26 publikacji z najwyższym priorytetem. **Fala 2** (do 4.12): pozostałe 43, w tym katalog sprzedawców i operatorów (aktualizacja taryf 2027 w ciągu 24 godzin od decyzji URE). **Tydzień startu:** 5 analiz danych.
 
 ## 4. Decyzje porządkowe
 
@@ -74,3 +74,9 @@ Pełna lista jest w arkuszu „Technika SEO i GEO”. Najważniejsze punkty:
 2. **Weryfikacja liczb z badania** na stronach źródłowych przed użyciem w treściach.
 3. **Regiony:** przypisać operatorów sieci do województw na podstawie map obszarów działania OSD.
 4. **Plan tygodniowy fali 1** dla redakcji i ról AI.
+
+## 7. Decyzje z 22.10.2026 r.
+
+- **Katalog w MVP:** profile 5 sprzedawców z urzędu (PGE Obrót, TAURON Sprzedaż, Enea, Energa Obrót oraz E.ON na obszarze Stoen Operator) i 5 dużych operatorów sieci, ze stronami zbiorczymi `/sprzedawcy` i `/operatorzy`. Nazwy firm są stronami encji: nie tworzymy dla nich osobnych haseł encyklopedii. [DO WERYFIKACJI: pełne nazwy w zestawieniu URE]
+- **Dział gazu:** od II kw. 2027 r. (obszar „gaz” dopiszemy do mapy przed startem działu).
+- **Rankingi i zestawienia produktów:** od 2027 r., według jawnej metodyki zatwierdzonej przez Prawnika (szczegóły w `ARCHITEKTURA_serwisu_Energypedia.md`, rozdział 2.5).

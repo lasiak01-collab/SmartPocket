@@ -51,7 +51,7 @@ def dowod(*frazy):
     return ' | '.join(out) if out else '[DO WERYFIKACJI w narzędziu SEO]'
 
 SCHEMA = {'przewodnik': 'Article + BreadcrumbList + FAQPage', 'tracker': 'NewsArticle (aktualizowany) + BreadcrumbList', 'artykuł': 'Article + BreadcrumbList + FAQPage',
-          'analiza': 'Article + Dataset + BreadcrumbList', 'poradnik': 'Article (HowTo jako struktura treści) + BreadcrumbList + FAQPage', 'wzór pisma': 'Article + DigitalDocument + BreadcrumbList'}
+          'analiza': 'Article + Dataset + BreadcrumbList', 'poradnik': 'Article (HowTo jako struktura treści) + BreadcrumbList + FAQPage', 'wzór pisma': 'Article + DigitalDocument + BreadcrumbList', 'katalog': 'CollectionPage + ItemList + BreadcrumbList', 'profil sprzedawcy': 'WebPage (about: Organization) + BreadcrumbList', 'profil operatora': 'WebPage (about: Organization) + BreadcrumbList'}
 
 wb = Workbook()
 ws = wb.active; ws.title = 'Instrukcja'
@@ -60,7 +60,7 @@ info = [
     [''],
     ['Co jest w arkuszu'],
     ['Obszary – 10 obszarów tematycznych z adresem strony przewodniej (filaru) i frazą główną.'],
-    ['Publikacje MVP – 62 publikacje do 31.12.2026 r.: 5 przewodników, 2 trackery, 20 artykułów i porównań, 5 analiz, 25 poradników, 5 wzorów pism.'],
+    ['Publikacje MVP – %d publikacji do 31.12.2026 r.: 5 przewodników, 2 trackery, 20 artykułów i porównań, 5 analiz, 25 poradników, 5 wzorów pism, katalog: 5 sprzedawców z urzędu i 5 operatorów sieci ze stronami zbiorczymi.' % len(P)],
     ['Hasła – encyklopedia: lista priorytetowa; kolumna „MVP” wskazuje 120 haseł na start.'],
     ['Pytania long tail – pytania odbiorców przypisane do stron docelowych; to także zestaw do comiesięcznego pomiaru cytowań w wyszukiwarkach AI.'],
     ['Kanibalizacja – frazy, o które walczyłyby dwie strony, z decyzją, która strona jest główna.'],
@@ -128,7 +128,8 @@ sheet(wb, 'Taksonomia', ['Wymiar', 'Wartości', 'Zastosowanie'], [
     ['Typ treści', 'news, analiza, opinia, przewodnik, poradnik, porównanie, lista, hasło, tracker, dane, wzór, partner', 'szablony, dane strukturalne, raporty'],
     ['Region', '16 województw, operatorzy sieci', 'strony regionalne, treści lokalne'],
     ['Tagi kontrolowane', 'słownik pojęć = hasła encyklopedii (arkusz Hasła)', 'linkowanie wewnętrzne, strony tematów /tematy/{tag}'],
-    ['Encje', 'instytucje (URE, PSE, TGE, ARE, UOKiK), operatorzy sieci, akty prawne, programy', 'dane strukturalne, linkowanie, GEO'],
+    ['Encje', 'instytucje (URE, PSE, TGE, ARE, UOKiK), sprzedawcy energii, operatorzy sieci, akty prawne, programy', 'dane strukturalne, linkowanie, GEO'],
+    ['Etap 2 (od II kw. 2027 r.)', 'dział gazu (/gaz/), rankingi (/rankingi/), zestawienia produktów (/zestawienia/)', 'rozbudowa taksonomii o obszar „gaz” i typy „ranking”, „zestawienie”'],
 ], [22, 90, 60])
 
 TECH = [
