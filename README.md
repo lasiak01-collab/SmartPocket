@@ -24,7 +24,7 @@ Działa w telefonie jak zwykła aplikacja (PWA – „Dodaj do ekranu głównego
    miasto, miejsce postoju (galeria / adres / wystawca), wystawca z NIP-em, nr rejestracyjny pojazdu, kwota brutto
    z VAT-em, forma płatności i nr paragonu. Następnie przygotowuje e-mail:
    - temat zawsze w schemacie `Imię Nazwisko | DD.MM.RRRR | Miasto, Miejsce | NR REJ | Forma płatności`,
-   - treść z przywitaniem i kompletem danych, PDF w załączniku.
+   - krótka treść („Dzień dobry, W załączeniu podsyłam rozliczenie za parking. Pozdrawiam, …” z imieniem i nazwiskiem z Ustawień), PDF w załączniku.
 
    Na telefonie „Wyślij e-mail z PDF” otwiera menu udostępniania (aplikacja pocztowa z załączonym PDF-em);
    na komputerze pobiera PDF i otwiera program pocztowy z uzupełnionym adresem, tematem i treścią.

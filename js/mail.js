@@ -46,40 +46,20 @@ export function mailSubject(f, s) {
 }
 
 export function pdfFileName(f, s) {
-  const slug = v => String(v || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ł/g, 'l').replace(/Ł/g, 'L')
+  const slug = v => String(v || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ł/g, 'l').replace(/Ł/g, 'L')
     .replace(/[^A-Za-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   return `Parkowanie_${f.date || 'bez-daty'}_${[slug(f.city), slug(f.location), slug(f.plate || s.defaultPlate)].filter(Boolean).join('_')}.pdf`;
 }
 
-export function mailBody(f, s, fileName) {
-  const lines = [
-    ['Kierowca', s.employee],
-    ['Data parkowania', f.date ? `${plDate(f.date)} (${plWeekday(f.date)})${hoursLabel(f) ? `, godz. ${hoursLabel(f)}` : ''}` : ''],
-    ['Czas postoju', plDuration(f.durationMin)],
-    ['Miasto', f.city],
-    ['Miejsce postoju', f.location],
-    ['Strefa / parkomat', f.zone],
-    ['Wystawca paragonu', [f.operator, f.nip ? `NIP ${f.nip}` : ''].filter(Boolean).join(', ')],
-    ['Nr paragonu / biletu', f.receiptNo],
-    ['Nr rejestracyjny pojazdu', (f.plate || s.defaultPlate || '').toUpperCase()],
-    ['Kwota brutto', f.amount != null && f.amount !== '' ? `${plMoney(f.amount)}${f.vat ? ` (w tym VAT${f.vatRate ? ` ${f.vatRate}%` : ''}: ${plMoney(f.vat)})` : ''}` : ''],
-    ['Forma płatności', paymentLabel(f)],
-    ['Cel wyjazdu', f.purpose],
-    ['Uwagi', f.notes],
-  ].filter(([, v]) => v);
-  const signature = [s.employee, [s.company, s.department].filter(Boolean).join(', ')].filter(Boolean);
+// Krótka treść – wszystkie dane są w załączonym PDF-ie. Podpis: imię i nazwisko kierowcy z Ustawień.
+export function mailBody(f, s) {
   return [
     'Dzień dobry,',
     '',
-    'przesyłam do rozliczenia paragon za parkowanie samochodu służbowego.',
-    '',
-    ...lines.map(([k, v]) => `${k}: ${v}`),
-    '',
-    `W załączniku plik PDF ze skanem paragonu i zestawieniem danych${fileName ? ` (${fileName})` : ''}.`,
-    '',
-    'Pozdrawiam',
-    ...signature,
-  ].join('\n');
+    'W załączeniu podsyłam rozliczenie za parking.',
+    'Pozdrawiam,',
+    s.employee || '',
+  ].join('\n').trimEnd();
 }
 
 export function docNumber(r) {

@@ -15,16 +15,9 @@ test('temat e-maila ma stały schemat', () => {
     'Kamil Gruszczyński | 11.09.2026 | Warszawa, Westfield Arkadia | D9CCC01 | Karta służbowa');
 });
 
-test('treść e-maila zawiera przywitanie i wszystkie dane', () => {
-  const body = mailBody(fields, settings, 'plik.pdf');
-  assert.match(body, /^Dzień dobry,/);
-  for (const s of ['Kierowca: Kamil Gruszczyński', 'Data parkowania: 11.09.2026 (piątek), godz. 07:50–18:09',
-    'Czas postoju: 10 h 19 min', 'Miasto: Warszawa', 'Miejsce postoju: Westfield Arkadia',
-    'Wystawca paragonu: GSSM Warsaw Sp. z o.o., NIP 527-263-58-96', 'Nr paragonu / biletu: 430011391',
-    'Nr rejestracyjny pojazdu: D9CCC01', 'Kwota brutto: 54,00 zł (w tym VAT 23%: 10,10 zł)',
-    'Forma płatności: Karta służbowa (**** 4111)', '(plik.pdf)']) {
-    assert.ok(body.includes(s), `brak: ${s}`);
-  }
+test('treść e-maila: krótkie przywitanie i podpis kierowcy', () => {
+  assert.equal(mailBody(fields, settings, 'plik.pdf'),
+    'Dzień dobry,\n\nW załączeniu podsyłam rozliczenie za parking.\nPozdrawiam,\nKamil Gruszczyński');
 });
 
 test('nazwa pliku PDF bez polskich znaków', () => {
