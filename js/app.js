@@ -625,7 +625,7 @@ async function renderMail(id) {
           <label class="field"><span>DW</span><input name="cc" value="${esc(s.accountingCc)}"></label>
           <label class="field"><span>Temat</span>
             <div class="copy-row"><textarea name="subject" rows="2" readonly class="subject">${esc(subject)}</textarea><button type="button" class="btn btn-ghost btn-sm" data-copy="subject">Kopiuj</button></div></label>
-          <label class="field"><span>Treść</span><textarea name="body" rows="6">${esc(body)}</textarea>
+          <label class="field"><span>Treść</span><textarea name="body" rows="14">${esc(body)}</textarea>
             <button type="button" class="btn btn-ghost btn-sm copy-body" data-copy="body">Kopiuj treść</button></label>
           <div class="attach"><svg class="ico"><use href="#i-doc"/></svg><span>${esc(fileName)}</span></div>
           <div class="actions wrap mail-actions">

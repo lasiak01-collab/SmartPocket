@@ -46,7 +46,7 @@ export function mailSubject(f, s) {
 }
 
 export function pdfFileName(f, s) {
-  const slug = v => String(v || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ł/g, 'l').replace(/Ł/g, 'L')
+  const slug = v => String(v || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ł/g, 'l').replace(/Ł/g, 'L')
     .replace(/[^A-Za-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   return `Parkowanie_${f.date || 'bez-daty'}_${[slug(f.city), slug(f.location), slug(f.plate || s.defaultPlate)].filter(Boolean).join('_')}.pdf`;
 }
